@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, useState } from 'react';
 import * as d3 from 'd3';
 
 interface DecadeData {
@@ -28,6 +28,7 @@ export default function TimelineHistogram({
   const svgRef = useRef<SVGSVGElement>(null);
   const brushRef = useRef<d3.BrushBehavior<unknown> | null>(null);
   const isBrushingRef = useRef(false);
+  const [containerWidth, setContainerWidth] = useState(0);
 
   const getColors = useCallback(() => {
     const root = document.documentElement;
@@ -43,10 +44,9 @@ export default function TimelineHistogram({
 
   useEffect(() => {
     const svg = svgRef.current;
-    if (!svg || decades.length === 0) return;
+    if (!svg || decades.length === 0 || containerWidth === 0) return;
 
     const colors = getColors();
-    const containerWidth = svg.parentElement?.clientWidth ?? 600;
     const width = containerWidth;
     const innerWidth = width - MARGIN.left - MARGIN.right;
     const innerHeight = BAR_HEIGHT;
@@ -231,21 +231,26 @@ export default function TimelineHistogram({
     return () => {
       tooltip.remove();
     };
-  }, [decades, from, to, onRangeChange, getColors]);
+  }, [decades, from, to, onRangeChange, getColors, containerWidth]);
 
-  // Responsive resize
+  // Responsive resize - measure container and update state to trigger D3 redraw
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg || !svg.parentElement) return;
 
-    const observer = new ResizeObserver(() => {
-      // Force re-render by dispatching a state-independent effect
-      // The main useEffect will re-run because we trigger a resize
-      const event = new Event('resize');
-      window.dispatchEvent(event);
+    const parent = svg.parentElement;
+
+    // Set initial width
+    setContainerWidth(parent.clientWidth);
+
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const w = entry.contentRect.width;
+        if (w > 0) setContainerWidth(w);
+      }
     });
 
-    observer.observe(svg.parentElement);
+    observer.observe(parent);
     return () => observer.disconnect();
   }, []);
 

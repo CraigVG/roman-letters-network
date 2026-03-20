@@ -24,6 +24,7 @@ export function LetterOfTheDay({ featured }: Props) {
   const [letter, setLetter] = useState<FeaturedLetter | null>(null);
 
   useEffect(() => {
+    if (featured.length === 0) return;
     const dayIndex = Math.floor(Date.now() / 86400000) % featured.length;
     setLetter(featured[dayIndex]);
   }, [featured]);

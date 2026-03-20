@@ -26,7 +26,33 @@ export default function LettersBrowsePage() {
       </p>
 
       <div className="mt-8">
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={
+            <div className="space-y-6">
+              <div
+                className="rounded-lg border border-theme bg-theme-surface p-5 animate-pulse"
+                style={{ borderLeft: '4px solid var(--color-accent)' }}
+              >
+                <div className="h-4 w-32 rounded bg-current opacity-10 mb-4" />
+                <div className="h-6 w-3/4 rounded bg-current opacity-10 mb-3" />
+                <div className="space-y-2">
+                  <div className="h-4 w-full rounded bg-current opacity-10" />
+                  <div className="h-4 w-5/6 rounded bg-current opacity-10" />
+                </div>
+              </div>
+              <div className="h-11 rounded-lg bg-theme-surface animate-pulse" />
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="flex items-center gap-3 py-3">
+                  <div className="hidden sm:block h-6 w-24 rounded bg-theme-surface animate-pulse" />
+                  <div className="flex-1 space-y-2">
+                    <div className="h-4 w-64 rounded bg-theme-surface animate-pulse" />
+                    <div className="h-3 w-96 rounded bg-theme-surface animate-pulse" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          }
+        >
           <LetterBrowser />
         </Suspense>
       </div>
