@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SearchDialog } from '@/components/search/SearchDialog';
@@ -34,12 +35,14 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <SearchDialog />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <NuqsAdapter>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Header />
+            <SearchDialog />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </ThemeProvider>
+        </NuqsAdapter>
       </body>
     </html>
   );
