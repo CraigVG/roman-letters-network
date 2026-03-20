@@ -1,0 +1,441 @@
+{
+  "generated": "2026-03-20T19:50:27.820Z",
+  "summary": {
+    "total_letters_with_distance": 1407,
+    "peak_decade": 380,
+    "peak_avg_distance": 1728,
+    "trough_decade": 630,
+    "trough_avg_distance": 597,
+    "pct_decline": 65
+  },
+  "all_decades": [
+    {
+      "decade": 240,
+      "avg_distance": 536,
+      "max_distance": 600,
+      "letter_count": 6,
+      "unique_city_pairs": 2,
+      "pct_long_distance": 83
+    },
+    {
+      "decade": 250,
+      "avg_distance": 905,
+      "max_distance": 2316,
+      "letter_count": 24,
+      "unique_city_pairs": 13,
+      "pct_long_distance": 88
+    },
+    {
+      "decade": 350,
+      "avg_distance": 1124,
+      "max_distance": 3008,
+      "letter_count": 32,
+      "unique_city_pairs": 22,
+      "pct_long_distance": 59
+    },
+    {
+      "decade": 360,
+      "avg_distance": 1116,
+      "max_distance": 3336,
+      "letter_count": 85,
+      "unique_city_pairs": 38,
+      "pct_long_distance": 69
+    },
+    {
+      "decade": 370,
+      "avg_distance": 1608,
+      "max_distance": 3336,
+      "letter_count": 61,
+      "unique_city_pairs": 33,
+      "pct_long_distance": 79
+    },
+    {
+      "decade": 380,
+      "avg_distance": 1728,
+      "max_distance": 2502,
+      "letter_count": 88,
+      "unique_city_pairs": 27,
+      "pct_long_distance": 76
+    },
+    {
+      "decade": 390,
+      "avg_distance": 1524,
+      "max_distance": 3663,
+      "letter_count": 59,
+      "unique_city_pairs": 39,
+      "pct_long_distance": 86
+    },
+    {
+      "decade": 400,
+      "avg_distance": 914,
+      "max_distance": 3191,
+      "letter_count": 108,
+      "unique_city_pairs": 46,
+      "pct_long_distance": 56
+    },
+    {
+      "decade": 410,
+      "avg_distance": 1574,
+      "max_distance": 3191,
+      "letter_count": 58,
+      "unique_city_pairs": 40,
+      "pct_long_distance": 86
+    },
+    {
+      "decade": 420,
+      "avg_distance": 486,
+      "max_distance": 1459,
+      "letter_count": 6,
+      "unique_city_pairs": 6,
+      "pct_long_distance": 33
+    },
+    {
+      "decade": 440,
+      "avg_distance": 811,
+      "max_distance": 3514,
+      "letter_count": 189,
+      "unique_city_pairs": 116,
+      "pct_long_distance": 44
+    },
+    {
+      "decade": 450,
+      "avg_distance": 1519,
+      "max_distance": 2305,
+      "letter_count": 19,
+      "unique_city_pairs": 12,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 460,
+      "avg_distance": 953,
+      "max_distance": 2963,
+      "letter_count": 60,
+      "unique_city_pairs": 43,
+      "pct_long_distance": 53
+    },
+    {
+      "decade": 470,
+      "avg_distance": 318,
+      "max_distance": 661,
+      "letter_count": 6,
+      "unique_city_pairs": 6,
+      "pct_long_distance": 17
+    },
+    {
+      "decade": 480,
+      "avg_distance": 77,
+      "max_distance": 130,
+      "letter_count": 4,
+      "unique_city_pairs": 2,
+      "pct_long_distance": 0
+    },
+    {
+      "decade": 490,
+      "avg_distance": 375,
+      "max_distance": 872,
+      "letter_count": 4,
+      "unique_city_pairs": 4,
+      "pct_long_distance": 25
+    },
+    {
+      "decade": 500,
+      "avg_distance": 348,
+      "max_distance": 420,
+      "letter_count": 2,
+      "unique_city_pairs": 2,
+      "pct_long_distance": 0
+    },
+    {
+      "decade": 520,
+      "avg_distance": 948,
+      "max_distance": 2232,
+      "letter_count": 102,
+      "unique_city_pairs": 51,
+      "pct_long_distance": 67
+    },
+    {
+      "decade": 530,
+      "avg_distance": 1995,
+      "max_distance": 1995,
+      "letter_count": 3,
+      "unique_city_pairs": 1,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 540,
+      "avg_distance": 1535,
+      "max_distance": 1995,
+      "letter_count": 3,
+      "unique_city_pairs": 3,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 550,
+      "avg_distance": 1036,
+      "max_distance": 1986,
+      "letter_count": 78,
+      "unique_city_pairs": 3,
+      "pct_long_distance": 99
+    },
+    {
+      "decade": 560,
+      "avg_distance": 1036,
+      "max_distance": 1036,
+      "letter_count": 2,
+      "unique_city_pairs": 1,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 580,
+      "avg_distance": 1773,
+      "max_distance": 1995,
+      "letter_count": 8,
+      "unique_city_pairs": 6,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 590,
+      "avg_distance": 891,
+      "max_distance": 2305,
+      "letter_count": 267,
+      "unique_city_pairs": 87,
+      "pct_long_distance": 63
+    },
+    {
+      "decade": 600,
+      "avg_distance": 962,
+      "max_distance": 2305,
+      "letter_count": 72,
+      "unique_city_pairs": 47,
+      "pct_long_distance": 74
+    },
+    {
+      "decade": 610,
+      "avg_distance": 323,
+      "max_distance": 323,
+      "letter_count": 2,
+      "unique_city_pairs": 2,
+      "pct_long_distance": 0
+    },
+    {
+      "decade": 620,
+      "avg_distance": 485,
+      "max_distance": 644,
+      "letter_count": 6,
+      "unique_city_pairs": 6,
+      "pct_long_distance": 17
+    },
+    {
+      "decade": 630,
+      "avg_distance": 597,
+      "max_distance": 644,
+      "letter_count": 15,
+      "unique_city_pairs": 5,
+      "pct_long_distance": 80
+    },
+    {
+      "decade": 640,
+      "avg_distance": 453,
+      "max_distance": 453,
+      "letter_count": 2,
+      "unique_city_pairs": 2,
+      "pct_long_distance": 0
+    },
+    {
+      "decade": 710,
+      "avg_distance": 958,
+      "max_distance": 958,
+      "letter_count": 1,
+      "unique_city_pairs": 1,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 720,
+      "avg_distance": 1102,
+      "max_distance": 1891,
+      "letter_count": 8,
+      "unique_city_pairs": 7,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 730,
+      "avg_distance": 1644,
+      "max_distance": 2707,
+      "letter_count": 8,
+      "unique_city_pairs": 6,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 740,
+      "avg_distance": 1345,
+      "max_distance": 2479,
+      "letter_count": 12,
+      "unique_city_pairs": 9,
+      "pct_long_distance": 92
+    },
+    {
+      "decade": 750,
+      "avg_distance": 1292,
+      "max_distance": 3178,
+      "letter_count": 7,
+      "unique_city_pairs": 5,
+      "pct_long_distance": 71
+    }
+  ],
+  "wyman_decades": [
+    {
+      "decade": 380,
+      "avg_distance": 1728,
+      "max_distance": 2502,
+      "letter_count": 88,
+      "unique_city_pairs": 27,
+      "pct_long_distance": 76
+    },
+    {
+      "decade": 390,
+      "avg_distance": 1562,
+      "max_distance": 3663,
+      "letter_count": 54,
+      "unique_city_pairs": 36,
+      "pct_long_distance": 87
+    },
+    {
+      "decade": 400,
+      "avg_distance": 826,
+      "max_distance": 3191,
+      "letter_count": 89,
+      "unique_city_pairs": 37,
+      "pct_long_distance": 47
+    },
+    {
+      "decade": 410,
+      "avg_distance": 1807,
+      "max_distance": 3191,
+      "letter_count": 37,
+      "unique_city_pairs": 29,
+      "pct_long_distance": 78
+    },
+    {
+      "decade": 420,
+      "avg_distance": 486,
+      "max_distance": 1459,
+      "letter_count": 6,
+      "unique_city_pairs": 6,
+      "pct_long_distance": 33
+    },
+    {
+      "decade": 440,
+      "avg_distance": 1021,
+      "max_distance": 2133,
+      "letter_count": 28,
+      "unique_city_pairs": 14,
+      "pct_long_distance": 79
+    },
+    {
+      "decade": 450,
+      "avg_distance": 1519,
+      "max_distance": 2305,
+      "letter_count": 19,
+      "unique_city_pairs": 12,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 460,
+      "avg_distance": 975,
+      "max_distance": 2963,
+      "letter_count": 58,
+      "unique_city_pairs": 41,
+      "pct_long_distance": 55
+    },
+    {
+      "decade": 490,
+      "avg_distance": 457,
+      "max_distance": 872,
+      "letter_count": 3,
+      "unique_city_pairs": 3,
+      "pct_long_distance": 33
+    },
+    {
+      "decade": 520,
+      "avg_distance": 948,
+      "max_distance": 2232,
+      "letter_count": 102,
+      "unique_city_pairs": 51,
+      "pct_long_distance": 67
+    },
+    {
+      "decade": 550,
+      "avg_distance": 1036,
+      "max_distance": 1036,
+      "letter_count": 76,
+      "unique_city_pairs": 1,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 560,
+      "avg_distance": 1036,
+      "max_distance": 1036,
+      "letter_count": 2,
+      "unique_city_pairs": 1,
+      "pct_long_distance": 100
+    },
+    {
+      "decade": 590,
+      "avg_distance": 894,
+      "max_distance": 2305,
+      "letter_count": 257,
+      "unique_city_pairs": 79,
+      "pct_long_distance": 63
+    },
+    {
+      "decade": 600,
+      "avg_distance": 978,
+      "max_distance": 2305,
+      "letter_count": 68,
+      "unique_city_pairs": 44,
+      "pct_long_distance": 75
+    }
+  ],
+  "latin_west_collections": [
+    "sidonius_apollinaris",
+    "ruricius_limoges",
+    "avitus_vienne",
+    "ennodius_pavia",
+    "cassiodorus",
+    "gregory_great",
+    "leo_great",
+    "gelasius_i",
+    "hormisdas",
+    "pelagius_i",
+    "innocent_i",
+    "simplicius_pope",
+    "pope_felix_iii",
+    "pope_hilary",
+    "ambrose_milan",
+    "augustine_hippo",
+    "jerome",
+    "paulinus_nola",
+    "salvian_marseille",
+    "sulpicius_severus",
+    "cyprian_carthage",
+    "ferrandus_carthage",
+    "desiderius_cahors",
+    "columbanus",
+    "boniface",
+    "alcuin_york",
+    "bede",
+    "symmachus",
+    "pliny_younger"
+  ],
+  "greek_east_collections": [
+    "basil_caesarea",
+    "gregory_nazianzus",
+    "chrysostom",
+    "theodoret_cyrrhus",
+    "synesius_cyrene",
+    "isidore_pelusium",
+    "libanius",
+    "julian_emperor",
+    "athanasius_alexandria"
+  ]
+}

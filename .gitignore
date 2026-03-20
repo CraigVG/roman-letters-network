@@ -1,0 +1,54 @@
+__pycache__/
+*.pyc
+*.db-journal
+*.db-wal
+*.db-shm
+*.output
+*.log
+
+# Database backups
+data/*.backup*
+data/wyman_dissertation.pdf
+
+# Internal docs
+docs/plans/
+docs/design-best-practices.md
+
+# Temporary batch/translation scripts
+batch*.json
+save_batch.py
+scripts/batch_*.py
+scripts/save_*.py
+scripts/translate_*_batch*.py
+scripts/translate_latin_batch*.py
+scripts/retranslate_*.py
+scripts/modernize_batch.py
+scripts/translate_cass_batch*.py
+scripts/symmachus_batch_translate.py
+scripts/translate_libanius_*.py
+scripts/translate_isidore_*.py
+scripts/translate_sidonius_batch*.py
+scripts/translate_julian_batch*.py
+scripts/translate_synesius_batch*.py
+scripts/translate_augustine*.py
+scripts/translate_jerome*.py
+scripts/translate_gregory*.py
+scripts/translate_remaining*.py
+scripts/translate_cappadocians*.py
+scripts/translate_modern_english.py
+scripts/translate_boniface.py
+scripts/translate_english_collections.py
+scripts/translate_latin_v3.py
+scripts/translate_basil_batch*.py
+scripts/translate_theodoret_batch*.py
+scripts/translate_ambrose_batch*.py
+scripts/translate_cyprian_batch*.py
+scripts/update_modern_english.py
+
+# Next.js build artifacts
+site/.next/
+site/out/
+site/node_modules/
+
+# Temp files
+/tmp/

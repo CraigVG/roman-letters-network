@@ -1,0 +1,192 @@
+@import "tailwindcss";
+@source "../app/**/*.tsx";
+@source "../components/**/*.tsx";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Roman Letters — Theme System
+ *
+ * Light: warm parchment tones, terracotta accent
+ * Dark: deep slate with gold accent
+ */
+
+:root {
+  --color-bg: #faf8f5;
+  --color-text: #2d2a26;
+  --color-muted: #6b6560;
+  --color-accent: #b45530;
+  --color-secondary: #5b7a5e;
+  --color-border: #d9d3cb;
+  --color-surface: #f0ece6;
+
+  --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+.dark {
+  --color-bg: #0f1520;
+  --color-text: #e8e0d4;
+  --color-muted: #9a9590;
+  --color-accent: #c9a959;
+  --color-secondary: #4a6a4d;
+  --color-border: #2a3040;
+  --color-surface: #1a2030;
+}
+
+/* Base resets */
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography defaults for letter content */
+
+.prose-letter {
+  font-family: var(--font-serif);
+  font-size: 1.075rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  max-width: 65ch;
+}
+
+.prose-letter p {
+  margin-bottom: 1.25em;
+  text-indent: 1.5em;
+}
+
+.prose-letter p:first-of-type {
+  text-indent: 0;
+}
+
+.prose-letter p:first-of-type::first-line {
+  font-variant: small-caps;
+  letter-spacing: 0.025em;
+}
+
+/* Letter header metadata block (From/To/Date/Context) */
+
+.letter-header-block {
+  margin-bottom: 1.75em;
+  padding: 0.75em 1em;
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-surface);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.letter-header-block + p {
+  text-indent: 0;
+}
+
+.letter-header-block + p::first-line {
+  font-variant: small-caps;
+  letter-spacing: 0.025em;
+}
+
+.letter-header-row {
+  padding: 0.15em 0;
+}
+
+.letter-header-key {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.letter-header-value {
+  color: var(--color-muted);
+}
+
+/* Inline annotations like [Context: ...] or [Note: ...] */
+
+.letter-annotation {
+  font-size: 0.9em;
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+/* Selection color */
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+/* Scrollbar styling */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+/* Focus styles */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Global link hover states */
+
+a {
+  transition: color 0.15s ease;
+}
+
+/* Ensure consistent spacing scale: 4/8/16/24/32/48/64 */
+
+/* Utility classes for theme colors */
+
+@utility text-theme-text {
+  color: var(--color-text);
+}
+
+@utility text-theme-muted {
+  color: var(--color-muted);
+}
+
+@utility text-theme-accent {
+  color: var(--color-accent);
+}
+
+@utility text-theme-secondary {
+  color: var(--color-secondary);
+}
+
+@utility bg-theme-bg {
+  background-color: var(--color-bg);
+}
+
+@utility bg-theme-surface {
+  background-color: var(--color-surface);
+}
+
+@utility border-theme {
+  border-color: var(--color-border);
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
