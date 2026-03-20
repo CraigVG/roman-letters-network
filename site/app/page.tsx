@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FallOfRomeStory } from '@/components/home/FallOfRomeStory';
+import { HeroAnimation } from '@/components/home/HeroAnimation';
 
 const stats = [
   { value: '7,049', label: 'Letters preserved' },
@@ -41,7 +42,10 @@ const collections = [
 export default function HomePage() {
   return (
     <div>
-      {/* Fall of Rome scrollytelling - the hero */}
+      {/* Animated arc map hero */}
+      <HeroAnimation />
+
+      {/* Fall of Rome scrollytelling */}
       <FallOfRomeStory />
 
       {/* Stats */}
