@@ -32,6 +32,18 @@ type GeoJSONFeatureCollection = {
   }>;
 };
 
+type OutlineFeatureCollection = {
+  type: 'FeatureCollection';
+  features: Array<{
+    type: 'Feature';
+    properties: Record<string, unknown>;
+    geometry: {
+      type: 'Polygon' | 'MultiPolygon';
+      coordinates: number[][][] | number[][][][];
+    };
+  }>;
+};
+
 interface MapLetter {
   id: number;
   year_approx: number;
@@ -124,13 +136,15 @@ function trafficWidth(count: number, maxTraffic: number): number {
 }
 
 // ── Distance-based color ─────────────────────────────────────────────
-function distanceColor(avgDist: number, maxAvgDist: number): string {
+function distanceColor(avgDist: number, _maxAvgDist: number): string {
   if (avgDist <= 0) return 'rgba(80,80,80,0.15)';
-  const t = Math.min(avgDist / maxAvgDist, 1);
+  // Use fixed distance thresholds for clearer visual contrast
+  // 0-400km = cool, 400-1200km = warm, 1200km+ = hot
+  const t = Math.min(avgDist / 2000, 1);
 
   let r: number, g: number, b: number;
   if (t < 0.2) {
-    // Short: cool teal-blue
+    // Short (<400km): cool teal-blue
     const s = t / 0.2;
     r = 40 + s * 40;
     g = 160 + s * 40;
@@ -190,6 +204,8 @@ function drawHeatmap(
   seaTraffic: Map<number, number>,
   maxSeaTraffic: number,
   colorMode: ColorMode = 'distance',
+  outline: OutlineFeatureCollection | null = null,
+  animProgress: number = 1,
 ) {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
@@ -205,6 +221,37 @@ function drawHeatmap(
   // Dark background
   ctx.fillStyle = '#0d1117';
   ctx.fillRect(0, 0, width, height);
+
+  // Draw coastline fill — very subtle, just for geographic context
+  if (outline) {
+    ctx.fillStyle = 'rgba(0,0,0,0.04)';
+    ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+    ctx.lineWidth = 0.5;
+
+    for (const feature of outline.features) {
+      const { type, coordinates } = feature.geometry;
+      const rings: number[][][] =
+        type === 'Polygon'
+          ? (coordinates as number[][][])
+          : type === 'MultiPolygon'
+            ? (coordinates as number[][][][]).flat()
+            : [];
+
+      for (const ring of rings) {
+        if (ring.length < 3) continue;
+        ctx.beginPath();
+        const [x0, y0] = projectMercator(ring[0][0], ring[0][1], width, height);
+        ctx.moveTo(x0, y0);
+        for (let i = 1; i < ring.length; i++) {
+          const [x, y] = projectMercator(ring[i][0], ring[i][1], width, height);
+          ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      }
+    }
+  }
 
   // Draw all road segments as thin gray background lines
   ctx.strokeStyle = 'rgba(80,80,80,0.15)';
@@ -263,7 +310,18 @@ function drawHeatmap(
   }
   segEntries.sort((a, b) => a[1] - b[1]);
 
-  for (const [segIdx] of segEntries) {
+  // Apply animation progress: only draw a portion of segments
+  // segEntries is sorted low-to-high; for animation we want high-traffic first
+  // So we draw from the end (highest) backwards
+  const totalSegs = segEntries.length;
+  const segsToDraw = animProgress < 1
+    ? Math.ceil(animProgress * totalSegs)
+    : totalSegs;
+  // Start index: draw the top `segsToDraw` entries (highest values)
+  const startIdx = totalSegs - segsToDraw;
+
+  for (let si = startIdx; si < totalSegs; si++) {
+    const [segIdx] = segEntries[si];
     if (segIdx >= roads.features.length) continue;
     const segData = heatmap.segments[String(segIdx)]?.[eraStartYear];
     if (!segData) continue;
@@ -275,9 +333,13 @@ function drawHeatmap(
         ? (geom.coordinates as number[][][])
         : [geom.coordinates as number[][]];
 
+    // Skip low-traffic noise (segments with fewer than 3 letters)
+    if (segData.count < 3) continue;
+
     if (colorMode === 'distance') {
+      // Color = average distance, Width = volume (busy roads are thick)
       ctx.strokeStyle = distanceColor(segData.avgDist, heatmap.maxAvgDist);
-      ctx.lineWidth = distanceWidth(segData.avgDist, heatmap.maxAvgDist);
+      ctx.lineWidth = trafficWidth(segData.count, heatmap.maxTraffic);
     } else {
       ctx.strokeStyle = trafficColor(segData.count, heatmap.maxTraffic);
       ctx.lineWidth = trafficWidth(segData.count, heatmap.maxTraffic);
@@ -461,10 +523,44 @@ export default function RoadHeatmap() {
   const [heatmap, setHeatmap] = useState<HeatmapData | null>(null);
   const [roads, setRoads] = useState<GeoJSONFeatureCollection | null>(null);
   const [letters, setLetters] = useState<MapLetter[] | null>(null);
+  const [outline, setOutline] = useState<OutlineFeatureCollection | null>(null);
   const [loading, setLoading] = useState(true);
   const [leftEra, setLeftEra] = useState('350');
   const [rightEra, setRightEra] = useState('500');
   const [colorMode, setColorMode] = useState<ColorMode>('distance');
+
+  // Animation state
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [animProgress, setAnimProgress] = useState(1); // 0-1, starts at 1 (fully drawn)
+  const animRef = useRef<number>(0);
+
+  function startAnimation() {
+    if (animRef.current) cancelAnimationFrame(animRef.current);
+    setAnimProgress(0);
+    setIsAnimating(true);
+    const startTime = performance.now();
+    const duration = 2000; // 2 seconds
+
+    function frame(now: number) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      setAnimProgress(progress);
+
+      if (progress < 1) {
+        animRef.current = requestAnimationFrame(frame);
+      } else {
+        setIsAnimating(false);
+      }
+    }
+    animRef.current = requestAnimationFrame(frame);
+  }
+
+  // Cleanup animation on unmount
+  useEffect(() => {
+    return () => {
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+    };
+  }, []);
 
   // Load data
   useEffect(() => {
@@ -473,11 +569,13 @@ export default function RoadHeatmap() {
       fetch('/data/road-heatmap.json').then((r) => r.json()),
       fetch('/data/roman-roads.json').then((r) => r.json()),
       fetch('/data/map-letters.json').then((r) => r.json()),
-    ]).then(([hm, rd, ml]) => {
+      fetch('/data/mediterranean-outline.json').then((r) => r.json()),
+    ]).then(([hm, rd, ml, ol]) => {
       if (cancelled) return;
       setHeatmap(hm as HeatmapData);
       setRoads(rd as GeoJSONFeatureCollection);
       setLetters((ml as { letters: MapLetter[] }).letters);
+      setOutline(ol as OutlineFeatureCollection);
       setLoading(false);
     });
     return () => {
@@ -507,12 +605,12 @@ export default function RoadHeatmap() {
     const leftSeaTraffic = computeSeaTraffic(letters, parseInt(leftEra));
     const rightSeaTraffic = computeSeaTraffic(letters, parseInt(rightEra));
     if (leftCanvasRef.current) {
-      drawHeatmap(leftCanvasRef.current, roads, heatmap, leftEra, leftSeaTraffic, maxSeaTraffic, colorMode);
+      drawHeatmap(leftCanvasRef.current, roads, heatmap, leftEra, leftSeaTraffic, maxSeaTraffic, colorMode, outline, animProgress);
     }
     if (rightCanvasRef.current) {
-      drawHeatmap(rightCanvasRef.current, roads, heatmap, rightEra, rightSeaTraffic, maxSeaTraffic, colorMode);
+      drawHeatmap(rightCanvasRef.current, roads, heatmap, rightEra, rightSeaTraffic, maxSeaTraffic, colorMode, outline, animProgress);
     }
-  }, [heatmap, roads, letters, leftEra, rightEra, maxSeaTraffic, colorMode]);
+  }, [heatmap, roads, letters, leftEra, rightEra, maxSeaTraffic, colorMode, outline, animProgress]);
 
   useEffect(() => {
     if (loading) return;
@@ -528,6 +626,16 @@ export default function RoadHeatmap() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [loading, render]);
+
+  // Era change handlers that also trigger animation
+  function handleLeftEraChange(era: string) {
+    setLeftEra(era);
+    startAnimation();
+  }
+  function handleRightEraChange(era: string) {
+    setRightEra(era);
+    startAnimation();
+  }
 
   // Compute traffic totals for panel labels
   const leftRoadTotal = heatmap ? computeRoadTrafficTotal(heatmap, leftEra) : 0;
@@ -574,18 +682,31 @@ export default function RoadHeatmap() {
           </div>
         ) : (
           <>
-            {/* Era selectors */}
-            <div className="flex flex-wrap justify-center gap-8 mb-4">
+            {/* Era selectors + Replay button */}
+            <div className="flex flex-wrap justify-center items-end gap-8 mb-4">
               <EraSelector
                 label="Before"
                 selected={leftEra}
-                onSelect={setLeftEra}
+                onSelect={handleLeftEraChange}
                 letterCounts={letterCounts}
               />
+              <button
+                onClick={startAnimation}
+                disabled={isAnimating}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium
+                  bg-theme-surface border border-theme text-theme-muted
+                  hover:text-theme-accent hover:border-[var(--color-accent)] transition-colors
+                  disabled:opacity-40 cursor-pointer"
+              >
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M4 2l10 6-10 6V2z" />
+                </svg>
+                {isAnimating ? 'Playing...' : 'Replay'}
+              </button>
               <EraSelector
                 label="After"
                 selected={rightEra}
-                onSelect={setRightEra}
+                onSelect={handleRightEraChange}
                 letterCounts={letterCounts}
               />
             </div>
@@ -621,8 +742,8 @@ export default function RoadHeatmap() {
               <div>
                 <canvas
                   ref={leftCanvasRef}
-                  className="w-full rounded-lg border border-theme"
-                  style={{ aspectRatio: '16 / 10', display: 'block' }}
+                  className="w-full rounded-lg border-2 border-theme"
+                  style={{ aspectRatio: '16 / 10', display: 'block', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
                 />
                 <p
                   className="mt-2 text-sm text-center"
@@ -643,8 +764,8 @@ export default function RoadHeatmap() {
               <div>
                 <canvas
                   ref={rightCanvasRef}
-                  className="w-full rounded-lg border border-theme"
-                  style={{ aspectRatio: '16 / 10', display: 'block' }}
+                  className="w-full rounded-lg border-2 border-theme"
+                  style={{ aspectRatio: '16 / 10', display: 'block', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
                 />
                 <p
                   className="mt-2 text-sm text-center"
