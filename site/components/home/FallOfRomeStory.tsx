@@ -118,7 +118,7 @@ function buildChapters(s: EraStats): Chapter[] {
       quote:
         'It befits us, most merciful Emperor, to seek peace, since we are known to have no cause for anger \u2014 for he is already convicted by his own conduct who is found unprepared for what is just. Indeed, tranquility ought to be the desire of every kingdom, for under it peoples flourish and the welfare of nations is preserved.',
       attribution: 'Cassiodorus, Variae I.1 \u2014 King Theoderic to Emperor Anastasius (~507 AD)',
-      letterHref: '/letters/cassiodorus/52',
+      letterHref: '/letters/cassiodorus/1001',
       stat: `${s.newKingdoms.toLocaleString()} letters from the early 500s. Cassiodorus kept the bureaucratic tradition alive`,
       bgTone: 'color-mix(in srgb, var(--color-surface) 65%, var(--color-border) 35%)',
     },
