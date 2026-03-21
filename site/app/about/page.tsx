@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getDb } from '@/lib/db';
 
+const SCHOLARLY_MODE = process.env.SCHOLARLY_MODE === 'true';
+
 export const metadata: Metadata = {
   title: 'About',
   description:
@@ -186,6 +188,16 @@ export default function AboutPage() {
           >
             Translations
           </h3>
+          {SCHOLARLY_MODE ? (
+          <p className="text-theme-text leading-relaxed">
+            English translations are drawn from established public-domain scholarly
+            sources: the Nicene and Post-Nicene Fathers series (New Advent), the Attalus
+            project, Livius.org, Tertullian.org, Roger Pearse, the Fordham Medieval
+            Sourcebook, and CELT. Where no English translation exists, the original
+            Latin or Greek text is provided. The original text is preserved alongside
+            every translation.
+          </p>
+          ) : (
           <p className="text-theme-text leading-relaxed">
             Every letter has a modern English translation. For letters where a
             public-domain English translation already existed (primarily the NPNF
@@ -201,6 +213,7 @@ export default function AboutPage() {
             The original Latin or Greek text is preserved alongside every
             translation.
           </p>
+          )}
           <p className="text-theme-text leading-relaxed mt-3">
             A quality note: bulk translations of Greek collections (particularly
             Isidore of Pelusium and Libanius) are thematic renderings rather than
@@ -478,7 +491,7 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        {/* AI transparency */}
+        {!SCHOLARLY_MODE && (
         <section>
           <h2
             className="text-xl tracking-tight"
@@ -505,6 +518,7 @@ export default function AboutPage() {
             are welcome.
           </p>
         </section>
+        )}
 
         {/* License */}
         <section id="license">
@@ -565,6 +579,7 @@ export default function AboutPage() {
               Inspired by Patrick Wyman and his dissertation on late Roman
               epistolary networks
             </li>
+            {!SCHOLARLY_MODE && (
             <li>
               Translations assisted by{' '}
               <a
@@ -576,6 +591,7 @@ export default function AboutPage() {
                 Claude (Anthropic)
               </a>
             </li>
+            )}
           </ul>
         </section>
 
