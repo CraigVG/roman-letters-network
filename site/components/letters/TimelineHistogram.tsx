@@ -188,20 +188,14 @@ export default function TimelineHistogram({
       })
       .on('end', (event: d3.D3BrushEvent<unknown>) => {
         isBrushingRef.current = false;
+        if (!event.sourceEvent) return; // programmatic move, ignore to prevent infinite loop
         if (!event.selection) {
-          // Click on empty area clears selection
-          if (!event.sourceEvent) return; // programmatic clear, ignore
           onRangeChange(null, null);
           return;
         }
         const [x0, x1] = event.selection as [number, number];
         const decadeFrom = Math.floor(x.invert(x0) / 10) * 10;
         const decadeTo = Math.floor(x.invert(x1) / 10) * 10 + 9;
-        // Snap the brush to decade boundaries
-        const snappedX0 = x(decadeFrom);
-        const snappedX1 = x(decadeTo - 9 + 10);
-        const brushGroup = g.select<SVGGElement>('.brush');
-        brushGroup.call(brush.move as any, [snappedX0, snappedX1]);
         onRangeChange(
           Math.max(decadeFrom, minDecade),
           Math.min(decadeTo, maxDecade - 1),
