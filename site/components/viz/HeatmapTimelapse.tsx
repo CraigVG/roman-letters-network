@@ -55,14 +55,13 @@ interface MapLetter {
 }
 
 // ── Era definitions ──────────────────────────────────────────────────
-const ERAS = ['350', '400', '450', '500', '550'];
+const ERAS = ['350', '400', '450', '500'];
 
 const ERA_SUBTITLES: Record<string, string> = {
   '350': 'Peak: letters cross the entire Mediterranean',
   '400': 'The first cracks appear',
   '450': 'The Western provinces regionalize',
   '500': 'New kingdoms, shrinking networks',
-  '550': "Gregory's Rome: one man, one city",
 };
 
 // ── Sea lanes ────────────────────────────────────────────────────────
@@ -100,23 +99,27 @@ function projectMercator(
 // ── Color functions (distance-based, from RoadHeatmap) ───────────────
 function distanceColor(avgDist: number, _maxAvgDist: number): string {
   if (avgDist <= 0) return 'rgba(80,80,80,0.15)';
-  const t = Math.min(avgDist / 2000, 1);
+  // Tighter scale: /1500 instead of /2000 to maximize contrast in the 800-1800km range
+  const t = Math.min(avgDist / 1500, 1);
   let r: number, g: number, b: number;
-  if (t < 0.2) {
-    const s = t / 0.2;
-    r = 40 + s * 40;
-    g = 160 + s * 40;
-    b = 220 - s * 40;
-  } else if (t < 0.5) {
-    const s = (t - 0.2) / 0.3;
-    r = 80 + s * 175;
+  if (t < 0.33) {
+    // <500km: deep blue/teal
+    const s = t / 0.33;
+    r = 40 + s * 60;
+    g = 140 + s * 60;
+    b = 180 - s * 20;
+  } else if (t < 0.67) {
+    // 500-1000km: transition to warm orange
+    const s = (t - 0.33) / 0.34;
+    r = 100 + s * 155;
     g = 200 - s * 80;
-    b = 180 - s * 140;
+    b = 160 - s * 130;
   } else {
-    const s = (t - 0.5) / 0.5;
+    // 1000-1500km+: bright orange-red to gold/white
+    const s = (t - 0.67) / 0.33;
     r = 255;
-    g = 120 - s * 50;
-    b = 40 - s * 30;
+    g = 120 + s * 100;
+    b = 30 + s * 170;
   }
   const alpha = 0.5 + t * 0.5;
   return `rgba(${Math.round(r)},${Math.round(g)},${Math.round(b)},${alpha.toFixed(2)})`;
@@ -124,23 +127,23 @@ function distanceColor(avgDist: number, _maxAvgDist: number): string {
 
 function distanceColorRGBA(avgDist: number, _maxAvgDist: number): [number, number, number, number] {
   if (avgDist <= 0) return [80, 80, 80, 0.15];
-  const t = Math.min(avgDist / 2000, 1);
+  const t = Math.min(avgDist / 1500, 1);
   let r: number, g: number, b: number;
-  if (t < 0.2) {
-    const s = t / 0.2;
-    r = 40 + s * 40;
-    g = 160 + s * 40;
-    b = 220 - s * 40;
-  } else if (t < 0.5) {
-    const s = (t - 0.2) / 0.3;
-    r = 80 + s * 175;
+  if (t < 0.33) {
+    const s = t / 0.33;
+    r = 40 + s * 60;
+    g = 140 + s * 60;
+    b = 180 - s * 20;
+  } else if (t < 0.67) {
+    const s = (t - 0.33) / 0.34;
+    r = 100 + s * 155;
     g = 200 - s * 80;
-    b = 180 - s * 140;
+    b = 160 - s * 130;
   } else {
-    const s = (t - 0.5) / 0.5;
+    const s = (t - 0.67) / 0.33;
     r = 255;
-    g = 120 - s * 50;
-    b = 40 - s * 30;
+    g = 120 + s * 100;
+    b = 30 + s * 170;
   }
   const alpha = 0.5 + t * 0.5;
   return [Math.round(r), Math.round(g), Math.round(b), alpha];
@@ -395,6 +398,41 @@ function drawEraFrame(
       }
       ctx.stroke();
     }
+    ctx.restore();
+  }
+
+  // Draw average distance ring centered on Rome
+  const avgDist = computeAvgDistForEra(heatmap, eraKey);
+  if (avgDist > 0) {
+    const [romX, romY] = projectMercator(12.5, 41.9, width, height);
+    const degreesRadius = avgDist / 111;
+    const [edgeX] = projectMercator(12.5 + degreesRadius, 41.9, width, height);
+    const pixelRadius = Math.abs(edgeX - romX);
+
+    ctx.save();
+    ctx.globalAlpha = globalAlpha; // respect crossfade
+    ctx.strokeStyle = 'rgba(255, 200, 50, 0.3)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([8, 4]);
+    ctx.beginPath();
+    ctx.arc(romX, romY, pixelRadius, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // Draw large distance stat overlay
+  if (avgDist > 0) {
+    ctx.save();
+    ctx.globalAlpha = globalAlpha; // respect crossfade
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = 4;
+    ctx.fillText(`${avgDist.toLocaleString()} km`, width / 2, height - 20);
+    ctx.font = '12px sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+    ctx.fillText('avg. letter distance', width / 2, height - 6);
     ctx.restore();
   }
 

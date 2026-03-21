@@ -61,7 +61,6 @@ const ERA_OPTIONS = [
   { key: '400', label: '400s' },
   { key: '450', label: '450s' },
   { key: '500', label: '500s' },
-  { key: '550', label: '550s' },
 ];
 
 // ── Sea lanes ────────────────────────────────────────────────────────
@@ -138,29 +137,28 @@ function trafficWidth(count: number, maxTraffic: number): number {
 // ── Distance-based color ─────────────────────────────────────────────
 function distanceColor(avgDist: number, _maxAvgDist: number): string {
   if (avgDist <= 0) return 'rgba(80,80,80,0.15)';
-  // Use fixed distance thresholds for clearer visual contrast
-  // 0-400km = cool, 400-1200km = warm, 1200km+ = hot
-  const t = Math.min(avgDist / 2000, 1);
+  // Tighter scale: /1500 instead of /2000 to maximize contrast in the 800-1800km range
+  const t = Math.min(avgDist / 1500, 1);
 
   let r: number, g: number, b: number;
-  if (t < 0.2) {
-    // Short (<400km): cool teal-blue
-    const s = t / 0.2;
-    r = 40 + s * 40;
-    g = 160 + s * 40;
-    b = 220 - s * 40;
-  } else if (t < 0.5) {
-    // Medium: warm orange
-    const s = (t - 0.2) / 0.3;
-    r = 80 + s * 175;
+  if (t < 0.33) {
+    // <500km: deep blue/teal
+    const s = t / 0.33;
+    r = 40 + s * 60;
+    g = 140 + s * 60;
+    b = 180 - s * 20;
+  } else if (t < 0.67) {
+    // 500-1000km: transition to warm orange
+    const s = (t - 0.33) / 0.34;
+    r = 100 + s * 155;
     g = 200 - s * 80;
-    b = 180 - s * 140;
+    b = 160 - s * 130;
   } else {
-    // Long: bright gold/red
-    const s = (t - 0.5) / 0.5;
+    // 1000-1500km+: bright orange-red to gold/white
+    const s = (t - 0.67) / 0.33;
     r = 255;
-    g = 120 - s * 50;
-    b = 40 - s * 30;
+    g = 120 + s * 100; // goes toward gold/white
+    b = 30 + s * 170;  // goes toward gold/white
   }
   const alpha = 0.5 + t * 0.5;
   return `rgba(${Math.round(r)},${Math.round(g)},${Math.round(b)},${alpha.toFixed(2)})`;
@@ -386,6 +384,40 @@ function drawHeatmap(
       }
       ctx.stroke();
     }
+    ctx.restore();
+  }
+
+  // Draw average distance ring centered on Rome
+  const avgDist = computeAvgDistForEra(heatmap, eraStartYear);
+  if (avgDist > 0) {
+    const [romX, romY] = projectMercator(12.5, 41.9, width, height);
+    // Convert km to approximate pixels (rough: 1 degree ~ 111km, scale from projection)
+    const degreesRadius = avgDist / 111;
+    const [edgeX] = projectMercator(12.5 + degreesRadius, 41.9, width, height);
+    const pixelRadius = Math.abs(edgeX - romX);
+
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255, 200, 50, 0.3)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([8, 4]);
+    ctx.beginPath();
+    ctx.arc(romX, romY, pixelRadius, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // Draw large distance stat overlay
+  if (avgDist > 0) {
+    ctx.save();
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = 4;
+    ctx.fillText(`${avgDist.toLocaleString()} km`, width / 2, height - 20);
+    ctx.font = '12px sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+    ctx.fillText('avg. letter distance', width / 2, height - 6);
     ctx.restore();
   }
 }
