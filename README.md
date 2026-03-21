@@ -6,7 +6,7 @@
 
 ---
 
-The first public resource to bring together 42 late antique letter collections spanning 700 years (100-800 AD), with modern English translations for over 7,000 letters — including 3,068 translated into English for the first time.
+The first public resource to bring together 54 late antique letter collections spanning 700 years (100-800 AD), with modern English translations for over 7,000 letters — including 3,068 translated into English for the first time.
 
 ## What This Is
 
@@ -21,7 +21,7 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 | Metric | Value |
 |--------|-------|
 | Total letters | 7,049 |
-| Collections | 42 |
+| Collections | 54 |
 | Time span | 100-800 AD |
 | Modern English translations | ~100% |
 | First-ever English translations | 3,068 |

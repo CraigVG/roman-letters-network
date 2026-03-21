@@ -56,7 +56,7 @@ roman-letters-network/
 | Metric | Value |
 |--------|-------|
 | Total letters | 7,049 |
-| Collections | 42 |
+| Collections | 54 |
 | Modern English translations | ~100% |
 | First-ever English translations | 3,068 |
 | People identified | 1,516 |
