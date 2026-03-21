@@ -88,7 +88,7 @@ export function Footer() {
                 Sources
               </Link>
               <a
-                href="https://github.com/craigvandergalien/roman-letters-network"
+                href="https://github.com/CraigVG/roman-letters-network"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-theme-muted hover:text-theme-accent transition-colors"

@@ -383,12 +383,12 @@ export default function AboutPage() {
             </li>
             <li>
               <a
-                href="https://github.com/openMGH"
+                href="https://www.dmgh.de/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-theme-accent hover:underline"
               >
-                openMGH
+                dMGH (Monumenta Germaniae Historica)
               </a>{' '}
               - Avitus of Vienne (MGH edition)
             </li>
@@ -414,7 +414,7 @@ export default function AboutPage() {
               </a>{' '}
               and{' '}
               <a
-                href="https://demonax.info/doku.php?id=text:synesius_letters"
+                href="https://web.archive.org/web/2024/https://demonax.info/doku.php?id=text:synesius_letters"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-theme-accent hover:underline"
@@ -445,7 +445,7 @@ export default function AboutPage() {
             </li>
             <li>
               <a
-                href="https://awmc.unc.edu/wordpress/blog/map-files/"
+                href="https://awmc.unc.edu/awmc/map-files/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-theme-accent hover:underline"
