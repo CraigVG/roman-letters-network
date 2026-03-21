@@ -31,15 +31,28 @@ interface GeoJSONFeatureCollection {
 const GEO_BOUNDS = { minLon: -12, maxLon: 48, minLat: 22, maxLat: 58 };
 
 // Animation phases (seconds)
-const PHASE_BUILD = 3;
-const PHASE_PEAK = 1;
-const PHASE_FRAGMENT = 3;
-const PHASE_TEXT = 1;
+const PHASE_BUILD = 2;
+const PHASE_PEAK = 0.5;
+const PHASE_FRAGMENT = 2;
+const PHASE_TEXT = 0.5;
 const TOTAL_DURATION = PHASE_BUILD + PHASE_PEAK + PHASE_FRAGMENT + PHASE_TEXT;
 
 /* ------------------------------------------------------------------ */
 /*  Projection: lon/lat -> canvas pixels                               */
 /* ------------------------------------------------------------------ */
+
+// Center point: Rome
+const CENTER_LON = 12.5;
+const CENTER_LAT = 41.9;
+
+// Pre-compute Mercator helpers
+const toMercY = (lat: number) => Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360));
+const MERC_MIN = toMercY(GEO_BOUNDS.minLat);
+const MERC_MAX = toMercY(GEO_BOUNDS.maxLat);
+const MERC_RANGE = MERC_MAX - MERC_MIN;
+const LON_RANGE = GEO_BOUNDS.maxLon - GEO_BOUNDS.minLon;
+// Natural aspect ratio of the geo bounds in Mercator
+const GEO_ASPECT = (LON_RANGE * Math.PI / 180) / MERC_RANGE;
 
 function project(
   lon: number,
@@ -50,16 +63,37 @@ function project(
 ): [number, number] {
   const drawW = width - padding * 2;
   const drawH = height - padding * 2;
-  const x = padding + ((lon - GEO_BOUNDS.minLon) / (GEO_BOUNDS.maxLon - GEO_BOUNDS.minLon)) * drawW;
-  // Flip Y for screen coordinates, apply simple Mercator stretch
-  const latRad = (lat * Math.PI) / 180;
-  const minLatRad = (GEO_BOUNDS.minLat * Math.PI) / 180;
-  const maxLatRad = (GEO_BOUNDS.maxLat * Math.PI) / 180;
-  const mercY = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
-  const mercMin = Math.log(Math.tan(Math.PI / 4 + minLatRad / 2));
-  const mercMax = Math.log(Math.tan(Math.PI / 4 + maxLatRad / 2));
-  const y = padding + (1 - (mercY - mercMin) / (mercMax - mercMin)) * drawH;
-  return [x, y];
+  const screenAspect = drawW / drawH;
+
+  // "Cover" strategy: fill whichever dimension is tighter, centered on Rome
+  // On wide screens: fill width, center vertically
+  // On tall screens (mobile): fill height, center horizontally on Rome
+  let scale: number;
+  if (screenAspect > GEO_ASPECT) {
+    // Wide screen: fit to width
+    scale = drawW / (LON_RANGE * Math.PI / 180);
+  } else {
+    // Tall screen (mobile): fit to height, edges will overflow
+    scale = drawH / MERC_RANGE;
+  }
+
+  const mapW = scale * (LON_RANGE * Math.PI / 180);
+  const mapH = scale * MERC_RANGE;
+
+  // Center on Rome
+  const centerMerc = toMercY(CENTER_LAT);
+  const centerNormX = (CENTER_LON - GEO_BOUNDS.minLon) / LON_RANGE;
+  const centerNormY = 1 - (centerMerc - MERC_MIN) / MERC_RANGE;
+
+  // Offset so Rome is at center of viewport
+  const offsetX = padding + drawW / 2 - centerNormX * mapW;
+  const offsetY = padding + drawH / 2 - centerNormY * mapH;
+
+  const normX = (lon - GEO_BOUNDS.minLon) / LON_RANGE;
+  const mercY = toMercY(lat);
+  const normY = 1 - (mercY - MERC_MIN) / MERC_RANGE;
+
+  return [offsetX + normX * mapW, offsetY + normY * mapH];
 }
 
 /* ------------------------------------------------------------------ */
@@ -159,7 +193,7 @@ function drawArcs(
   t: number, // 0 to TOTAL_DURATION
   accentColor: string,
 ) {
-  ctx.lineWidth = 1.2;
+  ctx.lineWidth = 0.8;
   ctx.lineCap = 'round';
 
   for (const arc of arcs) {

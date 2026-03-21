@@ -149,7 +149,7 @@ function generateHeroArcs() {
     '../public/data/map-letters.json'
   );
   const OUT = path.join(OUT_DIR, 'hero-arcs.json');
-  const TARGET_ARCS = 500;
+  const TARGET_ARCS = 2000;
   const ERA_SIZE = 50;
 
   console.log('Reading', MAP_LETTERS_PATH, '…');
