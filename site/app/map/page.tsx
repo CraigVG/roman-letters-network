@@ -6,6 +6,7 @@ import { scaleLinear } from 'd3-scale';
 import { max as d3Max } from 'd3-array';
 import { select } from 'd3-selection';
 import RomanMapLoader from '@/components/viz/RomanMapLoader';
+import RoadHeatmap from '@/components/viz/RoadHeatmap';
 import { YEAR_MIN, YEAR_MAX, YEAR_START } from '@/components/viz/map-types';
 import type { HistoricalEvent, HubCity, MapStats, TimelineRow } from '@/components/viz/map-types';
 
@@ -511,6 +512,9 @@ export default function MapV2Page() {
           </div>
         </div>
       </section>
+
+      {/* ── Road traffic heatmap comparison ──────────────────────────── */}
+      <RoadHeatmap />
     </div>
   );
 }

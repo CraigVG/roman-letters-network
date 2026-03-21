@@ -237,7 +237,7 @@ function findSeaRoute(fromPortIdx: number, toPortIdx: number): [number, number][
 }
 
 // Find nearest port to a given lon/lat (within maxDistKm)
-function findNearestPort(lon: number, lat: number, maxDistKm: number = 300): number | null {
+function findNearestPort(lon: number, lat: number, maxDistKm: number = 500): number | null {
   let bestIdx: number | null = null;
   let bestDist = maxDistKm;
   for (let i = 0; i < PORTS.length; i++) {
@@ -358,19 +358,140 @@ function buildRoadNetwork(geojson: { features: Array<{ geometry: { type: string;
     }
   }
 
+  // Bridge disconnected components so A* can route across the whole network
+  bridgeComponents(nodes, grid, gridSize);
+
   return { nodes, grid, gridSize };
 }
 
+// Connect disconnected road graph components by adding bridge edges between nearby nodes
+function bridgeComponents(
+  nodes: RoadNode[],
+  grid: Map<string, number[]>,
+  gridSize: number,
+): void {
+  // 1. Find connected components via BFS
+  const componentOf = new Int32Array(nodes.length).fill(-1);
+  let numComponents = 0;
+
+  for (let i = 0; i < nodes.length; i++) {
+    if (componentOf[i] >= 0) continue;
+    const comp = numComponents++;
+    const queue = [i];
+    componentOf[i] = comp;
+    let head = 0;
+    while (head < queue.length) {
+      const n = queue[head++];
+      for (const neighbor of nodes[n].edges) {
+        if (componentOf[neighbor] < 0) {
+          componentOf[neighbor] = comp;
+          queue.push(neighbor);
+        }
+      }
+    }
+  }
+
+  if (numComponents <= 1) return;
+
+  // 2. Group nodes by component, sorted largest first
+  const compNodes = new Map<number, number[]>();
+  for (let i = 0; i < nodes.length; i++) {
+    const c = componentOf[i];
+    if (!compNodes.has(c)) compNodes.set(c, []);
+    compNodes.get(c)!.push(i);
+  }
+  const components = [...compNodes.entries()].sort((a, b) => b[1].length - a[1].length);
+  const largestComp = components[0][0];
+
+  // 3. For each non-largest component, find the nearest node in a different (preferably larger) component
+  const THRESHOLD_SQ = 0.2 * 0.2; // 0.2 degrees squared (~20km)
+  let bridges = 0;
+
+  for (let ci = 1; ci < components.length; ci++) {
+    const [compId, memberNodes] = components[ci];
+    // Sample up to 50 nodes from this component to search from
+    const step = Math.max(1, Math.floor(memberNodes.length / 50));
+    let bestDist = Infinity;
+    let bestA = -1;
+    let bestB = -1;
+
+    for (let si = 0; si < memberNodes.length; si += step) {
+      const nodeIdx = memberNodes[si];
+      const node = nodes[nodeIdx];
+      const gx = Math.floor(node.lon / gridSize);
+      const gy = Math.floor(node.lat / gridSize);
+
+      // Search nearby grid cells for nodes in other components
+      for (let dx = -1; dx <= 1; dx++) {
+        for (let dy = -1; dy <= 1; dy++) {
+          const cell = grid.get(`${gx + dx},${gy + dy}`);
+          if (!cell) continue;
+          for (const otherIdx of cell) {
+            if (componentOf[otherIdx] === compId) continue;
+            const d = distSq(node.lon, node.lat, nodes[otherIdx].lon, nodes[otherIdx].lat);
+            if (d < bestDist) {
+              bestDist = d;
+              bestA = nodeIdx;
+              bestB = otherIdx;
+            }
+          }
+        }
+      }
+    }
+
+    // If no nearby node found in 1-cell ring, try wider search (2-cell ring)
+    if (bestA < 0) {
+      for (let si = 0; si < memberNodes.length; si += step) {
+        const nodeIdx = memberNodes[si];
+        const node = nodes[nodeIdx];
+        const gx = Math.floor(node.lon / gridSize);
+        const gy = Math.floor(node.lat / gridSize);
+
+        for (let dx = -2; dx <= 2; dx++) {
+          for (let dy = -2; dy <= 2; dy++) {
+            const cell = grid.get(`${gx + dx},${gy + dy}`);
+            if (!cell) continue;
+            for (const otherIdx of cell) {
+              if (componentOf[otherIdx] === compId) continue;
+              const d = distSq(node.lon, node.lat, nodes[otherIdx].lon, nodes[otherIdx].lat);
+              if (d < bestDist) {
+                bestDist = d;
+                bestA = nodeIdx;
+                bestB = otherIdx;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    if (bestA >= 0 && bestB >= 0 && bestDist < THRESHOLD_SQ) {
+      // Add bidirectional bridge edge
+      nodes[bestA].edges.push(bestB);
+      nodes[bestB].edges.push(bestA);
+      bridges++;
+      // Update component labels: merge smaller into the target component
+      const targetComp = componentOf[bestB];
+      for (const ni of memberNodes) {
+        componentOf[ni] = targetComp;
+      }
+    }
+  }
+
+  console.log(`Road network bridging: ${numComponents} components, ${bridges} bridges added`);
+}
+
 // Find the nearest road node to a given lon/lat (expanding grid search)
-function findNearestNode(net: RoadNetwork, lon: number, lat: number, maxDist: number = 3.0): number | null {
+function findNearestNode(net: RoadNetwork, lon: number, lat: number, maxDist: number = 5.0): number | null {
   const gx = Math.floor(lon / net.gridSize);
   const gy = Math.floor(lat / net.gridSize);
 
   let bestIdx: number | null = null;
   let bestDist = maxDist * maxDist; // squared degree threshold
 
-  // Search expanding rings: 3x3, then 5x5, then 7x7
-  for (let ring = 1; ring <= 3; ring++) {
+  // Search expanding rings up to maxDist coverage
+  const maxRing = Math.ceil(maxDist / net.gridSize);
+  for (let ring = 1; ring <= maxRing; ring++) {
     for (let dx = -ring; dx <= ring; dx++) {
       for (let dy = -ring; dy <= ring; dy++) {
         const cell = net.grid.get(`${gx + dx},${gy + dy}`);
@@ -391,7 +512,7 @@ function findNearestNode(net: RoadNetwork, lon: number, lat: number, maxDist: nu
 
 // A* pathfinding between two road nodes - uses Euclidean distance heuristic
 // Much faster than BFS for long-distance routes across the 83K-node graph
-function findRoadPath(net: RoadNetwork, startIdx: number, endIdx: number, maxSteps: number = 50000): number[] | null {
+function findRoadPath(net: RoadNetwork, startIdx: number, endIdx: number, maxSteps: number = 200000): number[] | null {
   if (startIdx === endIdx) return [startIdx];
 
   const endNode = net.nodes[endIdx];
@@ -482,7 +603,7 @@ function getLetterRoute(
         const routeDist = routeDistanceKm(coords);
 
         // Use road route if it's not excessively long compared to straight-line
-        if (routeDist < directDistKm * 1.5) {
+        if (routeDist < directDistKm * 2.5) {
           return { coords, isSea: false, roadPath: path };
         }
       }
@@ -560,8 +681,29 @@ function getLetterRoute(
     }
   }
 
-  // 3. Fallback: bezier arc (direct line - rendered as curve by canvas)
-  return { coords: [senderPt, recipPt], isSea: false };
+  // 3. Fallback: bezier arc in lon/lat space (curved, not straight line)
+  {
+    const segments = 30;
+    const dx = recipPt[0] - senderPt[0];
+    const dy = recipPt[1] - senderPt[1];
+    const len = Math.sqrt(dx * dx + dy * dy);
+    if (len === 0) return { coords: [senderPt, recipPt], isSea: false };
+    const curve = Math.min(len * 0.15, 3); // degrees offset for curve
+    const mx = (senderPt[0] + recipPt[0]) / 2;
+    const my = (senderPt[1] + recipPt[1]) / 2;
+    const nx = (-dy / len) * curve;
+    const ny = (dx / len) * curve;
+    const cx = mx + nx;
+    const cy = my + ny;
+    const arcCoords: [number, number][] = [];
+    for (let i = 0; i <= segments; i++) {
+      const t = i / segments;
+      const x = (1 - t) * (1 - t) * senderPt[0] + 2 * (1 - t) * t * cx + t * t * recipPt[0];
+      const y = (1 - t) * (1 - t) * senderPt[1] + 2 * (1 - t) * t * cy + t * t * recipPt[1];
+      arcCoords.push([x, y]);
+    }
+    return { coords: arcCoords, isSea: false };
+  }
 }
 
 
