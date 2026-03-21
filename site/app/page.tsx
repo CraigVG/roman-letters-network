@@ -43,6 +43,41 @@ export default function HomePage() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Dataset",
+            "name": "Roman Letters: 7,049 Letters from the Late Roman World",
+            "description": "A comprehensive corpus of 7,049 surviving letters from the late Roman world (100-800 AD) with modern English translations, Latin/Greek originals, geographic coordinates, topic tags, and social network metadata. 3,068 letters translated to English for the first time.",
+            "url": "https://romanletters.org",
+            "identifier": "https://doi.org/10.5281/zenodo.19142059",
+            "license": "https://creativecommons.org/licenses/by/4.0/",
+            "creator": {
+              "@type": "Person",
+              "name": "Craig Vander Galien",
+              "url": "https://craigvandergalien.com"
+            },
+            "datePublished": "2026-03-20",
+            "temporalCoverage": "100/800",
+            "spatialCoverage": {
+              "@type": "Place",
+              "name": "Mediterranean Basin",
+              "geo": {
+                "@type": "GeoShape",
+                "box": "20.0 -10.0 55.0 45.0"
+              }
+            },
+            "distribution": {
+              "@type": "DataDownload",
+              "encodingFormat": "application/x-sqlite3",
+              "contentUrl": "https://github.com/CraigVG/roman-letters-network/releases"
+            },
+            "keywords": ["late antiquity", "Roman Empire", "ancient letters", "epistolography", "network analysis", "digital humanities", "Latin", "Greek", "communication networks"]
+          })
+        }}
+      />
       <HeroAnimation />
 
       <FallOfRomeStory />

@@ -34,6 +34,17 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap"
           rel="stylesheet"
         />
+        <meta name="citation_title" content="Roman Letters: A Digital Corpus of Late Antique Correspondence" />
+        <meta name="citation_author" content="Vander Galien, Craig" />
+        <meta name="citation_publication_date" content="2026/03/20" />
+        <meta name="citation_online_date" content="2026/03/20" />
+        <meta name="citation_doi" content="10.5281/zenodo.19142059" />
+        <meta name="DC.title" content="Roman Letters: 7,049 Letters from the Late Roman World" />
+        <meta name="DC.creator" content="Craig Vander Galien" />
+        <meta name="DC.date" content="2026-03-20" />
+        <meta name="DC.type" content="Dataset" />
+        <meta name="DC.identifier" content="doi:10.5281/zenodo.19142059" />
+        <meta name="DC.rights" content="CC BY 4.0" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-13HJNN8SST"
           strategy="afterInteractive"

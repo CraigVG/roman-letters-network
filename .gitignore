@@ -50,5 +50,8 @@ site/.next/
 site/out/
 site/node_modules/
 
+# CSV exports (generated for releases)
+exports/
+
 # Temp files
 /tmp/

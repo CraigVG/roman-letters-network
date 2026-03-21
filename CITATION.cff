@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+title: "Roman Letters: 7,049 Letters from the Late Roman World"
+message: "If you use this dataset, please cite it using the metadata from this file."
+type: dataset
+authors:
+  - family-names: "Vander Galien"
+    given-names: "Craig"
+    orcid: ""
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19142059"
+    description: "Zenodo dataset archive"
+repository-code: "https://github.com/CraigVG/roman-letters-network"
+url: "https://romanletters.org"
+license: CC-BY-4.0
+version: "1.0.0"
+date-released: "2026-03-20"
+keywords:
+  - late antiquity
+  - Roman Empire
+  - ancient letters
+  - digital humanities
+  - network analysis
+  - epistolography
