@@ -93,22 +93,181 @@ const ROLE_COLORS: Record<string, string> = {
 const LAND_SPEED_KM_DAY = 30;
 const SEA_SPEED_KM_DAY = 100;
 
-// Major sea route waypoints (manually defined curved arcs over water)
-const SEA_ROUTES: Array<{ endpoints: [[number, number], [number, number]]; coords: [number, number][] }> = [
-  { endpoints: [[12.5, 41.9], [29.9, 31.2]], coords: [[12.5, 41.9], [15.0, 38.0], [20.0, 35.0], [25.0, 32.0], [29.9, 31.2]] },
-  { endpoints: [[12.5, 41.9], [10.2, 36.85]], coords: [[12.5, 41.9], [12.0, 38.5], [10.2, 36.85]] },
-  { endpoints: [[12.5, 41.9], [28.97, 41.01]], coords: [[12.5, 41.9], [16.0, 39.5], [20.0, 38.0], [24.0, 38.5], [28.97, 41.01]] },
-  { endpoints: [[5.38, 43.3], [10.2, 36.85]], coords: [[5.38, 43.3], [5.0, 40.5], [4.0, 38.0], [7.0, 37.0], [10.2, 36.85]] },
-  { endpoints: [[10.2, 36.85], [29.9, 31.2]], coords: [[10.2, 36.85], [15.0, 34.0], [20.0, 32.5], [25.0, 31.5], [29.9, 31.2]] },
-  { endpoints: [[12.5, 41.9], [36.2, 36.2]], coords: [[12.5, 41.9], [16.0, 38.0], [21.0, 36.0], [28.0, 35.5], [33.0, 35.5], [36.2, 36.2]] },
-  { endpoints: [[28.97, 41.01], [29.9, 31.2]], coords: [[28.97, 41.01], [27.0, 37.0], [30.0, 33.0], [29.9, 31.2]] },
-  { endpoints: [[28.97, 41.01], [36.2, 36.2]], coords: [[28.97, 41.01], [30.0, 38.0], [33.0, 36.5], [36.2, 36.2]] },
-  { endpoints: [[12.2, 44.42], [28.97, 41.01]], coords: [[12.2, 44.42], [16.0, 41.0], [20.0, 39.0], [24.0, 39.5], [28.97, 41.01]] },
-  { endpoints: [[7.75, 36.883], [12.5, 41.9]], coords: [[7.75, 36.883], [9.5, 38.0], [12.0, 40.0], [12.5, 41.9]] },
-  { endpoints: [[35.2, 31.705], [29.9, 31.2]], coords: [[35.2, 31.705], [33.0, 31.0], [29.9, 31.2]] },
-  { endpoints: [[10.2, 36.85], [28.97, 41.01]], coords: [[10.2, 36.85], [15.0, 36.0], [20.0, 36.5], [25.0, 38.0], [28.97, 41.01]] },
-  { endpoints: [[29.9, 31.2], [36.2, 36.2]], coords: [[29.9, 31.2], [32.0, 32.0], [34.5, 34.0], [36.2, 36.2]] },
+// Major Roman ports with coordinates
+const PORTS: { name: string; lon: number; lat: number }[] = [
+  { name: 'Ostia', lon: 12.29, lat: 41.76 },        // 0
+  { name: 'Puteoli', lon: 14.12, lat: 40.82 },       // 1
+  { name: 'Brundisium', lon: 17.94, lat: 40.64 },    // 2
+  { name: 'Syracuse', lon: 15.29, lat: 37.07 },       // 3
+  { name: 'Ravenna', lon: 12.20, lat: 44.42 },        // 4
+  { name: 'Genoa', lon: 8.95, lat: 44.42 },           // 5
+  { name: 'Massilia', lon: 5.38, lat: 43.30 },        // 6
+  { name: 'Narbo', lon: 3.00, lat: 43.18 },           // 7
+  { name: 'Tarraco', lon: 1.25, lat: 41.12 },         // 8
+  { name: 'Carthage', lon: 10.18, lat: 36.81 },       // 9
+  { name: 'Hippo', lon: 7.75, lat: 36.88 },           // 10
+  { name: 'Leptis', lon: 14.29, lat: 32.64 },         // 11
+  { name: 'Alexandria', lon: 29.92, lat: 31.20 },     // 12
+  { name: 'Caesarea', lon: 34.89, lat: 32.50 },       // 13
+  { name: 'Antioch', lon: 36.16, lat: 36.20 },        // 14
+  { name: 'Constantinople', lon: 28.98, lat: 41.01 }, // 15
+  { name: 'Thessalonica', lon: 22.94, lat: 40.64 },   // 16
+  { name: 'Athens', lon: 23.65, lat: 37.94 },         // 17
+  { name: 'Corinth', lon: 22.88, lat: 37.91 },        // 18
+  { name: 'Ephesus', lon: 27.34, lat: 37.94 },        // 19
+  { name: 'Smyrna', lon: 27.14, lat: 38.42 },         // 20
+  { name: 'Cyrene', lon: 21.86, lat: 32.82 },         // 21
+  { name: 'Seleucia', lon: 35.92, lat: 36.09 },       // 22
 ];
+
+// Sea connections between ports - [portIndex1, portIndex2, waypoints]
+// Waypoints create curved routes over water (not straight lines)
+const SEA_CONNECTIONS: [number, number, [number, number][]][] = [
+  // Western Mediterranean
+  [0, 3, [[13.5, 39.5], [14.5, 38.0]]],           // Ostia - Syracuse
+  [0, 9, [[12.0, 38.5]]],                          // Ostia - Carthage
+  [0, 5, [[10.5, 42.5]]],                          // Ostia - Genoa
+  [1, 3, [[14.5, 39.0]]],                          // Puteoli - Syracuse
+  [1, 9, [[13.0, 38.0], [11.5, 37.5]]],            // Puteoli - Carthage
+  [3, 9, [[13.0, 36.0]]],                          // Syracuse - Carthage
+  [5, 6, [[7.0, 43.5]]],                           // Genoa - Massilia
+  [6, 7, [[4.0, 43.0]]],                           // Massilia - Narbo
+  [7, 8, [[2.0, 42.0]]],                           // Narbo - Tarraco
+  [6, 9, [[5.0, 40.5], [7.0, 38.0]]],              // Massilia - Carthage
+  [9, 10, [[9.0, 36.8]]],                          // Carthage - Hippo
+  [10, 6, [[6.5, 38.5], [5.5, 41.0]]],             // Hippo - Massilia (via Balearics)
+
+  // Central Mediterranean
+  [3, 12, [[18.0, 35.0], [24.0, 33.0]]],           // Syracuse - Alexandria
+  [9, 12, [[15.0, 34.0], [22.0, 32.5]]],           // Carthage - Alexandria
+  [9, 11, [[12.0, 34.5]]],                         // Carthage - Leptis
+  [11, 12, [[18.0, 32.0], [24.0, 31.5]]],          // Leptis - Alexandria
+  [11, 21, [[18.0, 32.5]]],                        // Leptis - Cyrene
+  [21, 12, [[25.0, 32.0]]],                        // Cyrene - Alexandria
+
+  // Eastern Mediterranean
+  [12, 13, [[32.0, 31.5]]],                        // Alexandria - Caesarea
+  [13, 14, [[35.5, 34.0]]],                        // Caesarea - Antioch/Seleucia
+  [12, 14, [[32.0, 33.0], [34.5, 35.0]]],          // Alexandria - Antioch
+  [15, 12, [[27.0, 37.0], [30.0, 33.0]]],          // Constantinople - Alexandria
+  [15, 14, [[30.0, 38.0], [34.0, 36.5]]],          // Constantinople - Antioch
+  [15, 19, [[28.0, 39.5]]],                        // Constantinople - Ephesus
+  [19, 20, []],                                    // Ephesus - Smyrna (very close, direct)
+  [17, 18, []],                                    // Athens - Corinth (close)
+  [17, 19, [[25.5, 37.8]]],                        // Athens - Ephesus
+  [16, 15, [[25.0, 40.5]]],                        // Thessalonica - Constantinople
+  [16, 17, [[23.5, 39.0]]],                        // Thessalonica - Athens
+
+  // Adriatic
+  [4, 15, [[16.0, 41.0], [20.0, 39.0], [25.0, 39.5]]], // Ravenna - Constantinople
+  [2, 17, [[19.0, 39.5], [21.5, 38.5]]],           // Brundisium - Athens
+  [2, 15, [[19.0, 39.5], [23.0, 39.0], [26.0, 40.0]]], // Brundisium - Constantinople
+  [4, 2, [[14.0, 42.5], [16.0, 41.5]]],            // Ravenna - Brundisium (coastal)
+
+  // Cross-basin connections
+  [3, 17, [[17.0, 37.0], [20.5, 37.5]]],           // Syracuse - Athens
+  [0, 14, [[16.0, 38.0], [22.0, 36.0], [30.0, 35.5]]], // Ostia - Antioch
+  [6, 12, [[5.0, 40.0], [7.0, 37.5], [15.0, 34.0], [24.0, 32.0]]], // Massilia - Alexandria
+];
+
+// Build sea route adjacency for BFS
+const SEA_ADJ: Map<number, { neighbor: number; connIdx: number }[]> = new Map();
+for (let ci = 0; ci < SEA_CONNECTIONS.length; ci++) {
+  const [a, b] = SEA_CONNECTIONS[ci];
+  if (!SEA_ADJ.has(a)) SEA_ADJ.set(a, []);
+  if (!SEA_ADJ.has(b)) SEA_ADJ.set(b, []);
+  SEA_ADJ.get(a)!.push({ neighbor: b, connIdx: ci });
+  SEA_ADJ.get(b)!.push({ neighbor: a, connIdx: ci });
+}
+
+// BFS to find shortest sea route between two ports in the port network
+function findSeaRoute(fromPortIdx: number, toPortIdx: number): [number, number][] | null {
+  if (fromPortIdx === toPortIdx) return [];
+
+  const visited = new Set<number>([fromPortIdx]);
+  // Queue entries: [currentPortIdx, path of port indices]
+  const queue: [number, number[]][] = [[fromPortIdx, [fromPortIdx]]];
+
+  while (queue.length > 0) {
+    const [current, path] = queue.shift()!;
+    const neighbors = SEA_ADJ.get(current);
+    if (!neighbors) continue;
+
+    for (const { neighbor } of neighbors) {
+      if (visited.has(neighbor)) continue;
+      visited.add(neighbor);
+      const newPath = [...path, neighbor];
+
+      if (neighbor === toPortIdx) {
+        // Reconstruct full coordinate path from port chain
+        const coords: [number, number][] = [];
+        for (let i = 0; i < newPath.length - 1; i++) {
+          const pA = newPath[i];
+          const pB = newPath[i + 1];
+          // Find the connection between pA and pB
+          const conn = SEA_CONNECTIONS.find(
+            ([a, b]) => (a === pA && b === pB) || (a === pB && b === pA)
+          );
+          if (!conn) continue;
+          const [cA, , waypoints] = conn;
+          const portStart = PORTS[pA];
+          const portEnd = PORTS[pB];
+
+          // Add start port (skip if not first segment, already added)
+          if (i === 0) coords.push([portStart.lon, portStart.lat]);
+
+          // Add waypoints (reverse if connection is stored in opposite direction)
+          if (cA === pA) {
+            for (const wp of waypoints) coords.push(wp);
+          } else {
+            for (let w = waypoints.length - 1; w >= 0; w--) coords.push(waypoints[w]);
+          }
+
+          // Add end port
+          coords.push([portEnd.lon, portEnd.lat]);
+        }
+        return coords;
+      }
+
+      queue.push([neighbor, newPath]);
+    }
+  }
+
+  return null; // No sea route between these ports
+}
+
+// Find nearest port to a given lon/lat (within maxDistKm)
+function findNearestPort(lon: number, lat: number, maxDistKm: number = 300): number | null {
+  let bestIdx: number | null = null;
+  let bestDist = maxDistKm;
+  for (let i = 0; i < PORTS.length; i++) {
+    const d = haversineKm(lon, lat, PORTS[i].lon, PORTS[i].lat);
+    if (d < bestDist) {
+      bestDist = d;
+      bestIdx = i;
+    }
+  }
+  return bestIdx;
+}
+
+// Map from road segment key to set of letter IDs using that segment (for heatmap)
+const roadSegmentTraffic = new Map<string, Set<number>>();
+
+// Record road segment usage for a letter route
+function recordSegmentTraffic(letterId: number, roadPathIndices: number[]): void {
+  for (let i = 0; i < roadPathIndices.length - 1; i++) {
+    const a = roadPathIndices[i];
+    const b = roadPathIndices[i + 1];
+    // Normalize key so segment a-b and b-a are the same
+    const key = a < b ? `${a}-${b}` : `${b}-${a}`;
+    let set = roadSegmentTraffic.get(key);
+    if (!set) {
+      set = new Set();
+      roadSegmentTraffic.set(key, set);
+    }
+    set.add(letterId);
+  }
+}
 
 // ── Road network spatial index ───────────────────────────────────────
 
@@ -296,34 +455,18 @@ function findRoadPath(net: RoadNetwork, startIdx: number, endIdx: number, maxSte
   return null; // No path found within budget
 }
 
-// Get the route coords (lon/lat pairs) for a letter, using road network or sea routes
+// Get the route coords (lon/lat pairs) for a letter, using road network, hybrid road+sea, or fallback
 function getLetterRoute(
   net: RoadNetwork | null,
   sLon: number, sLat: number,
   rLon: number, rLat: number,
-): { coords: [number, number][]; isSea: boolean } {
-  // Check sea routes first - find the best matching sea route
+  letterId?: number,
+): { coords: [number, number][]; isSea: boolean; roadPath?: number[] } {
   const senderPt: [number, number] = [sLon, sLat];
   const recipPt: [number, number] = [rLon, rLat];
+  const directDistKm = haversineKm(sLon, sLat, rLon, rLat);
 
-  for (const route of SEA_ROUTES) {
-    const [e1, e2] = route.endpoints;
-    // Check if sender+recipient are close to either direction of this sea route
-    const d1s = distSq(sLon, sLat, e1[0], e1[1]);
-    const d1r = distSq(rLon, rLat, e2[0], e2[1]);
-    const d2s = distSq(sLon, sLat, e2[0], e2[1]);
-    const d2r = distSq(rLon, rLat, e1[0], e1[1]);
-    const threshold = 4.0; // ~2 degrees
-
-    if (d1s < threshold && d1r < threshold) {
-      return { coords: route.coords.map(c => [c[0], c[1]]) as [number, number][], isSea: true };
-    }
-    if (d2s < threshold && d2r < threshold) {
-      return { coords: [...route.coords].reverse().map(c => [c[0], c[1]]) as [number, number][], isSea: true };
-    }
-  }
-
-  // Try road network
+  // 1. Try direct A* road route
   if (net) {
     const startNode = findNearestNode(net, sLon, sLat);
     const endNode = findNearestNode(net, rLon, rLat);
@@ -336,12 +479,88 @@ function getLetterRoute(
           coords.push([net.nodes[nodeIdx].lon, net.nodes[nodeIdx].lat]);
         }
         coords.push(recipPt);
-        return { coords, isSea: false };
+        const routeDist = routeDistanceKm(coords);
+
+        // Use road route if it's not excessively long compared to straight-line
+        if (routeDist < directDistKm * 1.5) {
+          return { coords, isSea: false, roadPath: path };
+        }
       }
     }
   }
 
-  // Fallback: direct line
+  // 2. Try hybrid road + sea routing through ports
+  const senderPort = findNearestPort(sLon, sLat);
+  const recipPort = findNearestPort(rLon, rLat);
+
+  if (senderPort !== null && recipPort !== null && senderPort !== recipPort) {
+    const seaCoords = findSeaRoute(senderPort, recipPort);
+    if (seaCoords && seaCoords.length >= 2) {
+      // Build hybrid route: road to port -> sea -> road from port
+      const allCoords: [number, number][] = [];
+      const roadPathIndices: number[] = [];
+
+      // Segment A: sender -> nearest port (by road if possible)
+      const portStart = PORTS[senderPort];
+      if (net) {
+        const sNode = findNearestNode(net, sLon, sLat);
+        const pNode = findNearestNode(net, portStart.lon, portStart.lat);
+        if (sNode !== null && pNode !== null && sNode !== pNode) {
+          const roadToPort = findRoadPath(net, sNode, pNode, 20000);
+          if (roadToPort && roadToPort.length >= 2) {
+            allCoords.push(senderPt);
+            for (const ni of roadToPort) {
+              allCoords.push([net.nodes[ni].lon, net.nodes[ni].lat]);
+            }
+            roadPathIndices.push(...roadToPort);
+          } else {
+            allCoords.push(senderPt);
+            allCoords.push([portStart.lon, portStart.lat]);
+          }
+        } else {
+          allCoords.push(senderPt);
+          if (sNode !== pNode) allCoords.push([portStart.lon, portStart.lat]);
+        }
+      } else {
+        allCoords.push(senderPt);
+        allCoords.push([portStart.lon, portStart.lat]);
+      }
+
+      // Segment B: sea route between ports
+      for (const sc of seaCoords) {
+        allCoords.push(sc);
+      }
+
+      // Segment C: port -> recipient (by road if possible)
+      const portEnd = PORTS[recipPort];
+      if (net) {
+        const pNode = findNearestNode(net, portEnd.lon, portEnd.lat);
+        const eNode = findNearestNode(net, rLon, rLat);
+        if (pNode !== null && eNode !== null && pNode !== eNode) {
+          const roadFromPort = findRoadPath(net, pNode, eNode, 20000);
+          if (roadFromPort && roadFromPort.length >= 2) {
+            for (const ni of roadFromPort) {
+              allCoords.push([net.nodes[ni].lon, net.nodes[ni].lat]);
+            }
+            allCoords.push(recipPt);
+            roadPathIndices.push(...roadFromPort);
+          } else {
+            allCoords.push(recipPt);
+          }
+        } else {
+          if (pNode !== eNode) allCoords.push(recipPt);
+        }
+      } else {
+        allCoords.push(recipPt);
+      }
+
+      if (allCoords.length >= 2) {
+        return { coords: allCoords, isSea: true, roadPath: roadPathIndices.length > 0 ? roadPathIndices : undefined };
+      }
+    }
+  }
+
+  // 3. Fallback: bezier arc (direct line - rendered as curve by canvas)
   return { coords: [senderPt, recipPt], isSea: false };
 }
 
@@ -356,7 +575,7 @@ function routeDistanceKm(coords: [number, number][]): number {
 }
 
 // Cache for letter routes (computed once when road network loads)
-const letterRouteCache = new Map<number, { coords: [number, number][]; isSea: boolean; distKm: number }>();
+const letterRouteCache = new Map<number, { coords: [number, number][]; isSea: boolean; distKm: number; roadPath?: number[] }>();
 
 // ── Helpers ───────────────────────────────────────────────────────────
 
@@ -1116,6 +1335,7 @@ export default function RomanMap({
               let noStartNode = 0;
               let noEndNode = 0;
               let noPath = 0;
+              let hybridRoutes = 0;
               function computeBatch() {
                 const end = Math.min(batchIdx + batchSize, letters.length);
                 for (let i = batchIdx; i < end; i++) {
@@ -1125,10 +1345,18 @@ export default function RomanMap({
                     const startNode = findNearestNode(net, l.s_lon, l.s_lat);
                     const endNode = findNearestNode(net, l.r_lon, l.r_lat);
 
-                    const route = getLetterRoute(net, l.s_lon, l.s_lat, l.r_lon, l.r_lat);
+                    const route = getLetterRoute(net, l.s_lon, l.s_lat, l.r_lon, l.r_lat, l.id);
                     const distKm = routeDistanceKm(route.coords);
-                    letterRouteCache.set(l.id, { ...route, distKm });
-                    if (route.isSea) {
+                    letterRouteCache.set(l.id, { coords: route.coords, isSea: route.isSea, distKm, roadPath: route.roadPath });
+
+                    // Record road segment traffic for heatmap
+                    if (route.roadPath && route.roadPath.length >= 2) {
+                      recordSegmentTraffic(l.id, route.roadPath);
+                    }
+
+                    if (route.isSea && route.roadPath) {
+                      hybridRoutes++;
+                    } else if (route.isSea) {
                       seaRoutes++;
                     } else if (route.coords.length > 2) {
                       roadRoutes++;
@@ -1144,7 +1372,8 @@ export default function RomanMap({
                 if (batchIdx < letters.length) {
                   requestAnimationFrame(computeBatch);
                 } else {
-                  console.log(`Routes computed for ${letterRouteCache.size} letters: ${roadRoutes} road, ${seaRoutes} sea, ${fallbackArcs} fallback straight-line`);
+                  console.log(`Routes computed for ${letterRouteCache.size} letters: ${roadRoutes} road, ${seaRoutes} sea, ${hybridRoutes} hybrid (road+sea), ${fallbackArcs} fallback straight-line`);
+                  console.log(`Road segment traffic: ${roadSegmentTraffic.size} unique segments tracked`);
                   if (fallbackArcs > 0) {
                     console.log(`Fallback reasons: ${noStartNode} no start node, ${noEndNode} no end node, ${noPath} no path found (A* exhausted)`);
                   }
