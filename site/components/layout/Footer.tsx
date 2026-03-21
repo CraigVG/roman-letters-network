@@ -60,6 +60,12 @@ export function Footer() {
               >
                 Map
               </Link>
+              <Link
+                href="/thesis"
+                className="text-sm text-theme-muted hover:text-theme-accent transition-colors"
+              >
+                Thesis
+              </Link>
             </nav>
           </div>
 
@@ -96,13 +102,13 @@ export function Footer() {
         {/* Bottom rule + copyright */}
         <div className="mt-10 pt-6 border-t border-theme flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <p className="text-xs text-theme-muted">
-            An open-source project mapping late Roman correspondence networks (300-600 AD).
+            An open-source project mapping late Roman correspondence networks (97-800 AD).
           </p>
           <p
             className="text-xs text-theme-muted italic"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
-            300-600 AD
+            97-800 AD
           </p>
         </div>
       </div>

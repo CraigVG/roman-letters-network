@@ -21,7 +21,7 @@ export default function LettersBrowsePage() {
         Browse Letters
       </h1>
       <p className="mt-2 text-theme-muted max-w-2xl">
-        7,049 letters from 54 collections spanning the late Roman world.
+        7,049 letters from 42 collections spanning the late Roman world.
         Search by topic, collection, era, or discover something unexpected.
       </p>
 

@@ -5,7 +5,7 @@
 **Live site: https://romanletters.org**
 **GitHub: https://github.com/CraigVG/roman-letters-network**
 
-7,049 letters from the late ancient world (97-800 AD) translated into modern English, with interactive network and geographic visualizations. Inspired by Patrick Wyman's USC dissertation "Letters, Mobility, and the Fall of the Roman Empire" (2016). 3,820+ letters translated to English for the first time.
+7,049 letters from the late ancient world (100-800 AD) translated into modern English, with interactive network and geographic visualizations. Inspired by Patrick Wyman's USC dissertation "Letters, Mobility, and the Fall of the Roman Empire" (2016). 3,068 letters translated to English for the first time.
 
 ## Tech Stack
 
@@ -56,11 +56,11 @@ roman-letters-network/
 | Metric | Value |
 |--------|-------|
 | Total letters | 7,049 |
-| Collections | 54 |
+| Collections | 42 |
 | Modern English translations | ~100% |
-| First-ever English translations | 3,820+ |
+| First-ever English translations | 3,068 |
 | People identified | 1,516 |
-| Letters with distance data | 2,523 |
+| Letters with distance data | 2,433 |
 | Letters with carrier mentions | 478 |
 
 ## Key Features

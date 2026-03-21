@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | Roman Letters',
   },
   description:
-    'Mapping the communication networks of the late Roman Empire through 6,211 surviving letters (300-600 AD).',
+    'Mapping the communication networks of the late Roman Empire through 7,049 surviving letters (100-800 AD).',
 };
 
 export default function RootLayout({

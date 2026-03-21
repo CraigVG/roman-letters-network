@@ -6,7 +6,7 @@
 
 ---
 
-The first public resource to bring together 54 late antique letter collections spanning 700 years (97-800 AD), with modern English translations for over 7,000 letters — including 3,820+ translated into English for the first time.
+The first public resource to bring together 42 late antique letter collections spanning 700 years (100-800 AD), with modern English translations for over 7,000 letters — including 3,068 translated into English for the first time.
 
 ## What This Is
 
@@ -21,12 +21,12 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 | Metric | Value |
 |--------|-------|
 | Total letters | 7,049 |
-| Collections | 54 |
-| Time span | 97-800 AD |
+| Collections | 42 |
+| Time span | 100-800 AD |
 | Modern English translations | ~100% |
-| First-ever English translations | 3,820+ |
+| First-ever English translations | 3,068 |
 | People identified | 1,516 |
-| Letters with distance data | 2,523 |
+| Letters with distance data | 2,433 |
 | Letters with carrier mentions | 478 |
 
 ### Major Collections
@@ -46,7 +46,7 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 | Theodoret of Cyrrhus | 181 | 423-466 | Theologian in Christological controversies |
 | Sidonius Apollinaris | 171 | 455-480 | Watching Roman Gaul collapse |
 | Synesius of Cyrene | 159 | 394-413 | Philosopher-bishop in collapsing Roman Libya |
-| + 41 more collections | | | |
+| + 29 more collections | | | |
 
 ## Features
 
@@ -123,7 +123,7 @@ Links to original scanned editions on the Internet Archive are included for ever
 
 The modern English translations were produced with the assistance of AI (Claude by Anthropic). They are **not** peer-reviewed scholarly translations. They aim to make these letters accessible to a general audience — anyone who wants to hear the voices of the late Roman world.
 
-Where both a Latin/Greek original and a 19th-century English translation existed, both were used as sources. Each letter page provides access to all available versions. For the 3,820+ letters translated to English for the first time, the modern translation was produced directly from the Latin or Greek text.
+Where both a Latin/Greek original and a 19th-century English translation existed, both were used as sources. Each letter page provides access to all available versions. For the 3,068 letters translated to English for the first time, the modern translation was produced directly from the Latin or Greek text.
 
 We welcome corrections. If you spot an error or want to contribute a more accurate translation, please open an issue.
 

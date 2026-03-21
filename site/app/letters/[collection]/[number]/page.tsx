@@ -146,7 +146,7 @@ export default async function LetterPage({ params }: Props) {
             </>
           )}
           <span className="text-theme-muted/40">|</span>
-          <span className="capitalize" data-pagefind-filter="collection">{collectionLabel}</span>
+          <span className="capitalize" data-pagefind-filter="collection">{collection?.author_name ?? collectionLabel}</span>
           {letter.origin_place && (
             <>
               <span className="text-theme-muted/40">|</span>
@@ -250,7 +250,7 @@ export default async function LetterPage({ params }: Props) {
             Related Letters
           </h2>
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {related.map((r) => (
+            {related.filter((r) => !(r.collection === collectionSlug && r.letter_number === letterNumber)).map((r) => (
               <Link
                 key={r.id}
                 href={`/letters/${r.collection}/${r.letter_number}/`}
@@ -301,7 +301,7 @@ export default async function LetterPage({ params }: Props) {
               href={`/letters/${collectionSlug}/`}
               className="text-sm text-theme-muted hover:text-theme-accent transition-colors"
             >
-              All {collectionLabel}
+              All {collection?.author_name ?? collectionLabel}
             </Link>
           </div>
           {adjacent.next ? (
@@ -324,7 +324,7 @@ export default async function LetterPage({ params }: Props) {
             href={`/letters/${collectionSlug}/`}
             className="text-sm text-theme-muted hover:text-theme-accent transition-colors"
           >
-            All {collectionLabel}
+            All {collection?.author_name ?? collectionLabel}
           </Link>
         </div>
       </nav>

@@ -1,58 +1,56 @@
 import Link from 'next/link';
 import { FallOfRomeStory } from '@/components/home/FallOfRomeStory';
 import { HeroAnimation } from '@/components/home/HeroAnimation';
+import { getDb } from '@/lib/db';
 
-const stats = [
-  { value: '7,049', label: 'Letters preserved' },
-  { value: '54', label: 'Collections' },
-  { value: '4,410', label: 'First-ever English translations' },
-];
+function getStats() {
+  const db = getDb();
+  const count = (sql: string) => (db.prepare(sql).get() as { c: number }).c;
+  return {
+    totalLetters: count("SELECT COUNT(*) as c FROM letters"),
+    collections: count("SELECT COUNT(*) as c FROM collections WHERE letter_count > 0"),
+    firstEnglish: count("SELECT COUNT(*) as c FROM letters WHERE modern_english IS NOT NULL AND (english_text IS NULL OR english_text = '') AND translation_source NOT IN ('existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse')"),
+  };
+}
 
-const collections = [
-  {
-    name: 'Augustine',
-    count: 308,
-    period: '386-430',
-    century: '4th-5th c.',
-    description: 'Bishop of Hippo\u2019s theological and pastoral correspondence',
-  },
-  {
-    name: 'Gregory the Great',
-    count: 854,
-    period: '590-604',
-    century: '6th-7th c.',
-    description: 'Papal administration across a fragmenting Western empire',
-  },
-  {
-    name: 'Symmachus',
-    count: 900,
-    period: '365-402',
-    century: '4th-5th c.',
-    description: 'The last great pagan senator\u2019s aristocratic network',
-  },
-  {
-    name: 'Basil of Caesarea',
-    count: 368,
-    period: '357-378',
-    century: '4th c.',
-    description: 'Cappadocian Father navigating Arian controversy',
-  },
-];
+function getTopCollections() {
+  const db = getDb();
+  return db.prepare(`
+    SELECT slug, author_name, letter_count, date_range
+    FROM collections
+    WHERE letter_count > 0
+    ORDER BY letter_count DESC
+    LIMIT 4
+  `).all() as { slug: string; author_name: string; letter_count: number; date_range: string }[];
+}
+
+const descriptionMap: Record<string, string> = {
+  libanius: 'Last great pagan rhetorician of Antioch',
+  symmachus: "The last pagan senator's aristocratic network",
+  isidore_pelusium: "Egyptian monk's moral counsel from the desert",
+  cassiodorus: 'Ostrogothic state correspondence',
+};
 
 export default function HomePage() {
+  const stats = getStats();
+  const topCollections = getTopCollections();
+
+  const statsDisplay = [
+    { value: stats.totalLetters.toLocaleString(), label: 'Letters preserved' },
+    { value: String(stats.collections), label: 'Collections' },
+    { value: stats.firstEnglish.toLocaleString(), label: 'First-ever English translations' },
+  ];
+
   return (
     <div>
-      {/* Animated arc map hero */}
       <HeroAnimation />
 
-      {/* Fall of Rome scrollytelling */}
       <FallOfRomeStory />
 
-      {/* Stats */}
       <section className="border-y border-theme">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[var(--color-border)]">
-            {stats.map((stat) => (
+            {statsDisplay.map((stat) => (
               <div key={stat.label} className="py-8 sm:py-12 sm:px-8 first:sm:pl-0 last:sm:pr-0">
                 <div
                   className="text-4xl sm:text-5xl font-light tracking-tight text-theme-accent"
@@ -67,7 +65,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Collections */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <h2
           className="text-2xl sm:text-3xl tracking-tight"
@@ -81,10 +78,10 @@ export default function HomePage() {
         </p>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {collections.map((c) => (
+          {topCollections.map((c) => (
             <Link
-              key={c.name}
-              href={`/letters?collection=${encodeURIComponent(c.name)}`}
+              key={c.slug}
+              href={`/letters/${c.slug}/`}
               className="group block p-6 rounded-lg border border-theme bg-theme-surface
                 hover:border-[var(--color-accent)] transition-all duration-200"
             >
@@ -93,23 +90,22 @@ export default function HomePage() {
                   className="text-lg group-hover:text-theme-accent transition-colors"
                   style={{ fontFamily: 'var(--font-serif)' }}
                 >
-                  {c.name}
+                  {c.author_name}
                 </h3>
                 <span
                   className="shrink-0 text-sm tabular-nums text-theme-accent font-light mt-0.5"
                   style={{ fontFamily: 'var(--font-serif)', fontVariantNumeric: 'oldstyle-nums' }}
                 >
-                  {c.period}
+                  {c.date_range}
                 </span>
               </div>
               <p className="mt-2 text-sm text-theme-muted leading-relaxed">
-                {c.description}
+                {descriptionMap[c.slug] || ''}
               </p>
               <div className="mt-4 flex items-center justify-between">
                 <span className="text-xs text-theme-accent font-medium tabular-nums">
-                  {c.count} letters
+                  {c.letter_count} letters
                 </span>
-                <span className="text-xs text-theme-muted">{c.century}</span>
               </div>
             </Link>
           ))}
@@ -120,12 +116,11 @@ export default function HomePage() {
             href="/letters"
             className="text-sm text-theme-muted hover:text-theme-accent transition-colors"
           >
-            View all 54 collections &rarr;
+            View all {stats.collections} collections &rarr;
           </Link>
         </div>
       </section>
 
-      {/* Pull quote */}
       <section className="border-t border-theme">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center">
           <div className="flex justify-center mb-6">
