@@ -34,6 +34,14 @@ function distSq(lon1, lat1, lon2, lat2) {
   return dx * dx + dy * dy;
 }
 
+function haversine(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLon/2)**2;
+  return R * 2 * Math.asin(Math.sqrt(a));
+}
+
 // ── Road network graph (mirrors RomanMap.tsx logic) ──────────────────────────
 
 function buildRoadNetwork(geojson) {
@@ -355,7 +363,7 @@ function main() {
   console.log('Connecting disconnected road segments...');
   connectComponents(net);
 
-  // segments: { featureIdx: { eraStart: count } }
+  // segments: { featureIdx: { eraStart: { count, totalDist } } }
   const segments = {};
   let routed = 0;
   let noStart = 0;
@@ -385,6 +393,9 @@ function main() {
     const pathFeatures = findRoadPathFeatures(net, startNode, endNode);
     if (pathFeatures === null) { noPath++; continue; }
 
+    // Haversine distance between sender and recipient (the letter's total trip distance)
+    const tripDist = haversine(letter.s_lat, letter.s_lon, letter.r_lat, letter.r_lon);
+
     const era = getEraBucket(letter.year_approx);
     // Deduplicate features in a single path (a road feature can appear multiple times)
     // Skip bridge edges (featureIdx = -1) which connect disconnected components
@@ -393,7 +404,9 @@ function main() {
       if (fi < 0 || seen.has(fi)) continue;
       seen.add(fi);
       if (!segments[fi]) segments[fi] = {};
-      segments[fi][era] = (segments[fi][era] || 0) + 1;
+      if (!segments[fi][era]) segments[fi][era] = { count: 0, totalDist: 0 };
+      segments[fi][era].count += 1;
+      segments[fi][era].totalDist += tripDist;
     }
     routed++;
   }
@@ -405,30 +418,41 @@ function main() {
   console.log(`  No end node: ${noEnd}`);
   console.log(`  No path (A* exhausted): ${noPath}`);
 
-  // Compute max traffic
+  // Convert totalDist to avgDist and compute max traffic / max avgDist
   let maxTraffic = 0;
+  let maxAvgDist = 0;
   let busiestFeature = null;
   let busiestEra = null;
-  for (const [fi, eraCounts] of Object.entries(segments)) {
-    for (const [era, count] of Object.entries(eraCounts)) {
+  const outputSegments = {};
+
+  for (const [fi, eraData] of Object.entries(segments)) {
+    outputSegments[fi] = {};
+    for (const [era, data] of Object.entries(eraData)) {
+      const count = data.count;
+      const avgDist = Math.round(data.totalDist / count);
+      outputSegments[fi][era] = { count, avgDist };
       if (count > maxTraffic) {
         maxTraffic = count;
         busiestFeature = fi;
         busiestEra = era;
       }
+      if (avgDist > maxAvgDist) {
+        maxAvgDist = avgDist;
+      }
     }
   }
 
-  const segmentCount = Object.keys(segments).length;
+  const segmentCount = Object.keys(outputSegments).length;
   console.log(`\nStats:`);
   console.log(`  Segments with traffic: ${segmentCount} / ${roadsData.features.length}`);
   console.log(`  Max traffic: ${maxTraffic} (feature #${busiestFeature}, era ${busiestEra})`);
+  console.log(`  Max avg distance: ${maxAvgDist} km`);
 
   // Per-era totals
   for (const era of ERAS) {
     let total = 0;
-    for (const eraCounts of Object.values(segments)) {
-      total += eraCounts[era.start] || 0;
+    for (const eraData of Object.values(outputSegments)) {
+      total += (eraData[era.start]?.count) || 0;
     }
     console.log(`  ${era.label}: ${total} segment-traversals`);
   }
@@ -436,8 +460,9 @@ function main() {
   // Build output
   const output = {
     eras: ERAS,
-    segments,
+    segments: outputSegments,
     maxTraffic,
+    maxAvgDist,
   };
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output));

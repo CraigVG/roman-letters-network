@@ -9,10 +9,16 @@ interface Era {
   end: number;
 }
 
+interface SegmentEraData {
+  count: number;
+  avgDist: number;
+}
+
 interface HeatmapData {
   eras: Era[];
-  segments: Record<string, Record<string, number>>;
+  segments: Record<string, Record<string, SegmentEraData>>;
   maxTraffic: number;
+  maxAvgDist: number;
 }
 
 type GeoJSONFeatureCollection = {
@@ -25,6 +31,38 @@ type GeoJSONFeatureCollection = {
     };
   }>;
 };
+
+interface MapLetter {
+  id: number;
+  year_approx: number;
+  s_lat: number;
+  s_lon: number;
+  r_lat: number;
+  r_lon: number;
+  [key: string]: unknown;
+}
+
+// ── Era definitions ──────────────────────────────────────────────────
+const ERA_OPTIONS = [
+  { key: '300', label: '300s' },
+  { key: '350', label: '350s' },
+  { key: '400', label: '400s' },
+  { key: '450', label: '450s' },
+  { key: '500', label: '500s' },
+  { key: '550', label: '550s' },
+];
+
+// ── Sea lanes ────────────────────────────────────────────────────────
+const SEA_LANES: { coords: [number, number][]; label: string }[] = [
+  { coords: [[12.3, 41.8], [12.0, 38.5], [10.2, 36.8]], label: 'Rome-Carthage' },
+  { coords: [[12.3, 41.8], [15.0, 38.0], [20.0, 35.0], [25.0, 32.0], [29.9, 31.2]], label: 'Rome-Alexandria' },
+  { coords: [[12.3, 41.8], [16.0, 39.5], [20.0, 38.0], [24.0, 38.5], [29.0, 41.0]], label: 'Rome-Constantinople' },
+  { coords: [[5.4, 43.3], [5.0, 40.5], [7.0, 38.0], [10.2, 36.8]], label: 'Massilia-Carthage' },
+  { coords: [[10.2, 36.8], [15.0, 34.0], [22.0, 32.5], [29.9, 31.2]], label: 'Carthage-Alexandria' },
+  { coords: [[29.0, 41.0], [27.0, 37.0], [30.0, 33.0], [29.9, 31.2]], label: 'Constantinople-Alexandria' },
+  { coords: [[29.0, 41.0], [30.0, 38.0], [33.0, 36.5], [36.2, 36.2]], label: 'Constantinople-Antioch' },
+  { coords: [[12.2, 44.4], [16.0, 41.0], [20.0, 39.0], [24.0, 39.5], [29.0, 41.0]], label: 'Ravenna-Constantinople' },
+];
 
 // ── Projection constants ──────────────────────────────────────────────
 const BBOX = { minLon: -12, maxLon: 48, minLat: 22, maxLat: 58 };
@@ -45,6 +83,9 @@ function projectMercator(
   const y = height - ((yMerc - yMin) / (yMax - yMin)) * height;
   return [x, y];
 }
+
+// ── Color mode type ──────────────────────────────────────────────────
+type ColorMode = 'volume' | 'distance';
 
 // ── Color interpolation ──────────────────────────────────────────────
 function trafficColor(count: number, maxTraffic: number): string {
@@ -82,12 +123,73 @@ function trafficWidth(count: number, maxTraffic: number): number {
   return 0.5 + t * 3;
 }
 
+// ── Distance-based color ─────────────────────────────────────────────
+function distanceColor(avgDist: number, maxAvgDist: number): string {
+  if (avgDist <= 0) return 'rgba(80,80,80,0.15)';
+  const t = Math.min(avgDist / maxAvgDist, 1);
+
+  let r: number, g: number, b: number;
+  if (t < 0.2) {
+    // Short: cool teal-blue
+    const s = t / 0.2;
+    r = 40 + s * 40;
+    g = 160 + s * 40;
+    b = 220 - s * 40;
+  } else if (t < 0.5) {
+    // Medium: warm orange
+    const s = (t - 0.2) / 0.3;
+    r = 80 + s * 175;
+    g = 200 - s * 80;
+    b = 180 - s * 140;
+  } else {
+    // Long: bright gold/red
+    const s = (t - 0.5) / 0.5;
+    r = 255;
+    g = 120 - s * 50;
+    b = 40 - s * 30;
+  }
+  const alpha = 0.5 + t * 0.5;
+  return `rgba(${Math.round(r)},${Math.round(g)},${Math.round(b)},${alpha.toFixed(2)})`;
+}
+
+function distanceWidth(avgDist: number, maxAvgDist: number): number {
+  if (avgDist <= 0) return 0.3;
+  const t = Math.min(avgDist / maxAvgDist, 1);
+  return 0.5 + t * 3;
+}
+
+// ── Sea traffic computation ──────────────────────────────────────────
+function computeSeaTraffic(letters: MapLetter[], eraStart: number): Map<number, number> {
+  const counts = new Map<number, number>();
+  for (const letter of letters) {
+    if (letter.year_approx < eraStart || letter.year_approx >= eraStart + 50) continue;
+    for (let i = 0; i < SEA_LANES.length; i++) {
+      const lane = SEA_LANES[i];
+      const start = lane.coords[0];
+      const end = lane.coords[lane.coords.length - 1];
+      // Check if letter matches this lane in either direction
+      const d1s = Math.hypot(letter.s_lon - start[0], letter.s_lat - start[1]);
+      const d1e = Math.hypot(letter.r_lon - end[0], letter.r_lat - end[1]);
+      const d2s = Math.hypot(letter.s_lon - end[0], letter.s_lat - end[1]);
+      const d2e = Math.hypot(letter.r_lon - start[0], letter.r_lat - start[1]);
+      if ((d1s < 3 && d1e < 3) || (d2s < 3 && d2e < 3)) {
+        counts.set(i, (counts.get(i) || 0) + 1);
+        break;
+      }
+    }
+  }
+  return counts;
+}
+
 // ── Drawing ──────────────────────────────────────────────────────────
 function drawHeatmap(
   canvas: HTMLCanvasElement,
   roads: GeoJSONFeatureCollection,
   heatmap: HeatmapData,
   eraStartYear: string,
+  seaTraffic: Map<number, number>,
+  maxSeaTraffic: number,
+  colorMode: ColorMode = 'distance',
 ) {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
@@ -131,18 +233,41 @@ function drawHeatmap(
     }
   }
 
-  // Draw segments with traffic data — sorted low-to-high so high values render on top
+  // Draw sea lanes as faint background lines
+  ctx.save();
+  ctx.setLineDash([4, 6]);
+  ctx.strokeStyle = 'rgba(60,80,120,0.15)';
+  ctx.lineWidth = 0.5;
+  for (const lane of SEA_LANES) {
+    ctx.beginPath();
+    const [x0, y0] = projectMercator(lane.coords[0][0], lane.coords[0][1], width, height);
+    ctx.moveTo(x0, y0);
+    for (let j = 1; j < lane.coords.length; j++) {
+      const [x, y] = projectMercator(lane.coords[j][0], lane.coords[j][1], width, height);
+      ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+  ctx.restore();
+
+  // Draw road segments with traffic data — sorted low-to-high so high values render on top
   const segEntries: Array<[number, number]> = [];
   for (const [segIdx, eras] of Object.entries(heatmap.segments)) {
-    const count = eras[eraStartYear] || 0;
-    if (count > 0) {
-      segEntries.push([parseInt(segIdx), count]);
+    const segData = eras[eraStartYear];
+    if (segData) {
+      const sortVal = colorMode === 'distance' ? segData.avgDist : segData.count;
+      if (sortVal > 0) {
+        segEntries.push([parseInt(segIdx), sortVal]);
+      }
     }
   }
   segEntries.sort((a, b) => a[1] - b[1]);
 
-  for (const [segIdx, count] of segEntries) {
+  for (const [segIdx] of segEntries) {
     if (segIdx >= roads.features.length) continue;
+    const segData = heatmap.segments[String(segIdx)]?.[eraStartYear];
+    if (!segData) continue;
+
     const feature = roads.features[segIdx];
     const geom = feature.geometry;
     const lines: number[][][] =
@@ -150,8 +275,13 @@ function drawHeatmap(
         ? (geom.coordinates as number[][][])
         : [geom.coordinates as number[][]];
 
-    ctx.strokeStyle = trafficColor(count, heatmap.maxTraffic);
-    ctx.lineWidth = trafficWidth(count, heatmap.maxTraffic);
+    if (colorMode === 'distance') {
+      ctx.strokeStyle = distanceColor(segData.avgDist, heatmap.maxAvgDist);
+      ctx.lineWidth = distanceWidth(segData.avgDist, heatmap.maxAvgDist);
+    } else {
+      ctx.strokeStyle = trafficColor(segData.count, heatmap.maxTraffic);
+      ctx.lineWidth = trafficWidth(segData.count, heatmap.maxTraffic);
+    }
 
     for (const line of lines) {
       if (line.length < 2) continue;
@@ -165,10 +295,41 @@ function drawHeatmap(
       ctx.stroke();
     }
   }
+
+  // Draw sea lanes with traffic — sorted low-to-high
+  const seaEntries: Array<[number, number]> = [];
+  for (const [laneIdx, count] of seaTraffic) {
+    if (count > 0) seaEntries.push([laneIdx, count]);
+  }
+  seaEntries.sort((a, b) => a[1] - b[1]);
+
+  if (seaEntries.length > 0) {
+    ctx.save();
+    ctx.setLineDash([6, 4]);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    // Use the same color ramp, but scale to maxSeaTraffic for intensity
+    const effectiveMax = Math.max(maxSeaTraffic, 1);
+    for (const [laneIdx, count] of seaEntries) {
+      const lane = SEA_LANES[laneIdx];
+      if (!lane) continue;
+      ctx.strokeStyle = trafficColor(count, effectiveMax);
+      ctx.lineWidth = trafficWidth(count, effectiveMax);
+      ctx.beginPath();
+      const [x0, y0] = projectMercator(lane.coords[0][0], lane.coords[0][1], width, height);
+      ctx.moveTo(x0, y0);
+      for (let j = 1; j < lane.coords.length; j++) {
+        const [x, y] = projectMercator(lane.coords[j][0], lane.coords[j][1], width, height);
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
 }
 
 // ── Legend ────────────────────────────────────────────────────────────
-function Legend({ maxTraffic }: { maxTraffic: number }) {
+function Legend({ maxTraffic, maxAvgDist, colorMode }: { maxTraffic: number; maxAvgDist: number; colorMode: ColorMode }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -183,11 +344,16 @@ function Legend({ maxTraffic }: { maxTraffic: number }) {
     ctx.scale(dpr, dpr);
 
     for (let i = 0; i < 200; i++) {
-      const count = (i / 200) * maxTraffic;
-      ctx.fillStyle = trafficColor(count, maxTraffic);
+      if (colorMode === 'distance') {
+        const dist = (i / 200) * maxAvgDist;
+        ctx.fillStyle = distanceColor(dist, maxAvgDist);
+      } else {
+        const count = (i / 200) * maxTraffic;
+        ctx.fillStyle = trafficColor(count, maxTraffic);
+      }
       ctx.fillRect(i, 0, 1, 12);
     }
-  }, [maxTraffic]);
+  }, [maxTraffic, maxAvgDist, colorMode]);
 
   return (
     <div className="flex items-center gap-2 text-[10px] text-theme-muted">
@@ -196,9 +362,96 @@ function Legend({ maxTraffic }: { maxTraffic: number }) {
         ref={canvasRef}
         style={{ width: 200, height: 12, borderRadius: 2 }}
       />
-      <span>{maxTraffic} letters</span>
+      <span>
+        {colorMode === 'distance'
+          ? `${maxAvgDist} km avg.`
+          : `${maxTraffic} letters`}
+      </span>
     </div>
   );
+}
+
+// ── Era selector ─────────────────────────────────────────────────────
+function EraSelector({
+  label,
+  selected,
+  onSelect,
+  letterCounts,
+}: {
+  label: string;
+  selected: string;
+  onSelect: (era: string) => void;
+  letterCounts: Record<string, number>;
+}) {
+  return (
+    <div className="flex flex-col items-center gap-1.5">
+      <span className="text-[11px] font-medium tracking-wide uppercase text-theme-muted">
+        {label}
+      </span>
+      <div className="flex gap-1">
+        {ERA_OPTIONS.map((era) => {
+          const isActive = selected === era.key;
+          const count = letterCounts[era.key] || 0;
+          const countLabel = count >= 1000
+            ? `${(count / 1000).toFixed(1).replace(/\.0$/, '')}K`
+            : `${count}`;
+          return (
+            <button
+              key={era.key}
+              onClick={() => onSelect(era.key)}
+              className={`
+                px-2 py-1 rounded-md text-xs font-medium transition-colors cursor-pointer border
+                ${
+                  isActive
+                    ? 'bg-[var(--color-accent)] text-white border-[var(--color-accent)]'
+                    : 'bg-theme-surface text-theme-muted border-theme hover:text-theme-text hover:border-[var(--color-accent)]'
+                }
+              `}
+            >
+              {era.label}
+              <span className={`block text-[9px] leading-tight ${isActive ? 'text-white/70' : 'text-theme-muted'}`}>
+                {countLabel}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ── Compute letter counts per era ─────────────────────────────────────
+function computeLetterCounts(letters: MapLetter[]): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const letter of letters) {
+    const eraStart = Math.floor(letter.year_approx / 50) * 50;
+    const key = String(eraStart);
+    counts[key] = (counts[key] || 0) + 1;
+  }
+  return counts;
+}
+
+// ── Compute total road traffic for a given era ────────────────────────
+function computeRoadTrafficTotal(heatmap: HeatmapData, eraKey: string): number {
+  let total = 0;
+  for (const eras of Object.values(heatmap.segments)) {
+    total += eras[eraKey]?.count || 0;
+  }
+  return total;
+}
+
+// ── Compute weighted average distance across all segments for an era ──
+function computeAvgDistForEra(heatmap: HeatmapData, eraKey: string): number {
+  let totalDist = 0;
+  let totalCount = 0;
+  for (const eras of Object.values(heatmap.segments)) {
+    const d = eras[eraKey];
+    if (d) {
+      totalDist += d.avgDist * d.count;
+      totalCount += d.count;
+    }
+  }
+  return totalCount > 0 ? Math.round(totalDist / totalCount) : 0;
 }
 
 // ── Main component ───────────────────────────────────────────────────
@@ -207,7 +460,11 @@ export default function RoadHeatmap() {
   const rightCanvasRef = useRef<HTMLCanvasElement>(null);
   const [heatmap, setHeatmap] = useState<HeatmapData | null>(null);
   const [roads, setRoads] = useState<GeoJSONFeatureCollection | null>(null);
+  const [letters, setLetters] = useState<MapLetter[] | null>(null);
   const [loading, setLoading] = useState(true);
+  const [leftEra, setLeftEra] = useState('350');
+  const [rightEra, setRightEra] = useState('500');
+  const [colorMode, setColorMode] = useState<ColorMode>('distance');
 
   // Load data
   useEffect(() => {
@@ -215,10 +472,12 @@ export default function RoadHeatmap() {
     Promise.all([
       fetch('/data/road-heatmap.json').then((r) => r.json()),
       fetch('/data/roman-roads.json').then((r) => r.json()),
-    ]).then(([hm, rd]) => {
+      fetch('/data/map-letters.json').then((r) => r.json()),
+    ]).then(([hm, rd, ml]) => {
       if (cancelled) return;
       setHeatmap(hm as HeatmapData);
       setRoads(rd as GeoJSONFeatureCollection);
+      setLetters((ml as { letters: MapLetter[] }).letters);
       setLoading(false);
     });
     return () => {
@@ -226,16 +485,34 @@ export default function RoadHeatmap() {
     };
   }, []);
 
+  // Compute letter counts for era badges
+  const letterCounts = letters ? computeLetterCounts(letters) : {};
+
+  // Compute max sea traffic across all eras for consistent scaling
+  const maxSeaTraffic = (() => {
+    if (!letters) return 1;
+    let max = 0;
+    for (const era of ERA_OPTIONS) {
+      const traffic = computeSeaTraffic(letters, parseInt(era.key));
+      for (const count of traffic.values()) {
+        if (count > max) max = count;
+      }
+    }
+    return Math.max(max, 1);
+  })();
+
   // Render both canvases
   const render = useCallback(() => {
-    if (!heatmap || !roads) return;
+    if (!heatmap || !roads || !letters) return;
+    const leftSeaTraffic = computeSeaTraffic(letters, parseInt(leftEra));
+    const rightSeaTraffic = computeSeaTraffic(letters, parseInt(rightEra));
     if (leftCanvasRef.current) {
-      drawHeatmap(leftCanvasRef.current, roads, heatmap, '350');
+      drawHeatmap(leftCanvasRef.current, roads, heatmap, leftEra, leftSeaTraffic, maxSeaTraffic, colorMode);
     }
     if (rightCanvasRef.current) {
-      drawHeatmap(rightCanvasRef.current, roads, heatmap, '500');
+      drawHeatmap(rightCanvasRef.current, roads, heatmap, rightEra, rightSeaTraffic, maxSeaTraffic, colorMode);
     }
-  }, [heatmap, roads]);
+  }, [heatmap, roads, letters, leftEra, rightEra, maxSeaTraffic, colorMode]);
 
   useEffect(() => {
     if (loading) return;
@@ -252,6 +529,23 @@ export default function RoadHeatmap() {
     return () => window.removeEventListener('resize', handleResize);
   }, [loading, render]);
 
+  // Compute traffic totals for panel labels
+  const leftRoadTotal = heatmap ? computeRoadTrafficTotal(heatmap, leftEra) : 0;
+  const rightRoadTotal = heatmap ? computeRoadTrafficTotal(heatmap, rightEra) : 0;
+  const leftSeaTotal = letters
+    ? Array.from(computeSeaTraffic(letters, parseInt(leftEra)).values()).reduce((a, b) => a + b, 0)
+    : 0;
+  const rightSeaTotal = letters
+    ? Array.from(computeSeaTraffic(letters, parseInt(rightEra)).values()).reduce((a, b) => a + b, 0)
+    : 0;
+  const leftAvgDist = heatmap ? computeAvgDistForEra(heatmap, leftEra) : 0;
+  const rightAvgDist = heatmap ? computeAvgDistForEra(heatmap, rightEra) : 0;
+
+  function formatTraffic(n: number): string {
+    if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, '')}K`;
+    return String(n);
+  }
+
   return (
     <section className="max-w-[1400px] mx-auto px-4 sm:px-6 mt-8 mb-12">
       <div className="border-t border-theme pt-6">
@@ -259,12 +553,11 @@ export default function RoadHeatmap() {
           className="text-lg tracking-tight mb-1"
           style={{ fontFamily: 'var(--font-serif)' }}
         >
-          The Network Before and After
+          Road and Sea Traffic: Before and After
         </h2>
         <p className="text-xs text-theme-muted mb-4 max-w-2xl leading-relaxed">
-          Roman road segments colored by letter traffic. At its peak the network
-          connected every corner of the Mediterranean; after fragmentation, only
-          the eastern corridors survived.
+          Select two eras to compare how letter traffic shifted across the Roman
+          world. Solid lines show road traffic; dashed lines show sea routes.
         </p>
 
         {loading ? (
@@ -281,8 +574,50 @@ export default function RoadHeatmap() {
           </div>
         ) : (
           <>
+            {/* Era selectors */}
+            <div className="flex flex-wrap justify-center gap-8 mb-4">
+              <EraSelector
+                label="Before"
+                selected={leftEra}
+                onSelect={setLeftEra}
+                letterCounts={letterCounts}
+              />
+              <EraSelector
+                label="After"
+                selected={rightEra}
+                onSelect={setRightEra}
+                letterCounts={letterCounts}
+              />
+            </div>
+
+            <div className="flex justify-center mb-3">
+              <div className="inline-flex items-center gap-1 text-xs text-theme-muted">
+                <span className="mr-1">Color by:</span>
+                <button
+                  onClick={() => setColorMode('distance')}
+                  className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${
+                    colorMode === 'distance'
+                      ? 'bg-[var(--color-accent)] text-white'
+                      : 'bg-theme-surface text-theme-muted hover:text-theme-text'
+                  }`}
+                >
+                  Distance
+                </button>
+                <button
+                  onClick={() => setColorMode('volume')}
+                  className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${
+                    colorMode === 'volume'
+                      ? 'bg-[var(--color-accent)] text-white'
+                      : 'bg-theme-surface text-theme-muted hover:text-theme-text'
+                  }`}
+                >
+                  Volume
+                </button>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Left panel: peak */}
+              {/* Left panel */}
               <div>
                 <canvas
                   ref={leftCanvasRef}
@@ -293,12 +628,18 @@ export default function RoadHeatmap() {
                   className="mt-2 text-sm text-center"
                   style={{ fontFamily: 'var(--font-serif)' }}
                 >
-                  <span className="text-theme-accent font-medium">Peak:</span>{' '}
-                  <span className="text-theme-muted">350 &ndash; 399 AD</span>
+                  <span className="text-theme-accent font-medium">
+                    {parseInt(leftEra)}&ndash;{parseInt(leftEra) + 49} AD
+                  </span>{' '}
+                  <span className="text-theme-muted text-xs">
+                    {colorMode === 'distance'
+                      ? `(Avg. distance: ${leftAvgDist} km)`
+                      : `(${formatTraffic(leftRoadTotal)} road + ${formatTraffic(leftSeaTotal)} sea)`}
+                  </span>
                 </p>
               </div>
 
-              {/* Right panel: post-collapse */}
+              {/* Right panel */}
               <div>
                 <canvas
                   ref={rightCanvasRef}
@@ -310,16 +651,40 @@ export default function RoadHeatmap() {
                   style={{ fontFamily: 'var(--font-serif)' }}
                 >
                   <span className="text-theme-accent font-medium">
-                    After Fragmentation:
+                    {parseInt(rightEra)}&ndash;{parseInt(rightEra) + 49} AD
                   </span>{' '}
-                  <span className="text-theme-muted">500 &ndash; 549 AD</span>
+                  <span className="text-theme-muted text-xs">
+                    {colorMode === 'distance'
+                      ? `(Avg. distance: ${rightAvgDist} km)`
+                      : `(${formatTraffic(rightRoadTotal)} road + ${formatTraffic(rightSeaTotal)} sea)`}
+                  </span>
                 </p>
               </div>
             </div>
 
             {/* Shared legend */}
-            <div className="mt-3 flex justify-center">
-              <Legend maxTraffic={heatmap?.maxTraffic ?? 340} />
+            <div className="mt-3 flex flex-col items-center gap-1">
+              <Legend maxTraffic={heatmap?.maxTraffic ?? 340} maxAvgDist={heatmap?.maxAvgDist ?? 2000} colorMode={colorMode} />
+              <div className="flex items-center gap-3 text-[10px] text-theme-muted">
+                <span className="flex items-center gap-1">
+                  <span style={{ display: 'inline-block', width: 20, height: 2, background: 'rgba(200,120,40,0.8)' }} />
+                  Roads
+                </span>
+                <span className="flex items-center gap-1">
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      width: 20,
+                      height: 0,
+                      borderTop: '2px dashed rgba(200,120,40,0.8)',
+                    }}
+                  />
+                  Sea routes
+                </span>
+                <span>
+                  {colorMode === 'distance' ? 'Average letter distance' : 'Letter volume'}
+                </span>
+              </div>
             </div>
           </>
         )}
