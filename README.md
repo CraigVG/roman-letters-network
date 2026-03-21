@@ -140,6 +140,10 @@ We welcome corrections. If you spot an error or want to contribute a more accura
 Code: [MIT License](LICENSE)
 Data and Translations: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19142059.svg)](https://doi.org/10.5281/zenodo.19142059)
+
 ## Credits
 
 Built by [Craig Vander Galien](https://craigvandergalien.com). Inspired by Patrick Wyman's doctoral research on the fall of Rome. Modern translations assisted by Claude (Anthropic).
+
+**Cite this dataset:** Vander Galien, Craig. (2026). Roman Letters: 7,049 Letters from the Late Roman World (100-800 AD). Zenodo. https://doi.org/10.5281/zenodo.19142059
