@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   },
   description:
     'Mapping the communication networks of the late Roman Empire through 7,049 surviving letters (100-800 AD).',
+  metadataBase: new URL('https://romanletters.org'),
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({
