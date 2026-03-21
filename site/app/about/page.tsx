@@ -588,29 +588,81 @@ export default function AboutPage() {
             Open source
           </h2>
           <p className="text-theme-text leading-relaxed mt-3">
-            The full dataset, scraping scripts, and this website are open source
-            and available on GitHub.
+            The full dataset, scraping scripts, and this website are open source.
+            The dataset is permanently archived and available on multiple platforms.
           </p>
-          <div className="mt-4">
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
             <a
-              href="https://github.com/craigvandergalien/roman-letters-network"
+              href="https://github.com/CraigVG/roman-letters-network"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium
                 bg-theme-surface border border-theme text-theme-text
                 hover:text-theme-accent hover:border-[var(--color-accent)] transition-colors"
             >
-              <svg
-                className="w-4 h-4"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                aria-hidden="true"
-              >
+              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
               </svg>
-              View on GitHub
+              GitHub
+            </a>
+            <a
+              href="https://doi.org/10.5281/zenodo.19142059"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium
+                bg-theme-surface border border-theme text-theme-text
+                hover:text-theme-accent hover:border-[var(--color-accent)] transition-colors"
+            >
+              Zenodo (DOI)
+            </a>
+            <a
+              href="https://www.kaggle.com/datasets/craigvandergalien/late-roman-empire-letters-100-800-ad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium
+                bg-theme-surface border border-theme text-theme-text
+                hover:text-theme-accent hover:border-[var(--color-accent)] transition-colors"
+            >
+              Kaggle
+            </a>
+            <a
+              href="https://huggingface.co/datasets/craigvg/roman-letters-network"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium
+                bg-theme-surface border border-theme text-theme-text
+                hover:text-theme-accent hover:border-[var(--color-accent)] transition-colors"
+            >
+              HuggingFace
+            </a>
+            <a
+              href="https://archive.org/details/roman_letters"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium
+                bg-theme-surface border border-theme text-theme-text
+                hover:text-theme-accent hover:border-[var(--color-accent)] transition-colors"
+            >
+              Internet Archive
+            </a>
+            <a
+              href="https://github.com/CraigVG/roman-letters-network/releases/tag/v1.0.0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium
+                bg-theme-surface border border-theme text-theme-text
+                hover:text-theme-accent hover:border-[var(--color-accent)] transition-colors"
+            >
+              Download v1.0.0
             </a>
           </div>
+          <p className="mt-4 text-sm text-theme-muted">
+            <strong>Cite this dataset:</strong> Vander Galien, Craig. (2026). Roman Letters: 7,049 Letters
+            from the Late Roman World (100-800 AD). Zenodo.{' '}
+            <a href="https://doi.org/10.5281/zenodo.19142059" className="text-theme-accent hover:underline">
+              doi.org/10.5281/zenodo.19142059
+            </a>
+          </p>
         </section>
 
         {/* Navigation */}

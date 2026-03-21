@@ -127,6 +127,20 @@ Where both a Latin/Greek original and a 19th-century English translation existed
 
 We welcome corrections. If you spot an error or want to contribute a more accurate translation, please open an issue.
 
+## Download the Data
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19142059.svg)](https://doi.org/10.5281/zenodo.19142059)
+
+The full dataset (SQLite database + CSV exports) is available on multiple platforms:
+
+| Platform | Link |
+|----------|------|
+| **Zenodo** (DOI, permanent archive) | [doi.org/10.5281/zenodo.19142059](https://doi.org/10.5281/zenodo.19142059) |
+| **GitHub Release** (v1.0.0) | [github.com/CraigVG/roman-letters-network/releases](https://github.com/CraigVG/roman-letters-network/releases/tag/v1.0.0) |
+| **Kaggle** | [kaggle.com/datasets/craigvandergalien/late-roman-empire-letters-100-800-ad](https://www.kaggle.com/datasets/craigvandergalien/late-roman-empire-letters-100-800-ad) |
+| **HuggingFace** | [huggingface.co/datasets/craigvg/roman-letters-network](https://huggingface.co/datasets/craigvg/roman-letters-network) |
+| **Internet Archive** | [archive.org/details/roman_letters](https://archive.org/details/roman_letters) |
+
 ## Future Work
 
 - **OCR Phase**: Patrologia Graeca volumes 78, 79, 52 could add 3,000+ Greek letters (Isidore of Pelusium, Nilus of Ancyra, John Chrysostom)
@@ -139,8 +153,6 @@ We welcome corrections. If you spot an error or want to contribute a more accura
 
 Code: [MIT License](LICENSE)
 Data and Translations: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19142059.svg)](https://doi.org/10.5281/zenodo.19142059)
 
 ## Credits
 
