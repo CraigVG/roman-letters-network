@@ -28,6 +28,13 @@ export function ScholarlyModeProvider({ children }: { children: React.ReactNode 
   const [scholarlyMode, setScholarlyModeState] = useState(false);
 
   useEffect(() => {
+    // Check URL param first: ?scholarly=true activates scholarly mode
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('scholarly') === 'true') {
+      setScholarlyModeState(true);
+      localStorage.setItem('scholarly-mode', 'true');
+      return;
+    }
     const stored = localStorage.getItem('scholarly-mode');
     if (stored === 'true') setScholarlyModeState(true);
   }, []);
