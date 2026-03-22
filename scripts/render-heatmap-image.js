@@ -191,6 +191,51 @@ for (let p = 0; p < NUM_PANELS; p++) {
     }
   }
 
+  // ── Draw sea lanes with traffic ────────────────────────────────
+  if (heatmap.seaLanes && heatmap.seaLaneCoords) {
+    // Background sea lanes (faint dashed)
+    ctx.save();
+    ctx.setLineDash([4, 6]);
+    ctx.strokeStyle = 'rgba(60, 80, 120, 0.15)';
+    ctx.lineWidth = 0.5;
+    for (const coords of Object.values(heatmap.seaLaneCoords)) {
+      if (coords.length < 2) continue;
+      const [x0, y0] = projectMercator(coords[0][0], coords[0][1], PANEL_W, PANEL_H);
+      ctx.beginPath();
+      ctx.moveTo(panelX + x0, panelY + y0);
+      for (let j = 1; j < coords.length; j++) {
+        const [x, y] = projectMercator(coords[j][0], coords[j][1], PANEL_W, PANEL_H);
+        ctx.lineTo(panelX + x, panelY + y);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // Traffic sea lanes (colored dashed)
+    ctx.save();
+    ctx.setLineDash([6, 4]);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    const maxSea = Math.max(heatmap.maxSeaTraffic || 1, 1);
+    for (const [connIdx, eras] of Object.entries(heatmap.seaLanes)) {
+      const d = eras[hKey];
+      if (!d || d.count < 2) continue;
+      const coords = heatmap.seaLaneCoords[connIdx];
+      if (!coords || coords.length < 2) continue;
+      ctx.strokeStyle = distanceColor(d.avgDist);
+      ctx.lineWidth = 1 + Math.min(d.count / maxSea, 1) * 3;
+      const [x0, y0] = projectMercator(coords[0][0], coords[0][1], PANEL_W, PANEL_H);
+      ctx.beginPath();
+      ctx.moveTo(panelX + x0, panelY + y0);
+      for (let j = 1; j < coords.length; j++) {
+        const [x, y] = projectMercator(coords[j][0], coords[j][1], PANEL_W, PANEL_H);
+        ctx.lineTo(panelX + x, panelY + y);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
   ctx.restore();
 
   // ── Panel labels ────────────────────────────────────────────────

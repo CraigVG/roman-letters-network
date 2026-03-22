@@ -211,6 +211,7 @@ export default async function LetterPage({ params }: Props) {
           modernEnglish={letter.modern_english}
           english={letter.english_text}
           latin={letter.latin_text}
+          translationSource={letter.translation_source}
         />
       </section>
 

@@ -3,6 +3,29 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { ThemeToggle } from './ThemeToggle';
+import { useScholarlyMode } from './ScholarlyModeContext';
+
+function ScholarlyToggle() {
+  const { scholarlyMode, setScholarlyMode } = useScholarlyMode();
+
+  return (
+    <button
+      onClick={() => setScholarlyMode(!scholarlyMode)}
+      className={`w-9 h-9 rounded-lg border flex items-center justify-center transition-colors ${
+        scholarlyMode
+          ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-white'
+          : 'bg-theme-surface border-theme text-theme-muted hover:text-theme-text'
+      }`}
+      aria-label={scholarlyMode ? 'Scholarly mode on (hiding AI translations)' : 'Scholarly mode off (showing all translations)'}
+      title={scholarlyMode ? 'Scholarly mode: ON (AI translations hidden)' : 'Scholarly mode: OFF (all translations shown)'}
+    >
+      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+      </svg>
+    </button>
+  );
+}
 
 const navItems = [
   { label: 'Letters', href: '/letters' },
@@ -65,12 +88,16 @@ export function Header() {
               </svg>
             </button>
             <div className="ml-1">
+              <ScholarlyToggle />
+            </div>
+            <div className="ml-1">
               <ThemeToggle />
             </div>
           </nav>
 
           {/* Mobile controls */}
           <div className="flex items-center gap-2 md:hidden">
+            <ScholarlyToggle />
             <button
               onClick={() =>
                 document.dispatchEvent(
