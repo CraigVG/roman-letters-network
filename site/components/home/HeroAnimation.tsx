@@ -320,8 +320,13 @@ export function HeroAnimation() {
 
     resize();
 
+    let resizeRafId: number | null = null;
     const observer = new ResizeObserver(() => {
-      resize();
+      if (resizeRafId) return; // already scheduled, skip to prevent loop
+      resizeRafId = requestAnimationFrame(() => {
+        resizeRafId = null;
+        resize();
+      });
     });
     observer.observe(container);
 
@@ -361,6 +366,7 @@ export function HeroAnimation() {
 
     return () => {
       cancelAnimationFrame(animRef.current);
+      if (resizeRafId) cancelAnimationFrame(resizeRafId);
       observer.disconnect();
     };
   }, [loaded, getColors]);

@@ -1751,10 +1751,15 @@ export default function RomanMap({
       }
     });
 
-    // Resize canvas with map
+    // Resize canvas with map - debounce with rAF to prevent ResizeObserver loop
+    let resizeRafId: number | null = null;
     const resizeObserver = new ResizeObserver(() => {
-      renderCanvas();
-      map.triggerRepaint();
+      if (resizeRafId) return; // already scheduled
+      resizeRafId = requestAnimationFrame(() => {
+        resizeRafId = null;
+        renderCanvas();
+        map.triggerRepaint();
+      });
     });
     if (containerRef.current) {
       resizeObserver.observe(containerRef.current);
@@ -1762,6 +1767,7 @@ export default function RomanMap({
 
     return () => {
       stopRenderLoop();
+      if (resizeRafId) cancelAnimationFrame(resizeRafId);
       resizeObserver.disconnect();
       map.remove();
       mapRef.current = null;

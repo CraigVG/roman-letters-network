@@ -29,6 +29,13 @@ export default function TimelineHistogram({
   const brushRef = useRef<d3.BrushBehavior<unknown> | null>(null);
   const isBrushingRef = useRef(false);
   const [containerWidth, setContainerWidth] = useState(0);
+  // Keep stable refs to avoid useEffect re-runs when props change identity
+  const onRangeChangeRef = useRef(onRangeChange);
+  onRangeChangeRef.current = onRangeChange;
+  const fromRef = useRef(from);
+  fromRef.current = from;
+  const toRef = useRef(to);
+  toRef.current = to;
 
   const getColors = useCallback(() => {
     const root = document.documentElement;
@@ -42,6 +49,7 @@ export default function TimelineHistogram({
     };
   }, []);
 
+  // Separate effect for building the D3 chart structure (only on data/size changes)
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg || decades.length === 0 || containerWidth === 0) return;
@@ -77,6 +85,10 @@ export default function TimelineHistogram({
 
     const barWidth = Math.max(1, (innerWidth / ((maxDecade - minDecade) / 10)) - 1);
 
+    // Read current from/to from refs (not props) to avoid re-triggering this effect
+    const currentFrom = fromRef.current;
+    const currentTo = toRef.current;
+
     // Bars
     g.selectAll('.bar')
       .data(sortedDecades)
@@ -89,8 +101,8 @@ export default function TimelineHistogram({
       .attr('height', (d) => innerHeight - y(d.count))
       .attr('fill', colors.accent)
       .attr('opacity', (d) => {
-        if (from !== null && to !== null) {
-          return d.decade >= from && d.decade <= to ? 1 : 0.25;
+        if (currentFrom !== null && currentTo !== null) {
+          return d.decade >= currentFrom && d.decade <= currentTo ? 1 : 0.25;
         }
         return 0.6;
       })
@@ -169,10 +181,11 @@ export default function TimelineHistogram({
         tooltip.style('opacity', 0);
       })
       .on('click', (_event: MouseEvent, d: DecadeData) => {
-        if (from === d.decade && to === d.decade + 9) {
-          onRangeChange(null, null);
+        // Use refs to read current values without creating dependency
+        if (fromRef.current === d.decade && toRef.current === d.decade + 9) {
+          onRangeChangeRef.current(null, null);
         } else {
-          onRangeChange(d.decade, d.decade + 9);
+          onRangeChangeRef.current(d.decade, d.decade + 9);
         }
       });
 
@@ -190,13 +203,13 @@ export default function TimelineHistogram({
         isBrushingRef.current = false;
         if (!event.sourceEvent) return; // programmatic move, ignore to prevent infinite loop
         if (!event.selection) {
-          onRangeChange(null, null);
+          onRangeChangeRef.current(null, null);
           return;
         }
         const [x0, x1] = event.selection as [number, number];
         const decadeFrom = Math.floor(x.invert(x0) / 10) * 10;
         const decadeTo = Math.floor(x.invert(x1) / 10) * 10 + 9;
-        onRangeChange(
+        onRangeChangeRef.current(
           Math.max(decadeFrom, minDecade),
           Math.min(decadeTo, maxDecade - 1),
         );
@@ -215,9 +228,9 @@ export default function TimelineHistogram({
       .attr('stroke-width', 1);
 
     // Set initial brush position from props
-    if (from !== null && to !== null) {
-      const x0 = x(from);
-      const x1 = x(to + 1); // +1 so the brush covers through end of the decade
+    if (currentFrom !== null && currentTo !== null) {
+      const x0 = x(currentFrom);
+      const x1 = x(currentTo + 1); // +1 so the brush covers through end of the decade
       brushGroup.call(brush.move as any, [x0, x1]);
     }
 
@@ -225,7 +238,42 @@ export default function TimelineHistogram({
     return () => {
       tooltip.remove();
     };
-  }, [decades, from, to, onRangeChange, getColors, containerWidth]);
+    // NOTE: from/to/onRangeChange intentionally excluded — we use refs to break
+    // the circular dependency: brush end -> onRangeChange -> from/to change -> effect re-runs -> brush.move -> brush end
+  }, [decades, getColors, containerWidth]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Separate effect: sync brush position when from/to change externally (without rebuilding the whole chart)
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg || decades.length === 0 || containerWidth === 0 || isBrushingRef.current) return;
+
+    const sortedDecades = [...decades].sort((a, b) => a.decade - b.decade);
+    const decadeExtent = d3.extent(sortedDecades, (d) => d.decade) as [number, number];
+    const minDecade = decadeExtent[0];
+    const maxDecade = decadeExtent[1] + 10;
+    const innerWidth = containerWidth - MARGIN.left - MARGIN.right;
+    const x = d3.scaleLinear().domain([minDecade, maxDecade]).range([0, innerWidth]);
+
+    const brushGroup = d3.select(svg).select<SVGGElement>('.brush');
+    if (brushGroup.empty() || !brushRef.current) return;
+
+    if (from !== null && to !== null) {
+      const x0 = x(from);
+      const x1 = x(to + 1);
+      brushGroup.call(brushRef.current.move as any, [x0, x1]);
+    } else {
+      brushGroup.call(brushRef.current.move as any, null);
+    }
+
+    // Update bar opacities
+    d3.select(svg).selectAll<SVGRectElement, DecadeData>('.bar')
+      .attr('opacity', (d) => {
+        if (from !== null && to !== null) {
+          return d.decade >= from && d.decade <= to ? 1 : 0.25;
+        }
+        return 0.6;
+      });
+  }, [from, to, decades, containerWidth]);
 
   // Responsive resize - measure container and update state to trigger D3 redraw
   useEffect(() => {

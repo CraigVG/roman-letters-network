@@ -561,14 +561,15 @@ export default function RoadHeatmap() {
   const [rightEra, setRightEra] = useState('500');
   const [colorMode, setColorMode] = useState<ColorMode>('distance');
 
-  // Animation state
+  // Animation state — use ref for progress to avoid re-creating render callback every frame
   const [isAnimating, setIsAnimating] = useState(false);
-  const [animProgress, setAnimProgress] = useState(1); // 0-1, starts at 1 (fully drawn)
+  const animProgressRef = useRef(1); // 0-1, starts at 1 (fully drawn)
   const animRef = useRef<number>(0);
+  const renderRef = useRef<(() => void) | null>(null);
 
   function startAnimation() {
     if (animRef.current) cancelAnimationFrame(animRef.current);
-    setAnimProgress(0);
+    animProgressRef.current = 0;
     setIsAnimating(true);
     const startTime = performance.now();
     const duration = 2000; // 2 seconds
@@ -576,7 +577,10 @@ export default function RoadHeatmap() {
     function frame(now: number) {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      setAnimProgress(progress);
+      animProgressRef.current = progress;
+
+      // Directly call render instead of going through state
+      renderRef.current?.();
 
       if (progress < 1) {
         animRef.current = requestAnimationFrame(frame);
@@ -622,12 +626,15 @@ export default function RoadHeatmap() {
   const render = useCallback(() => {
     if (!heatmap || !roads) return;
     if (leftCanvasRef.current) {
-      drawHeatmap(leftCanvasRef.current, roads, heatmap, leftEra, colorMode, outline, animProgress);
+      drawHeatmap(leftCanvasRef.current, roads, heatmap, leftEra, colorMode, outline, animProgressRef.current);
     }
     if (rightCanvasRef.current) {
-      drawHeatmap(rightCanvasRef.current, roads, heatmap, rightEra, colorMode, outline, animProgress);
+      drawHeatmap(rightCanvasRef.current, roads, heatmap, rightEra, colorMode, outline, animProgressRef.current);
     }
-  }, [heatmap, roads, leftEra, rightEra, colorMode, outline, animProgress]);
+  }, [heatmap, roads, leftEra, rightEra, colorMode, outline]);
+
+  // Keep renderRef in sync for animation frame calls
+  renderRef.current = render;
 
   useEffect(() => {
     if (loading) return;
