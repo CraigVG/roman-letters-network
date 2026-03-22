@@ -19,6 +19,10 @@ interface HeatmapData {
   segments: Record<string, Record<string, SegmentEraData>>;
   maxTraffic: number;
   maxAvgDist: number;
+  seaLanes: Record<string, Record<string, SegmentEraData>>;
+  seaLaneCoords: Record<string, [number, number][]>;
+  maxSeaTraffic: number;
+  maxSeaAvgDist: number;
 }
 
 type GeoJSONFeatureCollection = {
@@ -63,17 +67,7 @@ const ERA_OPTIONS = [
   { key: '500', label: '500s' },
 ];
 
-// ── Sea lanes ────────────────────────────────────────────────────────
-const SEA_LANES: { coords: [number, number][]; label: string }[] = [
-  { coords: [[12.3, 41.8], [12.0, 38.5], [10.2, 36.8]], label: 'Rome-Carthage' },
-  { coords: [[12.3, 41.8], [15.0, 38.0], [20.0, 35.0], [25.0, 32.0], [29.9, 31.2]], label: 'Rome-Alexandria' },
-  { coords: [[12.3, 41.8], [16.0, 39.5], [20.0, 38.0], [24.0, 38.5], [29.0, 41.0]], label: 'Rome-Constantinople' },
-  { coords: [[5.4, 43.3], [5.0, 40.5], [7.0, 38.0], [10.2, 36.8]], label: 'Massilia-Carthage' },
-  { coords: [[10.2, 36.8], [15.0, 34.0], [22.0, 32.5], [29.9, 31.2]], label: 'Carthage-Alexandria' },
-  { coords: [[29.0, 41.0], [27.0, 37.0], [30.0, 33.0], [29.9, 31.2]], label: 'Constantinople-Alexandria' },
-  { coords: [[29.0, 41.0], [30.0, 38.0], [33.0, 36.5], [36.2, 36.2]], label: 'Constantinople-Antioch' },
-  { coords: [[12.2, 44.4], [16.0, 41.0], [20.0, 39.0], [24.0, 39.5], [29.0, 41.0]], label: 'Ravenna-Constantinople' },
-];
+// Sea lanes are now pre-computed in road-heatmap.json (seaLanes + seaLaneCoords)
 
 // ── Projection constants ──────────────────────────────────────────────
 const BBOX = { minLon: -12, maxLon: 48, minLat: 22, maxLat: 58 };
@@ -170,28 +164,7 @@ function distanceWidth(avgDist: number, maxAvgDist: number): number {
   return 0.5 + t * 3;
 }
 
-// ── Sea traffic computation ──────────────────────────────────────────
-function computeSeaTraffic(letters: MapLetter[], eraStart: number): Map<number, number> {
-  const counts = new Map<number, number>();
-  for (const letter of letters) {
-    if (letter.year_approx < eraStart || letter.year_approx >= eraStart + 50) continue;
-    for (let i = 0; i < SEA_LANES.length; i++) {
-      const lane = SEA_LANES[i];
-      const start = lane.coords[0];
-      const end = lane.coords[lane.coords.length - 1];
-      // Check if letter matches this lane in either direction
-      const d1s = Math.hypot(letter.s_lon - start[0], letter.s_lat - start[1]);
-      const d1e = Math.hypot(letter.r_lon - end[0], letter.r_lat - end[1]);
-      const d2s = Math.hypot(letter.s_lon - end[0], letter.s_lat - end[1]);
-      const d2e = Math.hypot(letter.r_lon - start[0], letter.r_lat - start[1]);
-      if ((d1s < 3 && d1e < 3) || (d2s < 3 && d2e < 3)) {
-        counts.set(i, (counts.get(i) || 0) + 1);
-        break;
-      }
-    }
-  }
-  return counts;
-}
+// Sea traffic is now pre-computed in road-heatmap.json
 
 // ── Drawing ──────────────────────────────────────────────────────────
 function drawHeatmap(
@@ -199,8 +172,6 @@ function drawHeatmap(
   roads: GeoJSONFeatureCollection,
   heatmap: HeatmapData,
   eraStartYear: string,
-  seaTraffic: Map<number, number>,
-  maxSeaTraffic: number,
   colorMode: ColorMode = 'distance',
   outline: OutlineFeatureCollection | null = null,
   animProgress: number = 1,
@@ -278,20 +249,23 @@ function drawHeatmap(
     }
   }
 
-  // Draw sea lanes as faint background lines
+  // Draw sea lanes as faint background lines (from pre-computed coords)
   ctx.save();
   ctx.setLineDash([4, 6]);
   ctx.strokeStyle = 'rgba(60,80,120,0.15)';
   ctx.lineWidth = 0.5;
-  for (const lane of SEA_LANES) {
-    ctx.beginPath();
-    const [x0, y0] = projectMercator(lane.coords[0][0], lane.coords[0][1], width, height);
-    ctx.moveTo(x0, y0);
-    for (let j = 1; j < lane.coords.length; j++) {
-      const [x, y] = projectMercator(lane.coords[j][0], lane.coords[j][1], width, height);
-      ctx.lineTo(x, y);
+  if (heatmap.seaLaneCoords) {
+    for (const coords of Object.values(heatmap.seaLaneCoords)) {
+      if (coords.length < 2) continue;
+      ctx.beginPath();
+      const [x0, y0] = projectMercator(coords[0][0], coords[0][1], width, height);
+      ctx.moveTo(x0, y0);
+      for (let j = 1; j < coords.length; j++) {
+        const [x, y] = projectMercator(coords[j][0], coords[j][1], width, height);
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
     }
-    ctx.stroke();
   }
   ctx.restore();
 
@@ -356,35 +330,51 @@ function drawHeatmap(
     }
   }
 
-  // Draw sea lanes with traffic — sorted low-to-high
-  const seaEntries: Array<[number, number]> = [];
-  for (const [laneIdx, count] of seaTraffic) {
-    if (count > 0) seaEntries.push([laneIdx, count]);
-  }
-  seaEntries.sort((a, b) => a[1] - b[1]);
-
-  if (seaEntries.length > 0) {
-    ctx.save();
-    ctx.setLineDash([6, 4]);
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    // Use the same color ramp, but scale to maxSeaTraffic for intensity
-    const effectiveMax = Math.max(maxSeaTraffic, 1);
-    for (const [laneIdx, count] of seaEntries) {
-      const lane = SEA_LANES[laneIdx];
-      if (!lane) continue;
-      ctx.strokeStyle = trafficColor(count, effectiveMax);
-      ctx.lineWidth = trafficWidth(count, effectiveMax);
-      ctx.beginPath();
-      const [x0, y0] = projectMercator(lane.coords[0][0], lane.coords[0][1], width, height);
-      ctx.moveTo(x0, y0);
-      for (let j = 1; j < lane.coords.length; j++) {
-        const [x, y] = projectMercator(lane.coords[j][0], lane.coords[j][1], width, height);
-        ctx.lineTo(x, y);
+  // Draw sea lanes with traffic from pre-computed data — sorted low-to-high
+  if (heatmap.seaLanes && heatmap.seaLaneCoords) {
+    const seaEntries: Array<[string, SegmentEraData]> = [];
+    for (const [connIdx, eras] of Object.entries(heatmap.seaLanes)) {
+      const seaData = eras[eraStartYear];
+      if (seaData && seaData.count >= 2) {
+        seaEntries.push([connIdx, seaData]);
       }
-      ctx.stroke();
     }
-    ctx.restore();
+    // Sort by the value used for coloring (low to high so high renders on top)
+    seaEntries.sort((a, b) => {
+      const aVal = colorMode === 'distance' ? a[1].avgDist : a[1].count;
+      const bVal = colorMode === 'distance' ? b[1].avgDist : b[1].count;
+      return aVal - bVal;
+    });
+
+    if (seaEntries.length > 0) {
+      ctx.save();
+      ctx.setLineDash([6, 4]);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      const effectiveSeaMax = Math.max(heatmap.maxSeaTraffic, 1);
+      for (const [connIdx, seaData] of seaEntries) {
+        const coords = heatmap.seaLaneCoords[connIdx];
+        if (!coords || coords.length < 2) continue;
+
+        if (colorMode === 'distance') {
+          ctx.strokeStyle = distanceColor(seaData.avgDist, heatmap.maxAvgDist);
+          ctx.lineWidth = trafficWidth(seaData.count, effectiveSeaMax);
+        } else {
+          ctx.strokeStyle = trafficColor(seaData.count, effectiveSeaMax);
+          ctx.lineWidth = trafficWidth(seaData.count, effectiveSeaMax);
+        }
+
+        ctx.beginPath();
+        const [x0, y0] = projectMercator(coords[0][0], coords[0][1], width, height);
+        ctx.moveTo(x0, y0);
+        for (let j = 1; j < coords.length; j++) {
+          const [x, y] = projectMercator(coords[j][0], coords[j][1], width, height);
+          ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
   }
 
   // Draw average distance ring centered on Rome
@@ -534,6 +524,16 @@ function computeRoadTrafficTotal(heatmap: HeatmapData, eraKey: string): number {
   return total;
 }
 
+// ── Compute total sea traffic for a given era ────────────────────────
+function computeSeaTrafficTotal(heatmap: HeatmapData, eraKey: string): number {
+  let total = 0;
+  if (!heatmap.seaLanes) return 0;
+  for (const eras of Object.values(heatmap.seaLanes)) {
+    total += eras[eraKey]?.count || 0;
+  }
+  return total;
+}
+
 // ── Compute weighted average distance across all segments for an era ──
 function computeAvgDistForEra(heatmap: HeatmapData, eraKey: string): number {
   let totalDist = 0;
@@ -618,31 +618,16 @@ export default function RoadHeatmap() {
   // Compute letter counts for era badges
   const letterCounts = letters ? computeLetterCounts(letters) : {};
 
-  // Compute max sea traffic across all eras for consistent scaling
-  const maxSeaTraffic = (() => {
-    if (!letters) return 1;
-    let max = 0;
-    for (const era of ERA_OPTIONS) {
-      const traffic = computeSeaTraffic(letters, parseInt(era.key));
-      for (const count of traffic.values()) {
-        if (count > max) max = count;
-      }
-    }
-    return Math.max(max, 1);
-  })();
-
-  // Render both canvases
+  // Render both canvases (sea traffic is now pre-computed in heatmap data)
   const render = useCallback(() => {
-    if (!heatmap || !roads || !letters) return;
-    const leftSeaTraffic = computeSeaTraffic(letters, parseInt(leftEra));
-    const rightSeaTraffic = computeSeaTraffic(letters, parseInt(rightEra));
+    if (!heatmap || !roads) return;
     if (leftCanvasRef.current) {
-      drawHeatmap(leftCanvasRef.current, roads, heatmap, leftEra, leftSeaTraffic, maxSeaTraffic, colorMode, outline, animProgress);
+      drawHeatmap(leftCanvasRef.current, roads, heatmap, leftEra, colorMode, outline, animProgress);
     }
     if (rightCanvasRef.current) {
-      drawHeatmap(rightCanvasRef.current, roads, heatmap, rightEra, rightSeaTraffic, maxSeaTraffic, colorMode, outline, animProgress);
+      drawHeatmap(rightCanvasRef.current, roads, heatmap, rightEra, colorMode, outline, animProgress);
     }
-  }, [heatmap, roads, letters, leftEra, rightEra, maxSeaTraffic, colorMode, outline, animProgress]);
+  }, [heatmap, roads, leftEra, rightEra, colorMode, outline, animProgress]);
 
   useEffect(() => {
     if (loading) return;
@@ -672,11 +657,11 @@ export default function RoadHeatmap() {
   // Compute traffic totals for panel labels
   const leftRoadTotal = heatmap ? computeRoadTrafficTotal(heatmap, leftEra) : 0;
   const rightRoadTotal = heatmap ? computeRoadTrafficTotal(heatmap, rightEra) : 0;
-  const leftSeaTotal = letters
-    ? Array.from(computeSeaTraffic(letters, parseInt(leftEra)).values()).reduce((a, b) => a + b, 0)
+  const leftSeaTotal = heatmap
+    ? computeSeaTrafficTotal(heatmap, leftEra)
     : 0;
-  const rightSeaTotal = letters
-    ? Array.from(computeSeaTraffic(letters, parseInt(rightEra)).values()).reduce((a, b) => a + b, 0)
+  const rightSeaTotal = heatmap
+    ? computeSeaTrafficTotal(heatmap, rightEra)
     : 0;
   const leftAvgDist = heatmap ? computeAvgDistForEra(heatmap, leftEra) : 0;
   const rightAvgDist = heatmap ? computeAvgDistForEra(heatmap, rightEra) : 0;

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { LetterText } from '@/components/letters/LetterText';
 import { useScholarlyMode } from '@/components/layout/ScholarlyModeContext';
 
-type TabKey = 'modern' | 'english' | 'latin';
+type TranslationKey = 'modern' | 'english';
 
 interface VersionTabsProps {
   modernEnglish: string | null;
@@ -36,45 +36,62 @@ export function VersionTabs({ modernEnglish, english, latin, translationSource }
   const isScholarlyTranslation = translationSource != null && SCHOLARLY_SOURCES.has(translationSource);
   const hideModern = mounted && scholarlyMode && !isScholarlyTranslation;
 
-  const tabs: { key: TabKey; label: string }[] = [
-    { key: 'modern', label: hideModern ? 'Modern English' : (isScholarlyTranslation ? 'English Translation' : 'Modern English') },
+  // Translation tabs (Latin/Greek is no longer a tab — it's always shown below)
+  const tabs: { key: TranslationKey; label: string }[] = [
+    { key: 'modern', label: isScholarlyTranslation ? 'English Translation' : 'Modern English' },
     { key: 'english', label: '19th-Century Translation' },
-    { key: 'latin', label: 'Latin / Greek Original' },
   ];
 
   const availableTabs = tabs.filter((t) => {
     if (t.key === 'modern') return !hideModern && !!modernEnglish;
     if (t.key === 'english') return !!english;
-    if (t.key === 'latin') return !!latin;
     return false;
   });
 
-  const [active, setActive] = useState<TabKey>(
-    availableTabs[0]?.key ?? 'latin',
+  const hasTranslation = availableTabs.length > 0;
+
+  const [active, setActive] = useState<TranslationKey>(
+    availableTabs[0]?.key ?? 'modern',
   );
 
   // Reset active tab when scholarly mode changes
   useEffect(() => {
     if (hideModern && active === 'modern') {
-      const fallback = english ? 'english' : latin ? 'latin' : 'modern';
+      const fallback = english ? 'english' : 'modern';
       setActive(fallback);
     }
-  }, [hideModern, active, english, latin]);
+  }, [hideModern, active, english]);
 
-  if (availableTabs.length === 0) {
+  // If no translation and no Latin, show empty state
+  if (!hasTranslation && !latin) {
     return (
       <div className="py-8 text-center text-theme-muted">
         {scholarlyMode
-          ? 'No scholarly translation available for this letter. The original Latin/Greek text may be available below.'
+          ? 'No scholarly translation available for this letter.'
           : 'No text available for this letter yet.'}
       </div>
     );
   }
 
-  const content: Record<TabKey, string | null> = {
+  // If only Latin exists (no translations available), show it as primary content
+  if (!hasTranslation && latin) {
+    return (
+      <div>
+        {mounted && scholarlyMode && hideModern && (
+          <div className="mb-4 px-3 py-2 rounded-md text-xs bg-theme-surface border border-theme text-theme-muted">
+            Scholarly mode is on. AI-assisted translations are hidden. Showing only pre-existing scholarly translations and original texts.
+          </div>
+        )}
+        <div className="italic" style={{ fontFamily: 'var(--font-serif)' }}>
+          <LetterText text={latin} />
+        </div>
+      </div>
+    );
+  }
+
+  const content: Record<TranslationKey, string | null> = {
     modern: modernEnglish,
     english,
-    latin,
   };
 
   const activeText = content[active];
@@ -88,7 +105,7 @@ export function VersionTabs({ modernEnglish, english, latin, translationSource }
         </div>
       )}
 
-      {/* Tab bar */}
+      {/* Translation tab bar */}
       {availableTabs.length > 1 && (
         <div className="flex gap-1 border-b border-theme mb-6 overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
           {availableTabs.map((tab) => (
@@ -107,7 +124,7 @@ export function VersionTabs({ modernEnglish, english, latin, translationSource }
         </div>
       )}
 
-      {/* Content */}
+      {/* Translation content */}
       {activeText ? (
         <LetterText text={activeText} />
       ) : (
@@ -122,6 +139,25 @@ export function VersionTabs({ modernEnglish, english, latin, translationSource }
           Modern English rendering for readability. See the 19th-century translation
           or original Latin/Greek for scholarly use.
         </p>
+      )}
+
+      {/* Latin/Greek original — always visible below translation */}
+      {latin && (
+        <details open className="group/orig mt-8 border-t border-theme pt-6">
+          <summary className="cursor-pointer text-sm font-medium text-theme-muted hover:text-theme-text select-none list-none flex items-center gap-2 [&::-webkit-details-marker]:hidden">
+            <svg
+              className="w-3 h-3 transition-transform group-open/orig:rotate-90"
+              viewBox="0 0 12 12"
+              fill="currentColor"
+            >
+              <path d="M4 2l5 4-5 4V2z" />
+            </svg>
+            Latin / Greek Original
+          </summary>
+          <div className="mt-4 italic" style={{ fontFamily: 'var(--font-serif)' }}>
+            <LetterText text={latin} />
+          </div>
+        </details>
       )}
     </div>
   );

@@ -19,6 +19,10 @@ interface HeatmapData {
   segments: Record<string, Record<string, SegmentEraData>>;
   maxTraffic: number;
   maxAvgDist: number;
+  seaLanes: Record<string, Record<string, SegmentEraData>>;
+  seaLaneCoords: Record<string, [number, number][]>;
+  maxSeaTraffic: number;
+  maxSeaAvgDist: number;
 }
 
 type GeoJSONFeatureCollection = {
@@ -44,16 +48,6 @@ type OutlineFeatureCollection = {
   }>;
 };
 
-interface MapLetter {
-  id: number;
-  year_approx: number;
-  s_lat: number;
-  s_lon: number;
-  r_lat: number;
-  r_lon: number;
-  [key: string]: unknown;
-}
-
 // ── Era definitions ──────────────────────────────────────────────────
 const ERAS = ['350', '400', '450', '500'];
 
@@ -64,17 +58,7 @@ const ERA_SUBTITLES: Record<string, string> = {
   '500': 'New kingdoms, shrinking networks',
 };
 
-// ── Sea lanes ────────────────────────────────────────────────────────
-const SEA_LANES: { coords: [number, number][]; label: string }[] = [
-  { coords: [[12.3, 41.8], [12.0, 38.5], [10.2, 36.8]], label: 'Rome-Carthage' },
-  { coords: [[12.3, 41.8], [15.0, 38.0], [20.0, 35.0], [25.0, 32.0], [29.9, 31.2]], label: 'Rome-Alexandria' },
-  { coords: [[12.3, 41.8], [16.0, 39.5], [20.0, 38.0], [24.0, 38.5], [29.0, 41.0]], label: 'Rome-Constantinople' },
-  { coords: [[5.4, 43.3], [5.0, 40.5], [7.0, 38.0], [10.2, 36.8]], label: 'Massilia-Carthage' },
-  { coords: [[10.2, 36.8], [15.0, 34.0], [22.0, 32.5], [29.9, 31.2]], label: 'Carthage-Alexandria' },
-  { coords: [[29.0, 41.0], [27.0, 37.0], [30.0, 33.0], [29.9, 31.2]], label: 'Constantinople-Alexandria' },
-  { coords: [[29.0, 41.0], [30.0, 38.0], [33.0, 36.5], [36.2, 36.2]], label: 'Constantinople-Antioch' },
-  { coords: [[12.2, 44.4], [16.0, 41.0], [20.0, 39.0], [24.0, 39.5], [29.0, 41.0]], label: 'Ravenna-Constantinople' },
-];
+// Sea lanes are now pre-computed in road-heatmap.json (seaLanes + seaLaneCoords)
 
 // ── Projection ───────────────────────────────────────────────────────
 const BBOX = { minLon: -12, maxLon: 48, minLat: 22, maxLat: 58 };
@@ -179,27 +163,7 @@ function trafficColor(count: number, maxTraffic: number): string {
   return `rgba(${Math.round(r)},${Math.round(g)},${Math.round(b)},${alpha.toFixed(2)})`;
 }
 
-// ── Sea traffic computation ──────────────────────────────────────────
-function computeSeaTraffic(letters: MapLetter[], eraStart: number): Map<number, number> {
-  const counts = new Map<number, number>();
-  for (const letter of letters) {
-    if (letter.year_approx < eraStart || letter.year_approx >= eraStart + 50) continue;
-    for (let i = 0; i < SEA_LANES.length; i++) {
-      const lane = SEA_LANES[i];
-      const start = lane.coords[0];
-      const end = lane.coords[lane.coords.length - 1];
-      const d1s = Math.hypot(letter.s_lon - start[0], letter.s_lat - start[1]);
-      const d1e = Math.hypot(letter.r_lon - end[0], letter.r_lat - end[1]);
-      const d2s = Math.hypot(letter.s_lon - end[0], letter.s_lat - end[1]);
-      const d2e = Math.hypot(letter.r_lon - start[0], letter.r_lat - start[1]);
-      if ((d1s < 3 && d1e < 3) || (d2s < 3 && d2e < 3)) {
-        counts.set(i, (counts.get(i) || 0) + 1);
-        break;
-      }
-    }
-  }
-  return counts;
-}
+// Sea traffic is now pre-computed in road-heatmap.json
 
 // ── Compute weighted average distance for an era ─────────────────────
 function computeAvgDistForEra(heatmap: HeatmapData, eraKey: string): number {
@@ -235,9 +199,7 @@ function drawEraFrame(
   roads: GeoJSONFeatureCollection,
   heatmap: HeatmapData,
   outline: OutlineFeatureCollection | null,
-  letters: MapLetter[],
   eraKey: string,
-  maxSeaTraffic: number,
   buildupProgress: number, // 0-1, how much of roads to show
   globalAlpha: number, // for crossfade
   glowPhase: number, // 0-2pi for glow pulse
@@ -298,20 +260,23 @@ function drawEraFrame(
     }
   }
 
-  // Background sea lanes
+  // Background sea lanes (from pre-computed coords)
   ctx.save();
   ctx.setLineDash([4, 6]);
   ctx.strokeStyle = 'rgba(60,80,120,0.15)';
   ctx.lineWidth = 0.5;
-  for (const lane of SEA_LANES) {
-    ctx.beginPath();
-    const [x0, y0] = projectMercator(lane.coords[0][0], lane.coords[0][1], width, height);
-    ctx.moveTo(x0, y0);
-    for (let j = 1; j < lane.coords.length; j++) {
-      const [x, y] = projectMercator(lane.coords[j][0], lane.coords[j][1], width, height);
-      ctx.lineTo(x, y);
+  if (heatmap.seaLaneCoords) {
+    for (const coords of Object.values(heatmap.seaLaneCoords)) {
+      if (coords.length < 2) continue;
+      ctx.beginPath();
+      const [x0, y0] = projectMercator(coords[0][0], coords[0][1], width, height);
+      ctx.moveTo(x0, y0);
+      for (let j = 1; j < coords.length; j++) {
+        const [x, y] = projectMercator(coords[j][0], coords[j][1], width, height);
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
     }
-    ctx.stroke();
   }
   ctx.restore();
 
@@ -370,35 +335,39 @@ function drawEraFrame(
     }
   }
 
-  // Sea lanes with traffic
-  const seaTraffic = computeSeaTraffic(letters, parseInt(eraKey));
-  const seaEntries: Array<[number, number]> = [];
-  for (const [laneIdx, count] of seaTraffic) {
-    if (count > 0) seaEntries.push([laneIdx, count]);
-  }
-  seaEntries.sort((a, b) => a[1] - b[1]);
-
-  if (seaEntries.length > 0) {
-    ctx.save();
-    ctx.setLineDash([6, 4]);
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    const effectiveMax = Math.max(maxSeaTraffic, 1);
-    for (const [laneIdx, count] of seaEntries) {
-      const lane = SEA_LANES[laneIdx];
-      if (!lane) continue;
-      ctx.strokeStyle = trafficColor(count, effectiveMax);
-      ctx.lineWidth = trafficWidth(count, effectiveMax);
-      ctx.beginPath();
-      const [x0, y0] = projectMercator(lane.coords[0][0], lane.coords[0][1], width, height);
-      ctx.moveTo(x0, y0);
-      for (let j = 1; j < lane.coords.length; j++) {
-        const [x, y] = projectMercator(lane.coords[j][0], lane.coords[j][1], width, height);
-        ctx.lineTo(x, y);
+  // Sea lanes with traffic (from pre-computed data)
+  if (heatmap.seaLanes && heatmap.seaLaneCoords) {
+    const seaEntries: Array<[string, SegmentEraData]> = [];
+    for (const [connIdx, eras] of Object.entries(heatmap.seaLanes)) {
+      const seaData = eras[eraKey];
+      if (seaData && seaData.count >= 2) {
+        seaEntries.push([connIdx, seaData]);
       }
-      ctx.stroke();
     }
-    ctx.restore();
+    seaEntries.sort((a, b) => a[1].count - b[1].count);
+
+    if (seaEntries.length > 0) {
+      ctx.save();
+      ctx.setLineDash([6, 4]);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      const effectiveMax = Math.max(heatmap.maxSeaTraffic, 1);
+      for (const [connIdx, seaData] of seaEntries) {
+        const coords = heatmap.seaLaneCoords[connIdx];
+        if (!coords || coords.length < 2) continue;
+        ctx.strokeStyle = trafficColor(seaData.count, effectiveMax);
+        ctx.lineWidth = trafficWidth(seaData.count, effectiveMax);
+        ctx.beginPath();
+        const [x0, y0] = projectMercator(coords[0][0], coords[0][1], width, height);
+        ctx.moveTo(x0, y0);
+        for (let j = 1; j < coords.length; j++) {
+          const [x, y] = projectMercator(coords[j][0], coords[j][1], width, height);
+          ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
   }
 
   // Draw average distance ring centered on Rome
@@ -502,8 +471,6 @@ export function HeatmapTimelapse() {
     heatmap: HeatmapData;
     roads: GeoJSONFeatureCollection;
     outline: OutlineFeatureCollection;
-    letters: MapLetter[];
-    maxSeaTraffic: number;
     avgDists: Record<string, number>;
   } | null>(null);
   const animRef = useRef<number>(0);
@@ -520,23 +487,12 @@ export function HeatmapTimelapse() {
     Promise.all([
       fetch('/data/road-heatmap.json').then((r) => r.json()),
       fetch('/data/roman-roads.json').then((r) => r.json()),
-      fetch('/data/map-letters.json').then((r) => r.json()),
       fetch('/data/mediterranean-outline.json').then((r) => r.json()),
-    ]).then(([hm, rd, ml, ol]) => {
+    ]).then(([hm, rd, ol]) => {
       if (cancelled) return;
       const heatmap = hm as HeatmapData;
       const roads = rd as GeoJSONFeatureCollection;
-      const letters = (ml as { letters: MapLetter[] }).letters;
       const outline = ol as OutlineFeatureCollection;
-
-      // Compute max sea traffic across all eras
-      let maxSea = 0;
-      for (const era of ERAS) {
-        const traffic = computeSeaTraffic(letters, parseInt(era));
-        for (const count of traffic.values()) {
-          if (count > maxSea) maxSea = count;
-        }
-      }
 
       // Precompute avg distances per era
       const avgDists: Record<string, number> = {};
@@ -548,8 +504,6 @@ export function HeatmapTimelapse() {
         heatmap,
         roads,
         outline,
-        letters,
-        maxSeaTraffic: Math.max(maxSea, 1),
         avgDists,
       };
       setLoading(false);
@@ -610,8 +564,8 @@ export function HeatmapTimelapse() {
 
         drawEraFrame(
           ctx, width, height,
-          d.roads, d.heatmap, d.outline, d.letters,
-          currentEra, d.maxSeaTraffic,
+          d.roads, d.heatmap, d.outline,
+          currentEra,
           buildupProgress, 1, glowPhase,
         );
         drawTextOverlays(ctx, width, height, currentEra, d.avgDists[currentEra], textAlpha);
@@ -624,8 +578,8 @@ export function HeatmapTimelapse() {
         // Draw outgoing era
         drawEraFrame(
           ctx, width, height,
-          d.roads, d.heatmap, d.outline, d.letters,
-          currentEra, d.maxSeaTraffic,
+          d.roads, d.heatmap, d.outline,
+          currentEra,
           1, outAlpha, glowPhase,
         );
         drawTextOverlays(ctx, width, height, currentEra, d.avgDists[currentEra], outAlpha);
@@ -633,8 +587,8 @@ export function HeatmapTimelapse() {
         // Draw incoming era
         drawEraFrame(
           ctx, width, height,
-          d.roads, d.heatmap, d.outline, d.letters,
-          nextEra, d.maxSeaTraffic,
+          d.roads, d.heatmap, d.outline,
+          nextEra,
           Math.min(fadeProgress * 2, 1), inAlpha, glowPhase,
         );
         drawTextOverlays(ctx, width, height, nextEra, d.avgDists[nextEra], inAlpha);

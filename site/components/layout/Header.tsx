@@ -45,7 +45,9 @@ function ScholarlyToggle() {
 
 const navItems = [
   { label: 'Letters', href: '/letters' },
+  { label: 'People', href: '/people' },
   { label: 'Authors', href: '/authors' },
+  { label: 'Places', href: '/places' },
   { label: 'Map', href: '/map' },
   { label: 'Network', href: '/network' },
   { label: 'Thesis', href: '/thesis' },

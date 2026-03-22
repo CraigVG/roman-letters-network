@@ -216,7 +216,7 @@ export default async function LetterPage({ params }: Props) {
       </section>
 
       {/* Source links */}
-      {(letter.source_url || letter.scan_url) && (
+      {(letter.source_url || letter.scan_url || collection?.scan_url) && (
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
           {letter.source_url && (
             <a
@@ -228,14 +228,17 @@ export default async function LetterPage({ params }: Props) {
               Translation source &rarr;
             </a>
           )}
-          {letter.scan_url && (
+          {(letter.scan_url || collection?.scan_url) && (
             <a
-              href={letter.scan_url}
+              href={(letter.scan_url ?? collection?.scan_url)!}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-theme-accent hover:underline"
+              className="text-theme-accent hover:underline inline-flex items-center gap-1.5"
             >
-              Original scan &rarr;
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 shrink-0">
+                <path d="M10.75 16.82A7.462 7.462 0 0115 15.5c.71 0 1.396.098 2.046.282A.75.75 0 0018 15.06V3.81a.75.75 0 00-.567-.727A8.967 8.967 0 0015 2.75a8.94 8.94 0 00-4.25 1.065V16.82zM9.25 4.815A8.94 8.94 0 005 2.75a8.967 8.967 0 00-2.433.33A.75.75 0 002 3.81v11.25a.75.75 0 00.954.727A7.462 7.462 0 015 15.5a7.46 7.46 0 014.25 1.32V4.815z" />
+              </svg>
+              View original manuscript &rarr;
             </a>
           )}
         </div>
