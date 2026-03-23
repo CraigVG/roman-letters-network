@@ -89,6 +89,29 @@ node scripts/generate-sitemap.js
 
 The SQLite DB is read-only at build time. No runtime database needed.
 
+## Deployment
+
+The site is a static Next.js export served by Apache on `cvg-primary`. Build locally, then rsync.
+
+```bash
+# Build
+cd site && NODE_OPTIONS='--max-old-space-size=8192' npm run build
+
+# Deploy to romanletters.org (primary)
+rsync -avz --delete site/out/ cvg-primary:/var/www/lateromanletters.org/public_html/
+
+# Deploy to scholarly.romanletters.org (scholarly subdomain)
+rsync -avz --delete site/out/ cvg-primary:/var/www/scholarly.romanletters.org/public_html/
+```
+
+**Server**: `cvg-primary` (SSH alias, production server)
+**Web server**: Apache with Let's Encrypt SSL
+**Primary domain**: `romanletters.org` → DocumentRoot `/var/www/lateromanletters.org/public_html/`
+**Scholarly subdomain**: `scholarly.romanletters.org` → DocumentRoot `/var/www/scholarly.romanletters.org/public_html/`
+**Note**: The directory name `lateromanletters.org` is a legacy artifact — the actual domain is `romanletters.org`. Apache config redirects `lateromanletters.org` and `www.*` variants to `romanletters.org`.
+
+The `deploy.sh` script (Google Cloud Run) is outdated — use rsync instead.
+
 ## Important Notes
 
 - Never use the word "Byzantine" — the Eastern Roman Empire was the Roman Empire
