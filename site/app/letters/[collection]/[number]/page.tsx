@@ -159,6 +159,26 @@ export default async function LetterPage({ params }: Props) {
               <span>To {letter.dest_place}</span>
             </>
           )}
+          {letter.translation_source && (
+            <>
+              <span className="text-theme-muted/40">|</span>
+              {['existing_newadvent', 'existing_tertullian', 'existing_fordham', 'existing_celt', 'existing_attalus', 'existing_livius', 'existing_rogerpearse'].includes(letter.translation_source) ? (
+                <span className="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400">
+                  <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                  </svg>
+                  Human translated
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400">
+                  <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                  </svg>
+                  AI-assisted
+                </span>
+              )}
+            </>
+          )}
         </div>
 
         {/* Topic pills */}

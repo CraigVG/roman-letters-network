@@ -1,0 +1,304 @@
+================================================================================
+GREGORY THE GREAT: DATA QUALITY INVESTIGATION
+================================================================================
+Date: 2026-03-23
+Database: data/roman_letters.db
+Collection: gregory_great
+
+OVERVIEW
+----------------------------------------
+Total Gregory records: 856
+Records with latin_text: 436
+Average latin_text length: 5636 chars
+Records with latin_text > 10,000 chars: 37
+
+Issues identified:
+  1. Wrong text (not Gregory I): 1 record(s)
+  2. Multi-letter concatenation: 14 records
+  3. Single letters with heavy editorial apparatus: 22 records
+  4. Exact duplicate latin_text pairs: 34 pairs
+
+================================================================================
+ISSUE 1: WRONG TEXT (NOT GREGORY THE GREAT)
+================================================================================
+
+  id=1155 ref_id=gregory_great.lat.1 latin_len=666303
+  CONTENT: Decretals of Pope Gregory IX (Liber Extra, c. 1234)
+  This is medieval canon law, NOT letters of Gregory I (590-604).
+  The modern_english field already contains a note flagging this.
+  RECOMMENDATION: Delete this record or mark as invalid.
+
+================================================================================
+ISSUE 2: MULTI-LETTER CONCATENATION IN latin_text
+================================================================================
+
+These records contain multiple Gregory letters concatenated together,
+typically from adjacent pages in the PL77 or MGH editions. The latin_text
+field contains the target letter PLUS subsequent letters from the same
+source page range. Editorial apparatus (variant readings, footnotes) is
+also intermixed throughout.
+
+  id=9624 ref_id=gregory_great.09.240 letter_number=9240
+  latin_len=86602 modern_english_len=608
+  Letters/sections found (14):
+    @16491: GREGORIUS  ROMANO  DEFENSORI  NOSTRO  SICILIAE.  Perlatum  ad  nos  est  reveren
+    @18620: GREGORIUS  GUDISCALCO  DUCI  CAMPANLA.E.  IUa  praepositonim*  soUicitudo  utili
+    @23579: GREGORIUS  CLEMENTINAE  PATRICIAE.  Amandum  presbyterum^  Sorrentinis*  ad  epi
+    @25602: GREGORIUS  ANTHEMIO  SUBDIACONO  CAMPANIAE.  Postquam  is  qui  ad  episcopatum 
+    @30822: GREGORIUS  FORTUNATO  EPISCOPO  NEAPOLIM.  Dum  fratemitas  vestra  minus  erga*
+    @34131: GREGORIUS  ZITTANI  MAGI8TR0  MILITUM.  Epistolas  vestras  graeeo  sermone  dic
+    @35560: GREGORIUS  CONSTANTIO  EPISCOPO  MEDIOLANENSI.  Relectis*  epistolis,  quas  ad 
+    @39995: GREGORIUS  LIBERTINO  EXPRAETORI.  Quanta  vos  saeculi  huius  premat  angustia
+    ... and 6 more
+  Translation status: Present (608 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=9664 ref_id=gregory_great.13.049 letter_number=13049
+  latin_len=69757 modern_english_len=601
+  Letters/sections found (6):
+    @21074: GREGORIUS  PAULO  8C0LASTIC0  SICILLA.E.  Quanto*  nos  gloria  vestra  dudum  t
+    @23912: GREGORIUS  VITALI  DEFENSORI  SARDINIAE.  Experientia  tua  indicante  comperimu
+    @32898: GREGORIUS  FANTINO  DEFENSORI  PANORMO.  falia  ad  nos  de  fratre  et  coepisc
+    @37237: GREGORIUS  MARINIANO  EPISCOPO  RAVENNAE.  Quia  incongruum»  valde  est  a  sus
+    @55070: GREGORIUS  GUDUIN  DUCI  NEAPOLIM.  Dum  inter  multa*  bona,  quae  nobis  de  
+    @60076: GREGORIUS  THEODELINDAE  REGINAE.  Scripta  quae  ad  nos  dudum  a  Gcnucnsibus
+  Translation status: Present (601 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=10328 ref_id=gregory_great.13.44 letter_number=13044
+  latin_len=24833 modern_english_len=543
+  Letters/sections found (1):
+    @419: Gregorius Joanai deſengori in nomine Domini ideo quia quzdam-capitula, quz serva
+  Translation status: Present (543 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=9760 ref_id=gregory_great.2.79 letter_number=2079
+  latin_len=23200 modern_english_len=1374
+  Letters/sections found (5):
+    @215: Gregorius Petro $ubdiacono Sicilize, Indicante mihi Romano defensore, cognovi qu
+    @16013: EPISTOLA XXXNIII. AD JUSTINEM PRETOREN. Ut, deposita omni suspicione, Leoni epis
+    @18756: EPISTOLA XXXIVY. AD MAXIMIANUM EPISCOPUM SYRACUSANUM. Eusebium abbatem, quem imp
+    @21301: EPISTOLA XXXY. AD JOANNEM EPISCOPUM RAVENNATENM.  Gratulatur ob exhibita Cas(ori
+    @21571: Gregorius Joann? episcopo Ravennati.  Dominicis mandatis precipimur proximos sic
+  Translation status: Present (1374 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=10262 ref_id=gregory_great.5.38 letter_number=5038
+  latin_len=21400 modern_english_len=3188
+  Letters/sections found (7):
+    @183: Gregorius Eliz presbylero et abbati lsauriz.  Dulcissima $sanclitatis vestra: Sc
+    @4167: Gregorius Anastasio episcopo Antiocheno.  « Gloria in excelsis Dev, et in terra 
+    @5018: Gregorius Turon., lib. 1 de Miraculis 8Sancti Martini, narrat omnem populum, vis
+    @8814: EPISTOLA XL. AD MAURICIUM AUGUSTUM.  Þ quoniam Nordulpho plus est ereditum quam 
+    @9956: Gregorius Mauricio Augusto.  la serenissimis jussi0nibus suis dominorum pietas ,
+    @16940: EPISTOLA XLI. AD CONSTANTINAM AUGUSTAM.  Imperatori suggerat Cors0s ac Siculos i
+    @17141: Gregorius Constantine Augustze.  Cum *® serenissimam Dominam sciam de ccelesti p
+  Translation status: Present (3188 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=9783 ref_id=gregory_great.3.52 letter_number=3052
+  latin_len=19459 modern_english_len=1030
+  Letters/sections found (5):
+    @3207: EPISTOLA LIN. AD JOANNEM EPISCOPUM, Respons1onem de causa Joannis et Athanasii p
+    @7940: EPISTOLA LIVY. AD THEOT;MIM MEDICOM.  Posl amicissimam salutationem commendat Sa
+    @9313: EPISTOLA LY. AD MAXIMIANUM EP SCOPUM., Agathonis episcopi in quem dislricte ſuit
+    @9967: EPISTOLA LVYI. AD JOANNEM EPISCOPUM. |,  Ne in plateis pillium ulterius feral, n
+    @10317: Gregorius Joanni episcopo Ravennali. | Non multum temporis intervallum est ( Gra
+  Translation status: Present (1030 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=9904 ref_id=gregory_great.11.71 letter_number=11071
+  latin_len=19049 modern_english_len=694
+  Letters/sections found (6):
+    @282: Gregorius Anthemio subdiacono Campanie. Cum fortius punienda sint crimina que in
+    @3975: EPISTOLA LXXHI. AD MARINIANUM ABBATEM.  ster Paschasius et f vicedominum sibi or
+    @4490: EPISTOLA LEXHN. AD AGAPITUM ABBATEM.  Illius monasterio aliud unit a monachis ob
+    @10749: EPISTOLA LXXY. AD AURELIUM.  Conzolatur eum de morte fratris et (ribulationibus 
+    @13633: EPISTOLA LXXVI. AD MELLITUM ABBATEM Dai mandata Auqustino , quem adibat, exhiben
+    @17421: Gregorius Turonens's, lib. 1 de Vita $ancti Martini, cap. 6, et lib. u de Miracu
+  Translation status: Present (694 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=9732 ref_id=gregory_great.1.30 letter_number=1030
+  latin_len=15236 modern_english_len=668
+  Letters/sections found (2):
+    @2159: EPISTOLA X XXIV.  AD VENANTIUM EXMONACHUM PATRICIUM SYRACUSANUM. V exantium, quo
+    @14029: EPISTOLA XXAXY.  AD PETRUM EPISCOPUM TERRACINENSEM.  Concessum prius Judwis locu
+  Translation status: Present (668 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=9811 ref_id=gregory_great.4.54 letter_number=4054
+  latin_len=13044 modern_english_len=821
+  Letters/sections found (2):
+    @5903: EPISTOLA LY. AD CHILDEBERTUM REGEM.  Virgilio 8e vices suas et pallium regis p2t
+    @11399: EPISTOLA LY. AD MARINIANUM EPISCODUM Pallii usum concedit , firmat pririlegia Ra
+  Translation status: Present (821 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=9781 ref_id=gregory_great.3.44 letter_number=3044
+  latin_len=11461 modern_english_len=868
+  Letters/sections found (6):
+    @1409: EPISTOLA XLY.  AD ANUVREAM EPISCOPCUM.  Ut 8acerdotium .ipse deponat, 8i peccali
+    @1627: Gregorius Andrez episcopo * Tarentino.  Tribunal judicis aterni $ecurus aspiciet
+    @4237: Gregorius Joaani episcopo * Calliopolitano.  Ex gestis quze ad nos fraternitas t
+    @6140: EPISTOLA XLYIE. AD CLERUM ECCLESLE SALONITAXNA Honorati elecltionem in episcopum
+    @7480: EPISTOLA XLYIIL.  AD COLUMBUM EPISCOPUM.  Premiss0 sinqularis benerolentia lesli
+    @7759: Gregorius Columbo. © episcopo.  Et antequam fraternitatis tuz scripta susciperem
+  Translation status: Present (868 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=10238 ref_id=gregory_great.2.44 letter_number=2044
+  latin_len=11461 modern_english_len=839
+  Letters/sections found (6):
+    @1409: EPISTOLA XLY.  AD ANUVREAM EPISCOPCUM.  Ut 8acerdotium .ipse deponat, 8i peccali
+    @1627: Gregorius Andrez episcopo * Tarentino.  Tribunal judicis aterni $ecurus aspiciet
+    @4237: Gregorius Joaani episcopo * Calliopolitano.  Ex gestis quze ad nos fraternitas t
+    @6140: EPISTOLA XLYIE. AD CLERUM ECCLESLE SALONITAXNA Honorati elecltionem in episcopum
+    @7480: EPISTOLA XLYIIL.  AD COLUMBUM EPISCOPUM.  Premiss0 sinqularis benerolentia lesli
+    @7759: Gregorius Columbo. © episcopo.  Et antequam fraternitatis tuz scripta susciperem
+  Translation status: Present (839 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=10316 ref_id=gregory_great.13.54 letter_number=13054
+  latin_len=11042 modern_english_len=663
+  Letters/sections found (3):
+    @158: Gregorius Theoderico regi Francorum. Scriptorum vestrorum eloquia incolumitalem 
+    @1966: EPISTOLA VIIE. AD SENATOREM ABBATEN. Privilegium AX enodochii, Gregorius Senator
+    @7630: Gregorius Magnus, nullus dubitat quin 8 gravi illa comminatione abstinuisset que
+  Translation status: Present (663 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=9776 ref_id=gregory_great.3.81 letter_number=3081
+  latin_len=10269 modern_english_len=1046
+  Letters/sections found (4):
+    @901: Gregorius Turon. ſuerit Massil. provincize rector, neque inter Massil. aut Arela
+    @3273: EPISTOLA XXXNIV. AD PETKUM SUBDIACONUM. Ut Festum episcopum ciribus suis concili
+    @3911: EPISTOLA XXXVY. AD PETRUM SUBDIACONUM,  Ex clero Neapolitano mittendos Romam duo
+    @4146: Gregorius Petro s1bdiacono Campaniz.  Szpius a nobis © Paulus ſrater et coepisco
+  Translation status: Present (1046 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+  id=10236 ref_id=gregory_great.2.81 letter_number=2081
+  latin_len=10269 modern_english_len=1345
+  Letters/sections found (4):
+    @901: Gregorius Turon. ſuerit Massil. provincize rector, neque inter Massil. aut Arela
+    @3273: EPISTOLA XXXNIV. AD PETKUM SUBDIACONUM. Ut Festum episcopum ciribus suis concili
+    @3911: EPISTOLA XXXVY. AD PETRUM SUBDIACONUM,  Ex clero Neapolitano mittendos Romam duo
+    @4146: Gregorius Petro s1bdiacono Campaniz.  Szpius a nobis © Paulus ſrater et coepisco
+  Translation status: Present (1345 chars), translates first letter only
+  Translation appears ACCURATE for the first letter in the concatenation.
+
+================================================================================
+ISSUE 3: SINGLE LETTERS WITH HEAVY EDITORIAL APPARATUS
+================================================================================
+
+These are genuinely long individual letters, but their latin_text includes
+extensive variant readings, footnotes, and editorial commentary from the
+critical edition (MGH or PL77). The actual letter text is much shorter.
+
+  id=9730 ref_id=gregory_great.1.24 latin_len=34310 modern_english_len=406
+  id=10682 ref_id=gregory_great.9.52 latin_len=28316 modern_english_len=375
+  id=9689 ref_id=gregory_great.09.147 latin_len=23750 modern_english_len=798
+  id=9717 ref_id=gregory_great.09.218 latin_len=21632 modern_english_len=636
+  id=9856 ref_id=gregory_great.9.126 latin_len=17841 modern_english_len=633
+  id=9895 ref_id=gregory_great.11.75 latin_len=13185 modern_english_len=1301
+  id=9766 ref_id=gregory_great.2.94 latin_len=12691 modern_english_len=922
+  id=9662 ref_id=gregory_great.13.046 latin_len=12282 modern_english_len=663
+  id=9810 ref_id=gregory_great.4.99 latin_len=11699 modern_english_len=1119
+  id=10268 ref_id=gregory_great.5.99 latin_len=11699 modern_english_len=2174
+  id=9877 ref_id=gregory_great.10.134 latin_len=11598 modern_english_len=772
+  id=9709 ref_id=gregory_great.09.193 latin_len=11404 modern_english_len=3021
+  id=9652 ref_id=gregory_great.13.003 latin_len=10770 modern_english_len=677
+  id=9787 ref_id=gregory_great.3.64 latin_len=10644 modern_english_len=623
+  id=10244 ref_id=gregory_great.2.64 latin_len=10644 modern_english_len=977
+  id=9812 ref_id=gregory_great.4.104 latin_len=10631 modern_english_len=896
+  id=10269 ref_id=gregory_great.5.104 latin_len=10559 modern_english_len=4059
+  id=9631 ref_id=gregory_great.11.010 latin_len=10450 modern_english_len=665
+  id=9806 ref_id=gregory_great.4.90 latin_len=10323 modern_english_len=953
+  id=10263 ref_id=gregory_great.5.90 latin_len=10323 modern_english_len=643
+  id=9640 ref_id=gregory_great.11.026 latin_len=10246 modern_english_len=623
+  id=9824 ref_id=gregory_great.8.12 latin_len=10104 modern_english_len=618
+
+================================================================================
+ISSUE 4: EXACT DUPLICATE latin_text PAIRS
+================================================================================
+
+These record pairs have IDENTICAL latin_text content. This occurs because
+the PL77 edition was ingested with different book/letter number mappings
+that actually refer to the same letter. The MGH edition uses a different
+numbering system than PL77, and some letters appear under multiple book
+numbers in the PL77 concordance.
+
+  gregory_great.4.99 (id=9810) = gregory_great.5.99 (id=10268)  [11699 chars]
+  gregory_great.3.44 (id=9781) = gregory_great.2.44 (id=10238)  [11461 chars]
+  gregory_great.3.64 (id=9787) = gregory_great.2.64 (id=10244)  [10644 chars]
+  gregory_great.4.90 (id=9806) = gregory_great.5.90 (id=10263)  [10323 chars]
+  gregory_great.3.81 (id=9776) = gregory_great.2.81 (id=10236)  [10269 chars]
+  gregory_great.3.104 (id=9784) = gregory_great.2.104 (id=10240)  [9452 chars]
+  gregory_great.3.84 (id=9777) = gregory_great.2.84 (id=10237)  [7766 chars]
+  gregory_great.11.27 (id=9909) = gregory_great.12.27 (id=10304)  [7124 chars]
+  gregory_great.4.64 (id=9813) = gregory_great.6.64 (id=10273)  [4366 chars]
+  gregory_great.11.129 (id=9912) = gregory_great.13.129 (id=10325)  [3766 chars]
+  gregory_great.3.63 (id=9786) = gregory_great.2.63 (id=10243)  [3702 chars]
+  gregory_great.13.79 (id=10324) = gregory_great.13.32 (id=10697)  [3496 chars]
+  gregory_great.3.50 (id=9782) = gregory_great.2.50 (id=10239)  [3411 chars]
+  gregory_great.4.16 (id=9802) = gregory_great.5.16 (id=10253)  [3120 chars]
+  gregory_great.3.62 (id=9785) = gregory_great.2.62 (id=10242)  [3065 chars]
+  gregory_great.6.109 (id=10281) = gregory_great.6.62 (id=10671)  [2919 chars]
+  gregory_great.4.124 (id=9803) = gregory_great.5.124 (id=10257)  [2683 chars]
+  gregory_great.4.51 (id=9808) = gregory_great.5.51 (id=10267)  [2569 chars]
+  gregory_great.11.79 (id=9910) = gregory_great.12.79 (id=10305)  [2472 chars]
+  gregory_great.4.79 (id=9814) = gregory_great.6.79 (id=10277)  [2453 chars]
+  gregory_great.4.69 (id=9820) = gregory_great.7.69 (id=10284)  [2370 chars]
+  gregory_great.4.95 (id=9815) = gregory_great.6.95 (id=10280)  [2294 chars]
+  gregory_great.3.16 (id=9770) = gregory_great.2.16 (id=10234)  [2277 chars]
+  gregory_great.4.14 (id=9801) = gregory_great.5.14 (id=10252)  [2116 chars]
+  gregory_great.9.95 (id=9839) = gregory_great.9.48 (id=10679)  [2037 chars]
+  gregory_great.4.12 (id=9799) = gregory_great.5.12 (id=10250)  [2025 chars]
+  gregory_great.11.49 (id=9906) = gregory_great.12.49 (id=10294)  [1776 chars]
+  gregory_great.11.84 (id=9913) = gregory_great.13.84 (id=10327)  [1729 chars]
+  gregory_great.11.15 (id=9908) = gregory_great.12.15 (id=10297)  [1467 chars]
+  gregory_great.4.37 (id=9804) = gregory_great.5.37 (id=10261)  [1209 chars]
+  gregory_great.3.11 (id=9768) = gregory_great.2.11 (id=10232)  [1194 chars]
+  gregory_great.4.109 (id=9800) = gregory_great.5.109 (id=10251)  [880 chars]
+  gregory_great.11.99 (id=9902) = gregory_great.11.52 (id=10692)  [750 chars]
+  gregory_great.4.50 (id=9807) = gregory_great.5.50 (id=10266)  [661 chars]
+
+  Total duplicate pairs: 34
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+
+1. WRONG TEXT (id=1155): Delete or mark as invalid. This is the Decretals
+   of Gregory IX, not Gregory the Great's letters.
+
+2. CONCATENATED RECORDS: For each concatenated record:
+   a. Identify the boundaries of the FIRST letter in the concatenation
+   b. Truncate latin_text to contain only the first letter
+   c. Strip editorial apparatus (variant readings, footnotes)
+   d. The existing modern_english translations are ACCURATE for the first
+      letter and do NOT need re-translation
+   e. Optionally, create new records for the additional letters found in
+      each concatenation (but check for existing records first to avoid
+      further duplication)
+
+3. EDITORIAL APPARATUS: For single-letter records with heavy apparatus:
+   a. Strip variant readings, footnotes, and editorial commentary
+   b. Retain only the letter text itself
+   c. This is lower priority than fixing concatenation issues
+
+4. DUPLICATE PAIRS: For each duplicate pair:
+   a. Determine which ref_id is canonical (prefer MGH numbering)
+   b. Delete or merge the duplicate record
+   c. The PL77 book numbering (books 2-7) often maps multiple PL77
+      numbers to the same underlying letter
+
+5. NO TRANSLATION FIXES NEEDED: All examined translations for concatenated
+   records accurately translate the first letter in the concatenation.
+   They are short because they cover only one letter, not the full
+   concatenated text. This is correct behavior.
+
+================================================================================
+END OF REPORT
+================================================================================

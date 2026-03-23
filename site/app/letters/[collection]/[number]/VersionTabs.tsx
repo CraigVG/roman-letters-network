@@ -23,6 +23,16 @@ const SCHOLARLY_SOURCES = new Set([
   'existing_rogerpearse',
 ]);
 
+const SOURCE_LABELS: Record<string, string> = {
+  existing_newadvent: 'New Advent (NPNF / ANF series)',
+  existing_tertullian: 'Tertullian Project',
+  existing_fordham: 'Fordham Medieval Sourcebook',
+  existing_celt: 'CELT (Corpus of Electronic Texts)',
+  existing_attalus: 'Attalus.org',
+  existing_livius: 'Livius.org',
+  existing_rogerpearse: 'Roger Pearse (additional translations)',
+};
+
 export function VersionTabs({ modernEnglish, english, latin, translationSource }: VersionTabsProps) {
   const { scholarlyMode } = useScholarlyMode();
   const [mounted, setMounted] = useState(false);
@@ -133,12 +143,30 @@ export function VersionTabs({ modernEnglish, english, latin, translationSource }
         </div>
       )}
 
-      {/* Attribution note */}
-      {active === 'modern' && !isScholarlyTranslation && (
-        <p className="mt-6 text-xs text-theme-muted">
-          Modern English rendering for readability. See the 19th-century translation
-          or original Latin/Greek for scholarly use.
-        </p>
+      {/* Translation source badge */}
+      {active === 'modern' && (
+        isScholarlyTranslation ? (
+          <div className="mt-6 flex items-start gap-2 px-3 py-2.5 rounded-md bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
+            <svg className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+            </svg>
+            <p className="text-xs text-emerald-800 dark:text-emerald-300">
+              <strong className="font-semibold">Human translation</strong>
+              {translationSource && SOURCE_LABELS[translationSource] && (
+                <> — {SOURCE_LABELS[translationSource]}</>
+              )}
+            </p>
+          </div>
+        ) : (
+          <div className="mt-6 flex items-start gap-2 px-3 py-2.5 rounded-md bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50">
+            <svg className="w-4 h-4 mt-0.5 shrink-0 text-amber-600 dark:text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+            </svg>
+            <p className="text-xs text-amber-800 dark:text-amber-300">
+              <strong className="font-semibold">AI-assisted translation</strong> — This translation was produced with AI assistance and has not been peer-reviewed. See the 19th-century translation or original Latin/Greek below for scholarly use.
+            </p>
+          </div>
+        )
       )}
 
       {/* Latin/Greek original — always visible below translation */}

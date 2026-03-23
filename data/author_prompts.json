@@ -1,0 +1,208 @@
+{
+  "augustine_hippo": {
+    "voice": "Warm, searching, intellectually restless. A trained rhetorician who adopted sermo humilis (plain Christian style) but never lost his rhetorical instincts. Builds arguments through accumulation and subordination. Biblical allusion woven into the texture of sentences, not as decoration but as the fabric of thought. Preserve his periodic style — do not flatten complex sentences into simple ones unless truly unreadable.",
+    "key_terms": {
+      "Donatists": "North African schismatic movement insisting on a pure church",
+      "Pelagians": "followers of Pelagius who denied original sin and stressed free will",
+      "traditores": "clergy who surrendered Scripture during the Great Persecution",
+      "massa peccati": "mass of sin (Augustine's specific metaphor for fallen humanity)",
+      "gratia": "grace — always translate precisely, never as generic 'blessing'"
+    },
+    "register": "ranges from short administrative notes to sprawling theological treatises; modulates warmth by relationship"
+  },
+  "jerome": {
+    "voice": "Sharp, learned, combative, capable of devastating sarcasm. Sarcasm should read as sarcasm. Rhetorical questions are weapons, not genuine inquiries. Erudition is self-presentation — when he drops a classical reference, he is showing off and the translation should convey that. When condescending, convey condescension. When furious, convey fury.",
+    "key_terms": {
+      "Origenists": "followers of Origen's allegorical theology, Jerome's frequent targets",
+      "Vulgate": "Jerome's Latin translation of the Bible from Hebrew/Greek"
+    },
+    "register": "sudden shifts from high literary style to blunt personal attack; epistolary rage alternating with scholarly precision"
+  },
+  "gregory_great": {
+    "voice": "Pastoral, practical, direct. An efficient administrative authority who also genuinely cares about souls. Blends practical instruction ('send the grain') with spiritual exhortation ('remember your duty before God'). Uses 'servus servorum Dei' (servant of the servants of God) — translate literally, it is his papal formula.",
+    "key_terms": {
+      "patrimonium": "church estates (property generating revenue for the church)",
+      "rector patrimonii": "estate manager (NOT a bishop — an economic official)",
+      "Lombards": "Germanic people who had invaded northern Italy"
+    },
+    "register": "modulates tone precisely by recipient rank: clipped orders to subordinates, diplomatic warmth to equals, careful deference to emperors"
+  },
+  "basil_caesarea": {
+    "voice": "Practical, caring, occasionally exasperated. A born administrator with a genuine pastoral heart. Can be tender with the vulnerable and sharp with the obstinate. Theologically precise when discussing doctrine but accessible when addressing laypeople. Greek prose with a Cappadocian directness.",
+    "key_terms": {
+      "Pneumatomachoi": "opponents of the divinity of the Holy Spirit",
+      "homoousios": "of the same substance (the Nicene formula for Christ's divinity)",
+      "oikonomia": "economy/dispensation — the principle of pastoral flexibility"
+    },
+    "register": "administrative letters are crisp; theological letters are carefully argued; letters to friends are warm and personal"
+  },
+  "libanius": {
+    "voice": "A pagan Greek rhetorician in 4th-century Antioch. Allusive, classicizing, deeply conscious of the rhetorical tradition. Letters are performances of paideia (classical education). References to Homer, the tragedians, and classical mythology are showing membership in the educated elite. Preserve the literary texture — do not strip allusions.",
+    "key_terms": {
+      "paideia": "classical Greek education and culture",
+      "Horai": "the Seasons (goddesses)",
+      "sophist": "professional teacher of rhetoric (not pejorative in this context)"
+    },
+    "register": "consistently literary and allusive; even short notes are stylistically polished"
+  },
+  "symmachus": {
+    "voice": "Elegant, senatorial, nostalgic for traditional Roman values. The last great voice of pagan Roman aristocracy. Letters are exercises in refined Latin style. Friendship is presented as a civic and moral duty. Careful social positioning — always aware of rank and obligation.",
+    "key_terms": {
+      "amicitia": "friendship as a Roman social institution with duties and obligations",
+      "otium": "leisure/retirement from public life",
+      "dignitas": "social standing, honor, rank"
+    },
+    "register": "uniformly polished and senatorial; even requests are couched in elegant indirection"
+  },
+  "cassiodorus": {
+    "voice": "Formal, deliberate, learned. Writing as the voice of Ostrogothic kings (especially Theoderic), crafting an image of civilized Roman governance continued under Germanic rule. Elaborate justifications frame practical orders. Classical learning deployed to legitimate barbarian authority.",
+    "key_terms": {
+      "Variae": "the collection of official letters Cassiodorus compiled",
+      "civilitas": "civilized conduct — the ideal Cassiodorus promotes for Gothic rule"
+    },
+    "register": "consistently formal and ornate; official correspondence dressed in rhetorical finery"
+  },
+  "isidore_pelusium": {
+    "voice": "Aphoristic, direct, monastic. A monk-theologian who writes short, punchy letters — often just a few sentences making a single moral or theological point. Compressed wisdom, not elaborate argument. Many letters address the same themes (virtue, priesthood, anger, humility) but each should have its own specific content drawn from the Greek source.",
+    "key_terms": {},
+    "register": "consistently brief and pointed; sermon-like compression"
+  },
+  "hormisdas": {
+    "voice": "Papal diplomatic correspondence during the Acacian Schism (484-519). Formal, careful, balancing firmness on doctrine with diplomatic flexibility. The language of ecclesiastical negotiation — precise theological demands wrapped in respectful address.",
+    "key_terms": {
+      "Acacian Schism": "break between Rome and Constantinople (484-519) over the Henotikon",
+      "Henotikon": "Emperor Zeno's compromise formula that Rome rejected",
+      "libellus": "the formula of submission Rome required Eastern bishops to sign"
+    },
+    "register": "papal administrative and diplomatic"
+  },
+  "sidonius_apollinaris": {
+    "voice": "Literary, elegant, nostalgic — conscious that he is preserving a way of life that is disappearing. A Gallo-Roman aristocrat watching Roman civilization give way to Germanic kingdoms. Elaborate, sometimes overwrought style that is itself a statement about cultural continuity. Preserve the literary texture.",
+    "key_terms": {
+      "Visigoths": "Germanic people ruling much of southern Gaul",
+      "curiales": "town councillors (the backbone of Roman local government)"
+    },
+    "register": "literary performance; even practical letters are stylistically ambitious"
+  },
+  "ennodius_pavia": {
+    "voice": "Ornate, rhetorical, given to literary display. A bishop who was also a poet and stylist. Elaborate compliments, extended metaphors, self-conscious verbal artistry. The prose can be difficult — preserve the difficulty rather than simplifying.",
+    "key_terms": {},
+    "register": "consistently ornate; values elegance over clarity"
+  },
+  "cyprian_carthage": {
+    "voice": "Pastoral authority under persecution. Writing during the Decian and Valerian persecutions (250s), Cyprian addresses questions of church discipline: what to do with those who lapsed under persecution? Firm but compassionate. The bishop as shepherd of a flock under attack.",
+    "key_terms": {
+      "lapsi": "Christians who lapsed (sacrificed to pagan gods) under persecution",
+      "confessores": "Christians who confessed faith under persecution but survived",
+      "martyres": "Christians who died for the faith",
+      "libelli": "certificates of having sacrificed (bought or earned)"
+    },
+    "register": "pastoral and urgent; administrative decisions with life-or-death stakes"
+  },
+  "ambrose_milan": {
+    "voice": "Aristocratic, commanding, senatorial. A former provincial governor who became bishop — the administrative confidence never left him. Addresses emperors as a moral equal. Theological arguments delivered with the authority of a man accustomed to being obeyed.",
+    "key_terms": {
+      "Arianism": "denial of Christ's full divinity — the major heresy Ambrose fought",
+      "basilica": "the church building itself, over which Ambrose and the court fought"
+    },
+    "register": "senatorial authority applied to episcopal office"
+  },
+  "leo_great": {
+    "voice": "Majestic, theologically precise, papal authority at its most confident. The Tome of Leo defined Christological orthodoxy. Every sentence carries doctrinal weight. Papal prerogatives asserted with calm certainty.",
+    "key_terms": {
+      "Tome": "Leo's doctrinal letter on Christ's two natures, accepted at Chalcedon",
+      "Chalcedon": "the ecumenical council of 451 that defined orthodox Christology"
+    },
+    "register": "consistently elevated; doctrinal precision combined with pastoral warmth"
+  },
+  "paulinus_nola": {
+    "voice": "Warm, poetic, devoted to ascetic friendship. A wealthy aristocrat who gave up everything for Christian asceticism. Deep friendship with figures like Sulpicius Severus. Letters celebrate the spiritual bond between friends separated by distance.",
+    "key_terms": {
+      "Felix": "St. Felix of Nola, whose shrine Paulinus maintained"
+    },
+    "register": "warm and poetic; friendship letters that are also spiritual meditations"
+  },
+  "pliny_younger": {
+    "voice": "Polished, self-conscious, carefully crafted for publication. Pliny edited these letters for posterity — they are literary compositions as much as correspondence. Book 10 (to Trajan) is more direct and administrative.",
+    "key_terms": {
+      "Trajan": "Emperor Trajan (98-117 AD), Pliny's correspondent in Book 10"
+    },
+    "register": "literary polish in Books 1-9; administrative directness in Book 10"
+  },
+  "gregory_nazianzus": {
+    "voice": "Theological brilliance combined with personal vulnerability. One of the three Cappadocian Fathers. Eloquent, sometimes bitter about ecclesiastical politics, deeply learned in both classical and Christian literature.",
+    "key_terms": {},
+    "register": "ranges from theological argument to personal complaint"
+  },
+  "theodoret_cyrrhus": {
+    "voice": "A moderate Antiochene theologian navigating the Christological controversies. Diplomatic, learned, sometimes defensive. Writing during a period when his own orthodoxy was questioned.",
+    "key_terms": {
+      "Nestorius": "patriarch of Constantinople condemned for separating Christ's two natures",
+      "Cyril": "patriarch of Alexandria, Theodoret's theological opponent"
+    },
+    "register": "theological and diplomatic"
+  },
+  "chrysostom": {
+    "voice": "John Chrysostom — 'Golden Mouth.' Eloquent preacher turned exiled bishop. Letters from exile are poignant, pastoral, and defiant. Concerned for his flock in Constantinople while enduring hardship.",
+    "key_terms": {},
+    "register": "pastoral eloquence even in personal suffering"
+  },
+  "julian_emperor": {
+    "voice": "Emperor Julian ('the Apostate'). Philosophical, classicizing, self-consciously pagan in a Christianizing world. Letters combine imperial authority with Neoplatonic philosophy. Witty, learned, sometimes sardonic about Christians.",
+    "key_terms": {
+      "Helios": "the sun god, central to Julian's solar theology",
+      "theourgia": "theurgy — ritual practice to unite with the divine"
+    },
+    "register": "imperial authority blended with philosophical reflection"
+  },
+  "athanasius_alexandria": {
+    "voice": "The great defender of Nicene orthodoxy. Polemical, uncompromising on the divinity of Christ. Exiled multiple times for his stance. Writing is combative when addressing heresy, pastoral when addressing his flock.",
+    "key_terms": {
+      "homoousios": "of the same substance — the Nicene formula Athanasius championed",
+      "Arians": "followers of Arius who denied Christ's full divinity"
+    },
+    "register": "polemical and doctrinal"
+  },
+  "sulpicius_severus": {
+    "voice": "Ascetic hagiographer, friend of Paulinus of Nola. Best known for his Life of Martin of Tours. Letters reflect monastic piety and literary culture.",
+    "key_terms": {},
+    "register": "literary asceticism"
+  },
+  "synesius_cyrene": {
+    "voice": "A Neoplatonist philosopher who became bishop of Ptolemais. Cultured, philosophical, sometimes ambivalent about his episcopal duties. Greek prose of high literary quality.",
+    "key_terms": {},
+    "register": "philosophical and literary"
+  },
+  "_papal_generic": {
+    "voice": "Papal administrative correspondence. Formal, authoritative, concerned with church discipline, episcopal appointments, and doctrinal matters. The pope speaks as the successor of Peter with universal jurisdiction.",
+    "key_terms": {
+      "apostolic see": "the papal see of Rome",
+      "pallium": "a wool vestment signifying metropolitan authority, granted by the pope"
+    },
+    "register": "formal papal administrative",
+    "applies_to": ["gelasius_i", "innocent_i", "simplicius_pope", "pope_felix_iii", "pope_hilary", "pope_symmachus", "pope_anastasius_ii", "pope_agapetus_i", "pope_john_ii", "pope_john_iii", "pope_vigilius", "pelagius_i", "pelagius_ii", "benedict_i"]
+  },
+  "_episcopal_generic": {
+    "voice": "Episcopal correspondence from late antique Gaul, Spain, or Italy. Bishops managing their dioceses, corresponding with peers, navigating the transition from Roman to post-Roman governance.",
+    "key_terms": {},
+    "register": "episcopal administrative and pastoral",
+    "applies_to": ["avitus_vienne", "braulio_zaragoza", "caesarius_arles", "desiderius_cahors", "faustus_riez", "ferrandus_carthage", "ruricius_limoges", "salvian_marseille"]
+  },
+  "_collection_generic": {
+    "voice": "Anonymous or collective correspondence from the late antique/early medieval period. May include administrative, diplomatic, or personal letters.",
+    "key_terms": {},
+    "register": "varies by individual letter",
+    "applies_to": ["epistulae_austrasicae", "epistulae_langobardorum", "epistulae_merowingici", "epistulae_wisigothicae"]
+  },
+  "_monastic_generic": {
+    "voice": "Monastic correspondence. Letters from monks, abbots, and monastic leaders. Spiritual counsel, community management, and theological reflection.",
+    "key_terms": {},
+    "register": "monastic and spiritual",
+    "applies_to": ["columbanus", "bede", "boniface", "alcuin_york"]
+  },
+  "venantius_fortunatus": {
+    "voice": "A poet-bishop in Merovingian Gaul. The last great Latin poet before the Carolingian renaissance. Letters are literary compositions, often accompanying poems. Ornate, flattering, deeply conscious of classical literary tradition surviving in a changed world.",
+    "key_terms": {},
+    "register": "poetic and literary"
+  }
+}
