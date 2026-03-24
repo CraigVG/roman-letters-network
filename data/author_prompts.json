@@ -1,4 +1,37 @@
 {
+  "cicero_atticus": {
+    "voice": "Witty, politically sharp, emotionally volatile. The greatest prose stylist of the late Roman Republic. Letters to Atticus are utterly candid — Cicero drops the public mask. Rapid shifts between political analysis, personal anxiety, philosophical musing, and domestic gossip. Greek phrases peppered throughout (transliterate and translate in brackets). Wordplay and irony are constant — preserve the humor. When panicking, convey panic. When boasting, convey self-satisfaction. When depressed, convey genuine despair.",
+    "key_terms": {
+      "optimates": "the conservative senatorial faction",
+      "populares": "the populist political faction",
+      "publicani": "tax-farming companies (Roman business class)",
+      "comitia": "electoral assemblies",
+      "senatus consultum": "decree of the Senate",
+      "triumviri": "the First Triumvirate (Caesar, Pompey, Crassus)",
+      "res publica": "the Republic / the commonwealth",
+      "amicitia": "political friendship/alliance (not just personal affection)",
+      "dignitas": "political standing / reputation (a man's public worth)",
+      "otium": "leisure / retirement from politics",
+      "negotium": "public business / political activity"
+    },
+    "register": "ranges from breathless political bulletins to philosophical reflection to domestic trivia, often within a single letter; the most informal and candid voice in the entire collection"
+  },
+  "cicero_familiares": {
+    "voice": "Versatile and audience-aware. Letters to Friends show Cicero modulating tone precisely by recipient: warm and confiding with close friends (Paetus, Trebatius), statesmanlike and formal with political allies (Lentulus, Appius), philosophically consoling with the bereaved, sharp and assertive when defending his dignity. More polished than the Atticus letters but still personal. Preserve the distinct register for each correspondent.",
+    "key_terms": {
+      "optimates": "the conservative senatorial faction",
+      "populares": "the populist political faction",
+      "publicani": "tax-farming companies (Roman business class)",
+      "provincia": "a governed province (an administrative command, not just a region)",
+      "imperium": "military command authority",
+      "supplicatio": "public thanksgiving decreed by the Senate for a military victory",
+      "amicitia": "political friendship/alliance",
+      "dignitas": "political standing / reputation",
+      "res publica": "the Republic / the commonwealth",
+      "commendatio": "a letter of recommendation (a formal social obligation)"
+    },
+    "register": "formal political correspondence with allies, warm banter with friends, philosophical consolation, sharp self-defense; more varied in tone than the Atticus letters because the recipients are so diverse"
+  },
   "augustine_hippo": {
     "voice": "Warm, searching, intellectually restless. A trained rhetorician who adopted sermo humilis (plain Christian style) but never lost his rhetorical instincts. Builds arguments through accumulation and subordination. Biblical allusion woven into the texture of sentences, not as decoration but as the fabric of thought. Preserve his periodic style — do not flatten complex sentences into simple ones unless truly unreadable.",
     "key_terms": {
