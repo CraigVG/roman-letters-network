@@ -124,7 +124,7 @@ def ocr_page_with_gemini(image_path: str) -> str:
 
     try:
         response = client.models.generate_content(
-            model='gemini-2.0-flash',
+            model='gemini-3-flash-preview',
             contents=[
                 genai.types.Part.from_bytes(data=image_data, mime_type='image/png'),
                 GEMINI_OCR_PROMPT,
