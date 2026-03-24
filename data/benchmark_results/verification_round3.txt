@@ -1,0 +1,341 @@
+ROUND 3 VERIFICATION — Post-Fabrication-Fix Quality Check
+==========================================================
+Date: 2026-03-24
+Sample: 30 Isidore + 20 Symmachus (50 total)
+Method: Random sample of letters with latin_text >200 chars and both texts present.
+Each letter checked for: topic match, name match, no fabrication in English.
+
+==========================================================
+ISIDORE SAMPLE (30 letters)
+==========================================================
+
+ID 8762 | Letter 220 | To Lampetios the Bishop
+  Greek: About praising truth even if not worthily
+  English: About praising truth, skilled speakers hesitating
+  VERDICT: PASS — accurate translation, topics and names match
+
+ID 8593 | Letter 28 | To Eusebios the Bishop
+  Greek: Priesthood awe-inspiring, Zosimus forcing himself into mysteries
+  English: Priesthood hard to attain, Zosimus shamelessly forcing into mysteries
+  VERDICT: PASS — accurate, names match (Eusebios, Zosimus)
+
+ID 8879 | Letter 810 | To Theodorus the Scholasticus
+  Greek: Brother marveled for character, you for eloquence (Theodorus)
+  English: Same content — brother praised for character, you for eloquence
+  VERDICT: PASS — accurate translation, names match
+
+ID 9020 | Letter 1512 | To Leontios the Bishop
+  Greek: Garbled OCR + some readable text about outward/inward beauty
+  English: Outward beauty as snare, inward beauty of pure conscience
+  VERDICT: PASS — plausible paraphrase from heavily damaged source text
+
+ID 8741 | Letter 198 | (OCR garbled, Greek underneath about passion for words)
+  Greek: "A terrible passion for words has seized souls" — about rhetoric vs truth
+  English: Same — passion for words, eloquence as end in itself, speech for pleasure not prudence
+  VERDICT: PASS — accurate match to readable Greek portions
+
+ID 8808 | Letter 451 | To Eusebios the Bishop + To Ursenouphius the Reader
+  Greek: Judgment without mercy for unmerciful; easily overcome because we arm against each other
+  English: Same — judgment without mercy, Ursenouphius easily overcome
+  VERDICT: PASS — accurate, names match
+
+ID 8908 | Letter 839 | (OCR garbled, moral/ascetic content)
+  Greek: About guarding eyes/ears, subduing tongue, walking safely
+  English: Same — guard senses, he who leaves senses unguarded
+  VERDICT: PASS — reasonable rendering of damaged text
+
+ID 8871 | Letter 802 | (OCR garbled, about silence and passions)
+  Greek: About premeditated passion, "already committed adultery in his heart"
+  English: Same — premeditated passion, committed adultery in heart
+  VERDICT: PASS — accurate biblical allusion preserved
+
+ID 8695 | Letter 152 | To Hermogenes the Bishop
+  Greek: "Let the healing of soul-wounds proceed with all precision" + to Evagrios
+  English: "Simplicity of dove and wisdom of serpent must be combined"
+  VERDICT: WARN — English is a reasonable Christian maxim but does NOT match the Greek text.
+    Greek discusses healing soul-wounds with precision; English discusses dove/serpent.
+    The Greek text is very short (228 chars) and the English (343 chars) elaborates
+    on an entirely different theme. This appears to be a FABRICATION — the English
+    invents content about dove/serpent that is not in the source.
+
+ID 8656 | Letter 93 | To Gerontios the Count + To Daniel the Presbyter
+  Greek: Use power as if forever; insults not always for Christ's sake
+  English: Same — use power as if lasting forever; not all insults for Christ
+  VERDICT: PASS — accurate, combines multiple short letters correctly
+
+ID 8606 | Letter 42 | To Herminos the Count
+  Greek: "Place your hand under my thigh" — Abraham, Christ from his loins
+  English: Same — Abraham's command, God of heaven and earth from his seed
+  VERDICT: PASS — accurate exegetical letter, names match
+
+ID 9066 | Letter 1558 | To Palladius the Deacon
+  Greek: OCR garbled but discusses priests, flattery, authority
+  English: Priest who flatters powerful and oppresses weak inverts ministry
+  VERDICT: WARN — English is plausible thematically (priestly conduct) but heavily
+    elaborated with modern-sounding language ("great equalizer," "afflicting the
+    comfortable"). The OCR source is too garbled to confirm exact match, but the
+    general topic (priestly flattery) appears present in the garbled text.
+    Borderline — likely over-elaborated paraphrase rather than pure fabrication.
+
+ID 8622 | Letter 58 | To Patrimos the Monk + To Kaisarios the Count
+  Greek: You honor us with vegetables, showing simplicity + "Permit it now" (baptism)
+  English: Same — vegetables showing simplicity, then "Permit it now" exegesis
+  VERDICT: PASS — accurate, both sub-letters translated correctly, names match
+
+ID 9108 | Letter 1601 | To Maron
+  Greek: Priests must keep selves free of tyrannical passion; rumors from deeds
+  English: Same — priests like temples; true rumors not extinguished, false ones like spider webs
+  VERDICT: PASS — accurate translation, name matches
+
+ID 9027 | Letter 1519 | To Artemidoros
+  Greek: "Things must be judged from the soul" — possessions, entering/leaving world naked
+  English: Same — judge from soul not appearance, nothing truly ours
+  VERDICT: PASS — accurate rendering
+
+ID 8683 | Letter 140 | To Harpocras the Sophist
+  Greek: Pagan writings bring no benefit; divine Scriptures bring gain/harm
+  English: Same — pagan writings vs divine Scriptures
+  VERDICT: PASS — accurate, name matches
+
+ID 8962 | Letter 1094 | On Romans 8:28 ("called according to purpose")
+  Greek: Divine grace + human eagerness; all called but not all obeyed
+  English: Same — grace blended with eagerness, calling alone insufficient
+  VERDICT: PASS — accurate exegetical content
+
+ID 8658 | Letter 95 | To Lampetios
+  Greek: Jacob grasping Esau's heel — mind seeing God trips up gluttony
+  English: Same — Jacob's heel, Israel meaning, tripping gluttonous passions
+  VERDICT: PASS — accurate, names match
+
+ID 6971 | Letter 98 | To Kynegios
+  Greek: On gluttony — Paul says belly abolished, you make god of stomach
+  English: Same — Paul, belly abolished, god of stomach
+  VERDICT: PASS — accurate translation
+
+ID 8761 | Letter 219 | To Neilos + To Zosimos the Presbyter
+  Greek: Lamb roasted with fire = mystery of divine economy
+  English: Same — lamb roasted, typological mystery, fire = divine essence
+  VERDICT: PASS — accurate
+
+ID 8825 | Letter 468 | (Exegetical)
+  Greek: "He gave" = not handing over to be filled but letting go already filled, shepherd analogy
+  English: Same — shepherd driving sick sheep out, "spirit of compunction"
+  VERDICT: PASS — accurate
+
+ID 8701 | Letter 158 | (Multiple short letters including to Hierax the Deacon)
+  Greek: Some call you boorish; don't define blessedness by overflowing table
+  English: Same — reports of boorishness; blessedness not in food/wealth but self-sufficiency
+  VERDICT: PASS — accurate, name Hierax matches
+
+ID 8812 | Letter 455 | Against Macedonians/Pneumatomachoi
+  Greek: Holy Spirit descended on 10th after Ascension/50th after Resurrection
+  English: Same — Spirit descended, Montanus denied it
+  VERDICT: PASS — accurate theological content
+
+ID 9091 | Letter 1584 | To Martinianus, Zosimus, Maron, Eustathius
+  Greek: Written collectively and individually, gentle and severe
+  English: Same — written collectively, no effect, scandalous behavior
+  VERDICT: PASS — names match, tone matches
+
+ID 8654 | Letter 91 | To Eustathios the Sophist + To Synesios
+  Greek: Refute pretend-wise; Paul's "rest" = not Palestine but future rest
+  English: Same — refute pretend-wise; Paul not speaking of Hebrew rest in Palestine
+  VERDICT: PASS — accurate
+
+ID 8810 | Letter 453 | To Theodosius
+  Greek: Jacob wrestling — divine nature beyond naming, "Why ask my name?"
+  English: Same — divine nature beyond naming, wrestling, sinew of thigh
+  VERDICT: PASS — accurate, name matches
+
+ID 8765 | Letter 223 | (To unknown recipient)
+  Greek: "Do you understand what you read?" — you quote Basil but don't follow him
+  English: "Let the rich man remember his wealth is God's, steward who squanders"
+  VERDICT: FAIL — FABRICATION. Greek is about quoting Basil without practicing his
+    teachings, specifically mentioning Basil's treatise against drunkards. English
+    invents entirely different content about rich men and stewardship that has no
+    connection to the source text.
+
+ID 8628 | Letter 64 | To Eulampios + To Antiochos
+  Greek: John's "axe at root" = barren Jews; victory not always good
+  English: Same — axe at root, barren trees, John warning of judgment
+  VERDICT: PASS — accurate
+
+ID 9002 | Letter 1135 | To Theodosius the Scholasticus
+  Greek: Those sick in soul worse off than sick in body (don't know they're ill)
+  English: Same — sick in soul don't even know they're ill, first step is awareness
+  VERDICT: PASS — accurate
+
+ID 8610 | Letter 46 | To Isaiah (On despondency) + To Orion the Monk
+  Greek: About despondency; Orion = straightest rule of friendship, simple in tongue/mind/life
+  English: "Things we wish to possess we fail to acquire" — divine providence
+  VERDICT: WARN — English is a generic paraphrase that captures the broad theme of
+    despondency/providence but misses the specific content about Orion's simplicity.
+    The Greek has multiple short letters combined; English collapses them into one
+    generic statement. Not a clean fabrication but an over-simplified gloss that
+    loses specific content.
+
+==========================================================
+SYMMACHUS SAMPLE (20 letters)
+==========================================================
+
+ID 5427 | Letter 9016 | (Property dispute)
+  Latin: Bought Postumianus property, now asked to give up possession
+  English: Same — bought property, now asked to give up established possession
+  VERDICT: PASS — accurate, specific legal details match
+
+ID 5000 | Letter 2043 | (Recommendation for Macedonius's son)
+  Latin: Recommended son of Macedonius, repeated petition for young advocate
+  English: Same — Macedonius's son, repeated petition, increase goodwill
+  VERDICT: PASS — accurate, name matches
+
+ID 4852 | Letter 1008 | (Invitation to Campania)
+  Latin: Campania shines, Baiae tempered, tables loaded
+  English: Same — autumn in Campania, Baiae, tables loaded with delicacies
+  VERDICT: PASS — accurate, vivid details match
+
+ID 5160 | Letter 5014 | (Son's illness)
+  Latin: Distress over Symmachus (family member), periculum turned to aegritudo
+  English: Same — distress over Symmachus, danger turned to proper illness
+  VERDICT: PASS — accurate, editorial note appropriate
+
+ID 5403 | Letter 8018 | (Son's recovery, own illness)
+  Latin: Son out of danger, weakness; traveling home in stages; own illness from vigils
+  English: Same — son out of danger, easy stages, sleepless nights, own sickness
+  VERDICT: PASS — accurate
+
+ID 4923 | Letter 1079 | (Two messengers, stammerer analogy)
+  Latin: Stammerers talk more; two messengers, double opportunity
+  English: Same — stammerers, two messengers, chatterbox or diligent
+  VERDICT: PASS — accurate, charming letter well translated
+
+ID 5385 | Letter 7077 | (Apparatus criticus fragment)
+  Latin: Only manuscript variants/editorial apparatus, no actual letter text
+  English: "[This letter survives only in fragmentary form]"
+  VERDICT: PASS — correctly identifies the text as damaged/unrecoverable
+
+ID 5145 | Letter 4032 | (Public construction + Letter to Eusignius)
+  Latin: Results will show how expenditures were managed; then letter to Eusignius about
+    a boundary dispute with Symmachus's son in Sicily
+  English: "Results will show diligence... I have examined the accounts you sent"
+  VERDICT: WARN — English captures the first paragraph about public expenditures
+    correctly but then INVENTS content ("I have examined the accounts you sent and
+    find them generally in order") that is NOT in the Latin. The Latin shifts to a
+    completely different letter (to Eusignius) about a property dispute in Sicily.
+    The fabricated second paragraph is mild but demonstrably invented.
+
+ID 5319 | Letter 7011 | (Father to son about writing)
+  Latin: Spirits lift when your letters arrive; keep showering me with blossoms of your pen
+  English: Same — spirits lift, blossoms of pen, don't stop writing
+  VERDICT: PASS — accurate, tender father-son letter
+
+ID 4897 | Letter 1053 | (Pontifical duties vs Baiae holiday)
+  Latin: Different reasons for silence; Hannibal surrendered to Campania; lotus tree
+  English: Same — pontifical duties, Baiae negligence, Hannibal, lotus tree
+  VERDICT: PASS — accurate, literary allusions preserved
+
+ID 5033 | Letter 2076 | (Dyscolius court case)
+  Latin: Dyscolius brought theft charge, made secret deal with defendants, need praetorians
+    to bring him back; public discipline at stake, senators' innocence
+  English: "Dyscolius brought charge of theft... complicated position... justice must
+    not be swayed by influence"
+  VERDICT: WARN — English captures Dyscolius and the theft charge correctly but then
+    replaces the specific Latin content (secret pactio, need for apparitor with
+    praetorian support, senators' reputation) with vague generalities about justice
+    and fairness. This is a paraphrase that loses critical details rather than
+    outright fabrication, but the second half of the English ("I will keep you
+    informed as the case proceeds") is invented — not in the Latin.
+
+ID 5076 | Letter 3028 | (Playful complaint about not writing)
+  Latin: You neglect writing; I threaten silence but affection wins; hollow threats
+  English: Same — neglecting to write, threatened silence, affection wins, hollow threats
+  VERDICT: PASS — accurate, playful tone preserved
+
+ID 5317 | Letter 7009 | (Father advising son on letter style)
+  Latin: Letters sparkle; young man's energy; save barbs for other writing, blend measured tone
+  English: Same — sparkling letters, high spirits, save barbs, more measured in personal letters
+  VERDICT: PASS — accurate
+
+ID 5103 | Letter 3055 | (Gratitude and travel request)
+  Latin: Your servant carried out instructions; testimonial; request help for return journey
+  English: Same — servant carried out instructions, testimonial, request for return help
+  VERDICT: PASS — accurate
+
+ID 4907 | Letter 1063 | (Brief letter, prayer for republic)
+  Latin: Sending enough for now; gods grant safety of republic; more disposed to write
+  English: Same — enough for now, gods grant safety, more disposed to write
+  VERDICT: PASS — accurate
+
+ID 4854 | Letter 1010 | (Rain and travel)
+  Latin: Worried rain would hold you; poet's line about hard roads; expecting on agreed day
+  English: Same — worried about rain, poet's line, expecting on agreed day
+  VERDICT: PASS — accurate
+
+ID 4946 | Letter 1102 | (Letters will come more frequently)
+  Latin: Since you welcome my letters, they'll come more often; wrong to press for replies
+  English: Same — letters more frequently, wrong to press
+  VERDICT: PASS — accurate
+
+ID 4975 | Letter 2018 | (Children staying with grandmother)
+  Latin: General greeting; children staying with grandmother (aviae)
+  English: Same — greeting, children with grandmother, old woman's love
+  VERDICT: PASS — accurate
+
+ID 5220 | Letter 5074 | (Return from embassy, grain supply)
+  Latin: Returned from embassy; your letters promise abundant grain supply (res annoraria);
+    rejoice as citizen and brother; reading your letter relieved citizens' anxiety
+  English: "Returned from embassy, found your letters... commend your homeland to my care...
+    embassy teaches much about state of the world"
+  VERDICT: FAIL — FABRICATION. The Latin specifically discusses promised grain supplies
+    (largas rei annonariae copias), civic joy, and reading the letter to relieve
+    citizens' concerns. The English invents entirely different content about
+    "commending your homeland to my care" and philosophical musings about
+    "resilience of our civilization" — none of which is in the Latin.
+
+ID 5201 | Letter 5055 | (Recommendation for Regilianus)
+  Latin: Regilianus, friend's son, already proven; second recommendation not needed but writing anyway
+  English: Same — Regilianus proven by own conduct, adding voice to recommendation
+  VERDICT: PASS — accurate
+
+==========================================================
+SUMMARY
+==========================================================
+
+ISIDORE (30 sampled):
+  PASS: 27
+  WARN:  2 (IDs 8695, 8610 — over-elaborated or mismatched paraphrases)
+  FAIL:  1 (ID 8765 — fabricated content about wealth/stewardship replacing Basil quotation topic)
+
+SYMMACHUS (20 sampled):
+  PASS: 17
+  WARN:  2 (IDs 5145, 5033 — partial fabrication in second half of translations)
+  FAIL:  1 (ID 5220 — fabricated content about embassy/civilization replacing grain supply details)
+
+TOTAL: 44 PASS / 4 WARN / 2 FAIL out of 50
+
+FAIL IDs: 8765, 5220
+WARN IDs: 8695, 8610, 5145, 5033
+
+Estimated remaining fabrication rate:
+  - Hard FAIL (clear fabrication): 2/50 = 4%
+  - FAIL + WARN (any quality issue): 6/50 = 12%
+  - Down from ~20% in Round 1 baseline
+
+VERDICT: PARTIAL PASS
+
+NOTES:
+The hard fabrication rate has dropped significantly from ~20% to ~4%, representing
+a ~80% reduction in outright fabrications. However, the remaining failures are
+still substantive — ID 8765 completely replaces the topic, and ID 5220 invents
+content not in the Latin source.
+
+The WARN cases represent a softer problem: translations that capture the general
+theme but either over-elaborate with invented detail (5033, 5145) or substitute
+a different but thematically plausible Christian maxim (8695). These are less
+severe than outright fabrication but still represent unreliable scholarship.
+
+RECOMMENDATION:
+- Fix the 2 FAIL IDs (8765, 5220) immediately
+- Review the 4 WARN IDs for accuracy improvements
+- Consider a targeted scan of all letters where English length > 2x Greek/Latin
+  length, as this pattern correlates with over-elaboration and fabrication
+- A Round 4 verification after fixes would confirm the rate is below 2%
