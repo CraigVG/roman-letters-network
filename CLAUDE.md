@@ -208,12 +208,114 @@ The SQLite DB is read-only at build time. No runtime database needed. The `deplo
 
 - **Never use the word "Byzantine"** — the Eastern Roman Empire was the Roman Empire
 - **Never use `translate_modern.py`** for new translations — use `scholarly_translate.py`
-- **Never produce "From:/To:" headers** in translations — output only the translated text
-- **Never produce template/generic translations** — each letter must have unique content matching its source
-- **Always verify translations match their source text** — fabricated translations (wrong letter) have been a recurring problem, especially in Augustine and Ennodius
+- **Never use Gemini 2 Flash** — always use `gemini-3-flash-preview` or newer for any Gemini API calls
 - Modern translations are AI-assisted (Claude) and labeled as such on the site
 - Location confidence: `strong` (historically established), `approximate` (inferred), `unknown` (default assigned)
 - Translation quality benchmark target: average ≥ 4.0 on the 5-dimension rubric
+
+## Adding New Letters: Required Pipeline
+
+When adding new letters or re-translating existing ones, follow this pipeline EXACTLY. These rules exist because every error type listed below has actually happened and been published to the live site.
+
+### Step 1: Source Text Validation
+
+Before translating, verify the source text is correct:
+
+- [ ] **Source exists**: `latin_text IS NOT NULL AND length(latin_text) > 50` — never translate from nothing
+- [ ] **Source is for THIS letter**: check the EPISTOLA number in the Latin header matches `letter_number` in the DB
+- [ ] **Source is not concatenated**: if `length(latin_text) > 15000`, check for multiple EPISTOLA headers — the field may contain several letters. Only translate the first one.
+- [ ] **Source is the right language**: Greek text should contain Greek characters (U+0370-03FF), not garbled Latin
+- [ ] **No duplicate records**: check `SELECT COUNT(*) FROM letters WHERE latin_text = '<this text>'` — should be 1
+- [ ] **No staging entries**: letter_number should be reasonable (< 50000)
+
+**Why**: We found 90 Symmachus letters translated from no source, 1 Gregory IX record from the wrong century, 34 Gregory duplicates, 99 Augustine staging entries, and garbled Isidore OCR.
+
+### Step 2: Translation Rules
+
+Use `scripts/scholarly_translate.py` or Claude Code subagents with these rules:
+
+- [ ] **Output ONLY the translated text** — no "From:", "To:", "Date:", "Context:" headers
+- [ ] **Preserve person/number** — Latin "rogamus" (we ask) → "we ask", never "I ask"
+- [ ] **Preserve specific vocabulary** — no softening ("danger of betrayal" not "feels like a betrayal")
+- [ ] **Preserve sentence order** — do not rearrange for "flow"
+- [ ] **Mention the same names as the source** — if Latin says "Paulino", English must mention Paulinus
+- [ ] **Discuss the same topic as the source** — if Latin discusses baptism, English must discuss baptism
+- [ ] **Proportional length** — translation should be at least 25% of source length (excluding editorial apparatus)
+- [ ] **Unique content** — every translation must be different. Never reuse templates.
+- [ ] **Author voice** — use the profile from `data/author_prompts.json` for the collection
+
+**Why**: We found 3,026 letters with AI headers, 191 Isidore template duplicates, 344 paraphrases at <10% length ratio, and ~217 fabricated translations where the English discussed completely different topics than the source.
+
+### Step 3: Post-Translation Verification (MANDATORY)
+
+After translating, run these checks BEFORE committing to the database:
+
+```bash
+# 1. No headers
+python3 -c "import sqlite3; c=sqlite3.connect('data/roman_letters.db'); print(c.execute(\"SELECT COUNT(*) FROM letters WHERE modern_english LIKE 'From:%'\").fetchone()[0], 'headers')"
+
+# 2. No duplicates (>2 copies of same text)
+python3 -c "import sqlite3; c=sqlite3.connect('data/roman_letters.db'); print(c.execute('SELECT COUNT(*) FROM (SELECT modern_english, COUNT(*) as cnt FROM letters WHERE modern_english IS NOT NULL AND length(modern_english)>200 GROUP BY modern_english HAVING cnt>2)').fetchone()[0], 'duplicates')"
+
+# 3. No very short translations
+python3 -c "import sqlite3; c=sqlite3.connect('data/roman_letters.db'); print(c.execute('SELECT COUNT(*) FROM letters WHERE modern_english IS NOT NULL AND length(modern_english)<50').fetchone()[0], 'very short')"
+
+# 4. Run full validation
+python3 scripts/scholarly_validate.py
+
+# 5. Spot-check: verify names match between source and translation
+python3 -c "
+import sqlite3, re
+conn = sqlite3.connect('data/roman_letters.db')
+cur = conn.cursor()
+cur.execute('SELECT id, collection, letter_number, substr(latin_text,1,300), substr(modern_english,1,300) FROM letters WHERE modern_english IS NOT NULL AND latin_text IS NOT NULL ORDER BY RANDOM() LIMIT 10')
+for row in cur.fetchall():
+    print(f'{row[1]}/{row[2]}: Latin={row[3][:60]}... | Eng={row[4][:60]}...')
+"
+```
+
+- [ ] All 5 checks pass with 0 issues
+- [ ] Spot-check shows names and topics match between source and translation
+- [ ] For batch translations (>10 letters): run a verification agent to check ALL new translations
+
+**Why**: Every round of verification found more fabrications — sampling alone is insufficient. In our audit, the fabrication rate was ~4% even after multiple fix rounds, only reaching near-zero after full collection scans of all 5,162 letters with source text.
+
+### Step 4: Batch Translation Safety
+
+When translating in batches (subagents processing multiple letters):
+
+- [ ] **Partition by collection** — never mix collections in one batch (prevents cross-contamination)
+- [ ] **Verify alignment after batch save** — check that letter N's translation matches letter N's source, not letter N+1's source (off-by-one errors caused contiguous fabrication blocks in Libanius and Augustine)
+- [ ] **Check for contiguous failures** — if 3+ consecutive letters have wrong content, the batch save was misaligned
+- [ ] **Save incrementally** — commit every 10-25 translations, not all at once
+- [ ] **Never save a translation without reading the source first** — the most common fabrication pattern was AI generating plausible content from the letter number alone without reading the actual Latin/Greek
+
+**Why**: Libanius had 55 fabrications in two contiguous blocks (letters 195-225 and 266-324) caused by batch alignment errors. Augustine had 15 misaligned translations from the same issue.
+
+### Step 5: Pre-Deploy Checklist
+
+Before rebuilding and deploying the site:
+
+```bash
+# Full validation
+python3 scripts/scholarly_validate.py
+# Must show: ERRORS: 0
+
+# Check no NULLs with available source
+sqlite3 data/roman_letters.db "SELECT COUNT(*) FROM letters WHERE modern_english IS NULL AND latin_text IS NOT NULL AND length(latin_text) > 100"
+# Must be 0 (except 90 Symmachus with no source)
+
+# Check no headers
+sqlite3 data/roman_letters.db "SELECT COUNT(*) FROM letters WHERE modern_english LIKE 'From:%' OR modern_english LIKE '**From:**%'"
+# Must be 0
+
+# Build
+cd site && NODE_OPTIONS='--max-old-space-size=8192' npm run build
+
+# Deploy
+rsync -avz --delete site/out/ cvg-primary:/var/www/lateromanletters.org/public_html/
+rsync -avz --delete site/out/ cvg-primary:/var/www/scholarly.romanletters.org/public_html/
+```
 
 ## Known Data Issues
 
