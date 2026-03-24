@@ -1,0 +1,43 @@
+ISIDORE VERIFICATION REPORT
+Date: 2026-03-23
+Letters checked: 30
+
+PASS: 15
+FAIL: 8
+WARN: 7
+
+FAILURES:
+  Letter 158 (id=8701): Topic mismatch. Greek discusses someone called rude/boastful (Skaion se phasi) and then addresses Hierax the Deacon about not defining blessedness by feasting/wealth. Translation discusses God's choice of Israel — completely unrelated topic. No names from Greek heading appear in translation.
+  Letter 160 (id=8703): Topic mismatch. Greek is addressed to Petros and discusses the "faithful and wise servant" parable (pistos doulos kai phronimos) and the importance of timeliness (kairos). Translation discusses the mystery of the Incarnation as the key to all other mysteries — entirely different subject. Recipient Petros not mentioned.
+  Letter 154 (id=8697): Topic mismatch. Greek is addressed to Ioannes the Judge (ΙΩΑΝΝΗ ΔΙΚΑΣΤΗ) about a quarrel and reconciliation, urging him to accept an apology or make peace first. Translation is a generic meditation on why the righteous suffer and the wicked prosper. Recipient Ioannes not mentioned. No overlap with source content.
+  Letter 252 (id=8794): Topic mismatch. Greek is addressed to Alpheios the Presbyter and discusses why the temple veil was torn (katapetasma), referencing the holy place being hidden until Christ's coming. Translation discusses praying for those in authority (kings and rulers) — completely different subject. Recipient Alpheios not mentioned.
+  Letter 1605 (id=9112): Topic mismatch. Greek mentions Zosimos, Eustathios, and Maron by name and discusses why uneducated men are ordained to the priesthood. Translation is addressed "To Harpocras the Sophist" and discusses rhetoric as weapon vs. healing instrument. The names Zosimos/Eustathios/Maron do not appear in the translation, and the topic (rhetoric) does not match the source (priesthood ordination).
+  Letter 1612 (id=9119): Topic mismatch. Greek source is heavily corrupted OCR/Latin apparatus text. The readable Greek portion discusses knowledge of multiple arts and mastery. Translation is addressed "To Paul" and discusses faith vs. works — a standard theological topic with no clear connection to the garbled source. Likely fabricated content to fill a gap.
+  Letter 1597 (id=9104): Topic mismatch. Greek discusses the divine judge's exactness (tou theiou dikastou he akribeia) examining words, deeds, and thoughts, and that sinners will not all receive the same punishment. Translation is addressed "To Lampretius the Deacon" and discusses the virtue of obedience — a different subject entirely. The recipient name Lampretius does not appear in the Greek.
+  Letter 1631 (id=9138): Partial mismatch. Greek source is heavily corrupted OCR but contains a heading "MARON" and discusses avarice (philochrimatia). Translation addresses Maron about his vices and scandal — name matches, but the translation expands into a general homily about clerical scandal that goes well beyond what the garbled source can verify. The specific content about "spoken privately and written publicly" cannot be confirmed from the source.
+
+WARNINGS:
+  Letter 18 (id=8583): Borderline length ratio (20.2%). Greek contains two letters (to Herminos about the Theotokos, then to Athanasios). Translation only covers the first topic. Acceptable but incomplete — second letter omitted.
+  Letter 160 (id=8703): Borderline length ratio (20.1%) in addition to topic mismatch (counted as FAIL above).
+  Letter 53 (id=8617): Source contains substantial Latin apparatus alongside Greek, inflating source length. Length ratio 32.6% but actual Greek-to-English ratio is likely adequate. Topic matches well (Amos prophecy, the naked one fleeing). PASS on content, WARN on length only.
+  Letter 1136 (id=9003): Source text is heavily corrupted with OCR garbage mixed into Greek. Translation appears to be a reasonable Christological discussion matching the opening Greek (Son and Word of the Father, Incarnation, two natures). Length ratio 41.3% but source is inflated by apparatus. Content plausibly matches but hard to fully verify due to corruption.
+  Letter 1507 (id=9015): Source text is almost entirely corrupted OCR/Latin apparatus. Translation discusses repeated sin and forgiveness — cannot verify against source. Translation reads as plausible Isidore content but source is unreadable.
+  Letter 184 (id=8727): Source contains corrupted OCR text followed by readable Greek about "Patroclus the Sophist" and faith. Translation matches the Patroclus portion well, but the opening garbled text may represent a different letter that is not translated.
+  Letter 478 (id=8835): Source is primarily Latin textual apparatus (catena notes) rather than a letter. Translation accurately describes the textual variants. Unusual content for a "letter" — more of a scholarly apparatus note translated into English. Technically accurate but odd.
+
+OVERALL VERDICT: FAIL
+
+SUMMARY OF ISSUES:
+- 8 outright failures, primarily due to topic mismatch where the translation addresses
+  a completely different subject than the Greek source.
+- Several translations appear to be generic theological essays loosely associated with
+  Isidore's themes but not actually translating the specific Greek text of the letter.
+- Corrupted/garbled OCR in many source texts (especially letters >1100) makes
+  verification difficult, but also means translations for those letters may have been
+  fabricated rather than translated.
+- Name mismatches are a strong signal of fabrication: when the Greek heading names
+  one recipient but the translation names a different person (or no person), the
+  translation was likely generated without reference to the actual source text.
+- The 15 passing letters show high-quality, faithful translations that closely track
+  the Greek vocabulary, structure, and argument. The quality gap between PASS and FAIL
+  letters is stark, suggesting two different translation processes or batches.
