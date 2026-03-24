@@ -1,0 +1,419 @@
+VERIFICATION ROUND 4 — Final Fabrication Check
+================================================
+Date: 2026-03-24
+Sample: 50 letters (20 Isidore + 10 Symmachus + 10 Augustine + 10 Gregory)
+Criteria: topic match, name match, no fabrication
+Score: PASS / WARN / FAIL
+
+================================================================
+ISIDORE OF PELUSIUM (20 letters)
+================================================================
+
+1. ID 8922, Ep. 853
+   Latin: Greek text on false doctrine (kakodoxia), mentions LAMPETIOS BISHOP
+   English: "How grievous is false doctrine..." — matches topic of false teaching
+   Names: Latin mentions Lampetios; English doesn't name addressee in excerpt but topic aligns
+   Verdict: PASS
+
+2. ID 8774, Ep. 232
+   Latin: Greek on Abraham, Isaac, Jacob; many coming from east and west
+   English: "Concerning Abraham, Isaac, and Jacob... many will come from east and west"
+   Names: "To the same" — consistent
+   Verdict: PASS
+
+3. ID 8617, Ep. 53
+   Latin: Greek to THEODOULOS on Amos "the naked one shall flee"
+   English: "To Theodoulos... On the saying of Amos, 'The naked one shall flee in that day'"
+   Names: Theodoulos matches. Amos quote matches.
+   Verdict: PASS
+
+4. ID 8597, Ep. 32
+   Latin: Greek to DOSITHEOS on the priest as lamp (lychne)
+   English: "To Dositheos. It signifies that the priest must be a lamp."
+   Names: Dositheos matches. Lamp metaphor matches.
+   Verdict: PASS
+
+5. ID 9003, Ep. 1136
+   Latin: Greek (heavily garbled/OCR-damaged) about the Son and Word of the Father, incarnation
+   English: "The most divine Son and Word of the Father... assumed human nature... preserved both natures"
+   Names: No addressee visible in garbled text
+   Topic: Christological — two natures. Plausible for Isidore.
+   Note: Latin is severely garbled OCR but key terms (Son/Word/Father) visible. English is a clean theological statement matching general content.
+   Verdict: PASS (translation reconstructs from damaged source)
+
+6. ID 8682, Ep. 139
+   Latin: Greek to THEON on Philippians 2:6 "he did not consider equality with God something to be grasped"
+   English: "To Theon. On the saying, 'He did not consider equality with God something to be grasped'"
+   Names: Theon matches. Phil 2:6 quote matches exactly.
+   Verdict: PASS
+
+7. ID 8766, Ep. 224
+   Latin: Greek to ISIDORE BISHOP on envy (phthonos)
+   English: "To Isidore the Bishop. Concerning envy."
+   Names: Isidore Bishop matches. Envy topic matches.
+   Verdict: PASS
+
+8. ID 9122, Ep. 1615
+   Latin: Severely garbled OCR text
+   English: "To Heron the Presbyter. The presbyter must be a man of prayer before he is a man of action..."
+   Names: No addressee visible in garbled Latin
+   Note: English is a plausible pastoral letter but cannot verify against garbled source.
+   Verdict: WARN (unverifiable due to garbled Latin; English reads as generic pastoral advice)
+
+9. ID 9097, Ep. 1590
+   Latin: Severely garbled OCR; fragments mention Abraham, nature, virtues
+   English: "To Marcianus. The world judges by appearances, but God judges by the heart."
+   Names: No addressee visible in garbled Latin
+   Note: English mentions Abraham which does appear in garbled Latin fragments. Topic is plausible.
+   Verdict: WARN (garbled source makes full verification impossible)
+
+10. ID 8829, Ep. 472
+    Latin: Severely garbled OCR
+    English: "Those who are truly wondrous... have pursued virtue... procure divine grace"
+    Names: No addressee visible in garbled Latin
+    Verdict: WARN (garbled source; English is generic but plausible Isidore content)
+
+11. ID 9079, Ep. 1571
+    Latin: Greek text mentioning "non-being" (to me on), probable/likely, shining like the sun
+    English: "Since it cannot come into being, but easily proceeds toward non-being. The probable, then..."
+    Names: N/A (fragment)
+    Topic: Philosophical fragment — matches Greek closely.
+    Verdict: PASS
+
+12. ID 8915, Ep. 846
+    Latin: Garbled OCR; mentions bishop, confession, memory
+    English: "All things properly and opportunely ordered... learning and humility... confess that we have sinned"
+    Names: Mentions ANTIOCHOS in Latin header
+    Topic: Learning + humility for Scripture interpretation — plausible Isidore
+    Verdict: PASS (key themes visible in garbled Latin)
+
+13. ID 8651, Ep. 88
+    Latin: Greek to ARSENIOS on boasting; Pharisee example
+    English: "To Arsenios. That especially those who have done nothing good ought not to boast... the Pharisee"
+    Names: Arsenios matches. Pharisee example matches.
+    Verdict: PASS
+
+14. ID 8958, Ep. 1090
+    Latin: Garbled OCR; mentions "not practicing righteousness before men"
+    English: "On the passage, 'One must not practice righteousness before men.'"
+    Names: N/A
+    Topic: Matt 6:1 — matches header visible in garbled text
+    Verdict: PASS
+
+15. ID 9141, Ep. 1634
+    Latin: Garbled OCR; visible fragment mentions ANATOLIUS, avoiding wicked company
+    English: "To Anatolius. The company of the wicked must be avoided."
+    Names: Anatolius matches Latin fragment. Topic matches.
+    Verdict: PASS
+
+16. ID 9153, Ep. 1646
+    Latin: Garbled OCR then clean Greek to ZOSIMOS PRESBYTER on temperate life
+    English: "To Zosimus the Presbyter. An invitation to a virtuous life... nothing licentious or childish"
+    Names: Zosimus/Zosimos matches. Topic of temperate life matches Greek.
+    Verdict: PASS
+
+17. ID 9008, Ep. 1141
+    Latin: Greek on the divine visitation (epiphaneia), incarnation, frightened men and demons
+    English: "On the divine visitation. The incarnate appearing of the Son of God frightened all — both human beings and demons."
+    Names: N/A
+    Topic: Direct match — incarnation frightening humans and demons.
+    Verdict: PASS
+
+18. ID 8893, Ep. 824
+    Latin: Greek to EUTONIOS DEACON on free speech (parrhesia) — musical analogy (high/low notes)
+    English: "To Eutonios the Deacon: Just as it is easy to sing a note very high or very low, but to hit the middle note requires musical training, so too with speaking freely..."
+    Names: Eutonios Deacon matches. Musical analogy matches exactly.
+    Verdict: PASS
+
+19. ID 6957, Ep. 13
+    Latin: Greek to LAMPETIOS MONK on ascending the mountain of virtue
+    English: "To Lampetios the Monk. When you were ascending the mountain of the lofty way of life..."
+    Names: Lampetios Monk matches. Mountain/virtue metaphor matches.
+    Verdict: PASS
+
+20. ID 8823, Ep. 466
+    Latin: Greek about Bishop Eusebios selling ordinations (cheirotonius)
+    English: "Bishop Eusebius... selling ordinations"
+    Names: Eusebios/Eusebius matches. Simony topic matches.
+    Verdict: PASS
+
+ISIDORE SUBTOTAL: 17 PASS, 3 WARN, 0 FAIL
+(WARNs all due to garbled OCR source text making verification difficult, not due to fabrication indicators)
+
+================================================================
+SYMMACHUS (10 letters)
+================================================================
+
+1. ID 5331, Ep. 7023
+   Latin: Villa Tiburs, Orchomenian goddesses, estate description
+   English: "The Tiburtine villa... Orchomenian goddesses [the Graces]..."
+   Names: N/A (no addressee in excerpt)
+   Topic: Villa description — matches precisely.
+   Verdict: PASS
+
+2. ID 5434, Ep. 9023
+   Latin: Critical apparatus / textual notes (variant readings)
+   English: "I ask that, having been admitted into your clientele..." + "To Caecilianus" re olive oil from Formiae
+   Names: Caecilianus visible. Formiae mentioned.
+   Note: Latin is critical apparatus, English appears to be from the actual letter text not shown in apparatus excerpt.
+   Verdict: WARN (Latin excerpt is apparatus, not letter text; English is plausible Symmachus content)
+
+3. ID 5296, Ep. 6073
+   Latin: "ab stilo fateor temperasse... Tiburtine secessione... Romae otia... corruptorum parietum"
+   English: "I confess I've kept my pen idle... After our retreat to Tibur [Tivoli]... quietly in Rome... crumbling walls"
+   Names: N/A
+   Topic: Exact match — pen idle, Tibur retreat, Rome leisure, wall repairs.
+   Verdict: PASS
+
+4. ID 4939, Ep. 1095
+   Latin: "silentio indulgere mirabar... amicitia enim cito sanatur officio... melle eruditissimi oris"
+   English: "why you'd let the silence drag on... friendship is quickly healed by attention... honey-sweet eloquence"
+   Names: "mi frater" — matches informal tone
+   Topic: Exact match throughout.
+   Verdict: PASS
+
+5. ID 4999, Ep. 2042
+   Latin: "Voluntaria beneficia tua petitione praevenio... Nicagoran clarissimum"
+   English: "I am getting ahead of your voluntary generosity with a formal request... The distinguished Nicagoras"
+   Names: Nicagoras matches.
+   Topic: Exact match.
+   Verdict: PASS
+
+6. ID 5157, Ep. 5011
+   Latin: "Antecapere scribendi ordinem mei muneris fuit... pio studio praeveniri nullus est rubor"
+   English: "It was my duty to be the first to write... There is no shame in being beaten to the punch by a friend's devoted zeal"
+   Names: N/A
+   Topic: Exact match — duty to write first, no shame in being outpaced.
+   Verdict: PASS
+
+7. ID 5414, Ep. 9003
+   Latin: "certamen... Liviani operis... emendationis moratur... vectorem"
+   English: "contest of wits... complete set of Livy... careful emendation... send me a carrier"
+   Names: N/A
+   Topic: Exact match — Livy edition, emendation delay, need a carrier.
+   Verdict: PASS
+
+8. ID 5044, Ep. 2087
+   Latin: "Peregrinari mihi tecum videor... cursus ac recursus tuos lucnlentus narrator"
+   English: "I feel as though I am traveling with you whenever your vivid narrative describes your comings and goings"
+   Names: N/A
+   Topic: Exact match — feeling of traveling together through letters.
+   Verdict: PASS
+
+9. ID 5397, Ep. 8012
+   Latin: "parentum decedentium bona amicitiae... familiaritatis hereditas... caritas iudicio foederatur"
+   English: "Among the good things parents leave behind, friendship too deserves to be inherited... affection is forged by judgment"
+   Names: N/A
+   Topic: Exact match — inheriting friendship, affection vs fortune.
+   Verdict: PASS
+
+10. ID 4991, Ep. 2034
+    Latin: "Ampelium et quosdam alios de Sardinia... senatores in crimen adductos... ad aliud iudicium esse translatos"
+    English: "Ampelius and some other senators from Sardinia... criminal charges... transferred to another tribunal"
+    Names: Ampelius matches Ampelium.
+    Topic: Exact match — senators from Sardinia, charges, tribunal transfer.
+    Verdict: PASS
+
+SYMMACHUS SUBTOTAL: 9 PASS, 1 WARN, 0 FAIL
+
+================================================================
+AUGUSTINE OF HIPPO (10 letters)
+================================================================
+
+1. ID 129, Ep. 173
+   Latin: Header says Ep. 173/A to Deogratias & Theodore re Holy Spirit, 1 Cor 6:19-20, Deut 6:13
+   English: "Augustine to Donatus, the proconsul of Africa... moderation... against the Donatists... also against certain groups of pagans"
+   Names: MISMATCH — Latin says Deogratias/Theodore; English says Donatus proconsul
+   Topic: MISMATCH — Latin is about Holy Spirit theology; English is about Donatist enforcement
+   Verdict: FAIL — English translation does not match Latin source. This appears to be a fabricated translation attached to the wrong letter.
+
+2. ID 150, Ep. 220
+   Latin: Header says Ep. 220 to Boniface (Africae comiti), about eternal goods, monastic vow, then worldly life
+   English: "Augustine to Boniface... military commander... considered leaving military for monastery... taken a second [wife?]"
+   Names: Boniface matches.
+   Topic: Matches — Boniface the comes, monastic vow, then secular life and sins.
+   Verdict: PASS
+
+3. ID 79, Ep. 89
+   Latin: Header says Ep. 89 to Festus about Donatists and laws, region of Hippo
+   English: "Augustine, with his colleagues, to the Donatist clergy... urge... a conference"
+   Names: MISMATCH — Latin says to Festus; English says to Donatist clergy
+   Topic: Both concern Donatists, but Latin is about legal repression to Festus; English is about proposing a conference to Donatist clergy
+   Verdict: FAIL — Translation is for a different Augustine letter (likely Ep. 44 or similar conference proposal), not Ep. 89.
+
+4. ID 119, Ep. 151
+   Latin: Header says Ep. 151 to Caecilianus about friendship, murder of Marcellinus and Apringius by Marinus
+   English: "The complaint about me contained in your letter is all the more welcome... charity... silence"
+   Names: Caecilianus not explicitly named in English excerpt but tone of friendship is consistent
+   Topic: The English discusses silence/complaint in a friendship context, consistent with Ep. 151's theme of reassuring Caecilianus of unchanged friendship
+   Verdict: PASS (English matches the nn. 1-2 portion about friendship despite silence)
+
+5. ID 96, Ep. 116
+   Latin: Header says Ep. 116 to Generosus (Numidiae consulari), commending cause of Faventius
+   English: "praise and renown of your administration... never until now has my intercession burdened your Excellency with a request"
+   Names: Generosus not named in excerpt but "your Excellency" fits consularis. Faventius implied.
+   Topic: Matches — first-time intercession request to a praised administrator.
+   Verdict: PASS
+
+6. ID 61, Ep. 69
+   Latin: Header says Ep. 69 to Castorius about succeeding Maximianus as bishop of Bagai
+   English: "Augustine to the clergy, elders, and entire congregation of the church of Hippo... brother found guilty of conduct unworthy"
+   Names: MISMATCH — Latin says to Castorius; English says to congregation of Hippo
+   Topic: MISMATCH — Latin is about episcopal succession at Bagai; English is about disciplining a brother
+   Verdict: FAIL — Translation is for a different letter entirely.
+
+7. ID 126, Ep. 167
+   Latin: Header says Ep. 167 to Jerome on James's epistle (Stoic equality of sins, caritas)
+   English: "What I wrote to you, honorable brother Jerome, asking about the human soul..."
+   Names: Jerome matches.
+   Topic: PARTIAL MISMATCH — Latin header says topic is James's epistle and Stoic sin equality; English is about the soul's origin (which is actually Ep. 166, the preceding letter)
+   Verdict: WARN — Translation appears to be from the adjacent Ep. 166 rather than Ep. 167. Close but wrong letter.
+
+8. ID 71, Ep. 81
+   Latin: Header says Ep. 81 from JEROME to Augustine (not from Augustine), about contentious questions
+   English: "Augustine to Jerome, greetings in the Lord. A short note... send it back with him"
+   Names: Jerome matches but DIRECTION REVERSED — Latin is Jerome→Augustine; English is Augustine→Jerome
+   Topic: Both concern Augustine-Jerome correspondence. English reads like Augustine writing to Jerome, but Ep. 81 is Jerome's reply.
+   Verdict: FAIL — Translation reverses the sender/recipient and appears fabricated for this letter.
+
+9. ID 74, Ep. 84
+   Latin: Header says Ep. 84 to Novatus (bishop of Sitifis) about not sending deacon Lucillus who knows Punic
+   English: "Augustine to Novatus... questions about the nature of the soul — whether created new or passed down"
+   Names: Novatus matches.
+   Topic: MISMATCH — Latin is about a Punic-speaking deacon; English is about the soul's origin
+   Verdict: FAIL — Translation topic does not match. Soul origin content likely from Ep. 166 or similar.
+
+10. ID 148, Ep. 218
+    Latin: Header says Ep. 218 to Palatinus, on Christian wisdom, not trusting own strength, prayer against temptation
+    English: "Your turning to the Lord... learning from your youth... wisdom unto old age... gray hairs..."
+    Names: Palatinus not named in excerpt but topic of Christian wisdom matches
+    Topic: Matches — progressing in Christian wisdom, prayer, perseverance
+    Verdict: PASS
+
+AUGUSTINE SUBTOTAL: 4 PASS, 1 WARN, 5 FAIL
+NOTE: Augustine collection has a serious problem — 5 of 10 translations are for the WRONG LETTER.
+
+================================================================
+GREGORY THE GREAT (10 letters)
+================================================================
+
+1. ID 9829, Ep. 8031
+   Latin: To Secundinus bishop of Tauromenium re monastery not falling under lay control
+   English: "Gregory to Secundinus. A monastery is in danger of falling under the control... of a layperson"
+   Names: Secundinus matches.
+   Topic: Exact match — monastery vs lay control.
+   Verdict: PASS
+
+2. ID 10319, Ep. 13016
+   Latin: To Passivus bishop of Fermo re consecrating monastery in honor of St. Savinus, founded by deacon Proculus
+   English: "directing you to proceed with the consecration of the monastery in honor of the blessed martyr Savinus"
+   Names: Passivus not named in English but Savinus matches.
+   Topic: Matches — monastery consecration for St. Savinus.
+   Verdict: PASS
+
+3. ID 10684, Ep. 9071
+   Latin: To Chrysanthus bishop of Spoleto re relics of St. Savinus for Valerianus notary of Fermo
+   English: "Gregory to Chrysanthus, bishop of Spoleto. Valerianus, notary of the church of Fermo... relics of... Savinus"
+   Names: Chrysanthus, Valerianus, Savinus all match.
+   Topic: Exact match.
+   Verdict: PASS
+
+4. ID 9773, Ep. 3024
+   Latin: To Leontius bishop of Urbino re governing Rimini while Castorius is ill
+   English: "Gregory to Leontius, bishop. The bishop Castorius of Rimini is ill and absent"
+   Names: Leontius, Castorius match.
+   Topic: Exact match — governing Rimini during Castorius's illness.
+   Verdict: PASS
+
+5. ID 9815, Ep. 4095
+   Latin: To Urbicus abbot of St. Hermes in Palermo re receiving Agathon if his wife also converts
+   English: "Gregory to Urbicus, abbot. A man named Agathon wishes to enter your monastery... wife"
+   Names: Urbicus, Agathon match.
+   Topic: Exact match — married man entering monastery, wife must also convert.
+   Verdict: PASS
+
+6. ID 9843, Ep. 9066
+   Latin: To Anatolius deacon in Constantinople re those returning from Istrian schism
+   English: "Gregory to Anatolius, deacon. Those who have returned from the Istrian schism..."
+   Names: Anatolius matches.
+   Topic: Exact match — Istrian schism returnees.
+   Verdict: PASS
+
+7. ID 9839, Ep. 9095
+   Latin: To Anthemius subdeacon re Maurus and Felix, 400 solidi, 6 siliquae per solidus profit
+   English: "Gregory to Anthemius, subdeacon. Maurus... merchandise from... Felix for four hundred solidi... six siliquae per solidus"
+   Names: Anthemius, Maurus, Felix all match.
+   Topic: Exact match — commercial dispute with precise financial figures matching.
+   Verdict: PASS
+
+8. ID 9658, Ep. 13025
+   Latin: Mentions Hadrian (Adriano) chartulary, managing church patrimony, debt repayment
+   English: "Hadrian, our chartulary... matter of your debt to this Church"
+   Names: Hadrian/Adriano matches.
+   Topic: Exact match — debt to church, Hadrian managing patrimony.
+   Verdict: PASS
+
+9. ID 10291, Ep. 7037
+   Latin: To Donus bishop of Messana, 15 pounds of silver for Faustinus to redeem daughters from captivity
+   English: "Gregory to Donus, bishop. Fifteen pounds of silver are owed to Faustinus"
+   Names: Donus, Faustinus match.
+   Topic: Matches on silver amount and Faustinus. English omits the redemption of captive daughters detail but doesn't contradict.
+   Verdict: PASS
+
+10. ID 10301, Ep. 12020
+    Latin: To Maurentius magister militum re Aroges assisting Sabinus subdeacon with transporting beams
+    English: "asking you to send a letter to Aroges asking him to assist Savinus [sic — Sabinus], our subdeacon, with the transport of beams"
+    Names: Maurentius implied, Aroges matches, Sabinus/Savinus close match.
+    Topic: Exact match — timber beams to the sea, military assistance for logistics.
+    Verdict: PASS
+
+GREGORY SUBTOTAL: 10 PASS, 0 WARN, 0 FAIL
+
+================================================================
+OVERALL RESULTS
+================================================================
+
+Collection          PASS    WARN    FAIL    Total
+-------------------------------------------------
+Isidore             17      3       0       20
+Symmachus            9      1       0       10
+Augustine            4      1       5       10
+Gregory             10      0       0       10
+-------------------------------------------------
+TOTALS              40      5       5       50
+
+FABRICATION RATE:  5 / 50 = 10.0%
+WARN RATE:         5 / 50 = 10.0%
+
+OVERALL VERDICT: **FAIL** (target was <2%, actual is 10%)
+
+================================================================
+ANALYSIS OF FAILURES
+================================================================
+
+All 5 failures are in the Augustine collection. The pattern is clear:
+
+1. ID 129 (Ep. 173): Latin is to Deogratias/Theodore about Holy Spirit;
+   English is to Donatus about Donatist enforcement — WRONG LETTER
+
+2. ID 79 (Ep. 89): Latin is to Festus about legal repression of Donatists;
+   English is to Donatist clergy proposing a conference — WRONG LETTER
+
+3. ID 61 (Ep. 69): Latin is to Castorius about Bagai episcopal succession;
+   English is to Hippo congregation about disciplining a brother — WRONG LETTER
+
+4. ID 71 (Ep. 81): Latin is FROM Jerome TO Augustine;
+   English is FROM Augustine TO Jerome — SENDER/RECIPIENT REVERSED
+
+5. ID 74 (Ep. 84): Latin is to Novatus about Punic-speaking deacon;
+   English is to Novatus about soul's origin — WRONG TOPIC
+
+ROOT CAUSE: The Augustine collection's English translations appear to have
+been misaligned during data loading — translations were attached to the
+wrong letter records. This is NOT random fabrication but a systematic
+data-alignment error specific to the Augustine collection.
+
+RECOMMENDATION: The Augustine collection needs a complete audit of
+Latin-to-English alignment. Every Augustine letter with both latin_text
+and modern_english should be checked for topic/addressee consistency.
+The other three collections (Isidore, Symmachus, Gregory) appear clean.
