@@ -1,6 +1,7 @@
 import type { LetterFull, CollectionInfo } from './letters';
 
 const PUBLIC_DOMAIN_TRANSLATION_SOURCES: Record<string, string> = {
+  existing: 'Public-domain English translation',
   existing_newadvent: 'Public-domain English translation modernized for readability',
   existing_tertullian: 'Public-domain English translation modernized for readability',
   existing_fordham: 'Public-domain English translation modernized for readability',
@@ -8,9 +9,13 @@ const PUBLIC_DOMAIN_TRANSLATION_SOURCES: Record<string, string> = {
   existing_attalus: 'Public-domain English translation',
   existing_livius: 'Public-domain English translation',
   existing_rogerpearse: 'Public-domain English translation',
+  existing_haines: 'Public-domain English translation',
+  gutenberg_winstedt: 'Public-domain English translation',
+  'Gummere (Loeb Classical Library, 1917-25)': 'Public-domain English translation',
 };
 
 const SOURCE_LABELS: Record<string, string> = {
+  existing: 'Public-domain scholarly source',
   existing_newadvent: 'New Advent / NPNF',
   existing_tertullian: 'Tertullian.org',
   existing_fordham: 'Fordham Medieval Sourcebook',
@@ -18,6 +23,9 @@ const SOURCE_LABELS: Record<string, string> = {
   existing_attalus: 'Attalus.org',
   existing_livius: 'Livius.org',
   existing_rogerpearse: 'Roger Pearse / Tertullian.org',
+  existing_haines: 'Haines public-domain edition',
+  gutenberg_winstedt: 'Project Gutenberg / Winstedt',
+  'Gummere (Loeb Classical Library, 1917-25)': 'Gummere, Loeb Classical Library',
   ai_translated: 'AI-assisted translation from original text',
   seeck_ocr_ia: 'Seeck edition OCR from Internet Archive',
   pg78_ocr: 'Patrologia Graeca 78 OCR',

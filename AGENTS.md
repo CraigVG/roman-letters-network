@@ -4,7 +4,7 @@
 
 ### What This Is
 
-A Next.js static site at https://romanletters.org with 7,049 ancient Latin and Greek letters (100-800 AD) translated into modern English. The site is statically generated from a SQLite database at build time. There is no runtime server or database — everything is pre-rendered HTML.
+A Next.js static site at https://romanletters.org with 8,112 ancient Latin and Greek letters (100-800 AD), modern English translations where available, source provenance, and correction workflows. The site is statically generated from a SQLite database at build time. There is no runtime server or database — everything is pre-rendered HTML.
 
 ### Critical Rules
 
@@ -57,7 +57,7 @@ node scripts/generate-sitemap.js
 
 | File | Purpose |
 |------|---------|
-| `data/roman_letters.db` | All letter data (7,049 letters, 1,850 people, 54 collections) |
+| `data/roman_letters.db` | All letter data (8,112 letters, 1,888 people, 60 collections) |
 | `site/public/data/network.json` | Pre-computed network graph |
 | `site/public/data/map-letters.json` | Letters with coordinates for map timelapse |
 | `site/public/data/regionalization.json` | Per-decade distance metrics for thesis chart |

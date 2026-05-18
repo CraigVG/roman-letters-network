@@ -4,6 +4,8 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { CORPUS } from '@/lib/corpus';
 import { getDb } from '@/lib/db';
 
+const SCHOLARLY_MODE = process.env.SCHOLARLY_MODE === 'true';
+
 export const metadata: Metadata = {
   title: 'About',
   description:
@@ -27,7 +29,7 @@ function getProjectStats() {
     .get() as { cnt: number };
   const firstEnglish = db
     .prepare(
-      "SELECT COUNT(*) AS cnt FROM letters WHERE modern_english IS NOT NULL AND trim(modern_english) != '' AND (english_text IS NULL OR trim(english_text) = '') AND coalesce(translation_source, '') NOT IN ('','existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse')",
+      "SELECT COUNT(*) AS cnt FROM letters WHERE modern_english IS NOT NULL AND trim(modern_english) != '' AND (english_text IS NULL OR trim(english_text) = '') AND coalesce(translation_source, '') NOT IN ('','existing','existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse','existing_haines','gutenberg_winstedt','Gummere (Loeb Classical Library, 1917-25)')",
     )
     .get() as { cnt: number };
   const withOriginal = db
@@ -207,6 +209,16 @@ export default function AboutPage() {
           >
             Translations
           </h3>
+          {SCHOLARLY_MODE ? (
+          <p className="text-theme-text leading-relaxed">
+            English translations are drawn from established public-domain scholarly
+            sources: the Nicene and Post-Nicene Fathers series (New Advent), the Attalus
+            project, Livius.org, Tertullian.org, Roger Pearse, the Fordham Medieval
+            Sourcebook, and CELT. Where no English translation exists, the original
+            Latin or Greek text is provided. The original text is preserved alongside
+            every translation.
+          </p>
+          ) : (
           <p className="text-theme-text leading-relaxed">
             Every letter has a modern English translation. For letters where a
             public-domain English translation already existed (primarily the NPNF
@@ -223,6 +235,7 @@ export default function AboutPage() {
             source links are preserved so missing originals and OCR-derived texts
             can be checked and improved.
           </p>
+          )}
           <p className="text-theme-text leading-relaxed mt-3">
             A quality note: bulk translations of Greek collections (particularly
             Isidore of Pelusium and Libanius) are thematic renderings rather than
@@ -409,12 +422,12 @@ export default function AboutPage() {
             </li>
             <li>
               <a
-                href="https://github.com/openMGH"
+                href="https://www.dmgh.de/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-theme-accent hover:underline"
               >
-                openMGH
+                dMGH (Monumenta Germaniae Historica)
               </a>{' '}
               - Avitus of Vienne (MGH edition)
             </li>
@@ -440,7 +453,7 @@ export default function AboutPage() {
               </a>{' '}
               and{' '}
               <a
-                href="https://demonax.info/doku.php?id=text:synesius_letters"
+                href="https://web.archive.org/web/2024/https://demonax.info/doku.php?id=text:synesius_letters"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-theme-accent hover:underline"
@@ -471,7 +484,7 @@ export default function AboutPage() {
             </li>
             <li>
               <a
-                href="https://awmc.unc.edu/wordpress/blog/map-files/"
+                href="https://awmc.unc.edu/awmc/map-files/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-theme-accent hover:underline"
@@ -504,7 +517,7 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        {/* AI transparency */}
+        {!SCHOLARLY_MODE && (
         <section>
           <h2
             className="text-xl tracking-tight"
@@ -531,6 +544,7 @@ export default function AboutPage() {
             revision history.
           </p>
         </section>
+        )}
 
         {/* License */}
         <section id="license">
@@ -591,6 +605,7 @@ export default function AboutPage() {
               Inspired by Patrick Wyman and his dissertation on late Roman
               epistolary networks
             </li>
+            {!SCHOLARLY_MODE && (
             <li>
               Translations assisted by{' '}
               <a
@@ -602,6 +617,7 @@ export default function AboutPage() {
                 Claude (Anthropic)
               </a>
             </li>
+            )}
           </ul>
         </section>
 

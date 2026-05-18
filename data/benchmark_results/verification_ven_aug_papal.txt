@@ -1,0 +1,416 @@
+TRANSLATION QUALITY VERIFICATION REPORT
+========================================
+Date: 2026-03-23
+Collections: Venantius Fortunatus, Augustine, Pelagius I, Gelasius I, Paulinus of Nola, Cassiodorus
+Sample: 5 random letters per collection (30 total)
+Criteria: Topic match, Name match, No fabrication, No headers, Adequate length
+
+========================================
+COLLECTION 1: VENANTIUS FORTUNATUS
+========================================
+
+Letter ID 9522 | Letter 5009 (IX, Ad eundem pro invitatione)
+  Latin: Invitation poem to Gregory at Tours, mentions Martin, pastoral imagery
+  English: Addresses Gregory, Tours, Saint Martin, pastoral imagery of flocks
+  [1] Topic match:    PASS — both about invitation to Tours, pastoral metaphors
+  [2] Name match:     PASS — Gregory, Martin, Tours all present
+  [3] No fabrication: PASS — translation closely follows the Latin verse
+  [4] No headers:     PASS — title "To Gregory, for an Invitation" is legitimate poem title, not an inserted header
+  [5] Adequate length: PASS — Latin 630 chars, English 1002 chars (reasonable for verse translation with explanation)
+  VERDICT: PASS
+
+Letter ID 9532 | Letter 6008 (VII, Ad Cantumblandum villam de pomis)
+  Latin: Poem about visiting Cantumblandum, finding father Aregius, golden apples
+  English: Cantumblandum, Aregius, golden apples, gluttonous descriptions
+  [1] Topic match:    PASS — both about the villa visit and apples
+  [2] Name match:     PASS — Cantumblandum, Aregius present
+  [3] No fabrication: PASS — translation follows the Latin verse content
+  [4] No headers:     PASS — "On the Villa Cantumblandum — About Apples" matches Latin title
+  [5] Adequate length: PASS — Latin 450 chars, English 585 chars
+  VERDICT: PASS
+
+Letter ID 9508 | Letter 3024 (XXIV, Ad virum venerabilem Anfionem presbyterum)
+  Latin: Poem praising presbyter Anfion/Amphion for devotion, warmth, hospitality
+  English: Addresses Amphion as presbyter, praise for devotion, making strangers neighbors
+  [1] Topic match:    PASS — both laudatory address to Amphion
+  [2] Name match:     PASS — Amphion (=Anfion) present
+  [3] No fabrication: PASS — closely follows Latin
+  [4] No headers:     PASS — title matches Latin heading
+  [5] Adequate length: PASS — Latin 885 chars, English 1266 chars
+  VERDICT: PASS
+
+Letter ID 9543 | Letter 7012 (XII, Item ad eundem — to Jovinus)
+  Latin: Philosophical poem on time, aging, mortality; mentions "imperiale caput"
+  English: Time, aging, mortality, rolling axle metaphor; titled "to Jovinus, Patrician and Governor"
+  [1] Topic match:    PASS — both on transience of time and mortality
+  [2] Name match:     WARN — "Jovinus" appears in English title but not in the Latin excerpt shown; however the Latin heading says "Item ad eundem" (more to the same person), and Jovinus is named earlier in the sequence
+  [3] No fabrication: PASS — imagery (axle, wheels, horses, finishing post) faithfully renders Latin
+  [4] No headers:     PASS — title is legitimate
+  [5] Adequate length: PASS — Latin 5347 chars, English 6905 chars
+  VERDICT: PASS
+
+Letter ID 9561 | Letter 8012 (XII, Ad eundem pro causa abbatissae)
+  Latin: About a crime ("nefas") within a holy enclosure (synaxi), addressed to Gregory as bishop
+  English: Crime in the holy enclosure, addressed to Gregory, mention of bishops and Martin
+  [1] Topic match:    PASS — both about the scandal within the convent
+  [2] Name match:     PASS — Gregory, Martin referenced
+  [3] No fabrication: PASS — follows Latin content about the abbess situation
+  [4] No headers:     PASS — title matches Latin heading
+  [5] Adequate length: PASS — Latin 1266 chars, English 1547 chars
+  VERDICT: PASS
+
+COLLECTION 1 SUMMARY: 5/5 PASS, 0 FAIL, 0 WARN (1 minor note on ID 9543)
+
+========================================
+COLLECTION 2: AUGUSTINE OF HIPPO
+========================================
+
+Letter ID 101 | Epistola 124
+  Latin: Augustine to Albina, Pinianus, and Melania; excusing himself for not visiting Thagaste; mentions winter and Hippo church troubles
+  English: "Augustine to Albina, Pinianus, and Melania" — mentions devotion, generosity, ascetic life, addressing difficulties
+  [1] Topic match:    WARN — Latin is specifically about excusing inability to visit due to winter and church instability at Hippo. English talks generically about devotion, generosity, ascetic life. The English seems to paraphrase/summarize the themes loosely rather than translate the specific opening.
+  [2] Name match:     PASS — Albina, Pinianus, Melania all named
+  [3] No fabrication: WARN — The English text reads like a plausible but generic summary rather than a close translation. The Latin opening discusses specific reasons for not visiting (winter, church instability), while the English discusses their devotion and generosity. This may be a loose paraphrase rather than a faithful translation. Latin 3212 chars vs English 1265 chars suggests significant compression.
+  [4] No headers:     PASS — salutation is appropriate
+  [5] Adequate length: WARN — English (1265 chars) is only 39% of Latin (3212 chars), suggesting heavy abridgment
+  VERDICT: WARN — translation appears loosely paraphrased rather than closely translated; significant content compression
+
+Letter ID 53 | Epistola 61 (to Theodorus, on receiving Donatist clergy, A.D. 401)
+  Latin: About receiving Donatist clergy who wish to join the Catholic Church; mentions Benevolentia
+  English: About receiving clergy from the Donatist party as Catholics; references recent conversation
+  [1] Topic match:    PASS — both about terms for receiving Donatist clergy
+  [2] Name match:     PASS — Theodorus, Donatist present
+  [3] No fabrication: PASS — content aligns well: putting verbal discussion in writing about Donatist clergy reception
+  [4] No headers:     PASS — appropriate letter heading
+  [5] Adequate length: PASS — Latin 3070, English 3215 (nearly 1:1)
+  VERDICT: PASS
+
+Letter ID 10 | Epistola 10 (to Nebridius, 389 AD)
+  Latin: Difficulty of arranging cohabitation with Nebridius; finding tranquility in God
+  English: Nebridius scolds Augustine for not arranging to live together; Augustine responds
+  [1] Topic match:    PASS — both about the difficulty of living together
+  [2] Name match:     PASS — Nebridius named
+  [3] No fabrication: PASS — content matches closely
+  [4] No headers:     PASS — standard letter salutation
+  [5] Adequate length: PASS — Latin 3831, English 4259
+  VERDICT: PASS
+
+Letter ID 100 | Epistola 123 (Jerome to Augustine, autumn 410)
+  Latin: Jerome writes about heretics who limp on both feet, refuse to bow; mentions holy brethren and "filiae tuae"
+  English: Those who limp on both feet, cling to old errors; greetings from brethren and daughters; greet Alypius
+  [1] Topic match:    PASS — both about persistent heretics and greetings
+  [2] Name match:     PASS — Jerome, Augustine, Alypius (mentioned in English)
+  [3] No fabrication: PASS — translation closely follows the Latin imagery (limping, broken necks)
+  [4] No headers:     PASS — "From Jerome to Augustine" is legitimate
+  [5] Adequate length: PASS — Latin 692, English 948
+  VERDICT: PASS
+
+Letter ID 148 | Epistola 218 (to Palatinus, ca. 427/428)
+  Latin: Exhortation to progress in Christian wisdom, not trusting in one's own strength, praying against temptation
+  English: Palatinus finds Augustine's writings difficult; long sentences; wishes simpler writing
+  [1] Topic match:    FAIL — Latin is about persevering in Christian wisdom and not relying on one's own powers. English is about Palatinus complaining that Augustine's writing is too difficult with long sentences. These are completely different topics.
+  [2] Name match:     PASS — Palatinus named
+  [3] No fabrication: FAIL — The English text appears fabricated. The Latin says "Conversatio tua fortior" (your way of life is stronger), exhorting spiritual progress. The English invents a complaint about Augustine's writing style that is not in the source text at all.
+  [4] No headers:     PASS — appropriate salutation
+  [5] Adequate length: WARN — Latin 4221, English 1543 (37% of Latin)
+  VERDICT: FAIL — English translation does not correspond to the Latin source. The content about writing style complaints appears to be fabricated.
+
+COLLECTION 2 SUMMARY: 3/5 PASS, 1 FAIL, 1 WARN
+
+========================================
+COLLECTION 3: PELAGIUS I
+========================================
+
+Letter ID 7081 | Letter 5
+  Latin: Critical apparatus/manuscript notes; then text about not boasting beyond measure (2 Cor 10:13-14 reference), governance of the universal Church, predecessor practices
+  English: Apostle's words about boasting, governing the universal Church, enjoining duties on brethren
+  [1] Topic match:    PASS — both reference apostolic authority and Church governance
+  [2] Name match:     PASS — no specific proper nouns required beyond generic references
+  [3] No fabrication: WARN — The Latin text shown is heavily interspersed with critical apparatus (manuscript collation notes). The English seems to translate only the substantive content, which is reasonable, but makes direct comparison difficult. The content about "not boasting beyond measure" does match.
+  [4] No headers:     PASS — no inappropriate headers
+  [5] Adequate length: WARN — Latin 7593 chars (but much of it is critical apparatus), English 1337 chars. If we discount apparatus, ratio may be reasonable.
+  VERDICT: WARN — translation appears to extract the actual letter content from a critical edition, which is a reasonable approach but makes verification harder
+
+Letter ID 7097 | Letter 22
+  Latin: Critical apparatus noting "Vincentius" vs "Vientius" for bishop of Naples; references to Gesta episcoporum Neapolitanorum
+  English: Pelagius to Vincentius of Naples, Geminus, Constantius; restoring ecclesiastical discipline, holding synod
+  [1] Topic match:    WARN — Latin excerpt shown is entirely critical apparatus/editorial notes about the name Vincentius and Naples. The actual letter text is not visible in the 400-char Latin excerpt. English provides a plausible papal letter about discipline.
+  [2] Name match:     PASS — Vincentius, Naples present in both
+  [3] No fabrication: WARN — Cannot verify from the excerpt because the Latin shown is all scholarly apparatus. The English is plausible for a Pelagius I letter but unverifiable from what is shown.
+  [4] No headers:     PASS — standard papal address
+  [5] Adequate length: WARN — Latin 6153 chars (but heavy apparatus), English 633 chars
+  VERDICT: WARN — Latin excerpt is critical apparatus rather than letter text; cannot fully verify translation fidelity
+
+Letter ID 7113 | Letter 39
+  Latin: Critical apparatus and notes; reference to a bishop who had defected from the Church ("qui ab Ecclesia defece-") and returned ("a sedibus apostolicis recessisses")
+  English: Pelagius to a bishop who returned from schism; restoration to rank after genuine return
+  [1] Topic match:    PASS — both about a bishop who left the Church and returned
+  [2] Name match:     PASS — no specific names required
+  [3] No fabrication: PASS — content about restoring a schismatic bishop matches the Latin references
+  [4] No headers:     PASS — appropriate papal address
+  [5] Adequate length: WARN — Latin 4848 (heavy apparatus), English 680
+  VERDICT: PASS (with note that Latin is critical edition text)
+
+Letter ID 7148 | Letter 81
+  Latin: Pelagius to Sergius cancellarius; about clergy as petitioners vs. laypersons — jurisdictional rules for ecclesiastical vs. provincial courts
+  English: Pelagius responds about proper procedure and canonical norms, ecclesiastical channels
+  [1] Topic match:    PASS — both about jurisdictional procedure for clergy/laity disputes
+  [2] Name match:     WARN — Latin names Sergius cancellarius; English says only "the addressee" without naming Sergius
+  [3] No fabrication: PASS — content about ecclesiastical procedure matches
+  [4] No headers:     PASS — standard address
+  [5] Adequate length: WARN — Latin 2207, English 661 (30%)
+  VERDICT: WARN — addressee name (Sergius) dropped; translation is heavily compressed
+
+Letter ID 7123 | Letter 50
+  Latin: Pelagius to Bishop Agnellus of Ravenna; choose a presbyter (firm in religion, good morals, effective against adversaries); send to patrician John; name only Pelagius and Agnellus in the sacred mysteries
+  English: Pelagius to Agnellus of Ravenna; choose a presbyter (firm, upright, effective); send to John the patrician; name only mine and yours during sacred mysteries
+  [1] Topic match:    PASS — exact match on all points
+  [2] Name match:     PASS — Agnellus, Ravenna, John the patrician all present
+  [3] No fabrication: PASS — very close translation of the Latin
+  [4] No headers:     PASS — standard papal address
+  [5] Adequate length: PASS — Latin 1229, English 595 (48%, but source is short)
+  VERDICT: PASS
+
+COLLECTION 3 SUMMARY: 2/5 PASS, 0 FAIL, 3 WARN
+
+========================================
+COLLECTION 4: GELASIUS I
+========================================
+
+Letter ID 6012 | Letter 4
+  Latin: "Valde mirati sumus" — astonishment at question about Eutychian heresy communicators; they have no answer for their obstinacy
+  English: "We were greatly astonished" — same content about Eutychian pestilence communicators, obstinacy, convicted by reason
+  [1] Topic match:    PASS — identical subject
+  [2] Name match:     PASS — Eutychian reference preserved
+  [3] No fabrication: PASS — extremely close, nearly word-for-word translation
+  [4] No headers:     PASS — no headers
+  [5] Adequate length: PASS — Latin 60866, English 5332 (note: very long Latin, but this may be the full critical edition text)
+  VERDICT: WARN — English is only 8.8% of Latin length. For a 60K-character Latin text, 5K English is very compressed. However, the translation quality of what IS there is excellent.
+
+Letter ID 6178 | Letter 40
+  Latin: Gelasius to Bishop John; removing archdeacon Asellus from office for arranging an election without consulting the apostolic see after the bishop's death
+  English: Gelasius to John about Asellus the archdeacon; arranged election without consulting apostolic see; removed from office
+  [1] Topic match:    PASS — exact match
+  [2] Name match:     PASS — John, Asellus, Gelasius all present
+  [3] No fabrication: PASS — close translation
+  [4] No headers:     PASS — includes "Gelasius expresses indignation" which reads like an editorial summary, but this matches the Latin heading style
+  [5] Adequate length: WARN — Latin 2978, English 501 (17%)
+  VERDICT: WARN — adequate translation quality but very compressed
+
+Letter ID 6174 | Letter 36
+  Latin: Receipt/apocha: Gelasius to Vincomalo; 30 gold solidi paid from farm produce, consulship of Asterius and Praesidius, indiction III, dated V Calendas Augusti
+  English: Receipt to Vincomalo; 30 gold solidi, farm tenancy, consulship of Asterius and Praesidius, third indiction, V Calendas Augusti
+  [1] Topic match:    PASS — exact match (financial receipt)
+  [2] Name match:     PASS — Vincomalo, Asterius, Praesidius all present
+  [3] No fabrication: PASS — very close translation preserving all financial details
+  [4] No headers:     PASS — "A second receipt of the same kind" matches Latin "Apocha altera ejusdem generis"
+  [5] Adequate length: PASS — Latin 410, English 495 (121%)
+  VERDICT: PASS
+
+Letter ID 6169 | Letter 31
+  Latin: To bishops of Dardania, Feb 496; "Valde mirati sumus" — same opening as Letter 4, about Eutychian pestilence
+  English: "We were greatly astonished" — same Eutychian content
+  [1] Topic match:    PASS — matches
+  [2] Name match:     PASS — Eutychian reference preserved
+  [3] No fabrication: WARN — This is nearly identical text to Letter 4 (ID 6012). Both start with "Valde mirati sumus" and discuss the same Eutychian question. This could be legitimate (the same encyclical sent to different recipients, or a longer version of the same letter) but worth noting.
+  [4] No headers:     PASS — no inappropriate headers
+  [5] Adequate length: WARN — Latin 92859, English 4874 (5.2%). Extremely long Latin text with very compressed English.
+  VERDICT: WARN — translation quality is good but extreme compression (92K Latin to 5K English). Also note near-duplicate with Letter 4.
+
+Letter ID 6015 | Letter 7
+  Latin: "Sedent quidam in domibus suis nescientes" — about ignorant men who judge others without self-examination, accuse before knowing, teach before learning
+  English: "Certain men sit in their houses knowing neither" — same content about judging without knowledge
+  [1] Topic match:    PASS — identical subject
+  [2] Name match:     PASS — no specific names in this passage
+  [3] No fabrication: PASS — very close, nearly word-for-word translation
+  [4] No headers:     PASS — no headers
+  [5] Adequate length: WARN — Latin 23177, English 2892 (12.5%)
+  VERDICT: PASS (with note about compression)
+
+COLLECTION 4 SUMMARY: 2/5 PASS, 0 FAIL, 3 WARN
+
+========================================
+COLLECTION 5: PAULINUS OF NOLA
+========================================
+
+Letter ID 3407 | Letter 10 (to Delphinus)
+  Latin: Received letter from Delphinus asking Paulinus to add scriptural discussion; parents should treasure up for children (apostolic teaching)
+  English: Received letter from Delphinus instructing to include Scripture; "parents should store up for children" (apostolic teaching)
+  [1] Topic match:    PASS — exact match
+  [2] Name match:     PASS — Delphinus, Paulinus present
+  [3] No fabrication: PASS — close translation
+  [4] No headers:     PASS — appropriate salutation
+  [5] Adequate length: WARN — Latin 6583, English 1782 (27%)
+  VERDICT: PASS (with compression note)
+
+Letter ID 3404 | Letter 7 (to Romanianus, from Paulinus and Therasia)
+  Latin: Day before sending letter, received letters from Africa from Aurelius, Alypius, Augustine, Profuturus, Severus
+  English: Day before giving letter, received letters from Aurelius, Alypius, Augustine, Profuturus, Severus — now all bishops
+  [1] Topic match:    PASS — exact match
+  [2] Name match:     PASS — Romanianus, Therasia, Aurelius, Alypius, Augustine, Profuturus, Severus all present
+  [3] No fabrication: PASS — very close translation
+  [4] No headers:     PASS — appropriate salutation
+  [5] Adequate length: WARN — Latin 7050, English 1686 (24%)
+  VERDICT: PASS (with compression note)
+
+Letter ID 3416 | Letter 19 (to Delphinus)
+  Latin: "Expectabamus ut area sitiens" — waiting like thirsty ground for Delphinus's letters; soul like land without water; nearly two years since contact via Cardamas
+  English: Waiting like thirsty field for letters; soul like land without water; nearly two years; Cardamas mentioned
+  [1] Topic match:    PASS — exact match
+  [2] Name match:     PASS — Delphinus, Cardamas present
+  [3] No fabrication: PASS — very close translation including the imagery
+  [4] No headers:     PASS — appropriate salutation
+  [5] Adequate length: WARN — Latin 10891, English 1393 (13%)
+  VERDICT: WARN — good translation quality but significant compression
+
+Letter ID 3427 | Letter 30 (to Severus)
+  Latin: "Beato apostolo dictum est: multae litterae te ad insaniam perduxerunt" (Acts 26:24); true madness belonged to the faithless; wisdom of God = Christ
+  English: Acts 26:24 reference ("Your great learning is driving you mad"); madness of the accusers; 1 Cor 1:23 reference
+  [1] Topic match:    PASS — exact match
+  [2] Name match:     PASS — Severus, Paul (the Apostle) referenced
+  [3] No fabrication: PASS — close translation with appropriate scripture citations
+  [4] No headers:     PASS — appropriate salutation
+  [5] Adequate length: PASS — Latin 10410, English 3559 (34%)
+  VERDICT: PASS
+
+Letter ID 3402 | Letter 5 (to Severus)
+  Latin: Severus excused himself for not visiting as promised; came in spirit though not in body; servants represent him physically
+  English: Severus excused for not coming in person; came in will, spirit, and speech; body at home; present through servants
+  [1] Topic match:    PASS — exact match
+  [2] Name match:     PASS — Severus present
+  [3] No fabrication: PASS — very close translation
+  [4] No headers:     PASS — appropriate salutation
+  [5] Adequate length: WARN — Latin 33146, English 5035 (15%)
+  VERDICT: PASS (with compression note)
+
+COLLECTION 5 SUMMARY: 4/5 PASS, 0 FAIL, 1 WARN
+
+========================================
+COLLECTION 6: CASSIODORUS (VARIAE)
+========================================
+
+Letter ID 2629 | Variae 3005 (V, to Importunus, Patrician)
+  Latin: Theodoric to Importunus; if only noble or only meritorious, might delay honors; but since all virtues unite in him, justice demands conferral
+  English: Theodoric to Importunus; if only noble birth or only personal achievement, might delay honors; but since all accompany him, conferral is warranted
+  [1] Topic match:    PASS — exact match
+  [2] Name match:     PASS — Theodoric, Importunus present
+  [3] No fabrication: PASS — close translation
+  [4] No headers:     PASS — appropriate address
+  [5] Adequate length: PASS — Latin 2887, English 3481
+  VERDICT: PASS
+
+Letter ID 2673 | Variae 3049 (XLIX, to citizens of Catina/Catania)
+  Latin: Theodoric to honorati, possessores, defensores, curiales of Catinensis civitas; devotion that anticipates command is welcome; ruler is fortunate when subjects love what is expedient
+  English: Devotion anticipating a good command is welcome; ruler fortunate when subjects love what is expedient; petition for fortification
+  [1] Topic match:    PASS — matches
+  [2] Name match:     WARN — "Catinensis civitatis" (Catania) not mentioned in English excerpt
+  [3] No fabrication: PASS — close translation
+  [4] No headers:     PASS — no inappropriate headers
+  [5] Adequate length: PASS — Latin 1232, English 1134
+  VERDICT: PASS (minor note: city name absent from English excerpt shown)
+
+Letter ID 2991 | Variae 12015 (XV, Senator PPO to Maximus, cancellarius of Lucania and Bruttii)
+  Latin: About Scyllaceum (Squillace), founded by Ulysses; harassed by presumptuous officials; patriotic affection; on Adriatic gulf
+  English: Scyllaceum/Squillace, founded by Ulysses, harassed by presumptuous officials, homeland affection
+  [1] Topic match:    PASS — exact match
+  [2] Name match:     PASS — Scyllaceum, Squillace, Ulysses, Bruttii all present
+  [3] No fabrication: PASS — very close translation
+  [4] No headers:     PASS — no inappropriate headers
+  [5] Adequate length: PASS — Latin 3551, English 4237
+  VERDICT: PASS
+
+Letter ID 2831 | Variae 7034 (XXXIV, Formula evocatoriae)
+  Latin: Template summons from the prince; what is freely given is gladly received; prince's remembrance brings advancement; summons to court
+  English: What is freely given is gratefully received; ruler's remembrance brings advancement; summons to court; set aside leisure
+  [1] Topic match:    PASS — exact match
+  [2] Name match:     PASS — no specific names (it is a formula/template)
+  [3] No fabrication: PASS — close translation
+  [4] No headers:     PASS — no inappropriate headers
+  [5] Adequate length: PASS — Latin 761, English 747
+  VERDICT: PASS
+
+Letter ID 2919 | Variae 10017 (XVII, Theodahad to the Roman people)
+  Latin: "Cognoscite, Quirites" — learn how your prince loved you firmly; tested by harsh circumstances, did not let you worry; your security is our glory
+  English: "Learn, citizens" — prince's firmness; tried by harsh circumstances; your security our glory
+  [1] Topic match:    PASS — exact match
+  [2] Name match:     PASS — Quirites rendered as "citizens"; Theodahad implied
+  [3] No fabrication: PASS — close translation
+  [4] No headers:     PASS — no inappropriate headers
+  [5] Adequate length: PASS — Latin 1225, English 1280
+  VERDICT: PASS
+
+COLLECTION 6 SUMMARY: 5/5 PASS, 0 FAIL, 0 WARN
+
+========================================
+OVERALL SUMMARY
+========================================
+
+Collection                  PASS    WARN    FAIL
+----------------------------------------------
+Venantius Fortunatus         5       0       0
+Augustine of Hippo           3       1       1
+Pelagius I                   2       3       0
+Gelasius I                   2       3       0
+Paulinus of Nola             4       1       0
+Cassiodorus                  5       0       0
+----------------------------------------------
+TOTALS                      21       8       1
+
+OVERALL VERDICT: MIXED — 21 PASS, 8 WARN, 1 FAIL
+
+========================================
+CRITICAL ISSUES
+========================================
+
+1. FAIL — Augustine Ep. 218 (ID 148, to Palatinus):
+   The English translation appears FABRICATED. The Latin exhorts Palatinus to
+   persevere in Christian wisdom and not rely on his own strength. The English
+   instead discusses Palatinus complaining that Augustine's writing is too
+   difficult with overly long sentences. These are entirely different topics.
+   This is a serious quality issue — the translation does not correspond to
+   the source text.
+
+========================================
+RECURRING WARNINGS
+========================================
+
+1. COMPRESSION: Multiple collections show English translations at 10-30% of
+   Latin length. This is most severe in Gelasius I (5-12% ratios) and
+   Paulinus of Nola (13-27%). Some of this may be explained by critical
+   apparatus in the Latin (especially Pelagius I and Gelasius I), but
+   even accounting for that, translations appear heavily abridged rather
+   than complete.
+
+2. PELAGIUS I CRITICAL APPARATUS: The Latin text for Pelagius I letters
+   includes heavy scholarly apparatus (manuscript collation notes, editorial
+   references) mixed with the actual letter text. This makes verification
+   harder and inflates Latin character counts.
+
+3. GELASIUS I DUPLICATE CONTENT: Letters 4 (ID 6012) and 31 (ID 6169)
+   share nearly identical openings ("Valde mirati sumus..."). Both deal
+   with the Eutychian question. This may be legitimate (same encyclical to
+   different recipients) but should be verified.
+
+4. AUGUSTINE Ep. 124 (ID 101): Translation appears loosely paraphrased
+   rather than closely translated, with generic content substituted for
+   specific details in the Latin.
+
+========================================
+RECOMMENDATIONS
+========================================
+
+1. URGENT: Re-translate Augustine Ep. 218 (ID 148). Current translation
+   is fabricated content unrelated to the source.
+
+2. Review all Augustine translations for similar fabrication issues —
+   the Ep. 124 loose paraphrase suggests this may not be isolated.
+
+3. Consider expanding Gelasius I and Paulinus translations to reduce
+   compression ratios.
+
+4. Pelagius I Latin texts should ideally have critical apparatus stripped
+   or the translations should be verified against apparatus-free editions.
+
+========================================
+END OF REPORT
+========================================

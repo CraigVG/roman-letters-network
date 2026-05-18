@@ -1,0 +1,2085 @@
+[
+  {
+    "id": 819,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Opening 'ST. BASIL OF CAESAREA' is a header addition not in the source",
+        "'want of the questioner' is slightly archaic; Greek ἐπιθυμίας = desire/longing, not 'want'",
+        "'It looks like a betrayal' — Greek κίνδυνος προδοσίας = 'danger of betrayal', not 'looks like'; subtle shift",
+        "'intellectual energies God gives you' — Greek ὁρμαῖς = impulses/urgings, not quite 'energies'",
+        "Prose is competent but somewhat stiff and 19th-century in register"
+      ],
+      "strengths": [
+        "Faithful rendering of the theological vocabulary (θεολογικὴ φωνή = 'theological term')",
+        "Preserves the structure of the argument closely",
+        "Correctly renders παρακαλοῦμέν as 'I implore' (1st person plural used as epistolary singular)",
+        "Maintains Basil's tone of humility and pastoral concern"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "'need of the questioner' — Greek ἐπιθυμίας = desire/longing, 'need' softens slightly",
+        "'It feels like a betrayal' — same issue as A: κίνδυνος προδοσίας = 'danger of betrayal'",
+        "'championing the truth' — Greek συνηγορίᾳ = advocacy/defense, 'championing' adds a slight connotation of active promotion vs. legal defense",
+        "'intellectual gifts' — Greek ὁρμαῖς = impulses/promptings, not 'gifts'; this is an interpretive shift"
+      ],
+      "strengths": [
+        "Much more natural modern English prose; paragraph breaks aid readability",
+        "Preserves the structure and argument faithfully",
+        "Correctly handles the epistolary plural",
+        "'harm the cause by my weakness' is a cleaner rendering than A's version",
+        "Tone is warm and direct — fits Basil's pastoral voice well"
+      ]
+    }
+  },
+  {
+    "id": 823,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Header 'ST. BASIL OF CAESAREA' added, not in source",
+        "'I sent them in good health' — Greek προεπέμψαμεν = 'we sent them on'; person is correct (epistolary plural) but 'in good health' modifies the sending, while Greek μεθʼ ὑγείας more closely means 'with/in health'",
+        "'so long as the Holy One ordains' — Greek οἰκονομῇ ὁ ἅγιος = 'the Holy One arranges/manages'; 'ordains' is slightly more authoritative than the Greek",
+        "'I to the end of my days' — awkward insertion mid-sentence",
+        "Prose reads somewhat stiffly in places"
+      ],
+      "strengths": [
+        "Faithful to the overall meaning and structure",
+        "'angel of peace to help and accompany them' accurately renders εἰρηνικὸν ἄγγελον βοηθὸν καὶ σύμπορον",
+        "Captures Basil's warm, affectionate tone",
+        "Final sentence is well-rendered"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 5,
+      "naturalness": 5,
+      "issues": [
+        "'Gods grace' missing apostrophe (minor typographical)",
+        "'angel of peace as their helper and companion on the road' — σύμπορον = fellow-traveler, 'companion on the road' is good but slightly expansive",
+        "'your present responsibilities' — Greek φροντίδων = cares/concerns, 'responsibilities' is a mild interpretive shift",
+        "'My hope is that' — restructures the Greek slightly from a purpose clause (ἵνα)"
+      ],
+      "strengths": [
+        "Excellent modern prose; paragraph breaks improve readability",
+        "Captures Basil's warm, personal tone very naturally",
+        "'I do not think you will find anyone who loves you more or values your friendship more highly' — superior rendering of the Greek",
+        "Final sentence is crisp and effective"
+      ]
+    }
+  },
+  {
+    "id": 843,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 5,
+      "naturalness": 5,
+      "issues": [
+        "'The famine is still with us' — Greek λιμός = famine, correctly rendered; however this is a strong opening that slightly restructures the Greek which begins 'Not yet has the famine released us'",
+        "'summon the holy brothers to your side' — Greek μεταστεῖλαι τοὺς εὐλαβεστάτους τῶν ἀδελφῶν = 'summon the most devout of the brothers'; 'holy' slightly changes εὐλαβεστάτους (most reverent/devout)",
+        "'friends further along the way' — adds 'along the way' not explicit in Greek τοῖς ἔμπροσθεν (those ahead/further on)"
+      ],
+      "strengths": [
+        "Clean, natural modern English throughout",
+        "Correctly captures the kinship detail (αἵματος γάρ ἐσμεν τοῦ αὐτοῦ = 'we share the same blood')",
+        "Paragraph breaks aid readability",
+        "Basil's practical, caring pastoral voice comes through strongly",
+        "Well-structured rendering of the medical situation"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "'The death is still with us' — CRITICAL ERROR: Greek λιμός = famine, NOT death (θάνατος). This is a significant mistranslation",
+        "'partly by the duty of distribution' — Greek οἰκονομίας = management/distribution of relief; 'distribution' alone loses the administrative connotation",
+        "'in mere conventional language' — slightly archaic phrasing",
+        "'Receive my entreaty that you will give him the usual protection' — restructures and slightly obscures the Greek which asks Eusebius to 'take up your customary role' (τὰ συνήθη προστῆναι)",
+        "Header 'ST. BASIL OF CAESAREA' added"
+      ],
+      "strengths": [
+        "Mostly preserves the structure of the letter",
+        "Correctly renders the kinship detail",
+        "Captures the overall pastoral concern",
+        "Final sentence about the letter of recommendation is clear"
+      ]
+    }
+  },
+  {
+    "id": 848,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 3,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "'I believe Your Excellency already knows' — restructures the Greek opening which says 'The presbyter of this place, I think, has long been known to your excellency, that he is my foster brother'",
+        "'I'm confident you'll do everything' — Greek πάσῃ δυνάμει προαιρῇ = 'you choose/prefer with all your power'; 'I'm confident' is interpretive addition",
+        "'someone I consider a second self' — Greek οὓς ἀντʼ ἐμαυτοῦ ἔχω = 'those whom I hold as myself'; rendered correctly in sense but shifts from plural to singular",
+        "'Simply that he not lose his current tax assessment' — Greek παλαιὰν ἀπογραφήν = 'old/former assessment', not 'current'; this reverses the meaning",
+        "'I'm particularly worried' — Greek γίνωσκε δέ μοι πάνυ ἐπιμελές = 'know that it is very important to me'; 'worried' is interpretive"
+      ],
+      "strengths": [
+        "Very natural, readable modern English",
+        "Good paragraph structure",
+        "Captures Basil's direct, practical tone well",
+        "Tax-related vocabulary is handled well overall"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Header 'ST. BASIL OF CAESAREA' added",
+        "'a foster brother of my own' — correct rendering of σύντροφος",
+        "'a second self' — good rendering of ἀντʼ ἐμαυτοῦ",
+        "'his old rating' — correctly renders παλαιὰν ἀπογραφήν (old/former assessment)",
+        "Prose is somewhat stiff in places ('I am specially anxious lest any injury should be done')",
+        "'Really he takes no little trouble' — slightly awkward phrasing"
+      ],
+      "strengths": [
+        "Very faithful to the Greek structure and order",
+        "Correctly renders παλαιὰν ἀπογραφήν as 'old rating' (vs. A's incorrect 'current')",
+        "Preserves Basil's appeal structure faithfully",
+        "'let me rather say, on your own' — captures the Greek μᾶλλον δὲ ὡς ἑαυτοῦ well"
+      ]
+    }
+  },
+  {
+    "id": 860,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Header 'ST. BASIL OF CAESAREA' added",
+        "'our men are so afraid of the winter' — Greek κατέπτηξαν τὸν χειμῶνα = 'cowered before the winter'; 'afraid' is acceptable but slightly less vivid",
+        "'can hardly bear even to put their heads outside their houses' — Greek μηδὲ τὸ μικρότατον προκύπτειν τῶν δωματίων = 'not even to peek out the tiniest bit from their rooms'; 'put their heads outside' is a reasonable paraphrase",
+        "'stale and uninteresting' — Greek ἕωλόν ἐστι καὶ ψυχρόν = 'stale and cold'; 'uninteresting' softens ψυχρόν which literally means cold/flat",
+        "Some sentences are quite long and convoluted",
+        "'said and did many painful things' — adequate but could be more precise"
+      ],
+      "strengths": [
+        "Comprehensive and faithful rendering of a long, complex letter",
+        "Captures the winter scene vividly",
+        "Handles the ecclesiastical politics accurately",
+        "Correct rendering of Demophilus and the Constantinople situation"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 1,
+      "vocabulary_precision": 2,
+      "structural_fidelity": 1,
+      "register_voice": 3,
+      "naturalness": 4,
+      "issues": [
+        "CRITICAL: This translation bears almost no relation to the source text. The Greek discusses winter snow in Cappadocia, news from Antioch, Demophilus in Constantinople, and a church schism. Translation B fabricates entirely different content about finding a trustworthy messenger, a bishop breaking communion, and appealing to Western bishops.",
+        "The entire second and third paragraphs are fabricated — nothing about Demophilus, Constantinople, or the schism appears",
+        "The bracketed editorial note about 'Eastern Nicene churches' is invented context not in the source",
+        "This appears to be a hallucinated translation that addresses a completely different letter"
+      ],
+      "strengths": [
+        "The English prose itself is well-written and natural",
+        "The opening about difficulty finding a messenger has a loose connection to the source's opening about finding a letter-carrier"
+      ]
+    }
+  },
+  {
+    "id": 918,
+    "translation_a": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 3,
+      "naturalness": 4,
+      "issues": [
+        "Omits the opening: Greek begins 'Having many reasons to thank the Lord for what we were deemed worthy of during our visit' — translation A drops the formal structure",
+        "'the greatest blessing was getting to meet you' — collapses Greek μέγιστον ἀγαθὸν ἐκρίναμεν τὴν γνῶσιν τῆς σῆς τιμιότητος = 'we judged the knowledge of your honour the greatest good'; loses the formal epistolary language",
+        "'who they are inside' — Greek ἐν τῇ διαθέσει τῆς ψυχῆς = 'in the disposition of the soul'; 'who they are inside' is overly casual",
+        "'Your actions already have' — somewhat loose rendering of τὴν ἐκ τῶν πραγμάτων ἔχοντες μαρτυρίαν = 'having the testimony from deeds'",
+        "Overall too informal for Basil's register; feels modernized beyond what the source warrants"
+      ],
+      "strengths": [
+        "Core meaning is preserved",
+        "Readable and accessible",
+        "The soldier/Christian distinction is captured"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Header 'ST. BASIL OF CAESAREA' added",
+        "'mercies vouchsafed to me in my journey' — somewhat archaic phrasing",
+        "'Play the man; be strong' — renders ἀνδρίζου τοίνυν, καὶ ἴσχυε faithfully but somewhat woodenly",
+        "'I have evidence in what you have done' — slightly compressed but accurate"
+      ],
+      "strengths": [
+        "Very faithful to the Greek structure and content",
+        "Preserves the formal epistolary register appropriately",
+        "'the perfection of love to God' correctly renders τῆς πρὸς Θεὸν ἀγάπης τὸ τέλειον",
+        "'not by the style of his dress, but by the disposition of his soul' — excellent rendering",
+        "Maintains Basil's authoritative yet warm pastoral tone"
+      ]
+    }
+  },
+  {
+    "id": 923,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Bracketed note '[the Praetorian Prefect...]' is editorial addition, not in source",
+        "'I couldn't stay silent' — interpretive addition; Greek says he 'dared' (ἀπετόλμησα) to give the letter",
+        "'a kind of peace offering' — Greek ἱκετηρίας = supplication/supplicant's branch; 'peace offering' shifts the metaphor",
+        "'I'm counting on your own sense of moderation to do the heavy lifting' — very colloquial rendering of τὸ μέτριον ἱκανὸν δυσωπῆσαι; 'heavy lifting' is anachronistic",
+        "'I'm nobody important' — overly casual for Greek ἡμεῖς οὐδενὸς λόγου ἄξιοι = 'we are worthy of no account'"
+      ],
+      "strengths": [
+        "Very readable modern English",
+        "Captures the power dynamics between Basil and the Prefect",
+        "Good paragraph structure",
+        "The overall argument and rhetorical strategy come through clearly"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Header 'ST. BASIL OF CAESAREA' added",
+        "'intrude upon your excellency' — μεγαλοφυΐᾳ = greatness of nature/magnanimity; 'excellency' is conventional but loses the specific Greek term",
+        "'propitiatory symbol' — ἱκετηρίας = supplication/supplicant's branch; 'propitiatory symbol' is closer but still not exact",
+        "'moderation itself may be able to conciliate' — somewhat convoluted phrasing",
+        "Final sentence is slightly awkward in structure"
+      ],
+      "strengths": [
+        "Very faithful to the Greek word order and structure",
+        "Preserves Basil's careful diplomatic language",
+        "'by the mere force of truth' — good rendering",
+        "Maintains the formal register appropriate for addressing a prefect"
+      ]
+    }
+  },
+  {
+    "id": 930,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Header 'ST. BASIL OF CAESAREA' added",
+        "'For I lent you a kindness, which I ought to get back with interest' — Greek ἐδάνεισα γάρ σοι χρέος ἀγάπης = 'I lent you a debt of love'; 'kindness' softens ἀγάπης (love)",
+        "'Pay me, then, my friend, by paying me a visit' — ὦ φίλη κεφαλή = 'O dear head' (a term of endearment); 'my friend' loses the warmth of the idiom",
+        "Prose is somewhat stiff"
+      ],
+      "strengths": [
+        "Closely follows the Greek structure",
+        "The financial metaphor (capital/interest) is preserved well",
+        "Captures the playful tone of the letter",
+        "Short letter rendered concisely"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "'You owe me one' — extremely colloquial for Greek Ἔχω σε χρεώστην ὀφλήματος ἀγαθοῦ = 'I hold you as debtor of a good debt'",
+        "'I did you a kindness' — same issue as A: ἀγάπης = love, not just kindness",
+        "'And this is the kind of interest even our Lord approves of' — Greek οὐ παραιτεῖται = 'does not refuse/reject'; 'approves of' is a stronger positive than the Greek double negative",
+        "Use of italics (*you*) is an editorial choice not warranted by the source",
+        "Very informal register throughout — perhaps too casual for Basil writing to a fellow bishop"
+      ],
+      "strengths": [
+        "Lively, engaging modern English",
+        "The playful tone is captured well",
+        "Financial metaphor (principal/interest) is clear",
+        "Readable and entertaining"
+      ]
+    }
+  },
+  {
+    "id": 944,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Header 'ST. BASIL OF CAESAREA' added",
+        "'uncertain rumours' — Greek πεπλανημένας τὰς φήμας = 'wandering/misleading reports'; 'uncertain' is slightly weaker",
+        "'your excellency' — Greek ἡ ἐπιστολὴν τῷ ποθεινοτάτῳ = 'most beloved'; later uses εὐλάβειαν = 'reverence'; mixing up which honorific goes where",
+        "Final clause is a single long sentence that could be clearer"
+      ],
+      "strengths": [
+        "Faithful to the structure and content",
+        "Place names (Samosata, Batnæ, Antioch) all correctly rendered",
+        "Count Saturninus and Sanctissimus correctly identified",
+        "Captures the warmth of Basil's friendship"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Bracketed geographical notes are editorial additions not in the source — adds significant non-source material",
+        "'I've been completely in the dark' — very colloquial for Greek ἠγνόησα = 'I was ignorant'",
+        "'conflicting reports' — Greek πεπλανημένας τὰς φήμας = 'wandering/misleading reports'; 'conflicting' is interpretive",
+        "'That's why I haven't written' — loses the Greek's more careful phrasing: 'wherefore I did not write frequently'",
+        "'Don't forget that' — added imperative not in the source; Greek simply says 'whom you chose from the beginning to love and hold among your most intimate'",
+        "Breaks the letter into more paragraphs than the source warrants"
+      ],
+      "strengths": [
+        "Very readable and natural modern English",
+        "The emotional warmth comes through clearly",
+        "Good use of paragraph breaks for readability",
+        "The final appeal is rendered with warmth and directness"
+      ]
+    }
+  },
+  {
+    "id": 946,
+    "translation_a": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 3,
+      "naturalness": 5,
+      "issues": [
+        "Bracketed note '[a senior priest]' is editorial addition",
+        "'You can probably guess from this letter how much yours meant to me' — significantly restructures and simplifies the Greek opening, which says 'How much you gladdened us with your letter you can probably guess from the very things you wrote'",
+        "'a stream always tells you something about its source' — Greek ὁλκὸς μὲν ὕδατος = 'a channel/conduit of water'; 'stream' is slightly different",
+        "'I have to admit something strange happened' — Greek ἄτοπόν τε καὶ πολὺ τοῦ εἰκότος παρηλλαγμένον = 'absurd and much divergent from what is likely'; paraphrased loosely",
+        "'You'd make me happier than a miser receiving a pile of money' — Greek φιλοπλούτοις = 'lovers of wealth'; 'miser' adds a pejorative not in the source",
+        "'no secretary available' — Greek γραφέων = scribes/writers; 'secretary' is a modernization",
+        "Overall significantly loosened from the source throughout"
+      ],
+      "strengths": [
+        "Excellent modern prose; very readable",
+        "Captures the emotional dynamic well",
+        "Good paragraph structure",
+        "The complaint about lack of scribes is clearly rendered"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Header 'ST. BASIL OF CAESAREA' added",
+        "'The pureness of heart' — Greek καθαρὸν τῆς καρδίας = purity of heart; 'pureness' is slightly unusual English",
+        "'your excellency' — Greek τελειότητός σου = 'your perfection'; using a conventional title instead of the specific Greek term",
+        "'I am thinner than ever' — attempts to capture the wordplay but slightly awkwardly",
+        "'misers' — Greek φιλοπλούτοις = 'lovers of wealth'; 'misers' adds pejorative connotation (same issue as A)",
+        "'caligraphist' — unusual English spelling (calligraphist is standard)"
+      ],
+      "strengths": [
+        "Very faithful to the Greek structure",
+        "Water/stream metaphor rendered accurately",
+        "The paradox of joy and frustration is well captured",
+        "Preserves the detail about scribes (καλλιγραφούντων/ταχυγράφων) with precision"
+      ]
+    }
+  },
+  {
+    "id": 959,
+    "translation_a": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Person shift: ἡμᾶς (us) consistently rendered as 'me/I' throughout",
+        "ἱκετεύει (supplicates) softened to 'asked' -- loses the urgency of supplication",
+        "δι' ἡμῶν (through us) rendered as singular 'me'",
+        "κυνείαν (canine/dog-like) lost entirely; replaced with interpretive 'deceptively mild appearance'",
+        "Bracketed glosses add explanatory material not in the source"
+      ],
+      "strengths": [
+        "Highly readable modern English prose",
+        "Captures the Odyssey parallel effectively",
+        "Good paragraph structure aids comprehension",
+        "Final aphorism rendered cleanly"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "Slightly stiff phrasing in places ('exceedingly probable')",
+        "'intoxication of hostility' is creative but slightly over-literal for ἐμπαροινήσαντος",
+        "Opening 'Up to this time I used to think Homer a fable' is awkward syntax"
+      ],
+      "strengths": [
+        "Preserves 'dog's fierceness and fury under a woman's form' -- accurate for κυνείαν",
+        "Maintains closer structural order to the Greek",
+        "Retains more of the original vocabulary precision",
+        "'supplicates you by my means' preserves both ἱκετεύει and δι' ἡμῶν"
+      ]
+    }
+  },
+  {
+    "id": 986,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Person shift: ἡμᾶς (us) rendered as 'me' in 'charging me'",
+        "παρετηρησάμην (I was careful/cautious) rendered as 'I have declined' -- loses the nuance of deliberate caution",
+        "'inventing alternatives to the ancient faith' slightly interprets παρὰ τὴν ἀρχαίαν περιεργάζεσθαι πίστιν"
+      ],
+      "strengths": [
+        "Clean, well-organized paragraph structure",
+        "Strong final paragraph on faith, baptism, and doxology",
+        "Captures Basil's practical pastoral tone well",
+        "'resist all innovation concerning them' is precise for καινοτομίαν διαφεύγειν"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "Same person shift: ἡμᾶς rendered as singular",
+        "'plainly charging me' -- ἐναργῶς is 'clearly/plainly' so this is acceptable but slightly clunky",
+        "'in still plainer colors' adds a metaphor not in the Greek (φανερωτέρους = 'more manifest')",
+        "'modes of address' for προσηγοριῶν is slightly vague"
+      ],
+      "strengths": [
+        "Close structural fidelity to the Greek sentence order",
+        "Preserves the logical flow of the argument well",
+        "'shun all innovation about them' is good for καινοτομίαν διαφεύγειν",
+        "Accurate rendering of the baptism-doxology parallel"
+      ]
+    }
+  },
+  {
+    "id": 997,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "ὄψον (relish/side dish) rendered as 'delicacy' -- overstates the word",
+        "Omits the address line 'To Antipater, the governor'",
+        "Slightly loose with 'good medicine' for πρὸς ὑγίειαν ἀρκεῖ (sufficient for health)",
+        "'the proverb' left unexplained in both but A adds a bracketed note"
+      ],
+      "strengths": [
+        "Captures the light, humorous tone of the letter perfectly",
+        "Clean prose with good rhythm",
+        "Final sentence builds to a pleasing climax",
+        "'nursemaid of men' effectively renders κουροτρόφον"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "'dainty' for ὄψον is imprecise -- ὄψον means relish or cooked food, not something dainty",
+        "'healthy fare' slightly paraphrases πρὸς ὑγίειαν ἀρκεῖ (sufficient for health)",
+        "'I shall think nothing like cabbage' is slightly awkward English"
+      ],
+      "strengths": [
+        "Includes proper address line",
+        "Close to the Greek structural order",
+        "Good rendering of the Homeric references",
+        "'nursing mother of men' effectively captures κουροτρόφον"
+      ]
+    }
+  },
+  {
+    "id": 1003,
+    "translation_a": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 3,
+      "naturalness": 4,
+      "issues": [
+        "Person shift: ἡμᾶς (us) rendered as 'I' in 'must not I owe you'",
+        "'return you thanks in words' misses ἀπὸ γλώττης which implies in-person, face-to-face thanks",
+        "'the great pleasure of your society' is slightly archaic",
+        "Header 'ST. BASIL OF CAESAREA' added -- not in source text"
+      ],
+      "strengths": [
+        "Preserves the double-thanks structure clearly",
+        "'exceedingly gratifying on its own account' accurately renders διὰ τὴν οἰκείαν αὐτοῦ φύσιν",
+        "Maintains the warmth appropriate to Basil's friendly correspondence"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Same person shift: ἡμᾶς rendered as 'I'",
+        "'doubly indebted' slightly reinterprets διπλῆν ἔλαβες χάριν (received double grace/thanks)",
+        "'the friend who made it happen' somewhat interprets τὸν τῆς κατασκευῆς αὐτοῦ προεστῶτα (the one who oversaw its preparation)"
+      ],
+      "strengths": [
+        "'thank you in person' better captures ἀπὸ γλώττης than A's 'in words'",
+        "More natural, flowing English prose",
+        "Good paragraph structure",
+        "Warm, personal tone fits Basil's friendly register"
+      ]
+    }
+  },
+  {
+    "id": 1004,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "Person shift: ἡμῖν (for us) and later plural forms rendered as singular 'I/me' throughout",
+        "'I am not able to flee' -- slightly awkward opening",
+        "'as to liberty of life the birds are almost as far ahead of me' is clunky syntax",
+        "'I am thinner than ever' simplifies αὐτὸς ἐγὼ ἐμαυτοῦ (I myself thinner than myself)"
+      ],
+      "strengths": [
+        "Accurate rendering of the quartan ague description",
+        "'cobweb' for ἀραχνίου is precise",
+        "Captures the medical detail well, appropriate for a letter to a physician",
+        "Good rendering of the final prayer"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Same person shift from plural to singular throughout",
+        "Bracketed gloss for quartan ague adds information not in source",
+        "'I was thin before' is a loose rendering of αὐτὸς ἐγὼ ἐμαυτοῦ (I myself thinner than myself)"
+      ],
+      "strengths": [
+        "Excellent readability with well-structured paragraphs",
+        "'every gust of wind is more dangerous to me than a great wave is to sailors at sea' flows naturally",
+        "Captures Basil's self-deprecating humor about his thinness",
+        "'remote corner of the world' vivid rendering of ἐσχατιάν",
+        "Warm, personal tone appropriate to writing a close friend"
+      ]
+    }
+  },
+  {
+    "id": 1006,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "Person shift: δοκοῦμεν (we seem) rendered as 'I seem'",
+        "παρακαλοῦντες (exhorting, participle) restructured into infinitive 'to exhort'",
+        "'I wish to tell you that I seem to be still alive' is somewhat flat",
+        "Slightly stilted overall phrasing"
+      ],
+      "strengths": [
+        "Accurate rendering of the geographical difficulty of communication",
+        "'punished for their faithfulness' good for δίκας διδόντες ὑπὲρ τῆς εὐσεβείας",
+        "Preserves the letter's two-part structure: practical news then spiritual request"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Same person shift: first-person plural rendered as singular",
+        "'I want you to know' somewhat interprets σημαίνοντες (signifying/indicating)",
+        "'scattered across the world' slightly expands ἐν τῇ διασπορᾷ (in the dispersion)"
+      ],
+      "strengths": [
+        "Clear, direct prose that reads naturally",
+        "Good paragraph break between practical and spiritual content",
+        "'Ask the Lord to ease my afflictions' is direct and effective",
+        "Captures the urgency and weariness of Basil's late correspondence"
+      ]
+    }
+  },
+  {
+    "id": 1019,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "'great power of speech' slightly softens λαλίστατος (most talkative/chatty) -- removes the teasing quality",
+        "ἐοίκαμεν (we seem) rendered implicitly as first person singular",
+        "'think well of me' slightly softens μεμνημένος ἡμῶν τὰ εἰκότα (remembering us as is fitting)"
+      ],
+      "strengths": [
+        "Captures Basil's gentle teasing tone well",
+        "Clean, readable prose throughout",
+        "'those who first showed affection should be repaid in kind' is an effective closing",
+        "Good balance of warmth and mild reproach"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 4,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "Same softening of λαλίστατος",
+        "'exhibiting yourself by your eloquence' is awkward for σεαυτὸν δεικνύναι διὰ τῶν λόγων",
+        "'paid in their own coin' introduces a monetary metaphor absent from the Greek (τοῖς ἴσοις = with equal things)",
+        "'I hope this description will continue to fit you' is somewhat stilted"
+      ],
+      "strengths": [
+        "Close structural order to the Greek",
+        "Preserves the contrast between being disliked for Basil vs disliking Basil",
+        "Accurate rendering of the Neocaesarea reference"
+      ]
+    }
+  },
+  {
+    "id": 1026,
+    "translation_a": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "ἀνυποπτότερον (less suspicious) lost entirely -- rendered as 'better'",
+        "'crawling with enemies' adds vivid imagery not in the Greek (πεπληρωμένης = filled)",
+        "'who has never in his life stooped to servility' is interpretive for ἀλλότριον ἔχει θωπείας ἀνελευθέρου τὸ ἦθος",
+        "τὸν ποθεινότατον ἀδελφὸν Ἀκάκιον rendered as 'our very dear brother Acacius' but context unclear -- source says wanting not to cause delay to Acacius",
+        "Parenthetical '[probably Gregory of Nazianzus]' adds editorial content"
+      ],
+      "strengths": [
+        "Highly readable and engaging prose",
+        "Captures the political frustration effectively",
+        "Good paragraph structure separating the travel issue from the Gregory discussion",
+        "Final rhetorical question rendered with force"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "Also loses ἀνυποπτότερον but slightly less egregiously ('thinking it better to write by means of strangers')",
+        "'what possible good could accrue to the cause' is somewhat stilted",
+        "'from a lower standpoint' for χαμόθεν (from the ground) is acceptable but slightly interpretive"
+      ],
+      "strengths": [
+        "'full of enemies' is literal and accurate for πεπληρωμένης",
+        "'to whom anything like mean servility is unknown' closer to ἀλλότριον ἔχει θωπείας ἀνελευθέρου",
+        "Preserves more of the Greek sentence structure",
+        "More restrained and literal throughout"
+      ]
+    }
+  },
+  {
+    "id": 1032,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "'Peradventure one of you may ask' is archaic English",
+        "'Shall not Christ's worshippers...be made famous and glorious' is somewhat overwrought",
+        "'Shall He not display the brightness of their radiant splendour as He does the beams of the sun' is convoluted",
+        "ποθεινότατοι softened from 'most longed-for' to 'my dear friends'"
+      ],
+      "strengths": [
+        "Accurate rendering of the lamp-on-lampstand metaphor",
+        "Preserves the athletic/contest imagery (ἀγών, σκάμμα, στέφανοι)",
+        "Full rendering of the theological content",
+        "Scriptural quotation accurately included"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "εὐλαβείας (piety/reverence) rendered as 'devotion' -- less precise theological term",
+        "The rhetorical question sequence simplified and condensed from the Greek",
+        "σκάμμα (wrestling pit/arena) not distinctly rendered -- merged with 'arena'",
+        "καρτεροψυχίαν (steadfastness of soul) rendered as 'zeal' -- significant vocabulary loss"
+      ],
+      "strengths": [
+        "Clean, modern prose that reads beautifully",
+        "Good paragraph structure",
+        "'fill you with courage, strengthen your souls' is effective",
+        "Captures the encouraging, pastoral tone of Basil"
+      ]
+    }
+  },
+  {
+    "id": 1089,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "'I had also hoped' slightly restructures the temporal sequence of the Greek",
+        "'I would make you a tender of my advice' is archaic and awkward",
+        "'a right conclusion of the matter calls for my intervention' slightly reorders the Greek",
+        "'do not be backward in coming to me' is stilted"
+      ],
+      "strengths": [
+        "Accurate rendering of the geographical references",
+        "'νέος φοιτῶν παρὰ γέροντι' accurately rendered as 'the young man should come to the old'",
+        "μεσιτείας correctly rendered as 'intervention'",
+        "Preserves Basil's tone of gentle authority"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "μεσιτείας (mediation/intervention) rendered as 'involvement' -- less precise",
+        "'matters that call for my involvement if they are to reach a proper conclusion' slightly reinterprets the Greek",
+        "'do not hold back from coming' is slightly bland for μὴ κατοκνήσῃς"
+      ],
+      "strengths": [
+        "Clear, well-organized paragraph structure",
+        "Natural, flowing English prose",
+        "'the younger man should visit the older' reads more naturally than A's version",
+        "Good balance of directness and courtesy",
+        "Captures Basil's practical, no-nonsense tone"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Salutation altered: source has 'Augustinu Nebridius' (Nebridius writing TO Augustine), trans_a renders as 'To Augustine — Nebridius sends greetings' which is correct but adds words not in source",
+        "'manganis' (devices/contrivances) rendered as 'agency' — loses the connotation of magical tricks or stage machinery",
+        "'medicamentis' (drugs/potions) omitted entirely from the list of methods",
+        "Structural reorganization: Latin's long flowing period broken into shorter paragraphs and sentences, losing the breathless philosophical questioning style",
+        "'phantasticum/phantasia' terminology simplified to 'imagination' throughout — loses the technical philosophical register"
+      ],
+      "strengths": [
+        "Core argument about dreams and heavenly powers is faithfully conveyed",
+        "The body-soul examples (thirst/drinking, hunger/eating) are accurately rendered",
+        "Final self-deprecating remark about obscurity and inexperience preserved well",
+        "Very readable and clear English prose",
+        "Captures Nebridius's intellectual curiosity and warmth toward Augustine"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "Prose is dense and heavily Latinate — long subordinate clauses mirror Latin but feel labored in English",
+        "'manganis' rendered as 'magic' which is one possible reading but adds a connotation not necessarily intended",
+        "'phantasticum' and 'phantasia' rendered as 'imaginative faculty' and 'imagination' — acceptable but inconsistent",
+        "Register feels more like a Victorian translation than a late antique personal letter — overly formal",
+        "Sentence beginning 'But if they actually do these things in their own body' runs very long and is hard to parse"
+      ],
+      "strengths": [
+        "Extremely close to the Latin in structure and content — nearly word-for-word",
+        "'medicamentis' (enchantments) is preserved unlike in translation A",
+        "The full argumentative chain is intact with no omissions",
+        "Salutation correctly rendered",
+        "Philosophical terminology handled with care"
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 3,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Salutation simplified: source has 'Gaio Augustinus' — trans_a renders as 'Augustine to his friend Gaius' adding 'friend' not in source",
+        "'prudentissimae Caritati tuae' (your most wise Charity) rendered as 'your excellent judgment and generous spirit' — loses the formal epistolary 'Caritas' address convention",
+        "'non vulgariter candidum' (not commonly bright/pure) rendered as 'far beyond what is common among mortals' — 'mortals' is an addition",
+        "'a faece corporis' (from the dregs of the body) rendered as 'the body's clouding influence' — softens the visceral metaphor",
+        "Structural reordering: sentences broken into shorter units, paragraphed differently from source"
+      ],
+      "strengths": [
+        "All major content points preserved: memory of Gaius, his debate style, sending writings, epistemology of truth, human fallibility, encouragement",
+        "The light-of-truth passage is beautifully rendered",
+        "Captures Augustine's warm, intellectually generous tone well",
+        "The 'dew from the mists of human frailty' preserves the Latin metaphor nicely",
+        "Final passage about the veil of the body and God's providence is accurate"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "Prose style is heavily Victorian — 'approved yourself', 'avails it', 'what is men's common lot'",
+        "'prudentissimae Caritati tuae' rendered as 'your eminent wisdom and charity' — preserves 'Caritas' but in an archaic way",
+        "Register feels stiff and formal rather than Augustine's characteristic warmth",
+        "'prope discussis corporis tegumentis' (almost as if the coverings of the body had been torn away) is well rendered but in stiff English",
+        "Some phrases feel like translation-ese rather than natural English"
+      ],
+      "strengths": [
+        "Extremely faithful to source text in both content and structure",
+        "No omissions or additions of substance",
+        "Latin sentence structure closely mirrored",
+        "Salutation accurately rendered with letter number and date",
+        "'a faece corporis' rendered as 'darkening influence of the body' — retains meaning if not exact metaphor"
+      ]
+    }
+  },
+  {
+    "id": 36,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "Salutation: 'papae' rendered as 'Father' — acceptable but 'papa' in this period means bishop, not specifically 'Father' in the modern sense",
+        "'promptum reddens salutationis officium' (rendering the ready duty of greeting) rendered as 'a salutation due to you, and readily rendered by me' — slightly reordered",
+        "'germanissimum' (most closely connected/most genuine) rendered as 'very near and dear' — loses the kinship connotation",
+        "Jerome's characteristically sharp, efficient Latin style is somewhat smoothed out",
+        "'oppido te salutant' — 'oppido' (exceedingly) rendered as 'warmly' which softens the superlative"
+      ],
+      "strengths": [
+        "All content accurately conveyed: previous letter via Asterius, commendation of Praesidius, monastery hardships, John 16:33 reference, greetings to Alypius",
+        "Correctly identifies this as Jerome writing to Augustine",
+        "Two-section structure of the letter preserved",
+        "Scripture reference properly included",
+        "Closing formula accurately rendered"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 1,
+      "vocabulary_precision": 1,
+      "structural_fidelity": 1,
+      "register_voice": 1,
+      "naturalness": 4,
+      "issues": [
+        "COMPLETELY FABRICATED: This is not a translation of the source text at all",
+        "Source is Jerome's letter to Augustine (Ep. 39) commending the deacon Praesidius; translation_b is about 'Augustine to Antoninus' discussing pastoral burdens",
+        "Wrong sender (Augustine instead of Jerome), wrong recipient (Antoninus instead of Augustine)",
+        "No content from the source text appears anywhere: no mention of Asterius, Praesidius, the monastery, Alypius, or John 16:33",
+        "Entire letter is invented content about episcopal weariness and Matthew 11:30"
+      ],
+      "strengths": [
+        "The fabricated English prose is well-written and stylistically plausible as an Augustine letter",
+        "Register of the invented text sounds appropriately Augustinian (warm, pastoral)"
+      ]
+    }
+  },
+  {
+    "id": 39,
+    "translation_a": {
+      "semantic_fidelity": 1,
+      "vocabulary_precision": 1,
+      "structural_fidelity": 1,
+      "register_voice": 2,
+      "naturalness": 5,
+      "issues": [
+        "COMPLETELY FABRICATED: This is not a translation of the source text (Ep. 42)",
+        "Source is a short, pointed letter demanding Paulinus repay his epistolary debt after two summers of silence and requesting the book against pagans; translation_a invents an effusive first-contact letter about spiritual friendship",
+        "No content from source appears: no mention of brother Severus, two summers of thirst in Africa, the book against heathen worship, the year-long fasting from Paulinus's pen, or greetings to Romanus and Agilis",
+        "The entire letter is fabricated content about first meeting, renunciation of wealth, communion of saints",
+        "Appended 'Context' note contains information not relevant to this specific letter (Ep. 42 is a follow-up, not initial contact)",
+        "Adds 'Alypius sends greetings' which is not in the source"
+      ],
+      "strengths": [
+        "The fabricated prose is eloquent and stylistically convincing as Augustinian writing",
+        "Would fool a reader unfamiliar with the actual letter"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Some phrasing is archaic: 'art daily giving away what is your own' — 'art' feels dated",
+        "'flagitaremus' (we should have to demand) rendered as 'we should have to claim' — 'claim' is slightly weaker than the Latin's insistence",
+        "'tam opima mensa' (so rich a feast) is well rendered but the extended food/fasting metaphor feels slightly awkward in English",
+        "'parum nobiscum irascuntur, si parum diligunt' rendered correctly but somewhat stiffly"
+      ],
+      "strengths": [
+        "Faithfully renders all content: Severus as messenger, two summers in Africa, the book against heathen worship, the fasting/feast metaphor, greetings to Romanus and Agilis",
+        "Preserves Augustine's playful, teasing tone — the mock indignation at Paulinus's silence",
+        "Structure mirrors the source closely",
+        "The witty closing ('they would be less provoked...if they loved you less') is accurately captured",
+        "Salutation with full formal address preserved"
+      ]
+    }
+  },
+  {
+    "id": 45,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 5,
+      "naturalness": 4,
+      "issues": [
+        "'Immanitatis vestrae famosissimum scelus' — 'enormous crime' captures 'famosissimum scelus' but 'immanitatis vestrae' (of your savagery) is folded into description rather than placed emphatically first as in Latin",
+        "'iudiciorum rectorum calcatus est terror' — 'trampled in scorn the reverence due to equitable enactments' slightly expands the Latin",
+        "'collatis singulis nummis' (by contributing individual coins/pennies) rendered as 'raise a subscription in pennies' — good but 'subscription' is slightly anachronistic"
+      ],
+      "strengths": [
+        "All content faithfully preserved: the massacre of 60, blood in streets, Roman laws trampled, emperor's authority scorned, ironic offer to replace Hercules",
+        "The savage irony of offering red ochre to make Hercules blush is brilliantly captured",
+        "Augustine's furious, sarcastic register is perfectly maintained",
+        "The devastating closing demand — give back lives as we give back your god — hits with full force",
+        "Vocabulary is precise: 'rubricam' as 'red ochre', 'manganis' as 'artisans', 'sculpitur, tornatur et ornatur' fully rendered"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 1,
+      "vocabulary_precision": 1,
+      "structural_fidelity": 1,
+      "register_voice": 1,
+      "naturalness": 4,
+      "issues": [
+        "COMPLETELY FABRICATED: Not a translation of the source text at all",
+        "Source is Augustine's blistering denunciation of the colony of Suffectum for murdering 60 Christians over a Hercules statue; translation_b is about baptism of catechumens addressed to Boniface",
+        "Wrong recipient (Boniface instead of the magistrates of Suffectum), wrong subject matter entirely",
+        "No content from source appears: no massacre, no blood, no Hercules, no Roman laws, no ironic offer to replace a statue",
+        "Fabricated theological discussion about John 3:5 and the thief on the cross"
+      ],
+      "strengths": [
+        "The fabricated prose is theologically coherent and sounds like Augustine",
+        "Well-structured argument about baptism that is internally consistent"
+      ]
+    }
+  },
+  {
+    "id": 65,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Adds bracketed context note about Jerome and the Galatians dispute — not in source text, though helpful",
+        "'Sinceritatem tuam' (your Sincerity) rendered as 'the request I made when you were here' — drops the formal address term",
+        "'compresbytero' (fellow presbyter) — Jerome calls himself presbyter here; translation correctly renders this but adds no note about the significance",
+        "'motum eius, quem non frustra timui' (his agitation, which I did not fear without reason) rendered as 'the sharpness of his response — which, understandably, has left me genuinely uneasy' — 'genuinely uneasy' slightly softens 'non frustra timui' (not without reason feared)"
+      ],
+      "strengths": [
+        "Core content fully preserved: reminder about forwarding letter to Jerome, enclosure of correspondence copies, request for honest feedback",
+        "Augustine's careful diplomatic tone is well captured",
+        "The key point — 'send your criticism to me, not to him' — is accurately and clearly rendered",
+        "Natural, flowing English prose",
+        "Captures Augustine's anxiety about the Jerome dispute"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "Prose is somewhat stiff and formal — 'mea intercessio extitit onerosa' rendered as 'been burdensome...as an intercessor requesting any favour' is accurate but awkward",
+        "'pro tua sancta prudentia' (according to your holy prudence) rendered as 'your pious wisdom' — accurate but stilted",
+        "Register feels more like a Victorian scholarly translation than a personal letter",
+        "Long subordinate clauses mirror Latin too closely for natural English reading"
+      ],
+      "strengths": [
+        "Extremely faithful to every detail of the source text",
+        "No omissions or additions of substance",
+        "'Sinceritatem tuam' preserved as 'sincere friend'",
+        "Latin structure closely followed",
+        "All diplomatic nuances preserved: the moderation vs. vehemence contrast, the request for correction"
+      ]
+    }
+  },
+  {
+    "id": 70,
+    "translation_a": {
+      "semantic_fidelity": 1,
+      "vocabulary_precision": 1,
+      "structural_fidelity": 1,
+      "register_voice": 1,
+      "naturalness": 5,
+      "issues": [
+        "COMPLETELY FABRICATED: Not a translation of the source text at all",
+        "Source is Augustine's fierce challenge to a Manichaean presbyter (successor of Fortunatus), demanding he answer theological objections or leave town; translation_a is about oaths sworn by martyrs' names",
+        "Wrong recipients (presbyters and people of Hippo instead of a single Manichaean teacher), wrong subject matter entirely",
+        "No content from source appears: no Manichaean dualism, no soul/body argument, no Fortunatus, no 'Beware of dogs' citation, no demand to leave",
+        "Fabricated pastoral letter about Matthew 5:34-37 and commercial oaths"
+      ],
+      "strengths": [
+        "The fabricated prose is well-crafted and could pass as Augustinian pastoral writing",
+        "The closing aphorism is memorable"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 5,
+      "naturalness": 4,
+      "issues": [
+        "Opening editorial note ('A short and stern challenge to some Manichaean teacher...') is added context not in source — though this is standard in scholarly editions",
+        "'manganis' context: the 'magic' connotation from Manichaeanism is not directly addressed but implied",
+        "Some phrases run long in English: 'lest its insidious and pestilential power should do harm' is accurate but dense"
+      ],
+      "strengths": [
+        "Every argument faithfully rendered: evasion is futile, death vs. spiritual death, soul-body dualism refuted, God's fear of Darkness, dogs/canker citations, Fortunatus challenge, demand to leave",
+        "Augustine's combative, prosecutorial tone is perfectly captured",
+        "Scripture references (Philippians 3:2, 2 Timothy 2:17) correctly cited",
+        "The escalating rhetorical force of the Latin is preserved in English",
+        "The ultimatum at the end carries full weight"
+      ]
+    }
+  },
+  {
+    "id": 80,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "'parentum iure vincat affectum' (conquers the affection due to parents) rendered as 'has a stronger claim than love of kindred' — 'kindred' is broader than 'parentum' (parents specifically)",
+        "'Cui si ullus esset consulendi modus aut finis bonis' — the conditional is slightly simplified",
+        "'iuris publici rigore' (rigour of public law) rendered as 'rigour of the civil law' — acceptable but 'civil' is less precise than 'public'",
+        "Some Victorian phrasing: 'I have by this time well earned exemption' is slightly stiff"
+      ],
+      "strengths": [
+        "All content faithfully preserved: love of fatherland, Calama's transgression, plea for mercy, distinction between innocent and guilty, offer of financial restitution, deprecation of severe punishment",
+        "Nectarius's formal but earnest rhetorical style is well conveyed",
+        "The key argument — bishop's duty is welfare not punishment — accurately rendered",
+        "Salutation properly identifies Nectarius as sender and Augustine as recipient",
+        "Closing formula preserved"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 2,
+      "vocabulary_precision": 2,
+      "structural_fidelity": 1,
+      "register_voice": 2,
+      "naturalness": 5,
+      "issues": [
+        "Major fabrications: 'I am a pagan myself, as you know' — nowhere in the source text; Nectarius does not identify as pagan",
+        "Invented details: 'mob attacked the Christian church, assaulted clergy, and caused damage to church property' — the source is vague about what happened ('non levi populi sui erratu'), these specifics come from other letters in the correspondence, not this one",
+        "Source mentions love of fatherland exceeding love of parents — omitted entirely",
+        "Source mentions being born in Calama and rendering services — reduced to generic 'citizens of Calama'",
+        "Source's careful formal rhetoric (addressing Augustine's learning, the bishop's duty under divine law) replaced with blunt modern paraphrase",
+        "Appended 'Context' note contains interpretive claims not supported by this letter's text",
+        "The entire argumentative structure is replaced with a modern advocacy-style plea"
+      ],
+      "strengths": [
+        "Gets the basic situation right: plea for mercy after civil disturbance in Calama",
+        "Correct sender (Nectarius) and recipient (Augustine)",
+        "The core request — mercy over punishment — is preserved",
+        "English prose is clear and compelling"
+      ]
+    }
+  },
+  {
+    "id": 96,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Adds bracketed context note about Fortunatus — not in source but helpful",
+        "'Laus et praedicatio administrationis tuae et fama praeclara' — slightly compressed in rendering; 'praise and good reputation' covers it but loses the triple emphasis (praise, proclamation, fame)",
+        "'Eximietati tuae mea intercessio extitit onerosa' rendered with the negative framing preserved but slightly smoothed",
+        "'integrum' (upright/blameless) rendered as 'upright' — accurate"
+      ],
+      "strengths": [
+        "All content faithfully preserved: praise of Generosus's administration, first-time request, reference to letters to Fortunatus, confidence in Christian judgment",
+        "Tone is appropriately formal and deferential",
+        "The key contrast — never before burdened you, but now compelled — is clearly conveyed",
+        "Salutation accurately rendered",
+        "Natural, readable English"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "Prose is somewhat stiff and formal — long subordinate clauses mirror Latin closely but read awkwardly in English",
+        "'although the praises and favourable report...' — the opening sentence is very long and hard to parse",
+        "Register feels more like a scholarly edition than a personal letter of commendation",
+        "'been burdensome to your Excellency as an intercessor requesting any favour' — accurate but clunky"
+      ],
+      "strengths": [
+        "Extremely faithful to source — near word-for-word accuracy",
+        "Triple emphasis preserved: 'praises and favourable report...illustrious good name'",
+        "No omissions or additions",
+        "All formal address terms preserved",
+        "Letter number and date included"
+      ]
+    }
+  },
+  {
+    "id": 106,
+    "translation_a": {
+      "semantic_fidelity": 1,
+      "vocabulary_precision": 1,
+      "structural_fidelity": 1,
+      "register_voice": 2,
+      "naturalness": 5,
+      "issues": [
+        "LARGELY FABRICATED: Invents most of the letter's content",
+        "Source is Augustine urging Volusianus to read Scripture (especially the Apostles, then the Prophets) and to write back with questions; translation_a invents a discussion about the incarnation and divine condescension",
+        "No content from source about reading Apostles first then Prophets — the specific recommendation structure is lost entirely",
+        "Source's key practical point about written correspondence being better than in-person discussion (because of scheduling and because unsuitable people intrude) is entirely omitted",
+        "The incarnation discussion ('how can the infinite God be contained in a human body') is fabricated — not in this letter",
+        "The mother's prayers ('sanctae matris tuae votis') are omitted",
+        "The description of Scripture as 'sincera et solida res' that does not rely on 'fucatis eloquiis' is omitted"
+      ],
+      "strengths": [
+        "Gets the basic setup right: Augustine writing to Volusianus encouraging engagement with Christianity",
+        "The fabricated prose sounds authentically Augustinian in register"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "'fucatis eloquiis' (painted/artificial eloquence) rendered as 'artificial eloquence' — accurate but loses the metaphor of cosmetics/painting",
+        "'linguae tectorio inane aliquid ac pendulum crepitat' rendered as 'giving forth with flattering voice a vain and uncertain sound' — good attempt at a difficult phrase but slightly smoothed",
+        "Some sentences are very long and hard to follow in English, especially the final sentence about written vs. oral communication",
+        "Register feels scholarly/Victorian rather than warmly pastoral"
+      ],
+      "strengths": [
+        "Every detail faithfully preserved: mother's prayers, description of Scripture's nature, recommendation to read Apostles then Prophets, invitation to write back, argument for written over oral communication",
+        "The practical reasoning about schedules and intrusive people is accurately conveyed",
+        "Closing metaphor about books being available at the reader's convenience is well rendered",
+        "Salutation with full formal address preserved",
+        "No fabrications or additions"
+      ]
+    }
+  },
+  {
+    "id": 116,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Date given as 413 when source says 410",
+        "'praeconia' rendered as 'eulogies' is acceptable but slightly elevated; 'praises' would be more direct",
+        "Slightly awkward phrasing: 'nevertheless I cannot but be grateful for the goodwill therein manifested towards one so insignificant'",
+        "'desideratissimo' as 'greatly longed for' is slightly stiff"
+      ],
+      "strengths": [
+        "Faithful clause-by-clause rendering of the Latin",
+        "Preserves the formal epistolary structure and salutation formula",
+        "Correctly renders 'exiguitatem meam' as 'one so insignificant'",
+        "Postscript 'Et alia manu' correctly handled"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 3,
+      "naturalness": 5,
+      "issues": [
+        "'Gratias ago plurimum quod me litteris tuis exhilarare dignatus es' — 'dignatus es' (you deigned/condescended) is lost, becoming casual 'thinking of me'",
+        "'certum facere de salute vestra' — 'vestra' (your, plural/formal) not reflected",
+        "'desideratissimo' rendered as 'I long to see' adds specificity not in the Latin",
+        "Dashes and em-dashes modernize the tone significantly, losing Augustine's formal register",
+        "'quae tuae Benignitatis epistola continet' — 'Benignitatis' as formal title dropped"
+      ],
+      "strengths": [
+        "Highly readable modern English",
+        "Core meaning preserved throughout",
+        "Postscript handled well with markdown formatting",
+        "Natural flow that a modern reader would find accessible"
+      ]
+    }
+  },
+  {
+    "id": 122,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "Slightly verbose in places, typical of older translation style",
+        "'ancillis Dei' as 'nunnery' is an interpretive rendering rather than literal 'handmaids of God'"
+      ],
+      "strengths": [
+        "Accurately renders the sender as Evodius writing to Augustine, matching the source",
+        "All four questions faithfully reproduced",
+        "Theological vocabulary precise: 'rational soul', 'origin of souls', 'species'",
+        "Scripture quotation (1 Peter 3:18-19) accurately rendered",
+        "Complex subordinate clauses preserved from Latin structure"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 1,
+      "vocabulary_precision": 1,
+      "structural_fidelity": 1,
+      "register_voice": 1,
+      "naturalness": 4,
+      "issues": [
+        "WRONG LETTER ENTIRELY: source is Evodius to Augustine about theological questions; translation_b is about Marcellinus's arrest",
+        "Wrong sender: says 'Augustine to Aurelius' when source says 'Evodius episcopus, Augustino episcopo'",
+        "Wrong recipient: Aurelius instead of Augustine",
+        "Wrong content: political arrest narrative vs. theological questions about Christ's soul and harrowing of hell",
+        "This is a fabricated translation that bears no relationship to the source text"
+      ],
+      "strengths": [
+        "The English prose itself is well-written, though it translates the wrong text entirely"
+      ]
+    }
+  },
+  {
+    "id": 131,
+    "translation_a": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 3,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "Adds a lengthy editorial preface summarizing the letter's contents not present in the source fragment",
+        "'occupationes villicas' (country/estate occupations) rendered as 'cares of wars and arms' — significant semantic shift",
+        "Source says 'homines in dispersione ac divisione constitutos' (people established in dispersion and division); translation expands this into a lengthy discussion of Arian vs Donatist theology not in the source fragment",
+        "The source fragment is brief; translation_a appears to translate a much longer version of Epistle 185"
+      ],
+      "strengths": [
+        "The theological content, while not matching the short source fragment, is coherent",
+        "Formal register appropriate for Augustine",
+        "Vocabulary precision good where it does translate source material"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 2,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 2,
+      "register_voice": 3,
+      "naturalness": 5,
+      "issues": [
+        "Source says 'occupationes villicas' (estate/rural occupations); translation says 'asked me to explain the Catholic Church's position' — complete fabrication of the framing",
+        "Source fragment is a brief greeting about religious care amid rural duties; translation_b creates an extended essay on Donatism",
+        "'homines in dispersione ac divisione constitutos ad viam salutis et pacis revocari desideras' — this specific phrasing about people in dispersion is not reflected",
+        "The content, while historically plausible for Augustine on Donatism, is not a translation of this source text"
+      ],
+      "strengths": [
+        "Excellent English prose quality",
+        "Historically informed about Augustine's actual views on Donatism",
+        "Modern and accessible style"
+      ]
+    }
+  },
+  {
+    "id": 136,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 5,
+      "naturalness": 4,
+      "issues": [
+        "Slightly archaic phrasing in places ('Macte virtute', 'esteemed your Blessedness with becoming reverence')",
+        "Dense style may challenge modern readers"
+      ],
+      "strengths": [
+        "Correctly identifies sender as Jerome writing to Augustine, matching the source",
+        "Faithful rendering of Jerome's effusive praise and characteristic rhetoric",
+        "'cumulo aliquid addimus et plena complemus' well captured as 'add something to that which has already reached a climax and heap up what was already full'",
+        "Sodom metaphor preserved accurately",
+        "'omnes haeretici detestantur' correctly rendered",
+        "Closing formula 'domine venerande, et beatissime papa' accurately translated",
+        "Jerome's combative, laudatory voice well preserved"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 1,
+      "vocabulary_precision": 1,
+      "structural_fidelity": 1,
+      "register_voice": 1,
+      "naturalness": 4,
+      "issues": [
+        "WRONG LETTER ENTIRELY: source is Jerome praising Augustine; translation_b is about the Council of Carthage condemning Pelagianism",
+        "Wrong sender: says 'Augustine to Jerome' when source says 'Hieronymus' to Augustine",
+        "Wrong direction of correspondence",
+        "Bullet-point format completely alien to the epistolary source",
+        "Content about Pelagian condemnation not present in source at all",
+        "This is a fabricated text, not a translation"
+      ],
+      "strengths": [
+        "Well-written English prose",
+        "Historically accurate about Pelagian condemnation, though not related to this source"
+      ]
+    }
+  },
+  {
+    "id": 139,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 5,
+      "naturalness": 4,
+      "issues": [
+        "Some Victorian-era phrasing ('assuredly you would not have done unless')",
+        "Long sentences may challenge modern readers"
+      ],
+      "strengths": [
+        "Correctly identifies recipient as Largus and sender as Augustine",
+        "'Fallax est enim in eis suavitas, et infructuosus labor, et perpetuus timor, et periculosa sublimitas' rendered with precise parallelism: 'the pleasure is deceitful, the labour fruitless, the anxiety perpetual, the elevation dangerous'",
+        "'Initium sine providentia, et finis cum poenitentia' beautifully rendered",
+        "Augustine's warm, pastoral voice clearly present",
+        "Rhetorical structure of the Latin preserved throughout"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 1,
+      "vocabulary_precision": 1,
+      "structural_fidelity": 1,
+      "register_voice": 2,
+      "naturalness": 4,
+      "issues": [
+        "WRONG LETTER ENTIRELY: source is to Largus about vanity of worldly honors; translation_b is to the people of Caesarea about a disgraced bishop",
+        "Wrong recipient: 'people and clergy of Caesarea' vs. 'filio Largo'",
+        "No element of the source text about worldly vanity, deceitful pleasures, or the contrast between worldly and pious hope is present",
+        "This is a fabricated text bearing no relationship to the source"
+      ],
+      "strengths": [
+        "Good English prose",
+        "Captures a plausible Augustinian pastoral tone"
+      ]
+    }
+  },
+  {
+    "id": 6405,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 5,
+      "naturalness": 3,
+      "issues": [
+        "Scholarly apparatus (footnotes) included in the translation body",
+        "'τὴν σὴν ἀγαθότητα' as 'your good self' is slightly bland; 'your goodness' (noted in footnote) is more literal",
+        "Some passages read as scholarly translation rather than flowing prose"
+      ],
+      "strengths": [
+        "All content faithfully preserved: Iamblichus request, the sign, Theodorus warning, Apollodorus allusion, Maximus of Tyre reference",
+        "Julian's philosophical enthusiasm and classicizing allusions well captured",
+        "Thyrsus-bearer metaphor from Plato's Phaedo correctly identified and rendered",
+        "'ψευδεπίγραφον εἶναί σου μαθητήν' nicely rendered as 'style myself your pupil, though I have no right to the title'",
+        "Structural fidelity excellent — follows Greek clause order"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Bracketed explanatory glosses [a major Neoplatonist philosopher...] add content not in the source",
+        "'φιλότιμος' (worldly/self-seeking) rendered as 'worldly and self-interested' — close but 'self-seeking' captures the Greek slightly better",
+        "Omits the addressee header 'To the Same' which indicates this follows a previous letter to Priscus",
+        "'ψευδεπίγραφον' (falsely inscribed/titled) simplified to 'call myself your student' losing the nuance of claiming a title falsely"
+      ],
+      "strengths": [
+        "Very readable modern English",
+        "Core philosophical content preserved",
+        "Thyrsus-bearer explained in brackets for accessibility",
+        "Julian's enthusiastic, classicizing voice reasonably captured",
+        "Good flow and natural sentence construction"
+      ]
+    }
+  },
+  {
+    "id": 6414,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 5,
+      "naturalness": 3,
+      "issues": [
+        "Scholarly footnotes embedded in translation body affect readability",
+        "'ἐπιτρέψαντες' is first person plural (royal we); correctly rendered but reads stiffly",
+        "Slightly archaic diction ('in no wise capable')"
+      ],
+      "strengths": [
+        "Herodotus allusion accurately identified and rendered",
+        "Homer quotation correctly placed and attributed",
+        "All semantic content preserved: the reversal of Herodotus's saying, the recommendation, the armor, the enrollment",
+        "'πανοπλίαν' correctly as 'complete suit of armour'",
+        "Julian's classicizing, literary style well captured"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "'ἐπιτρέψαντες οὖν σοι τὴν τῶν ὅπλων χρῆσιν' — 'entrusting you with a military command' goes beyond the Greek, which says 'entrusting you with the use of arms'",
+        "'τοῦ συντάγματι' (corps/regiment) rendered as 'household guard' with bracketed gloss — slight interpretive addition",
+        "'παρ' ἀνδρὸς οὐδαμῶς οἵου τε ψεύδεσθαι δεδιδαγμένος' — the source says Julian was 'taught/informed by a man incapable of lying'; the translation restructures this"
+      ],
+      "strengths": [
+        "Clean, readable modern English",
+        "Core meaning preserved throughout",
+        "Herodotus allusion correctly rendered",
+        "Explanatory brackets add useful context without disrupting flow"
+      ]
+    }
+  },
+  {
+    "id": 6416,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "'Ὢ παρ' ἐλπίδα σεσωσμένος ἐγώ' — 'How little hope I had of surviving' changes the nuance slightly; source is more 'O I who have been saved beyond hope'",
+        "'μελικτὰς ῥήτορας' rendered as 'dramatic orators' — the Greek means 'honey-tongued/melodious rhetoricians', not specifically dramatic",
+        "'δικαστήριον ἀποκεκλήρωται' — 'established a court' is acceptable but 'ἀποκεκλήρωται' implies appointment by lot",
+        "Bracketed historical gloss about Chalcedon tribunal is an addition"
+      ],
+      "strengths": [
+        "Julian's informal, personal voice well captured",
+        "Clear and natural English prose",
+        "Correctly preserves the complex political nuance about Constantius",
+        "The hydra metaphor and its clarification preserved",
+        "Oath formulas ('Zeus be my witness') correctly rendered"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 5,
+      "naturalness": 3,
+      "issues": [
+        "Archaic phrasing: 'Suffer me to say', 'cast their baleful eyes', 'come hither'",
+        "Footnotes interrupt reading flow",
+        "'μελικτὰς ῥήτορας' as 'poetical rhetoricians' is closer than 'dramatic orators' but still not exact ('honey-tongued')"
+      ],
+      "strengths": [
+        "Highly faithful to the Greek clause structure",
+        "All content preserved including the important qualifier about Constantius's nature",
+        "'ἐποφθαλμιῶντα' well rendered as 'cast their baleful eyes on all men'",
+        "The entire passage about the court, the invitation, and the emotional appeal all accurately rendered",
+        "Julian's classicizing voice with its literary allusions preserved",
+        "Scholarly footnotes provide valuable historical context"
+      ]
+    }
+  },
+  {
+    "id": 6427,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Bracketed glosses ('[Christians]', '[Bishop of Alexandria...]') add substantial editorial content",
+        "Final bracketed paragraph about Athanasius is entirely editorial, not in the source",
+        "'τόλμῃ μηδ' ἀπονοίᾳ' — 'reckless contempt' compresses two distinct concepts (boldness and folly/desperation)",
+        "'τῆς ἡμετέρας ἡμερότητος' (our clemency) omitted from the rendering"
+      ],
+      "strengths": [
+        "Core edict content accurately conveyed",
+        "Julian's imperious, contemptuous tone toward Athanasius well captured",
+        "Distinction between return to churches vs. return to home cities preserved",
+        "Clean modern English that reads naturally"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 5,
+      "naturalness": 3,
+      "issues": [
+        "Slightly archaic: 'One who had been banished', 'forthwith'",
+        "Footnotes break reading flow",
+        "'ἀπονοίᾳ' as 'folly' is acceptable but loses the connotation of desperation/recklessness"
+      ],
+      "strengths": [
+        "Clause-by-clause fidelity to the Greek",
+        "'τῆς ἡμετέρας ἡμερότητος' correctly rendered as 'our clemency'",
+        "'οὐ μετρίως ἀηδές' well rendered as 'not a little displeasing'",
+        "Imperial register and official edict tone perfectly captured",
+        "All semantic content preserved including the key legal distinction about churches vs. countries",
+        "Scholarly footnotes provide essential historical context"
+      ]
+    }
+  },
+  {
+    "id": 6429,
+    "translation_a": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Significant omission: the entire second paragraph about court hypocrisy vs. frankness is compressed into 'At my court you will find neither fraud nor flattery'",
+        "The detailed Greek about praising while hating ('ἐπαινοῦντες μισοῦσι τηλικοῦτον μῖσος ἡλίκον οὐδὲ τοὺς πολεμιωτάτους') is omitted",
+        "The passage about refuting and criticizing one another with frankness while loving each other is omitted",
+        "The Astydamas self-deprecation ('ἐπῄνεσα γὰρ ἐμαυτὸν ὥσπερ Ἀστυδάμας') is completely omitted",
+        "The final paragraph about using the state post and being escorted away is omitted",
+        "The passage about sleeping securely and keeping vigil for subjects is omitted",
+        "'There is a place for you here' — fabricated; not in the source"
+      ],
+      "strengths": [
+        "Opening proverb and comedy quotation correctly rendered",
+        "Julian's warm, inviting tone captured",
+        "Bracketed identification of Basil helpful",
+        "What is translated is accurate"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 5,
+      "naturalness": 3,
+      "issues": [
+        "Archaic in places: 'Come hither', 'task your strength'",
+        "Dense prose with long sentences",
+        "Footnotes interrupt the text"
+      ],
+      "strengths": [
+        "Complete and faithful rendering of the entire letter including the second paragraph about court hypocrisy",
+        "Astydamas allusion preserved with footnote",
+        "The contrast between court hypocrisy and genuine friendship fully rendered",
+        "Final paragraph about state post and escort accurately translated",
+        "Julian's philosophical, classicizing register with literary allusions perfectly captured",
+        "All Greek quotation sources (Plato, Aristophanes) correctly identified",
+        "'ἀνειμένοις τε σπουδάζειν καὶ σπουδάζουσι μὴ ταλαιπωρεῖσθαι' well captured"
+      ]
+    }
+  },
+  {
+    "id": 6438,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "Adds bracketed gloss '[a true pagan Greek, devoted to the old gods and culture]' not in source -- an interpretive addition",
+        "'formal invitation' adds 'formal' not present in Greek (κλῆσιν is simply 'invitation/summons')",
+        "'My answer:' inserted -- source has the question flow without an explicit 'my answer' marker",
+        "Minor omission: source's τέως ('as yet/meanwhile') is rendered as 'still' which slightly shifts emphasis"
+      ],
+      "strengths": [
+        "Captures the playful, philosophical tone of Julian's voice well",
+        "Accurate rendering of the Echo/friendship analogy logic",
+        "Good handling of the oath 'by Zeus' (ναὶ μὰ Δία)",
+        "Clear, readable English that flows naturally"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "Slightly stiff phrasing in places: 'Nay, see to it that you and I do not introduce this tiresome convention'",
+        "Includes scholarly apparatus (date, footnotes) mixed into the translation text",
+        "Formatting artifacts (extra line breaks, spacing)"
+      ],
+      "strengths": [
+        "Very close to the Greek in structure and meaning",
+        "Preserves the logical flow of the argument precisely",
+        "Retains 'as yet' for τέως accurately",
+        "Does not add interpretive glosses beyond minimal footnotes",
+        "Accurate person/number throughout"
+      ]
+    }
+  },
+  {
+    "id": 6455,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "Slightly formal/stiff in places but faithful",
+        "Scholarly footnotes embedded in text, though these are paratextual"
+      ],
+      "strengths": [
+        "Complete translation -- includes the full text including the final farewell and the remark about hand/tongue",
+        "Accurate rendering of Theocritus reference",
+        "Preserves the playful tone of Julian's letter",
+        "Correct handling of 'trebled my age' (ἐτριπλασίασας)"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 2,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 3,
+      "naturalness": 3,
+      "issues": [
+        "MAJOR: Translation is truncated -- cuts off mid-sentence after the Theocritus quote, missing roughly the last third of the letter",
+        "Missing: the 'trebled my age' statement, the dictation remark, the hand/tongue comparison, and the farewell",
+        "Adds bracketed gloss '[Theocritus]' not in source (source says 'the Sicilian poet')",
+        "Adds bracketed gloss '[the greatest living Greek rhetorician, based in Antioch]' -- interpretive addition to the addressee line"
+      ],
+      "strengths": [
+        "What exists is reasonably accurate",
+        "Natural, readable English in the portion that is present"
+      ]
+    }
+  },
+  {
+    "id": 6464,
+    "translation_a": {
+      "semantic_fidelity": 3,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 3,
+      "register_voice": 3,
+      "naturalness": 5,
+      "issues": [
+        "'The joy is doubled' -- source says 'there is a greater occasion for pleasure' (πλείων = 'more/greater'), not 'doubled'",
+        "'mutual intimate' simplifies the Greek 'through an intimate/familiar man' (δι' ἀνδρὸς οἰκείου)",
+        "'my children's custodian' -- source says 'the nurse/tutor of my children' (τροφέα τῶν ἐμαυτοῦ παίδων); 'custodian' is acceptable but less precise than 'tutor/nurse'",
+        "Final sentence slightly compressed -- 'prove it by never missing a chance to write while you still can' adds slight urgency not in ἕως ἂν ἐξῇ ('while it is possible')"
+      ],
+      "strengths": [
+        "Very natural, fluid English",
+        "Captures the warm, friendly tone",
+        "Core meaning preserved despite minor imprecisions"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Slightly awkward: 'It is an occasion to rejoice the more' -- grammatically clunky",
+        "'you unite the image of your own soul with your readers' -- the Greek says the image 'fits together with' (ξυναρμόττῃ) those who read, which is closer but the phrasing is still slightly obscure",
+        "Scholarly footnotes add paratextual material"
+      ],
+      "strengths": [
+        "Very close to Greek sentence structure",
+        "Accurate rendering of τροφέα as 'custodian'",
+        "Preserves the conditional logic of the final sentence faithfully",
+        "Includes scholarly context about the letter's authenticity"
+      ]
+    }
+  },
+  {
+    "id": 6469,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 4,
+      "naturalness": 5,
+      "issues": [
+        "'A chatterbox' -- λάλος means 'talkative/chattering' so this is acceptable but slightly more colloquial than the source warrants",
+        "'natural philosophy would have me believe' -- source says ἡ φύσις ('nature') not 'natural philosophy'; slight over-interpretation",
+        "'your own letters put you in default' -- adequate but the Greek is more elaborate: 'you cannot be too quick in recognizing that you are liable to what you write'",
+        "Final sentence slightly simplified compared to the Greek's more complex financial metaphor"
+      ],
+      "strengths": [
+        "Excellent naturalness -- reads like polished English prose",
+        "The sweetheart/lips simile is rendered vividly and accurately",
+        "Ball-throwing metaphor captured well",
+        "Overall argument flow is clear and well-structured"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 3,
+      "issues": [
+        "Somewhat stilted English in places: 'I am abashed into admitting' is grammatically awkward",
+        "'whom you consign to the similitude of the figure' is very literal and hard to parse",
+        "'I am eager to score off you in both ways' -- slightly misleading colloquial use of 'score off'",
+        "Heavy scholarly apparatus interrupts reading flow"
+      ],
+      "strengths": [
+        "Extremely faithful to the Greek -- preserves nearly every nuance",
+        "Accurate rendering of the Echo mythology and the comparison logic",
+        "Financial metaphor at the end preserved with precision",
+        "Footnotes explaining the financial allusion and the context are helpful"
+      ]
+    }
+  },
+  {
+    "id": 6486,
+    "translation_a": {
+      "semantic_fidelity": 2,
+      "vocabulary_precision": 3,
+      "structural_fidelity": 2,
+      "register_voice": 3,
+      "naturalness": 4,
+      "issues": [
+        "MAJOR: Translation is truncated -- missing the entire second half about walking with Plato's Phaedrus, resting under plane trees and cypresses, and the final remark about sharing the experience",
+        "Adds a large bracketed editorial commentary paragraph not in the source at all -- fabricated interpretive content",
+        "'travel permit' for σύνθημα -- the word means 'token/signal/password'; 'travel permit' is an interpretation, not a translation",
+        "'strange dialects' for φωνῆς ἀλλοκότου -- more accurately 'strange/outlandish noise/voices'",
+        "Missing: the Phaedrus reference, the plane trees/cypresses, the 'dear friend' (φίλη κεφαλή) address, and the closing thought"
+      ],
+      "strengths": [
+        "What exists captures the contrast between imperial travel and leisure well",
+        "Homer reference noted (though not cited)"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "Slightly complex sentence structure that could be clearer",
+        "Includes trailing website/copyright text that is not part of the translation"
+      ],
+      "strengths": [
+        "Complete translation -- includes the Phaedrus, plane trees, cypresses, and closing sentiment",
+        "Accurate rendering of σύνθημα as 'token' with explanatory footnote",
+        "Preserves 'O beloved' for φίλη κεφαλή (literally 'dear head')",
+        "Homer reference properly noted",
+        "Faithful to the leisurely, philosophical tone of Eustathius"
+      ]
+    }
+  },
+  {
+    "id": 163,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 5,
+      "naturalness": 5,
+      "issues": [
+        "'throw myself with all my strength' -- Latin says 'tota cum exultatione conplecti' = 'embrace with complete exultation/joy', not about physical strength",
+        "'every ounce of my mental energy is bent on this one thing' -- adds 'mental energy' where Latin has 'mens mea omni...cupiditate rapiatur' = 'my mind is seized by every desire toward that goal'; slightly different emphasis",
+        "'The sea all around me, and nothing but sea' set off as a separate verse line -- effective but adds 'nothing but sea' which is interpretive expansion of 'undique pontum'",
+        "'Quam, quam vellem' = 'How much I would wish' rendered as 'How I long' -- acceptable but loses the optative/subjunctive force"
+      ],
+      "strengths": [
+        "Excellent capture of Jerome's early voice -- passionate, self-lacerating, urgent",
+        "Prodigal son and lost sheep analogies rendered with real emotional force",
+        "Natural, vivid English throughout",
+        "Good handling of the devil/snares imagery",
+        "The closing image of the Holy Spirit as a gale is powerful"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "Slightly more formal/Victorian in diction: 'Oh! That I could behold' feels dated",
+        "'with uplifting of all my powers' -- slightly awkward English for 'tota cum exultatione'",
+        "Scripture references inserted inline (Luke 15:3-5, Luke 15:11-32) break flow slightly",
+        "Less emotionally immediate than the source's raw passion"
+      ],
+      "strengths": [
+        "Very faithful to the Latin -- preserves structure and meaning precisely",
+        "'anchorites' for 'anachoretas' is the correct technical term",
+        "Preserves the conditional grammar accurately",
+        "Biblical allusions properly identified",
+        "Complete and accurate rendering throughout"
+      ]
+    }
+  },
+  {
+    "id": 165,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "'Melanium' -- should be 'Melania' (the well-known historical figure); this appears to be a variant/error in the name",
+        "'He has but now washed himself' -- slightly awkward phrasing",
+        "Includes editorial preface identifying the letter's context",
+        "'Martinianus' vs source's 'Martianum' -- minor name variant"
+      ],
+      "strengths": [
+        "Very close to the Latin throughout",
+        "Accurate rendering of Jerome's self-deprecation (cinis et vilissimi pars luti)",
+        "Biblical references properly cited",
+        "Preserves the rhetorical contrast between Rufinus's holiness and Jerome's sinfulness",
+        "Complete translation including the closing greetings"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 4,
+      "register_voice": 5,
+      "naturalness": 5,
+      "issues": [
+        "Slight reordering: 'I commenced to love you before I ever met you' -- Latin has 'ante incipio amare quam nosse' (love before know), 'met' is slightly different from 'know'",
+        "'the last penny' for 'novissimum quadrantem' -- acceptable modernization, though 'farthing' is the traditional rendering of quadrans"
+      ],
+      "strengths": [
+        "Natural, modern English that reads beautifully",
+        "Captures Jerome's characteristic self-deprecation vividly: 'just dust and worthless dirt -- even now, still alive, already ashes'",
+        "Strong emotional register -- warm yet self-lacerating, very Jeromianic",
+        "'Jerome, come forth!' rendered with dramatic impact",
+        "Accurate and complete throughout",
+        "Good handling of the Rufinus/Melania reference"
+      ]
+    }
+  },
+  {
+    "id": 166,
+    "translation_a": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "'Rhetitius' -- acceptable variant spelling",
+        "'sacred library' for 'sacrae bibliothecae' -- accurate",
+        "Editorial preface summarizes the letter's content before translating",
+        "'Trêves' is the older English form of Trier -- correct for the period of translation but dated",
+        "Slightly formal/stiff in places"
+      ],
+      "strengths": [
+        "Very complete and accurate translation",
+        "Preserves the practical, book-exchange tone of the letter",
+        "Accurate handling of the slave/kidnapper passage",
+        "Structure follows the Latin closely",
+        "All three sections rendered faithfully"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 4,
+      "register_voice": 5,
+      "naturalness": 5,
+      "issues": [
+        "Very minor: 'Autun' for 'Augustodunum' -- modern name, which is fine but loses the Latin flavor",
+        "Slight structural rearrangement in the slave passage for clarity, but meaning preserved"
+      ],
+      "strengths": [
+        "Excellent natural English -- reads like a real letter",
+        "Captures Jerome's mix of warmth, practical requests, and intellectual hunger",
+        "'Trier' for 'Trêves/Treveris' -- modern standard",
+        "The slave passage reads naturally and clearly",
+        "Good handling of the book-request logistics",
+        "Complete and accurate throughout all three sections"
+      ]
+    }
+  },
+  {
+    "id": 167,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 5,
+      "naturalness": 5,
+      "issues": [
+        "Title says 'Deacon of Antioch' but Latin says 'diaconum Aquileiae' = 'deacon of Aquileia' -- FACTUAL ERROR in the addressee's location",
+        "'collected' for 'mei paene memor fuerim' -- Latin says 'I was scarcely mindful of myself', not 'not as collected as usual'; this softens the meaning",
+        "'Hibera excetra' (Iberian viper) omitted in the main text -- replaced with 'some venomous critic' which is interpretive and loses the specific cultural reference",
+        "'someone once said' for the Horace quote -- Horace is not 'someone'; this is vague attribution"
+      ],
+      "strengths": [
+        "Excellent English prose -- vivid, energetic, natural",
+        "Captures Jerome's combative, self-dramatizing voice perfectly",
+        "The Horace verse rendered with punch",
+        "Good emotional arc from defensive apology to warm encouragement",
+        "The closing about his sister is well handled"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "Slightly formal/Victorian diction in places",
+        "Editorial preface identifies the sister's story before the letter itself reveals it",
+        "'Iberian viper' footnoted but inline reference preserved accurately"
+      ],
+      "strengths": [
+        "Title says 'Deacon of Antioch' but Latin says 'Aquileiae' -- same error as Translation A, though the editorial preface provides correct historical context",
+        "Very faithful to Latin throughout",
+        "Preserves 'Iberian viper' (Hibera excetra) accurately",
+        "Horace properly cited with reference",
+        "Biblical reference (1 Corinthians 3:14) correctly identified",
+        "Complete and accurate"
+      ]
+    }
+  },
+  {
+    "id": 169,
+    "translation_a": {
+      "semantic_fidelity": 4,
+      "vocabulary_precision": 4,
+      "structural_fidelity": 4,
+      "register_voice": 5,
+      "naturalness": 5,
+      "issues": [
+        "Adds bracketed glosses: '[a 2nd-century BC Roman playwright]', '[an ancient pre-Roman people]' -- interpretive additions not in the Latin",
+        "Adds editorial preface in brackets before the translation",
+        "'near-animals' -- interpretive addition; Latin says 'rudes...homines' and 'cruda rusticitas', which is about cultural roughness, not being sub-human",
+        "'shower of letters' -- Latin has 'litterario...officio' = 'literary/epistolary duty'; 'shower' is an intensification",
+        "'Laelius, in Cicero's dialogue' adds '[De Amicitia, On Friendship]' -- gloss not in source"
+      ],
+      "strengths": [
+        "Excellent natural English -- the most readable and engaging version",
+        "Captures Jerome's playful, scolding tone perfectly",
+        "The closing appeal ('If you love me...if you're angry...either way, write') is powerfully rendered",
+        "Good handling of the etymological passage about tabellarii and librarii",
+        "Vivid, lively prose throughout"
+      ]
+    },
+    "translation_b": {
+      "semantic_fidelity": 5,
+      "vocabulary_precision": 5,
+      "structural_fidelity": 5,
+      "register_voice": 4,
+      "naturalness": 4,
+      "issues": [
+        "Slightly stiff: 'were wont, before paper and parchment came into use, to exchange letters' -- accurate but formal",
+        "'look you' for 'ecce' -- somewhat archaic",
+        "'out of temper with me' -- dated English idiom",
+        "Editorial preface about Niceas's later career"
+      ],
+      "strengths": [
+        "Extremely faithful to the Latin in every detail",
+        "Etymological passage about tabellarii/librarii accurately rendered",
+        "Preserves the Cicero/Laelius reference precisely",
+        "Turpilius quote accurately translated",
+        "Complete and thorough -- no omissions",
+        "The closing appeal faithfully rendered"
+      ]
+    }
+  }
+]

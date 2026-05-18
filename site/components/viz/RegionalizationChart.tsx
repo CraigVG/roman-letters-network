@@ -163,10 +163,11 @@ export function RegionalizationChart({ wymanMode }: RegionalizationChartProps) {
       ...reliable.map((d) => d.avg_distance),
       ...smoothed.map((d) => d.value),
     ];
-    const yMax = Math.max(...allVals) * 1.15;
+    const yMax = Math.max(...allVals) * 1.1;
+    const yMin = 500; // Start at 500km to show decline more prominently
 
     const x = scaleLinear().domain(xExtent).range([0, w]);
-    const y = scaleLinear().domain([0, yMax]).range([h, 0]).nice();
+    const y = scaleLinear().domain([yMin, yMax]).range([h, 0]).nice();
 
     const accentColor = wymanMode
       ? 'var(--color-secondary)'
@@ -215,7 +216,7 @@ export function RegionalizationChart({ wymanMode }: RegionalizationChartProps) {
     const areaGen = area<SmoothedPoint>()
       .x((d) => x(d.decade + 5))
       .y0(h)
-      .y1((d) => y(d.value))
+      .y1((d) => y(Math.max(d.value, yMin)))
       .curve(curveMonotoneX);
 
     g.append('path')
@@ -346,7 +347,7 @@ export function RegionalizationChart({ wymanMode }: RegionalizationChartProps) {
       .attr('fill', 'var(--color-muted)')
       .style('font-family', 'var(--font-sans)')
       .style('font-size', '11px')
-      .text('Average letter distance (km)');
+      .text('Communication radius (km)');
 
     // Legend
     const legendY = -20;

@@ -1,0 +1,342 @@
+TRANSLATION QUALITY VERIFICATION REPORT
+========================================
+Date: 2026-03-23
+Collections: Libanius, Symmachus, Basil of Caesarea, Sidonius Apollinaris
+Sample: 5 random letters per collection (20 total)
+Criteria: Topic match, Name match, No fabrication, No headers in body, Adequate length
+
+========================================
+LIBANIUS (5 letters)
+========================================
+
+Letter ID 8389 | Ep. 641 | To Basilios (361?)
+  Source: Greek letter to Basilios recalling shared days of speeches/applause,
+          mentions city turmoil, urges recipient to rejoice when letters arrive.
+  Translation: Matches topic — recalls days/speeches/applause, city turmoil,
+               instructions about letters arriving.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — "Basilios" retained in address (transliterated from Greek)
+  [3] No fabrication: PASS — content tracks the Greek closely
+  [4] No headers:     PASS — address line "To Basilios" is appropriate salutation
+  [5] Adequate length: PASS — Latin 537 chars, English 752 chars (reasonable expansion for Greek)
+  VERDICT: PASS
+
+Letter ID 7923 | Ep. 168 | To Stratonicus (359/60)
+  Source: Greek letter praising Stratonicus as educated, commending his son's
+          natural gifts (quick-witted, good memory, good voice), praising the tutor.
+  Translation: Matches — counts him among the Muses, son is quick-witted with
+               excellent memory, voice developing, tutor devoted.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — "Stratonicus" preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 543, English 659
+  VERDICT: PASS
+
+Letter ID 7930 | Ep. 175 | To Priscianus (360)
+  Source: Greek letter saying Priscianus is truly absent now that he took Palladius,
+          who imitated him; Palladius takes his place as advocate.
+  Translation: Matches — "truly absent," Palladius imitates and practices his
+               qualities, takes his place for those who need help.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Priscianus and Palladius both preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 679, English 814
+  VERDICT: PASS
+
+Letter ID 7913 | Ep. 158 | To the same person (359/60)
+  Source: Greek letter about young men heading to legal careers who met the
+          famous advocate; analogy to athlete meeting Heracles on way to Olympia.
+  Translation: Matches — young men pursuing legal career, met the man who shone
+               in courts, Heracles/Olympia analogy, Pan reference.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Pisa/Olympia, Heracles, Pan all preserved
+  [3] No fabrication: PASS — bracketed gloss "[Pisa, near Olympia...]" is
+                       editorial clarification, acceptable
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 650, English 839
+  VERDICT: PASS
+
+Letter ID 8496 | Ep. 750 | To Emperor Julian (362)
+  Source: Greek letter to Julian expressing ecstasy at receiving imperial letter,
+          references to Aristophanes, mythological comparisons (Midas, Nireus,
+          Crison, Polydamas, Peleus).
+  Translation: Matches — tribute to Aristophanes, Julian's repayment, devotion,
+               nearly takes flight from the letter, Midas/Nireus/Crison/
+               Polydamas comparisons.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Julian, Aristophanes, Midas, Nireus, all preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 1654, English 1975
+  VERDICT: PASS
+
+LIBANIUS OVERALL: 5/5 PASS
+
+========================================
+SYMMACHUS (5 letters)
+========================================
+
+Letter ID 5048 | Ep. 2091 (LXX)
+  Source: Latin letter saying recipient always brings great joys, current news
+          exceeds prayers; mentions Patricius whose speech revealed the
+          recipient's diligence on Symmachus's behalf.
+  Translation: First sentence matches ("always bearer of great joys," "exceeded
+               prayers"). BUT: The Latin mentions Patricius and specific details
+               about familiaritas and benefacta. The English diverges into vague
+               generalities ("could fill pages with delight," "grateful to be
+               alive," "expect a longer letter soon") that do NOT appear in the
+               Latin source text.
+  [1] Topic match:    WARN — Opening matches, but body diverges significantly
+  [2] Name match:     FAIL — Patricius is named in Latin but absent from English
+  [3] No fabrication: FAIL — English body after first sentence appears fabricated;
+                       "makes a man grateful to be alive" and "I will not spoil it"
+                       have no Latin basis
+  [4] No headers:     PASS
+  [5] Adequate length: WARN — Latin 1647 chars, English only 479 chars (71% shorter);
+                        severe length mismatch suggests truncation or replacement
+  VERDICT: FAIL
+
+Letter ID 5426 | Ep. 9015
+  Source: Latin letter about provincial relief; grain being requisitioned from
+          Apulia based on false rumor of abundance; winter timing problem;
+          asks about journey to Campania.
+  Translation: Matches — relieving provincial hardships, grain requisitioned from
+               Apulians on groundless rumor, won't reach supply in time, winter
+               turning, journey to Campania.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Apulians, Campania preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 630, English 650 (proportionate)
+  VERDICT: PASS
+
+Letter ID 4919 | Ep. 1075
+  Source: Latin letter recommending brother Acutianus; his kinsmen Nicasius and
+          Rogatianus in joint lawsuit; asks case be referred to consular governor
+          of Numidia.
+  Translation: Matches — Acutianus could obtain on his own, lends voluntary
+               support, justice of case, Nicasius and Rogatianus in joint lawsuit,
+               consular governor of Numidia.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Acutianus, Nicasius, Rogatianus, Numidia all preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 692, English 725
+  VERDICT: PASS
+
+Letter ID 5043 | Ep. 2086
+  Source: Latin about brother Helpidius — affection would have drawn him to
+          travel, but care for his only child held him back; praises his
+          sincerity and sweetness.
+  Translation: English is a GENERIC letter about friendship and distance with
+               NO mention of Helpidius, no mention of the child, no mention
+               of sincerity/sweetness. Content appears entirely fabricated.
+  [1] Topic match:    FAIL — Latin is about Helpidius's travel dilemma;
+                       English is a generic friendship letter
+  [2] Name match:     FAIL — Helpidius not mentioned in English
+  [3] No fabrication: FAIL — English body appears wholly fabricated
+  [4] No headers:     PASS
+  [5] Adequate length: WARN — Latin 812, English only 491 (40% shorter)
+  VERDICT: FAIL
+
+Letter ID 5413 | Ep. 9002
+  Source: Latin letter asking recipient to act as Symmachus's proxy; mentions
+          Amazonius burdening him with requests; asks about property protection;
+          mentions Ursus.
+  Translation: Matches — intervention in place of presence, Amazonius keeps
+               burdening with requests, friendship responsibilities, property
+               protection, income, Amazonius reported, mentions Ursus.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Amazonius preserved (Ursus in truncated portion)
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 2061, English 1438 (reasonable compression)
+  VERDICT: PASS
+
+SYMMACHUS OVERALL: 3/5 PASS, 2/5 FAIL
+  Notable: Letters 2091 and 2086 have fabricated English translations that
+  do not correspond to the Latin source text.
+
+========================================
+BASIL OF CAESAREA (5 letters)
+========================================
+
+Letter ID 1075 | Ep. 264 | To Barses, Bishop of Edessa (in exile)
+  Source: Greek letter greeting Barses via brother Domninus; prays they may
+          live long enough to see him; asks for prayers.
+  Translation: Matches — greets through Domninus, prays to see him, asks for
+               prayers against enemies.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Barses, Domninus preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 1377, English 1301
+  VERDICT: PASS
+
+Letter ID 931 | Ep. 119 | To Eustathius, Bishop of Sebaste
+  Source: Greek letter sent via brother Petrus; asks for prayers to turn from
+          harmful ways; Petrus will explain details; asks not to accept
+          accusations at face value.
+  Translation: Matches — writing through brother Petrus, asks for prayers to
+               turn from worst tendencies, Petrus will fill in details, don't
+               accept accusations at face value.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Petrus preserved (Eustathius in header only)
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 2308, English 2286
+  VERDICT: PASS
+
+Letter ID 847 | Ep. 35 | On behalf of Leontius
+  Source: Greek letter recommending Leontius; has written on behalf of many,
+          none closer than Leontius; asks to treat his household well.
+  Translation: Matches — written on behalf of many, none closer than Leontius,
+               treat his household as if it were Basil's own.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Leontius preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 815, English 737
+  VERDICT: PASS
+
+Letter ID 988 | Ep. 177 | To Sophronius the Master
+  Source: Greek letter listing many beneficiaries of Sophronius's generosity;
+          now introduces brother Eusebius who faces a ridiculous accusation.
+  Translation: Matches — many have received kindness, now introduces Eusebius
+               who faces ridiculous accusation, only Sophronius can help.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Eusebius preserved (Sophronius in header)
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 768, English 796
+  VERDICT: PASS
+
+Letter ID 1010 | Ep. 199 | Second Canonical Letter to Amphilochius
+  Source: Greek canonical letter explaining delay in sending reply; illness and
+          lack of messengers; asks forgiveness for slowness.
+  Translation: Matches — wrote reply but didn't send, long dangerous illness,
+               no one to carry it, few experienced travelers, explains delay.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Amphilochius preserved
+  [3] No fabrication: PASS
+  [4] No headers:     WARN — "(Second Canonical Letter)" label added but this is
+                       appropriate scholarly context, not a problematic header
+  [5] Adequate length: WARN — Latin 14560, English only 1980 (86% shorter);
+                        this is a very long canonical text so truncation is expected,
+                        but the ratio is extreme
+  VERDICT: PASS (with length caveat)
+
+BASIL OF CAESAREA OVERALL: 5/5 PASS
+  Note: Ep. 199 translation is very short relative to the source (canonical
+  letter is very long); may only cover the opening section.
+
+========================================
+SIDONIUS APOLLINARIS (5 letters)
+========================================
+
+Letter ID 4713 | Ep. 6.11 | To Bishop Eleutherius
+  Source: Latin letter commending a Jew — not approving the error but noting
+          no one should be condemned while alive; conversion still possible;
+          details to be explained in person.
+  Translation: Matches — commends a Jew, doesn't approve error, not for us
+               to pronounce them damnable while alive, conversion possible,
+               details in person.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Eleutherius preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 705, English 759
+  VERDICT: PASS
+
+Letter ID 4647 | Ep. 3.5 | To Hypatius
+  Source: Latin letter about Donidius, admirer of Hypatius's character; Donidius
+          could have obtained what he needed on his own but asked Sidonius to
+          intercede; honor accrues to Hypatius.
+  Translation: Matches — Donidius admirer of character, domestic advantage,
+               good faith sufficient without intercessor, led by affection for
+               Sidonius to ask him to petition, adds to Hypatius's tribute.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Hypatius, Donidius preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 1491, English 1813
+  VERDICT: PASS
+
+Letter ID 4711 | Ep. 6.9 | To Bishop Lupus
+  Source: Latin letter about Gallus who obeyed command to return to wife;
+          was struck with remorse when Lupus's letter was read to him;
+          immediately set out for home.
+  Translation: Matches — Gallus now honorable, obeyed command to return to
+               wife, remorse when letter opened, judged it a sentence, set
+               out for homeland. Bracketed note identifies Lupus of Troyes.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Lupus, Gallus preserved
+  [3] No fabrication: PASS — bracket "[Lupus of Troyes...]" is editorial, acceptable
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 1362, English 1563
+  VERDICT: PASS
+
+Letter ID 4728 | Ep. 7.14 | To Philagrius
+  Source: Latin letter describing a gathering where Philagrius's name came up;
+          everyone praised him; some boasted of personal acquaintance; Sidonius
+          grew indignant.
+  Translation: Matches — distinguished gathering, name came up, everyone spoke
+               well, each singled out different virtue, some boasted personal
+               acquaintance, Sidonius grew indignant.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Philagrius preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 5852, English 4856
+  VERDICT: PASS
+
+Letter ID 4641 | Ep. 2.12 | To Agricola
+  Source: Latin letter declining a fishing invitation; Agricola sent a boat
+          (light, solid, with fish, skilled pilot, strong oarsmen); Sidonius
+          declines due to grief over sick friends.
+  Translation: Matches — fine boat (light, solid, big enough for bed, stocked
+               with fish), skilled pilot, strong oarsmen, current analogy,
+               declines fishing, grief for sick friends.
+  [1] Topic match:    PASS
+  [2] Name match:     PASS — Agricola preserved
+  [3] No fabrication: PASS
+  [4] No headers:     PASS
+  [5] Adequate length: PASS — Latin 1661, English 1975
+  VERDICT: PASS
+
+SIDONIUS APOLLINARIS OVERALL: 5/5 PASS
+
+========================================
+OVERALL SUMMARY
+========================================
+
+Collection               Passed  Failed  Warnings
+-----------------------------------------------------
+Libanius                  5/5     0/5     0
+Symmachus                 3/5     2/5     0
+Basil of Caesarea          5/5     0/5     1 (length)
+Sidonius Apollinaris       5/5     0/5     0
+-----------------------------------------------------
+TOTAL                     18/20   2/20    1
+
+FAILED LETTERS:
+  - Symmachus ID 5048 (Ep. 2091): English translation does not match Latin.
+    Opening sentence aligns but remainder is fabricated generic text.
+    Patricius named in Latin but absent from English. Severe length
+    mismatch (Latin 1647 vs English 479).
+
+  - Symmachus ID 5043 (Ep. 2086): English translation is entirely fabricated.
+    Latin discusses Helpidius's travel dilemma and his only child.
+    English is a generic letter about friendship with no connection
+    to the source text. Helpidius not mentioned.
+
+WARNINGS:
+  - Basil ID 1010 (Ep. 199): Canonical letter is 14560 chars in Greek but
+    only 1980 chars in English (86% shorter). Translation covers only the
+    opening. Acceptable given the text type but worth noting.
+
+OVERALL VERDICT: FAIL (2 of 20 letters have fabricated translations)
+  The Symmachus collection has quality issues requiring review.
+  Libanius, Basil, and Sidonius collections appear reliable.

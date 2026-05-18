@@ -1,12 +1,12 @@
 # Roman Letters
 
-**7,049 Latin and Greek letters from the ancient world, translated into modern English.**
+**8,112 Latin and Greek letters from the ancient world, with modern English translations, source provenance, and interactive visualizations.**
 
 [**romanletters.org**](https://romanletters.org)
 
 ---
 
-The first public resource to bring together 54 late antique letter collections spanning 700 years (100-800 AD), with modern English translations for over 7,000 letters — including 3,068 translated into English for the first time.
+The first public resource to bring together 60 late antique letter collections spanning 700 years (100-800 AD), with modern English translations for over 7,000 letters - including 3,123 translated into English for the first time.
 
 ## What This Is
 
@@ -20,16 +20,16 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 
 | Metric | Value |
 |--------|-------|
-| Total letters | 7,049 |
-| Collections | 54 |
+| Total letters | 8,112 |
+| Collections | 60 |
 | Time span | 100-800 AD |
-| Modern English translations | ~100% |
-| First-ever English translations | 3,068 |
-| Original Latin/Greek text available | 4,263 |
-| Source links available | 6,693 |
-| People identified | 1,850 |
-| Letters with distance data | 5,863 |
-| Letters with carrier mentions | 478 |
+| Modern English translations | 7,060 |
+| First-ever English translations | 3,123 |
+| Original Latin/Greek text available | 6,155 |
+| Source links available | 7,839 |
+| People identified | 1,888 |
+| Letters with distance data | 5,751 |
+| Letters with carrier mentions | 460 |
 
 ### Major Collections
 
@@ -62,7 +62,7 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 - **"The Shrinking World"** — thesis page with D3 regionalization chart showing average letter distance declining over two centuries
 - **"Wyman Mode"** — toggle on map and network to filter to Latin West, 380-630 AD (matching his corpus)
 - **Hub city profiles** — 15 major cities with per-decade connectivity data
-- **Letter-carrier data** — 478 letters with identified carriers (clergy as dominant role)
+- **Letter-carrier data** — 460 letters with identified carriers (clergy as dominant role)
 - **Location confidence levels** — strong/approximate/unknown per Wyman's methodology
 
 ### Visualizations
@@ -71,7 +71,7 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 - **Regionalization chart** — average letter distance by decade with Wyman Mode toggle
 
 ### Infrastructure
-- **Full-text search** — Pagefind (Cmd+K, 480K+ words indexed)
+- **Full-text search** — Pagefind (Cmd+K, 500K+ words indexed)
 - **Light/dark theme** toggle
 - **Generated sitemaps** for Google Search Console
 - **JSON-LD structured data** on all pages
@@ -79,7 +79,7 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 ## Tech Stack
 
 - **Frontend**: Next.js 15, Tailwind CSS v4, TypeScript
-- **Data**: SQLite (51MB, read at build time via better-sqlite3)
+- **Data**: SQLite (62MB, read at build time via better-sqlite3)
 - **Map**: MapLibre GL JS with DARE (Digital Atlas of the Roman Empire) tiles
 - **Visualizations**: D3.js (force-directed graph, geographic projection, line charts)
 - **Search**: Pagefind (WASM, client-side)
@@ -125,7 +125,7 @@ Links to original scanned editions on the Internet Archive are included for ever
 
 The modern English translations were produced with the assistance of AI (Claude by Anthropic). They are **not** peer-reviewed scholarly translations. They aim to make these letters accessible to a general audience — anyone who wants to hear the voices of the late Roman world.
 
-Where both a Latin/Greek original and a 19th-century English translation existed, both were used as sources. Each letter page provides access to all available versions, explains the text provenance, and makes missing originals explicit instead of silently omitting them. For the 3,068 letters translated to English for the first time, the modern translation was produced directly from available Latin or Greek source text.
+Where both a Latin/Greek original and a 19th-century English translation existed, both were used as sources. Each letter page provides access to all available versions, explains the text provenance, and makes missing originals explicit instead of silently omitting them. For the 3,123 letters translated to English for the first time, the modern translation was produced directly from available Latin or Greek source text.
 
 We welcome corrections. If you spot a transcription, translation, source-link, or metadata error, use the correction link on each letter page or open a GitHub issue.
 
@@ -138,7 +138,7 @@ The full dataset (SQLite database + CSV exports) is available on multiple platfo
 | Platform | Link |
 |----------|------|
 | **Zenodo** (DOI, permanent archive) | [doi.org/10.5281/zenodo.19142059](https://doi.org/10.5281/zenodo.19142059) |
-| **GitHub Release** (v1.0.0) | [github.com/CraigVG/roman-letters-network/releases](https://github.com/CraigVG/roman-letters-network/releases/tag/v1.0.0) |
+| **GitHub Releases** | [github.com/CraigVG/roman-letters-network/releases](https://github.com/CraigVG/roman-letters-network/releases) |
 | **Kaggle** | [kaggle.com/datasets/craigvandergalien/late-roman-empire-letters-100-800-ad](https://www.kaggle.com/datasets/craigvandergalien/late-roman-empire-letters-100-800-ad) |
 | **HuggingFace** | [huggingface.co/datasets/craigvg/roman-letters-network](https://huggingface.co/datasets/craigvg/roman-letters-network) |
 | **Internet Archive** | [archive.org/details/roman_letters](https://archive.org/details/roman_letters) |
@@ -149,7 +149,7 @@ The full dataset (SQLite database + CSV exports) is available on multiple platfo
 - **Quality pass**: Greek translation review, especially bulk Isidore translations
 - **ORBIS integration**: Roman road routes instead of straight-line distance arcs
 - **Political borders animation**: Animate the successor kingdom borders on the map timelapse
-- **Eastern Roman narrative**: Expand the scrollytelling with the Eastern Empire's continuation until the Arab invasions
+- **Eastern Roman narrative**: Expand the scrollytelling with the Eastern Roman Empire's continuation until the Arab invasions
 
 ## License
 
@@ -160,4 +160,4 @@ Data and Translations: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 Built by [Craig Vander Galien](https://craigvandergalien.com). Inspired by Patrick Wyman's doctoral research on the fall of Rome. Modern translations assisted by Claude (Anthropic).
 
-**Cite this dataset:** Vander Galien, Craig. (2026). Roman Letters: 7,049 Latin and Greek Letters from the Roman World (100-800 AD). Zenodo. https://doi.org/10.5281/zenodo.19142059
+**Cite this dataset:** Vander Galien, Craig. (2026). Roman Letters: 8,112 Latin and Greek Letters from the Roman World (100-800 AD). Zenodo. https://doi.org/10.5281/zenodo.19142059

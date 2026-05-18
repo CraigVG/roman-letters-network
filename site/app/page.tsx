@@ -10,7 +10,7 @@ function getStats() {
   return {
     totalLetters: count("SELECT COUNT(*) as c FROM letters"),
     collections: count("SELECT COUNT(*) as c FROM collections WHERE letter_count > 0"),
-    firstEnglish: count("SELECT COUNT(*) as c FROM letters WHERE modern_english IS NOT NULL AND (english_text IS NULL OR english_text = '') AND translation_source NOT IN ('existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse')"),
+    firstEnglish: count("SELECT COUNT(*) as c FROM letters WHERE modern_english IS NOT NULL AND trim(modern_english) != '' AND (english_text IS NULL OR trim(english_text) = '') AND coalesce(translation_source, '') NOT IN ('','existing','existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse','existing_haines','gutenberg_winstedt','Gummere (Loeb Classical Library, 1917-25)')"),
   };
 }
 

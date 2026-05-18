@@ -4,6 +4,7 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SearchDialog } from '@/components/search/SearchDialog';
+import { ScholarlyModeProvider } from '@/components/layout/ScholarlyModeContext';
 import Script from 'next/script';
 import { CORPUS } from '@/lib/corpus';
 import '@/styles/globals.css';
@@ -15,6 +16,9 @@ export const metadata: Metadata = {
   },
   description: CORPUS.description,
   metadataBase: new URL('https://romanletters.org'),
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
@@ -70,12 +74,14 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         <NuqsAdapter>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Header />
-            <SearchDialog />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </ThemeProvider>
+          <ScholarlyModeProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <Header />
+              <SearchDialog />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </ThemeProvider>
+          </ScholarlyModeProvider>
         </NuqsAdapter>
       </body>
     </html>

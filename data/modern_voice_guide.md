@@ -54,14 +54,8 @@ YES this (clear, natural, literate):
 - Basil: practical, caring, occasionally exasperated — a born administrator with a genuine pastoral heart
 - Cassiodorus: formal, deliberate, learned — crafting an image of civilized Roman governance for a barbarian court
 
-### 7. Letter headers
-Include a clear header:
-```
-From: [Name], [role] in [city]
-To: [Name], [role] in [city]
-Date: ~[year] AD
-Context: [One sentence on what makes this letter notable]
-```
+### 7. No metadata headers
+Do NOT include From/To/Date/Context headers in translations. This metadata is already displayed in the page header. Output ONLY the translated letter text — no preamble, no framing, no metadata blocks.
 
 ### 8. The readability test
 A reader should never have to go back and reread a sentence. If they do, the sentence needs rewriting. But "readable" doesn't mean "simple" — it means well-crafted. These are letters from some of the most important people in Western history. The translations should do them justice.

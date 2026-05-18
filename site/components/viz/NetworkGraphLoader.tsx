@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Link from 'next/link';
 
 interface NetworkGraphLoaderProps {
@@ -64,10 +64,10 @@ export default function NetworkGraphLoader({ wymanMode = false, onWymanModeChang
   const [selectedNode, setSelectedNode] = useState<SelectedNode | null>(null);
   const [mobileDetailOpen, setMobileDetailOpen] = useState(false);
 
-  const handleNodeClick = (node: SelectedNode) => {
+  const handleNodeClick = useCallback((node: SelectedNode) => {
     setSelectedNode(node);
     setMobileDetailOpen(true);
-  };
+  }, []);
 
   return (
     <div className="flex flex-col lg:flex-row gap-6">

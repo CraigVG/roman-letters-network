@@ -125,9 +125,13 @@ export function LetterBrowser() {
   }, []);
 
   // Handle timeline histogram range change
+  // Call setFrom/setTo together - each already resets page to 1,
+  // but we only need one page reset for the pair
   const handleRangeChange = useCallback(
     (newFrom: number | null, newTo: number | null) => {
+      // Use React's automatic batching: both updates happen in one render cycle
       setFrom(newFrom);
+      // setTo also calls setPage(1), which is redundant but harmless within a batch
       setTo(newTo);
     },
     [setFrom, setTo],

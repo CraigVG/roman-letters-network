@@ -246,7 +246,7 @@ const pathwayDefs = [
   },
   {
     slug: 'the-eastern-empire',
-    title: 'The Eastern Empire',
+    title: 'The Roman Empire in the East',
     description: 'Letters from Constantinople, Antioch, and the Greek-speaking world',
     filters: {
       collection:

@@ -49,7 +49,7 @@ RULES:
 5. SIMPLIFY elaborate greetings/closings but keep the sender-recipient relationship clear
 6. ADD brief [context] notes in brackets for terms a modern reader wouldn't know, e.g.:
    - "[Arianism was a theological movement that denied Christ's divinity]"
-   - "[The Exarch governed Italy on behalf of the Byzantine Emperor]"
+   - "[The Exarch governed Italy on behalf of the Eastern Roman Emperor]"
    - "[Hippo Regius was a city in modern-day Algeria]"
 7. Keep it CONCISE — if the original is 500 words of rhetoric making a simple point, 200 clear words is fine
 8. TONE: Imagine the letter writer sending this as a thoughtful email today. Maintain their personality and emotion, but drop the performative formality.

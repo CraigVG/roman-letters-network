@@ -226,7 +226,7 @@ A standard structure: (1) the writer commends the bearer to the recipient's atte
 - Unlike the aristocratic literary letters of Sidonius, Gregory's letters are largely administrative — appointing officials, managing Church estates, resolving disputes, instructing missionaries
 - His tone is pastoral, practical, and direct by late antique standards; he deliberately avoids excessive rhetorical ornamentation
 - He deployed different registers: personal letters (more stylistically free), formal papal letters (following bureaucratic formulas of the Roman *scrinium*), and pastoral letters to bishops and laity
-- His letters reveal the workings of the papal administrative machine: appointments, property management, theological controversy, diplomatic relations with Lombards, Byzantines, and Frankish kings
+- His letters reveal the workings of the papal administrative machine: appointments, property management, theological controversy, diplomatic relations with Lombards, Eastern Romans, and Frankish kings
 - Many letters were drafted by secretaries and signed by Gregory; a smaller group (personal letters) he wrote himself with greater stylistic liberty
 
 **Stylistic markers to watch:**
@@ -342,7 +342,7 @@ Translators of Gregory the Great's letters especially need to navigate the Roman
 | *consularis* | Senior type of provincial governor | Consular governor |
 | *comes* | Imperial official; broad title | Count (do not use "comes" in translation — "count" is the English form) |
 | *dux* | Military commander of a frontier district | Duke / military governor (do NOT translate as "duke" when the military sense is primary) |
-| *exarchus* | Byzantine viceroy in Ravenna (from late 6th century) | Exarch |
+| *exarchus* | Eastern Roman viceroy in Ravenna (from late 6th century) | Exarch |
 | *patricius* | Honorary title for highest-ranking officials | Patrician |
 | *defensor civitatis* | City defender / legal advocate for the poor | City defender (retain technical meaning) |
 | *notarius* | Secretary/notary | Secretary / notary |

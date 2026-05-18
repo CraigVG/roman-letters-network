@@ -92,6 +92,9 @@ export default function NetworkGraph({ onNodeClick, wymanMode = false }: Network
   const tooltipRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const zoomRef = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null);
+  // Stable ref to avoid re-creating the force simulation when callback identity changes
+  const onNodeClickRef = useRef(onNodeClick);
+  onNodeClickRef.current = onNodeClick;
 
   const [data, setData] = useState<NetworkData | null>(null);
   const [collection, setCollection] = useState('');
@@ -290,8 +293,8 @@ export default function NetworkGraph({ onNodeClick, wymanMode = false }: Network
         tooltip.style.opacity = '0';
       })
       .on('click', (_event, d) => {
-        if (onNodeClick) {
-          onNodeClick({
+        if (onNodeClickRef.current) {
+          onNodeClickRef.current({
             id: d.id,
             name: d.name,
             slug: toSlug(d.name),
@@ -352,17 +355,25 @@ export default function NetworkGraph({ onNodeClick, wymanMode = false }: Network
     return () => {
       sim.stop();
     };
-  }, [data, collection, wymanMode, onNodeClick]);
+  }, [data, collection, wymanMode]); // onNodeClick accessed via ref
 
   useEffect(() => {
-    renderGraph();
+    const cleanup = renderGraph();
+    return () => cleanup?.();
   }, [renderGraph]);
 
-  // Re-render on resize
+  // Re-render on resize — debounce to avoid excessive re-renders
   useEffect(() => {
-    const handleResize = () => renderGraph();
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => renderGraph(), 200);
+    };
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimer);
+    };
   }, [renderGraph]);
 
   return (

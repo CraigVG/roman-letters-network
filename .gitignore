@@ -55,3 +55,4 @@ exports/
 
 # Temp files
 /tmp/
+node_modules/

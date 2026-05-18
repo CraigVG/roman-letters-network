@@ -1,0 +1,248 @@
+NEW COLLECTIONS QUALITY VERIFICATION
+=====================================
+Date: 2026-03-24
+Verified by: Claude (automated quality check)
+
+======================================================================
+1. COLLECTION: cicero_atticus (431 letters)
+======================================================================
+Expected: 431 | Actual: 431
+
+Coverage:
+  - Latin text:      431/431 (100%)
+  - english_text:    431/431 (100%)
+  - modern_english:   19/431 (4.4%)
+
+Duplicate Check:
+  - Duplicate english_text: NONE
+  - Duplicate modern_english: NONE
+  - Duplicate latin_text: 2 PAIRS FOUND
+    * IDs 11990 (book 10, #192) and 11992 (book 10, #194) - identical Latin
+      Both start: "[1] Cum quod scriberem plane nihil haberem..."
+    * IDs 12017 (book 11, #219) and 12018 (book 11, #220) - identical Latin
+      Both start: "[1] sollicitum esse te cum de tuis communibusque fortunis..."
+
+Boilerplate/Ads Check:
+  - No "New Advent", "copyright", "Click here", "advertisement", or
+    "subscribe" text found in english_text or modern_english. CLEAN.
+
+Short Translation Check (english_text / latin_text ratio < 0.30):
+  - 10 letters have suspiciously short English translations relative to Latin:
+    * ID 12226: ratio 0.19 (Latin 2195 chars, English 423 chars)
+    * ID 12222: ratio 0.20 (Latin 4183 chars, English 843 chars)
+    * ID 12197: ratio 0.22 (Latin 2221 chars, English 499 chars)
+    * ID 12224: ratio 0.25 (Latin 2655 chars, English 661 chars)
+    * ID 12198: ratio 0.26 (Latin 1184 chars, English 313 chars)
+    + 5 more in range 0.27-0.29
+  - These may be abridged translations or summaries rather than full renderings.
+  - NOTE: Typical Latin-to-English ratio is 0.8-1.5x. Ratios below 0.3 suggest
+    the English is a summary or incomplete translation.
+
+Latin/English Correspondence (10 random samples):
+  - Spot-checked 10 random letters. Latin openings and English openings match
+    thematically (e.g., Latin "iam antea petivi abs te" pairs with English
+    "I asked you before by letter"; Latin "nihil habeo quod ad te scribam"
+    pairs with "I have no news for you"). Correspondence appears genuine.
+
+Orphan Records: NONE
+
+VERDICT: PASS (with minor issues)
+  - 2 duplicate Latin text pairs need investigation
+  - ~10 short translations may need review
+
+======================================================================
+2. COLLECTION: cicero_familiares (425 letters)
+======================================================================
+Expected: 425 | Actual: 425
+
+Coverage:
+  - Latin text:      425/425 (100%)
+  - english_text:     24/425 (5.6%)
+  - modern_english:    0/425 (0%)
+
+Duplicate Check:
+  - Duplicate english_text: NONE
+
+Boilerplate Check:
+  - No "New Advent", "copyright", or "Click here" text found. CLEAN.
+
+English Sample (5 random with English):
+  - Translations present are proportional to Latin text length. Ratios look
+    reasonable (e.g., Latin 8567 / English 9436 = 1.10x).
+
+Orphan Records: NONE
+
+VERDICT: PASS
+  - Only 5.6% have English translations; this is expected per import notes.
+  - Latin corpus is complete.
+
+======================================================================
+3. COLLECTION: seneca (124 letters)
+======================================================================
+Expected: 124 | Actual: 124
+
+Coverage:
+  - Latin text:    124/124 (100%)
+  - english_text:    0/124 (0%)
+  - modern_english:  0/124 (0%)
+
+Latin Text Quality:
+  - Minimum length: 1,040 characters (reasonable for a short letter)
+  - Average length: 6,540 characters
+  - Maximum length: 28,828 characters
+  - Very short (<200 chars): NONE
+  - No garbled OCR artifacts (no ##, @@, |||, HTML tags, URLs detected)
+
+Duplicate Check:
+  - Duplicate latin_text: NONE
+
+Sender/Recipient:
+  - Sender: Lucius Annaeus Seneca (ID 2026) - all 124 letters
+  - Recipient: Lucilius Junior (ID 2027) - all 124 letters
+  - Correct for Epistulae Morales ad Lucilium.
+
+Orphan Records: NONE
+
+VERDICT: PASS
+  - Clean Latin corpus, proper sender/recipient assignment, no duplicates.
+
+======================================================================
+4. COLLECTION: fronto (213 letters)
+======================================================================
+Expected: 213 | Actual: 213
+
+Coverage:
+  - Latin text:      0/213 (0%) *** CRITICAL ***
+  - english_text:    0/213 (0%) *** CRITICAL ***
+  - modern_english:  0/213 (0%)
+  - subject_summary: 213/213 (100%)
+
+ALL 213 LETTERS ARE TEXT-EMPTY SKELETON RECORDS.
+They contain only metadata: ref_id, sender_id, recipient_id, year_approx,
+subject_summary, and source_url. No actual letter text was imported.
+
+Sender/Recipient Check:
+  - 212/213 have both sender_id and recipient_id. GOOD.
+  - 1 letter missing recipient: ID 13740 (fronto.pro.carthag) - this is a
+    speech "Pro Carthaginiensibus" rather than a letter, so no recipient is
+    expected.
+  - Senders properly distributed: Fronto (78), Marcus Aurelius (83),
+    Lucius Verus (9), Antoninus Pius (8), various correspondents (35).
+
+Duplicate Check:
+  - N/A (no text to compare)
+
+Orphan Records: ALL 213 are orphans (no text content)
+
+VERDICT: FAIL
+  - Latin text import completely failed or was never performed.
+  - The skeleton metadata (ref_ids, senders, recipients, summaries) is
+    well-structured and correct, but the actual letter texts are missing.
+  - Source URL points to archive.org; text extraction may have failed.
+
+======================================================================
+5. COLLECTION: ignatius_antioch (7 letters)
+======================================================================
+Expected: 7 | Actual: 7
+
+Coverage:
+  - Latin text:      0/7 (0%) - Expected: Ignatius wrote in Greek, not Latin
+  - english_text:    7/7 (100%)
+  - modern_english:  0/7 (0%)
+
+English Translation Check:
+  - All 7 letters have substantial English text (3,050 - 8,547 chars)
+  - Content begins with proper letter greetings matching the known Ignatian
+    epistles (e.g., "Ignatius, who is also Theophorus, addresses the church
+    at Ephesus...")
+  - The 7 authentic letters of Ignatius are all present:
+    1. To the Ephesians
+    2. To the Magnesians
+    3. To the Trallians
+    4. To the Romans
+    5. To the Philadelphians
+    6. To the Smyrnaeans
+    7. To Polycarp
+
+Sender/Recipient:
+  - Sender: Ignatius of Antioch (ID 2048) - all 7 letters. CORRECT.
+  - Recipients: Church of Ephesus, Magnesia, Tralles, Rome, Philadelphia,
+    Smyrna, and Polycarp of Smyrna. All have proper author IDs. CORRECT.
+
+Boilerplate Check: NONE found. CLEAN.
+
+Duplicate Check: No duplicates (all unique lengths and content).
+
+VERDICT: PASS
+  - Complete set of 7 authentic Ignatian letters with English translations.
+  - No Latin text is expected (original language was Greek).
+
+======================================================================
+6. COLLECTION: cyril_alexandria (4 letters)
+======================================================================
+Expected: 4 | Actual: 4
+
+Coverage:
+  - Latin text:      0/4 (0%) - Expected: Cyril wrote in Greek
+  - english_text:    4/4 (100%)
+  - modern_english:  0/4 (0%)
+
+English Translation Check:
+  - Letter 1 (cyril.ep.nestorius.1): 7,189 chars - Full translation. GOOD.
+  - Letter 2 (cyril.ep.nestorius.2): 26,983 chars - Full translation. GOOD.
+  - Letter 3 (cyril.ep.nestorius.3): 254 chars - STUB ONLY.
+    Contains only a note: "This letter... is referenced in the Council of
+    Ephesus acts but its full text overlaps substantially with the second
+    letter and its anathematisms."
+    This is a placeholder, not a translation. ISSUE.
+  - Letter 4 (cyril.ep.john_antioch): 10,736 chars - Full translation. GOOD.
+
+Sender/Recipient:
+  - Sender: Cyril of Alexandria (ID 2056) - all 4 letters. CORRECT.
+  - Recipients: Nestorius (ID 464) for letters 1-3, John of Antioch (ID 2057)
+    for letter 4. CORRECT.
+
+VERDICT: PASS (with minor issue)
+  - Letter 3 is a stub/placeholder (254 chars) rather than a full translation.
+    The actual text of Cyril's Third Letter to Nestorius (with 12 anathemas)
+    is a significant document and should be imported.
+
+======================================================================
+CROSS-COLLECTION ISSUES
+======================================================================
+
+DUPLICATE AUTHOR ENTRIES:
+  Three entries for Cyril of Alexandria exist in the authors table:
+  - ID 823: "Cyril Of Alexandria" - no role, no location, no bio
+    Used by: synesius_cyrene (1 letter), isidore_pelusium (4 letters)
+  - ID 933: "Cyrillus" - no role, no location, no bio
+    Used by: 0 letters (completely orphaned)
+  - ID 2056: "Cyril of Alexandria" - patriarch, Alexandria, full bio
+    Used by: cyril_alexandria (4 letters)
+
+  RECOMMENDATION: Merge IDs 823 and 933 into ID 2056. Update the 5 letters
+  referencing ID 823 to point to 2056. Delete IDs 823 and 933.
+
+ORPHAN RECORDS (no text in any field):
+  - fronto: 213 records (ALL letters in collection)
+  - symmachus: 90 records (pre-existing collection, not new)
+
+======================================================================
+SUMMARY
+======================================================================
+
+Collection          | Count | Latin | English | Verdict
+--------------------|-------|-------|---------|--------
+cicero_atticus      |   431 |  100% |    100% | PASS (minor: 2 dupe pairs, ~10 short translations)
+cicero_familiares   |   425 |  100% |    5.6% | PASS
+seneca              |   124 |  100% |      0% | PASS
+fronto              |   213 |    0% |      0% | FAIL (all records empty - text never imported)
+ignatius_antioch    |     7 |    0% |    100% | PASS (Greek author, no Latin expected)
+cyril_alexandria    |     4 |    0% |    100% | PASS (minor: letter 3 is stub)
+
+ACTION ITEMS:
+1. [CRITICAL] Import Latin text for all 213 Fronto letters from archive.org source
+2. [HIGH] Merge 3 duplicate Cyril author entries (IDs 823, 933, 2056)
+3. [MEDIUM] Import full text of Cyril's Third Letter to Nestorius (with 12 anathemas)
+4. [LOW] Investigate 2 duplicate Latin text pairs in cicero_atticus
+5. [LOW] Review ~10 cicero_atticus letters with suspiciously short translations

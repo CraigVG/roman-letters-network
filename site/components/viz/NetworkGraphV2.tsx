@@ -134,6 +134,9 @@ export default function NetworkGraphV2({ onNodeClick, wymanMode = false }: Netwo
   const containerRef = useRef<HTMLDivElement>(null);
   const zoomRef = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const simRef = useRef<ReturnType<typeof forceSimulation<NetworkNode>> | null>(null);
+  // Stable ref to avoid re-creating the force simulation when callback identity changes
+  const onNodeClickRef = useRef(onNodeClick);
+  onNodeClickRef.current = onNodeClick;
 
   const [data, setData] = useState<NetworkData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -533,8 +536,8 @@ export default function NetworkGraphV2({ onNodeClick, wymanMode = false }: Netwo
       setHighlightedNode(nodeId);
 
       // Fire callback
-      if (onNodeClick) {
-        onNodeClick({
+      if (onNodeClickRef.current) {
+        onNodeClickRef.current({
           id: d.id,
           name: d.name,
           slug: toSlug(d.name),
@@ -602,7 +605,7 @@ export default function NetworkGraphV2({ onNodeClick, wymanMode = false }: Netwo
     return () => {
       sim.stop();
     };
-  }, [processed, nodeLimit, minEdgeWeight, centuryFilter, regionFilter, onNodeClick]);
+  }, [processed, nodeLimit, minEdgeWeight, centuryFilter, regionFilter]); // onNodeClick accessed via ref
 
   useEffect(() => {
     const cleanup = renderGraph();

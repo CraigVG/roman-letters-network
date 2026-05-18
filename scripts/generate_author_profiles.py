@@ -949,7 +949,7 @@ PROFILES = {
         "Marinianus (fl. 590s–600s) was bishop of Ravenna, the seat of the "
         "imperial exarch in Italy, and one of Pope Gregory the Great's most "
         "important correspondents. His position in Ravenna — the administrative "
-        "capital of Byzantine Italy — made him a crucial intermediary between "
+        "capital of Eastern Roman Italy — made him a crucial intermediary between "
         "papal and imperial authority.\n\n"
         "He appears 14 times in this collection as a recipient of Gregory's "
         "letters, which cover everything from the management of church property "
@@ -988,7 +988,7 @@ PROFILES = {
     120: (
         "Romanus (d. 596/597) was the exarch of Italy — the emperor's "
         "representative in Ravenna and the highest civil and military authority "
-        "in Byzantine Italy. He appears 12 times in this collection as a "
+        "in Eastern Roman Italy. He appears 12 times in this collection as a "
         "recipient of Pope Gregory the Great's letters, and the correspondence "
         "reveals a relationship that was often tense.\n\n"
         "Gregory and Romanus clashed repeatedly over the handling of the Lombard "
@@ -997,7 +997,7 @@ PROFILES = {
         "pursued a harder line that Gregory saw as reckless and ineffective. "
         "Their exchanges are some of the sharpest in Gregory's entire corpus.\n\n"
         "The letters to Romanus matter because they reveal the tensions at the "
-        "heart of Byzantine Italy — a pope who was becoming the de facto leader "
+        "heart of Eastern Roman Italy — a pope who was becoming the de facto leader "
         "of Rome and an imperial official who resented it. The conflict between "
         "Gregory and the exarch foreshadowed the eventual break between Rome "
         "and Constantinople."
@@ -1337,7 +1337,7 @@ PROFILES = {
 
     # Mauricius Augustus (id=153)
     153: (
-        "Emperor Maurice (539–602) ruled the Byzantine Empire from 582 to 602 "
+        "Emperor Maurice (539–602) ruled the Eastern Roman Empire from 582 to 602 "
         "and was one of Pope Gregory the Great's most important — and most "
         "difficult — correspondents. He appears 8 times in this collection "
         "as a recipient of Gregory's letters.\n\n"
@@ -1403,7 +1403,7 @@ PROFILES = {
     165: (
         "The people of Ravenna appear 6 times in this collection as recipients "
         "of letters from various popes and church officials. Ravenna's status "
-        "as the administrative capital of Byzantine Italy made its people — "
+        "as the administrative capital of Eastern Roman Italy made its people — "
         "both clergy and laity — important figures in the ecclesiastical "
         "politics of the period.\n\n"
         "Letters addressed to the Ravennate community reveal the intersection "
@@ -1493,7 +1493,7 @@ PROFILES = {
         "Gregory the Great's letters. Gregory's correspondence with Natalis deals "
         "with church discipline and the management of the Dalmatian church.\n\n"
         "The letters reveal Gregory's active supervision of churches in the "
-        "Balkans — a region caught between Byzantine authority, Slavic migration, "
+        "Balkans — a region caught between Eastern Roman authority, Slavic migration, "
         "and the remnants of Roman provincial organization."
     ),
 
@@ -1512,13 +1512,13 @@ PROFILES = {
     # Gennadius (id=127)
     127: (
         "Gennadius (d. 598) was the patrician and exarch of Africa — the "
-        "Byzantine governor of North Africa — and appears 5 times in this "
+        "Eastern Roman governor of North Africa — and appears 5 times in this "
         "collection as a recipient of Pope Gregory the Great's letters. "
         "Gregory's correspondence with Gennadius deals with the intersection "
         "of civil and ecclesiastical authority in Africa.\n\n"
         "The letters reveal the complex relationship between papal authority "
         "and imperial administration in a province that was culturally Latin "
-        "but politically Byzantine."
+        "but politically Eastern Roman."
     ),
 
     # Leo in Corsica (id=129)
