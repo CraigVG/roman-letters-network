@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FallOfRomeStory } from '@/components/home/FallOfRomeStory';
 import { HeroAnimation } from '@/components/home/HeroAnimation';
+import { CORPUS } from '@/lib/corpus';
 import { getDb } from '@/lib/db';
 
 function getStats() {
@@ -49,10 +50,10 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Dataset",
-            "name": "Roman Letters: 7,049 Letters from the Late Roman World",
-            "description": "A comprehensive corpus of 7,049 surviving letters from the late Roman world (100-800 AD) with modern English translations, Latin/Greek originals, geographic coordinates, topic tags, and social network metadata. 3,068 letters translated to English for the first time.",
+            "name": CORPUS.title,
+            "description": `A comprehensive corpus of ${CORPUS.totalLetters.toLocaleString('en-US')} surviving letters from the Roman world (100-800 AD) with modern English translations, Latin/Greek originals where available, geographic coordinates, topic tags, and social network metadata. ${CORPUS.firstEnglishTranslations.toLocaleString('en-US')} letters translated to English for the first time.`,
             "url": "https://romanletters.org",
-            "identifier": "https://doi.org/10.5281/zenodo.19142059",
+            "identifier": `https://doi.org/${CORPUS.doi}`,
             "license": "https://creativecommons.org/licenses/by/4.0/",
             "creator": {
               "@type": "Person",

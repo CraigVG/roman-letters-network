@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
+import { CORPUS } from '@/lib/corpus';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -391,10 +392,12 @@ export function HeroAnimation() {
           className="text-4xl sm:text-5xl md:text-6xl tracking-tight text-theme-text"
           style={{ fontFamily: 'var(--font-serif)' }}
         >
-          7,049 letters from the late Roman world.
+          {CORPUS.totalLetters.toLocaleString('en-US')} Latin and Greek letters
+          from the Roman world.
         </h1>
         <p className="mt-4 text-base sm:text-lg text-theme-muted max-w-xl">
-          The largest collection of late Roman letters ever assembled in English.
+          Modern English translations with sources, originals where available,
+          and network data for 100-800 AD.
         </p>
         <Link
           href="/letters/"

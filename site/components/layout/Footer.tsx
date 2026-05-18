@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CORPUS } from '@/lib/corpus';
 
 export function Footer() {
   return (
@@ -15,7 +16,8 @@ export function Footer() {
             </p>
             <p className="mt-2 text-sm text-theme-muted leading-relaxed">
               Mapping the communication networks of the late Roman Empire
-              through 7,049 surviving letters.
+              through {CORPUS.totalLetters.toLocaleString('en-US')} surviving
+              Latin and Greek letters.
             </p>
             <p className="mt-2 text-sm text-theme-muted leading-relaxed">
               Created by{' '}
@@ -87,8 +89,14 @@ export function Footer() {
               >
                 Sources
               </Link>
+              <Link
+                href="/corrections"
+                className="text-sm text-theme-muted hover:text-theme-accent transition-colors"
+              >
+                Corrections
+              </Link>
               <a
-                href="https://github.com/craigvandergalien/roman-letters-network"
+                href={CORPUS.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-theme-muted hover:text-theme-accent transition-colors"

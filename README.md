@@ -1,6 +1,6 @@
 # Roman Letters
 
-**7,049 letters from the ancient world, translated into modern English.**
+**7,049 Latin and Greek letters from the ancient world, translated into modern English.**
 
 [**romanletters.org**](https://romanletters.org)
 
@@ -25,8 +25,10 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 | Time span | 100-800 AD |
 | Modern English translations | ~100% |
 | First-ever English translations | 3,068 |
-| People identified | 1,516 |
-| Letters with distance data | 2,433 |
+| Original Latin/Greek text available | 4,263 |
+| Source links available | 6,693 |
+| People identified | 1,850 |
+| Letters with distance data | 5,863 |
 | Letters with carrier mentions | 478 |
 
 ### Major Collections
@@ -37,7 +39,7 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 | Symmachus | 677 | 365-402 | Last pagan senator's aristocratic network |
 | Isidore of Pelusium | 630 | 360-435 | Egyptian monk's moral counsel |
 | Cassiodorus | 477 | 506-538 | Ostrogothic state correspondence |
-| Gregory the Great | 421 | 590-604 | Pope holding the network together |
+| Gregory the Great | 856 | 590-604 | Pope holding the network together |
 | Pliny the Younger | 365 | 97-113 | Roman senator at the empire's height |
 | Basil of Caesarea | 325 | 357-378 | Cappadocian Father's pastoral letters |
 | Ennodius of Pavia | 297 | 493-521 | Literary bishop in Ostrogothic Italy |
@@ -51,7 +53,7 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 ## Features
 
 ### Content
-- **Individual letter pages** — every letter has its own URL with modern translation, 19th-century English, and Latin/Greek original
+- **Individual letter pages** — every letter has its own URL with modern translation, source provenance, correction links, and Latin/Greek original where available
 - **Author profiles** — biographies, letter statistics, top correspondents
 - **Correspondence threads** — back-and-forth exchanges between pairs of writers (140+ threads)
 - **"Fall of Rome in Letters"** — 8-chapter scrollytelling narrative on the home page
@@ -69,9 +71,9 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 - **Regionalization chart** — average letter distance by decade with Wyman Mode toggle
 
 ### Infrastructure
-- **Full-text search** — Pagefind (Cmd+K, 400K+ words indexed)
+- **Full-text search** — Pagefind (Cmd+K, 480K+ words indexed)
 - **Light/dark theme** toggle
-- **44 sitemaps** for Google Search Console
+- **Generated sitemaps** for Google Search Console
 - **JSON-LD structured data** on all pages
 
 ## Tech Stack
@@ -81,7 +83,7 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 - **Map**: MapLibre GL JS with DARE (Digital Atlas of the Roman Empire) tiles
 - **Visualizations**: D3.js (force-directed graph, geographic projection, line charts)
 - **Search**: Pagefind (WASM, client-side)
-- **Build**: Static site generation — 5,000+ pre-rendered HTML pages
+- **Build**: Static site generation — 9,000+ pre-rendered routes
 
 ## Development
 
@@ -96,7 +98,7 @@ cd site && npm install
 # Run dev server
 npm run dev
 
-# Build static site (generates 5,000+ pages)
+# Build static site (generates 9,000+ routes)
 NODE_OPTIONS='--max-old-space-size=8192' npm run build
 
 # Generate sitemaps
@@ -123,9 +125,9 @@ Links to original scanned editions on the Internet Archive are included for ever
 
 The modern English translations were produced with the assistance of AI (Claude by Anthropic). They are **not** peer-reviewed scholarly translations. They aim to make these letters accessible to a general audience — anyone who wants to hear the voices of the late Roman world.
 
-Where both a Latin/Greek original and a 19th-century English translation existed, both were used as sources. Each letter page provides access to all available versions. For the 3,068 letters translated to English for the first time, the modern translation was produced directly from the Latin or Greek text.
+Where both a Latin/Greek original and a 19th-century English translation existed, both were used as sources. Each letter page provides access to all available versions, explains the text provenance, and makes missing originals explicit instead of silently omitting them. For the 3,068 letters translated to English for the first time, the modern translation was produced directly from available Latin or Greek source text.
 
-We welcome corrections. If you spot an error or want to contribute a more accurate translation, please open an issue.
+We welcome corrections. If you spot a transcription, translation, source-link, or metadata error, use the correction link on each letter page or open a GitHub issue.
 
 ## Download the Data
 
@@ -158,4 +160,4 @@ Data and Translations: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 Built by [Craig Vander Galien](https://craigvandergalien.com). Inspired by Patrick Wyman's doctoral research on the fall of Rome. Modern translations assisted by Claude (Anthropic).
 
-**Cite this dataset:** Vander Galien, Craig. (2026). Roman Letters: 7,049 Letters from the Late Roman World (100-800 AD). Zenodo. https://doi.org/10.5281/zenodo.19142059
+**Cite this dataset:** Vander Galien, Craig. (2026). Roman Letters: 7,049 Latin and Greek Letters from the Roman World (100-800 AD). Zenodo. https://doi.org/10.5281/zenodo.19142059

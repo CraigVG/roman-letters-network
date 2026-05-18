@@ -5,19 +5,16 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SearchDialog } from '@/components/search/SearchDialog';
 import Script from 'next/script';
+import { CORPUS } from '@/lib/corpus';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Roman Letters',
+    default: CORPUS.title,
     template: '%s | Roman Letters',
   },
-  description:
-    'Mapping the communication networks of the late Roman Empire through 7,049 surviving letters (100-800 AD).',
+  description: CORPUS.description,
   metadataBase: new URL('https://romanletters.org'),
-  alternates: {
-    canonical: '/',
-  },
 };
 
 export default function RootLayout({
@@ -43,7 +40,7 @@ export default function RootLayout({
         <meta name="citation_publication_date" content="2026/03/20" />
         <meta name="citation_online_date" content="2026/03/20" />
         <meta name="citation_doi" content="10.5281/zenodo.19142059" />
-        <meta name="DC.title" content="Roman Letters: 7,049 Letters from the Late Roman World" />
+        <meta name="DC.title" content={CORPUS.title} />
         <meta name="DC.creator" content="Craig Vander Galien" />
         <meta name="DC.date" content="2026-03-20" />
         <meta name="DC.type" content="Dataset" />

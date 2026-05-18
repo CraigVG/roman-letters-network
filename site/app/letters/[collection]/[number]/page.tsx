@@ -13,6 +13,9 @@ import {
   getRelatedLetters,
 } from '@/lib/letters';
 import { letterJsonLd } from '@/lib/seo';
+import { getLetterRevisions } from '@/lib/letter-revisions';
+import { TextProvenance } from '@/components/letters/TextProvenance';
+import { RevisionHistory } from '@/components/letters/RevisionHistory';
 import { VersionTabs } from './VersionTabs';
 
 interface Props {
@@ -94,6 +97,11 @@ export default async function LetterPage({ params }: Props) {
   const title = letter.quick_summary
     ? `Letter ${letter.letter_number}: ${letter.quick_summary}`
     : `Letter ${letter.letter_number}`;
+  const sourceUrl =
+    letter.source_url?.trim() || letter.scan_url?.trim() || collection?.scan_url?.trim() || null;
+  const scanUrl = letter.scan_url?.trim() || null;
+  const scanSourceUrl = scanUrl && scanUrl !== sourceUrl ? scanUrl : null;
+  const revisions = getLetterRevisions(letter);
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8" data-pagefind-body>
@@ -207,29 +215,31 @@ export default async function LetterPage({ params }: Props) {
 
       {/* Version tabs + letter content */}
       <section>
+        <TextProvenance letter={letter} collection={collection} />
         <VersionTabs
           modernEnglish={letter.modern_english}
           english={letter.english_text}
           latin={letter.latin_text}
+          sourceUrl={sourceUrl}
         />
       </section>
 
       {/* Source links */}
-      {(letter.source_url || letter.scan_url) && (
+      {(sourceUrl || scanSourceUrl) && (
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
-          {letter.source_url && (
+          {sourceUrl && (
             <a
-              href={letter.source_url}
+              href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-theme-accent hover:underline"
             >
-              Translation source &rarr;
+              Text source &rarr;
             </a>
           )}
-          {letter.scan_url && (
+          {scanSourceUrl && (
             <a
-              href={letter.scan_url}
+              href={scanSourceUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-theme-accent hover:underline"
@@ -239,6 +249,8 @@ export default async function LetterPage({ params }: Props) {
           )}
         </div>
       )}
+
+      <RevisionHistory revisions={revisions} />
 
       {/* Related letters */}
       {related.length > 0 && (

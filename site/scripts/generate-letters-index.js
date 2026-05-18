@@ -3,7 +3,7 @@
  * generate-letters-index.js
  *
  * Reads the SQLite database and produces letters-index.json for the
- * letters browse page. Contains all 7,049 letters with short keys,
+ * letters browse page. Contains the static corpus with short keys,
  * featured letters for Letter of the Day, topic counts, collection
  * metadata, decade histogram, and curated pathways.
  */

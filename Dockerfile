@@ -15,9 +15,7 @@ COPY data/roman_letters.db ../data/roman_letters.db
 # Build static site
 ENV NODE_OPTIONS="--max-old-space-size=8192"
 RUN npm run build
-
-# Generate search index
-RUN npx pagefind --site out || true
+RUN node scripts/generate-sitemap.js
 
 # Stage 2: Serve with nginx
 FROM nginx:alpine

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { CORPUS } from '@/lib/corpus';
 import { getDb } from '@/lib/db';
 
 export const metadata: Metadata = {
@@ -26,7 +27,22 @@ function getProjectStats() {
     .get() as { cnt: number };
   const firstEnglish = db
     .prepare(
-      "SELECT COUNT(*) AS cnt FROM letters WHERE (english_text IS NULL OR english_text = '') AND modern_english IS NOT NULL AND modern_english != ''",
+      "SELECT COUNT(*) AS cnt FROM letters WHERE modern_english IS NOT NULL AND trim(modern_english) != '' AND (english_text IS NULL OR trim(english_text) = '') AND coalesce(translation_source, '') NOT IN ('','existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse')",
+    )
+    .get() as { cnt: number };
+  const withOriginal = db
+    .prepare(
+      "SELECT COUNT(*) AS cnt FROM letters WHERE latin_text IS NOT NULL AND trim(latin_text) != ''",
+    )
+    .get() as { cnt: number };
+  const withSourceLinks = db
+    .prepare(
+      "SELECT COUNT(*) AS cnt FROM letters WHERE source_url IS NOT NULL AND trim(source_url) != ''",
+    )
+    .get() as { cnt: number };
+  const ocrSourced = db
+    .prepare(
+      "SELECT COUNT(*) AS cnt FROM letters WHERE lower(coalesce(translation_source, '')) LIKE '%ocr%' OR lower(coalesce(translation_source, '')) LIKE 'pg78%' OR lower(coalesce(source_url, '')) LIKE '%archive.org%'",
     )
     .get() as { cnt: number };
   const withDistance = db
@@ -51,6 +67,9 @@ function getProjectStats() {
     totalAuthors: authors.cnt,
     totalCollections: collections.cnt,
     firstEnglish: firstEnglish.cnt,
+    withOriginal: withOriginal.cnt,
+    withSourceLinks: withSourceLinks.cnt,
+    ocrSourced: ocrSourced.cnt,
     withDistance: withDistance.cnt,
     withCarriers: withCarriers.cnt,
     topicTagged: topicTagged.cnt,
@@ -122,6 +141,8 @@ export default function AboutPage() {
               { value: stats.totalCollections.toLocaleString(), label: 'Collections' },
               { value: stats.totalAuthors.toLocaleString(), label: 'People identified' },
               { value: stats.firstEnglish.toLocaleString(), label: 'First English translations' },
+              { value: stats.withOriginal.toLocaleString(), label: 'With original text' },
+              { value: stats.withSourceLinks.toLocaleString(), label: 'With source links' },
               { value: stats.withDistance.toLocaleString(), label: 'With distance data' },
               { value: stats.topicTagged.toLocaleString(), label: 'Topic-tagged' },
               { value: stats.withCarriers.toLocaleString(), label: 'Carrier mentions' },
@@ -198,15 +219,20 @@ export default function AboutPage() {
             register, and rhetorical style. All AI-assisted translations are
             labeled in the interface. They are provided for accessibility and
             research convenience, not as authoritative scholarly translations.
-            The original Latin or Greek text is preserved alongside every
-            translation.
+            Original Latin or Greek text is displayed when present in the corpus;
+            source links are preserved so missing originals and OCR-derived texts
+            can be checked and improved.
           </p>
           <p className="text-theme-text leading-relaxed mt-3">
             A quality note: bulk translations of Greek collections (particularly
             Isidore of Pelusium and Libanius) are thematic renderings rather than
             precise philological translations. OCR-sourced texts from Patrologia
-            Graeca may contain scanning artifacts in the Latin and Greek originals.
-            Corrections from domain experts are welcome.
+            Graeca and scanned Internet Archive editions may contain transcription
+            artifacts in the Latin and Greek originals. The current corpus has{' '}
+            {stats.withOriginal.toLocaleString()} letters with original-language
+            text and {stats.ocrSourced.toLocaleString()} OCR/scanned-edition
+            imports flagged for review. Corrections from domain experts are
+            welcome.
           </p>
 
           <h3
@@ -499,10 +525,10 @@ export default function AboutPage() {
           <p className="text-theme-text leading-relaxed mt-3">
             AI-generated translations are clearly marked in the interface. They
             are provided for accessibility and research convenience, not as
-            authoritative scholarly translations. The original Latin or Greek is
-            preserved alongside every translation, and 19th-century English
-            versions are shown where available. Corrections from domain experts
-            are welcome.
+            authoritative scholarly translations. Original Latin or Greek is shown
+            where available, 19th-century English versions are shown where
+            available, and every letter page links to a correction workflow and
+            revision history.
           </p>
         </section>
 
@@ -657,8 +683,9 @@ export default function AboutPage() {
             </a>
           </div>
           <p className="mt-4 text-sm text-theme-muted">
-            <strong>Cite this dataset:</strong> Vander Galien, Craig. (2026). Roman Letters: 7,049 Letters
-            from the Late Roman World (100-800 AD). Zenodo.{' '}
+            <strong>Cite this dataset:</strong> Vander Galien, Craig. (2026).{' '}
+            {CORPUS.shortTitle}: {CORPUS.totalLetters.toLocaleString('en-US')}{' '}
+            Letters from the Roman World (100-800 AD). Zenodo.{' '}
             <a href="https://doi.org/10.5281/zenodo.19142059" className="text-theme-accent hover:underline">
               doi.org/10.5281/zenodo.19142059
             </a>

@@ -5,15 +5,15 @@
 **Live site: https://romanletters.org**
 **GitHub: https://github.com/CraigVG/roman-letters-network**
 
-7,049 letters from the late ancient world (100-800 AD) translated into modern English, with interactive network and geographic visualizations. Inspired by Patrick Wyman's USC dissertation "Letters, Mobility, and the Fall of the Roman Empire" (2016). 3,068 letters translated to English for the first time.
+7,049 Latin and Greek letters from the late ancient world (100-800 AD) translated into modern English, with interactive network and geographic visualizations. Inspired by Patrick Wyman's USC dissertation "Letters, Mobility, and the Fall of the Roman Empire" (2016). 3,068 letters translated to English for the first time.
 
 ## Tech Stack
 
-- **Site**: Next.js 15 + TypeScript + Tailwind CSS v4 (static export, 5,000+ pages)
+- **Site**: Next.js 15 + TypeScript + Tailwind CSS v4 (static export, 9,000+ routes)
 - **Database**: SQLite at `data/roman_letters.db` (51MB, read at build time via better-sqlite3)
 - **Visualizations**: D3.js (force-directed network graph, geographic map timelapse, regionalization chart)
 - **Map tiles**: DARE (Digital Atlas of the Roman Empire) historical tiles
-- **Search**: Pagefind (WASM, client-side, 400K+ words indexed)
+- **Search**: Pagefind (WASM, client-side, 480K+ words indexed)
 
 ## Project Structure
 
@@ -59,20 +59,22 @@ roman-letters-network/
 | Collections | 54 |
 | Modern English translations | ~100% |
 | First-ever English translations | 3,068 |
-| People identified | 1,516 |
-| Letters with distance data | 2,433 |
+| Original Latin/Greek text available | 4,263 |
+| Source links available | 6,693 |
+| People identified | 1,850 |
+| Letters with distance data | 5,863 |
 | Letters with carrier mentions | 478 |
 
 ## Key Features
 
-- **Individual letter pages** with modern English (primary), 19th-century English, Latin/Greek original
+- **Individual letter pages** with modern English (primary), 19th-century English where available, Latin/Greek original where available, provenance, correction links, and revision history
 - **"The Shrinking World" thesis page** with D3 regionalization chart (Wyman's mobility thesis)
 - **"Fall of Rome in Letters"** scrollytelling on home page (8 chapters)
 - **Wyman Mode** toggle on map/network (filters to Latin West, 380-630 AD)
 - **Hub city profiles** (15 cities with per-decade connectivity)
 - **Letter-carrier data** (478 letters with carrier mentions)
 - **Location confidence** levels (strong/approximate/unknown per Wyman's methodology)
-- **Pagefind search** (Cmd+K, 400K+ words)
+- **Pagefind search** (Cmd+K, 480K+ words)
 - **Light/dark theme** toggle
 
 ## Build & Deploy
@@ -81,7 +83,7 @@ roman-letters-network/
 # Development
 cd site && npm run dev
 
-# Production build (generates 5,000+ static pages)
+# Production build (generates 9,000+ routes)
 cd site
 NODE_OPTIONS='--max-old-space-size=8192' npm run build
 node scripts/generate-sitemap.js

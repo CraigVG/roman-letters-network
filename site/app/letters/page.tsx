@@ -1,12 +1,13 @@
 import { Suspense } from 'react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { LetterBrowser } from '@/components/letters/LetterBrowser';
+import { CORPUS } from '@/lib/corpus';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Browse Letters',
   description:
-    'Browse over 7,000 surviving letters from the late Roman world (97-800 AD). Search by topic, collection, era, or discover the letter of the day. Includes 3,000+ first-ever English translations.',
+    'Browse Latin and Greek correspondence from the Roman world (97-800 AD). Search by topic, collection, era, or discover the letter of the day. Includes 3,000+ first-ever English translations.',
 };
 
 export default function LettersBrowsePage() {
@@ -21,8 +22,9 @@ export default function LettersBrowsePage() {
         Browse Letters
       </h1>
       <p className="mt-2 text-theme-muted max-w-2xl">
-        7,049 letters from 54 collections spanning the late Roman world.
-        Search by topic, collection, era, or discover something unexpected.
+        {CORPUS.totalLetters.toLocaleString('en-US')} letters from{' '}
+        {CORPUS.totalCollections} collections spanning the Roman world. Search by
+        topic, collection, era, or discover something unexpected.
       </p>
 
       <div className="mt-8">

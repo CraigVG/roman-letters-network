@@ -54,7 +54,7 @@ function sitemapIndexXml(sitemapUrls) {
 
 // --- Static pages ---
 function generatePagesSitemap() {
-  const pages = ['/', '/about/', '/map/', '/network/', '/letters/', '/authors/', '/thesis/'];
+  const pages = ['/', '/about/', '/corrections/', '/map/', '/network/', '/letters/', '/authors/', '/thesis/'];
   let xml = urlsetHeader();
   for (const p of pages) {
     xml += urlEntry(`${BASE_URL}${p}`, TODAY);
