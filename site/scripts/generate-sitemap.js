@@ -54,7 +54,21 @@ function sitemapIndexXml(sitemapUrls) {
 
 // --- Static pages ---
 function generatePagesSitemap() {
-  const pages = ['/', '/about/', '/corrections/', '/map/', '/network/', '/letters/', '/authors/', '/thesis/'];
+  const pages = [
+    '/',
+    '/about/',
+    '/corrections/',
+    '/map/',
+    '/map-v2/',
+    '/network/',
+    '/network-v2/',
+    '/letters/',
+    '/authors/',
+    '/people/',
+    '/places/',
+    '/heatmap/',
+    '/thesis/',
+  ];
   let xml = urlsetHeader();
   for (const p of pages) {
     xml += urlEntry(`${BASE_URL}${p}`, TODAY);
