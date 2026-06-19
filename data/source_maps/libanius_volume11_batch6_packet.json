@@ -1,0 +1,974 @@
+{
+  "collection": "libanius",
+  "source_family": "Libanius Foerster Opera volume 11",
+  "batch": "T256 batch6 letters 940-959",
+  "ocr_model_requested": "gemini-3.1-flash",
+  "ocr_model_fallback": "gemini-3-flash-preview via Gemini CLI",
+  "ocr_model_reported_by_outputs": [
+    "Gemini CLI autonomous agent",
+    "gpt-4o"
+  ],
+  "ocr_cost_usd": 0,
+  "letters": [
+    {
+      "number": 940,
+      "recipient_latin": "Proclus",
+      "recipient_greek": "Πρόκλῳ",
+      "year": 390,
+      "leaf_start": 91,
+      "leaf_end": 92,
+      "heading": "ϡμ΄. Πρόκλῳ. (390)",
+      "greek": "1. Ἐμοὶ δοκοῦσιν οἱ θεοὶ τοῦ πατρὸς Ἐρεθίου τὴν ἀρετὴν ἀμειβόμενοι δοῦναι τούτῳ τὴν ὑμετέραν πρόνοιαν. ἦν γὰρ δὴ θαυμαστὸς ὁ πατὴρ αὐτῷ σπουδῇ μὲν καὶ περὶ λόγους χρησάμενος, πλείονι δὲ περὶ τὸ τῶν τρόπων κάλλος. 2. δείκνυσι δὲ καὶ ὁ παῖς ὡς παῖς ὄντως ἐκείνου πρᾶος καὶ αὐτὸς εἶναι βουλόμενος. ὃς οὐδένα πώποτε λυπήσας λελυπηκότας ἤνεγκε, σεσωσμένος δὲ ὑφ᾿ ὑμῶν τὰ δίκαια ποιῶν μέμνηται τῶν σεσωκότων, ὡς εἰκός, εἰς μὲν ὑμᾶς ἃ προσήκει δρῶν, ἐμὲ δὲ ἐκ τῶν αὐτῶν εὐφραίνων· ὡς ἐμοὶ τοῦτο ἀκουσμάτων ἥδιστον, ὅταν ἢ σέ τις ἢ τὸν σὲ πεφυτευκότα ᾄδῃ. 3. πολλοὶ δὲ οἱ ταῦτα ᾄδοντες καὶ ἅμα εὐχόμενοι ζῆν τε ὑμᾶς καὶ ἄρχειν, εὐνοί τινες οὗτοι καὶ ἠπείροις καὶ νήσοις εἰδότες ὅτι ταῖς ὑμετέραις βουλαῖς τἀκείνων ἐν ἀμείνοσι. 4. καὶ τἀμὰ δὲ ἴδια πεποίηκας ἀμείνω τοῖς πρώην ἐπεσταλμένοις, ὥστ᾿ ἦν τινας κατηφεῖς ὁρᾶν, οὓς ἑωρῶμεν φαιδρούς, ἡνίκα οὐκ ἐπέστελλες.",
+      "modern_english": "It seems to me that the gods, in rewarding the virtue of your father Erethius, have granted him your providence. Your father was truly remarkable, having devoted himself with zeal both to eloquence and, even more, to the beauty of character. His son also shows that he is truly a child of such a man, being gentle and wishing to be like him. Having never pained anyone, he has endured those who pained him; and having been saved by you while doing what is right, he naturally remembers those who saved him, acting as he should toward you and gladdening me with the same news. To me, this is the sweetest of sounds—whenever someone sings the praises of you or the man who begot you. Many are those who sing these things while praying for your life and rule; these are well-wishers across continents and islands, knowing that their affairs are in better hands because of your counsels. You have also improved my own private circumstances by those whom you recently commissioned, so that one could see those who used to be downcast now looking cheerful, just as they did when you were not sending them.",
+      "quick_summary": "Praise for Proclus and his father Erethius.",
+      "subject_summary": "Libanius sees the virtue of Erethius reflected in his son Proclus. He expresses joy at hearing them praised and thanks the recipient for improving his own situation through their appointments.",
+      "interesting_note": "Mentions Erethius, a recurring figure in Libanius' late correspondence.",
+      "topics": "Praise,Erethius,Family Virtue,Gratitude",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 91,
+          "leaf_end": 92,
+          "token": "δοκοῦσιν"
+        },
+        {
+          "leaf_start": 91,
+          "leaf_end": 92,
+          "token": "πατρὸς"
+        },
+        {
+          "leaf_start": 91,
+          "leaf_end": 92,
+          "token": "Ἐρεθίου"
+        },
+        {
+          "leaf_start": 91,
+          "leaf_end": 92,
+          "token": "ἀρετὴν"
+        },
+        {
+          "leaf_start": 91,
+          "leaf_end": 92,
+          "token": "κατηφεῖς"
+        },
+        {
+          "leaf_start": 91,
+          "leaf_end": 92,
+          "token": "ἑωρῶμεν"
+        }
+      ]
+    },
+    {
+      "number": 941,
+      "recipient_latin": "Tatianus",
+      "recipient_greek": "Τατιανῷ",
+      "year": 390,
+      "leaf_start": 92,
+      "leaf_end": 92,
+      "heading": "ϡμα΄. Τατιανῷ. (390)",
+      "greek": "1. Ἐρεθίῳ πρότερον αἰτοῦντι παρ᾿ ἐμοῦ πρὸς σὲ γράμματα δώσειν ὑποσχόμενος καὶ χάριν εἰπὼν ἕξειν αὐτῷ τοῦ φέρειν χρόνου προϊόντος οὐκέτ᾿ ἔφην δώσειν καὶ ἐδεόμην αὐτοῦ μή με ἀναγκάζειν. 2. καὶ πρὸς μὲν ἐκεῖνον εἶπόν τε τὸ κωλῦον καὶ ὁπόθεν ἡ μεταβολή, πρὸς σὲ δ᾿ οὐδ᾿ ἐν γράμμασι δυναίμην ἄν· οὕτω τοῖς πεπραγμένοις αἰσχύνομαι κακὸν μὲν ἐμαυτῷ συνειδὼς οὐδέν, φίλου δὲ οὐκ ἰδόντος ὃ πρῶτον ἐχρῆν ἰδεῖν. 3. καὶ ἐγὼ μὲν ἐνταυθοῖ στήσομαι, τὸν δ᾿ ὅ τι τοῦτο ἔστι φράσοντα ἐγγὺς ἔχων ἄκουε.",
+      "modern_english": "When Erethius previously asked me for letters to you, I promised to give them and expressed my gratitude to him for the offer; however, as time went on, I said I would no longer give them and begged him not to compel me. To him, I explained the obstacle and the reason for my change of heart, but to you, I could not even put it in writing. I am so ashamed of what has happened, though I am conscious of no wrong on my part, except that a friend has failed to see what he should have seen first. I will stop here, but you should listen to the man standing by me, who will explain what this matter is all about.",
+      "quick_summary": "Apology and explanation regarding a promised letter.",
+      "subject_summary": "Libanius explains to Tatianus why he hesitated to send a letter requested by Erethius. He expresses shame over an unspecified misunderstanding or situation, relying on the bearer to clarify.",
+      "interesting_note": "Reveals the delicate social dynamics involved in letter-writing requests and the role of the bearer in conveying sensitive news.",
+      "topics": "Shame,Friendship,Erethius,Communication",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 92,
+          "leaf_end": 92,
+          "token": "Ἐρεθίῳ"
+        },
+        {
+          "leaf_start": 92,
+          "leaf_end": 92,
+          "token": "πρότερον"
+        },
+        {
+          "leaf_start": 92,
+          "leaf_end": 92,
+          "token": "αἰτοῦντι"
+        },
+        {
+          "leaf_start": 92,
+          "leaf_end": 92,
+          "token": "γράμματα"
+        },
+        {
+          "leaf_start": 92,
+          "leaf_end": 92,
+          "token": "πρῶτον"
+        },
+        {
+          "leaf_start": 92,
+          "leaf_end": 92,
+          "token": "ἐνταυθοῖ"
+        }
+      ]
+    },
+    {
+      "number": 942,
+      "recipient_latin": "Theodorus",
+      "recipient_greek": "Θεοδώρῳ",
+      "year": 390,
+      "leaf_start": 92,
+      "leaf_end": 93,
+      "heading": "ϡμβ΄. Θεοδώρῳ. (390)",
+      "greek": "1. Σύ τε εὖ πεποίηκας Ἀθανάσιον οὐκ ὀλίγα διδοὺς ἐμοὶ τὴν χάριν ἐκεῖνός τε δίκαιος ὢν εἶπε πρὸς ἡμᾶς ἐν γράμμασιν ὧν τετύχηκεν. ἡμεῖς δὲ συνήσθημεν ἀμφοῖν, τῷ μὲν ὧν ἔλαβε, σοὶ δὲ ὧν ἔδωκας. καὶ γὰρ αὐτὸς ὁ τοιοῦτόν τι ποιῶν ἐν οἷς ποιεῖ κερδαίνει. 2. πρὸς οὖν τόν γε τοιοῦτον οὐδὲν ἂν δέοι παρακλήσεως εἶναι τὸν αὐτόν. αὐτὸν γὰρ δήπου πείθει τὰ αὑτοῦ μιμεῖσθαι. 3. Μαριανοῦ δὲ εἰπόντος ἀθυμήσειν, εἰ μὴ καὶ τοῦτ᾿ ἐνέσται τοῖς γράμμασιν, ἔστω καὶ τοῦτο. καὶ μοι γίγνου περὶ τὸν νέον τοιοῦτος ὡς μὴ τῶν προτέρων λείπεσθαι τὰ δεύτερα.",
+      "modern_english": "You have done a good deed for Athanasius, granting me no small favor, and he, being a just man, has told us in writing of what he has received. We shared in the joy of both: his for what he received, and yours for what you gave. For indeed, the man who does such a thing gains from the very act of doing it. Therefore, toward such a person, there should be no need for repeated exhortation, for surely his own deeds persuade him to imitate himself. Since Marianus said he would be discouraged if this were not included in my letter, let it be here. And pray, continue to be such a man toward the youth that your subsequent kindness does not fall short of the first.",
+      "quick_summary": "Thanks for helping Athanasius.",
+      "subject_summary": "Libanius thanks Theodorus for his assistance to Athanasius. He reflects on the virtue of giving and mentions Marianus' request to be included in the letter. He encourages continued kindness toward the young man.",
+      "interesting_note": "Illustrates Libanius' role as an intercessor for students and subordinates.",
+      "topics": "Gratitude,Athanasius,Marianus,Philanthropy",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 92,
+          "leaf_end": 93,
+          "token": "πεποίηκας"
+        },
+        {
+          "leaf_start": 92,
+          "leaf_end": 93,
+          "token": "Ἀθανάσιον"
+        },
+        {
+          "leaf_start": 92,
+          "leaf_end": 93,
+          "token": "διδοὺς"
+        },
+        {
+          "leaf_start": 92,
+          "leaf_end": 93,
+          "token": "ἐκεῖνός"
+        },
+        {
+          "leaf_start": 92,
+          "leaf_end": 93,
+          "token": "γίγνου"
+        },
+        {
+          "leaf_start": 92,
+          "leaf_end": 93,
+          "token": "τοιοῦτος"
+        }
+      ]
+    },
+    {
+      "number": 943,
+      "recipient_latin": "Palladius",
+      "recipient_greek": "Παλλαδίῳ",
+      "year": 390,
+      "leaf_start": 93,
+      "leaf_end": 94,
+      "heading": "ϡμγ΄. Παλλαδίῳ. (390)",
+      "greek": "1. Πολλοῖς μὲν ἐπεστάλκαμεν ὑπὲρ τοῦ δεῖν μεταδοῦναι τῆς εὐδαίμονος βουλῆς τῷ θαυμασίῳ Θαλασσίῳ πάλαι μὲν ἐγγεγράφθαι δικαίῳ, διὰ δὲ τήν τινων ὀργὴν οὐκ εὔλογον εἰς τόδε ἀναβληθέντι. 2. τῶν ἐπιστολῶν δὲ τὴν ἰσχὺν τῶν πολλῶν ἐν σοὶ νομίζομεν ἔσεσθαι· ἐὰν γὰρ εἴπῃς παρελθὼν ὡς δοτέον τι τοῖς γράμμασι τοῖς ἥκουσι παρ᾿ ἀνθρώπου γέροντος, ὃς ἡνίκα ἦν νέος, ἐνταῦθα ἤρξατο τῶν ἄθλων, εὖ τε λέγειν ἑκάστῳ δόξεις καὶ φήσει δεῖν ἕπεσθαι. σοῦ δὲ τοῦτο οὐ ποιοῦντος σκιὰ τὰ τῶν ἐπιστολῶν. 3. ἐνθυμηθεὶς οὖν, ἐν ὅσῃ μελέτῃ καθέστηκας τῶν περὶ ἐμὲ σπουδῶν, αὐτός τε ἃ προσήκει λέγε καὶ τοῖς ἄλλοις ἃ χρὴ λέγειν αὐτοὺς δείκνυε.",
+      "modern_english": "I have written to many regarding the need to grant the admirable Thalassius a place in the prosperous council. He should have been enrolled long ago by right, but was delayed until now by the unreasonable anger of certain people. I believe the strength of all these letters will rest in you; for if you come forward and say that some weight must be given to letters arriving from an old man who began his labors here when he was young, you will seem to everyone to speak well, and they will say they must comply. But if you do not do this, these letters are but a shadow. Reflecting, then, on how much care you have shown for my interests, say what is appropriate yourself and show the others what they ought to say.",
+      "quick_summary": "Advocacy for Thalassius' inclusion in the council.",
+      "subject_summary": "Libanius urges Palladius to support Thalassius' admission to the local council. He emphasizes his own long history of labor in the city and warns that without Palladius' active support, his letters of recommendation carry no weight.",
+      "interesting_note": "Shows Libanius using his status as an 'elder statesman' of rhetoric to influence local politics.",
+      "topics": "Council,Thalassius,Advocacy,Old Age",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 93,
+          "leaf_end": 94,
+          "token": "Πολλοῖς"
+        },
+        {
+          "leaf_start": 93,
+          "leaf_end": 94,
+          "token": "ἐπεστάλκαμεν"
+        },
+        {
+          "leaf_start": 93,
+          "leaf_end": 94,
+          "token": "μεταδοῦναι"
+        },
+        {
+          "leaf_start": 93,
+          "leaf_end": 94,
+          "token": "εὐδαίμονος"
+        },
+        {
+          "leaf_start": 93,
+          "leaf_end": 94,
+          "token": "ἄλλοις"
+        },
+        {
+          "leaf_start": 93,
+          "leaf_end": 94,
+          "token": "λέγειν"
+        }
+      ]
+    },
+    {
+      "number": 944,
+      "recipient_latin": "Leontius",
+      "recipient_greek": "Λεοντίῳ",
+      "year": 390,
+      "leaf_start": 94,
+      "leaf_end": 94,
+      "heading": "ϡμδ΄. Λεοντίῳ. (390)",
+      "greek": "1. Λαβών σου τὴν ἐπιστολὴν ἤλπιζον μὲν ἀκούσεσθαι παρ᾿ αὐτῆς, ὡς καὶ λόγον ἡμῖν φέροι τοῦ πέμψαντος τὴν ἐπιστολήν· ἐπεὶ δὲ πολλὰ μὲν ὑπὲρ ἐπιθυμίας ἔλεγεν ἡμετέρων γραμμάτων, ὃ δ᾿ ἐβουλόμην εὑρεῖν, εὕρισκον οὐδαμοῦ, πάνυ σου τὴν ἐπιθυμίαν ἐμεμψάμην περὶ τοῦτο μὲν οὖσαν, περὶ ἐκεῖνο δὲ οὐκ οὖσαν. ἣν ἐχρῆν εἶναι περὶ ἐκεῖνο μᾶλλον ἢ τοῦτο· μᾶλλον γὰρ λόγους ποιῶν ἔσῃ λαμπρὸς ἢ ταῖς παρ᾿ ἡμῶν ἐπιστολαῖς. 2. ὕφαινε τοίνυν λόγους ἀδελφοὺς ἐκείνῳ τῷ μεγάλοις ἐστεφανωμένῳ κρότοις. ὑποθέσεως δὲ οὐκ ἀπορήσεις τῶν γενναίων ἡμῖν βασιλέων ἀεί τι καλὸν ἐργαζομένων.",
+      "modern_english": "Upon receiving your letter, I hoped to hear from it, as if it brought us some word of the sender. But since it spoke much of your desire for my letters, while what I wanted to find was nowhere to be seen, I strongly found fault with your desire for being directed toward this rather than that. It should have been directed more toward that than this; for you will become illustrious more by composing speeches than by receiving letters from us. Weave, therefore, speeches akin to that one which was crowned with great applause. You will not lack for subject matter, as our noble emperors are always performing some fine deed.",
+      "quick_summary": "Encouraging a student to focus on speech-writing.",
+      "subject_summary": "Libanius chides Leontius for being more eager to receive letters than to produce his own rhetorical works. He urges him to compose speeches worthy of the emperors' deeds.",
+      "interesting_note": "Uses the metaphor of 'weaving speeches' (ὕφαινε λόγους).",
+      "topics": "Eloquence,Rhetoric,Education,Emperors",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 94,
+          "leaf_end": 94,
+          "token": "ἐπιστολὴν"
+        },
+        {
+          "leaf_start": 94,
+          "leaf_end": 94,
+          "token": "ἤλπιζον"
+        },
+        {
+          "leaf_start": 94,
+          "leaf_end": 94,
+          "token": "ἀκούσεσθαι"
+        },
+        {
+          "leaf_start": 94,
+          "leaf_end": 94,
+          "token": "πέμψαντος"
+        },
+        {
+          "leaf_start": 94,
+          "leaf_end": 94,
+          "token": "κρότοις"
+        },
+        {
+          "leaf_start": 94,
+          "leaf_end": 94,
+          "token": "ὑποθέσεως"
+        }
+      ]
+    },
+    {
+      "number": 945,
+      "recipient_latin": "Severinus",
+      "recipient_greek": "Σευηρίνῳ",
+      "year": 390,
+      "leaf_start": 94,
+      "leaf_end": 95,
+      "heading": "ϡμε΄. Σευηρίνῳ. (390)",
+      "greek": "1. Ἐν τοῖς περὶ σοῦ λόγοις διατρίβοντας εὗρεν ἡμᾶς ἡ ἐπιστολή. οἳ δὲ ἦσαν περί τε τῶν ἐτῶν, ἃ γενόμενος ἥψω δικῶν, περί τε τοῦ καθ᾿ ἕκαστον δικαστήριον κράτους καὶ ὡς οὐκ εὖ βεβουλεῦσθαι δοκῶν ἀφιεὶς τὰ πρότερα μέγας εὐθὺς ἐν τοῖς δευτέροις ὢν εὔβουλος ἐδείκνυσο. 2. τοιούτοις ἐπεισῆλθε τὰ γράμματά σου λόγοις. ὧν ἐν τοῖς παροῦσιν ἀναγιγνωσκομένων ἐπαίνῳ πολλῷ σύ τε ἐτιμῶ καὶ βασιλεὺς ὁ μέγας, σὺ μὲν ἄξιον σαυτὸν τοῦ θαυμάζεσθαι παρέχων, ὁ δ᾿ εἰδὼς θαυμάζειν ἀρετήν. 3. ἧς μοι δοκεῖς καθ᾿ ἑκάστην ἡμέραν ποιεῖσθαι τὴν ἐπίδειξιν, ἀφ᾿ ἧς ἀνιᾷς μὲν ἐχθρούς, εὐφραίνεις δὲ τοὺς ἐπιτηδείους. ἃ ποίας μὲν οὐ γῆς, ποίου δὲ οὐ χρυσοῦ καλλίω, δόξης ἐρῶντα ζῆν, καταφρονοῦντα τῶν πολλὰ μὲν κεκτημένων, λαγὼ δὲ βίον ζώντων εἰδότων, ὅθεν αὐτοῖς τὰ πολλὰ ταῦτα; 4. σοὶ δὲ χρήματα μὲν ὀλίγα, πολλαὶ δὲ εὐφημίαι πανταχοῦ καὶ τὸ μᾶλλον ἑτέρων πιστεύεσθαι παρὰ τοῦ τῷ τρόπῳ κοσμοῦντος τὴν βασιλείαν. ὃν οἱ ποιήσαντες θεοὶ τοῦ τυράννου κρείττονα καὶ δεῦρ᾿ ἀγάγοιεν. 5. ἡδὺ μὲν γὰρ ἡμῖν θέαμα καὶ αἱ εἰκόνες· οὐδὲν δὲ οἶον τὸ αὐτόν τε ἔχειν καὶ φωνῆς ἐκείνης ἀκούειν καὶ κάλλους μὲν ψυχῆς ἐγγύθεν ἀπολαύειν, κάλλος δὲ ὁρᾶν σώματος διὰ τῆς πόλεως ἀστράπτον.",
+      "modern_english": "Your letter found us lingering in discussions about you. These concerned the years you spent in the legal profession, your power in each court, and how, though appearing not to have planned well when you left your former position, you immediately proved yourself wise by attaining greatness in the second. Your letters arrived amidst such talk. As they were read before those present, you were honored with much praise, as was the great Emperor—you for proving yourself worthy of admiration, and he for knowing how to admire virtue. You seem to me to display this virtue every day, distressing your enemies and gladdening your friends. What things are more beautiful than any land or any gold? To live desiring glory, despising those who possess much but live the life of a hare—though knowing where all that wealth came from. You have little money, but much renown everywhere, and the trust of the one who adorns the empire with his character, more than any others. May the gods who made him superior to the tyrant bring him here as well. For while his statues are a sweet sight to us, nothing compares to having the man himself, hearing that voice, enjoying the beauty of his soul from nearby, and seeing the beauty of his body flashing through the city.",
+      "quick_summary": "Praise for Severinus' career and virtue.",
+      "subject_summary": "Libanius praises Severinus for his success in the legal and imperial spheres. He contrasts Severinus' pursuit of glory with those who merely seek wealth and prays for the Emperor's continued success and presence.",
+      "interesting_note": "Contains a striking contrast between the 'life of a hare' (mere survival/wealth) and a life of public glory.",
+      "topics": "Career,Law,Emperor,Virtue,Glory",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 94,
+          "leaf_end": 95,
+          "token": "λόγοις"
+        },
+        {
+          "leaf_start": 94,
+          "leaf_end": 95,
+          "token": "διατρίβοντας"
+        },
+        {
+          "leaf_start": 94,
+          "leaf_end": 95,
+          "token": "ἐπιστολή"
+        },
+        {
+          "leaf_start": 94,
+          "leaf_end": 95,
+          "token": "γενόμενος"
+        },
+        {
+          "leaf_start": 94,
+          "leaf_end": 95,
+          "token": "κάλλος"
+        },
+        {
+          "leaf_start": 94,
+          "leaf_end": 95,
+          "token": "σώματος"
+        }
+      ]
+    },
+    {
+      "number": 946,
+      "recipient_latin": "Hesychius",
+      "recipient_greek": "Ἡσυχίῳ",
+      "year": 390,
+      "leaf_start": 95,
+      "leaf_end": 96,
+      "heading": "ϡμς΄. Ἡσυχίῳ. (390)",
+      "greek": "1. Μέγα μὲν ἐμοὶ τό τι ποιεῖν τῶν Θεόφιλον δυναμένων εὐφραίνειν, μέγα δὲ ἐκείνῳ τὸ καὶ νῦν σὲ καταλῦσαι παρ᾿ αὐτῷ. καὶ περὶ τούτου θεοῖς τε διελέχθη καὶ ἐμοί, πρὸς μὲν τοὺς εὐξάμενος, πρὸς ἐμὲ δὲ εἰπὼν ὡς δέοι με βοηθεῖν διὰ τῶν γραμμάτων καὶ μὴ περιιδεῖν αὐτὸν ὃ οὐκ ἂν ἐνέγκαι παθόντα. 2. ἀνοίγομεν δή σοι τὴν οἰκίαν τοῦ χρηστοῦ Θεοφίλου καὶ καλοῦμεν εἰς αὐτήν. οἶμαι δὲ καὶ αὐτὴν τὴν οἰκίαν, εἴπερ ἦν αὐτῇ φωνή, καὶ αὐτὴν ἂν μεθ᾿ ἡμῶν σε καλέσαι. 3. δὸς δὴ τοσούτοις τὴν χάριν μὴ νομίζων ἰσχυρὸν τὸ μὴ τὸν Θεόφιλον παρὰ σοὶ καταλῦσαι. τὸ γὰρ ἴσον τοῦτο οὐκ ἴσον οὐκ οὔσης αἰτίας σοὶ τῆς οὔσης τούτῳ τότε. 4. μὴ οὖν ὡς ἔχων ἀπολογίαν, εἰ φύγοις τὴν οἰκίαν, φεῦγε, ἀλλ᾿ ὡς οὐκ ἔξων, εἰ φύγοις, δίκαιον λόγον ἔλαυνε πρὸς τὰ τοῦ Μενελάου δώματα μέλλων καὶ χάριν ὀφειλομένην ἀποδώσειν. 5. Θεοφίλῳ γὰρ ὥσπερ ἐμοὶ τῶν σῶν ἐμέλησε παίδων δι᾿ ἐπαίνων ἐπὶ μείζους παρακαλοῦντι πόνους. καὶ δεῖ δή σε τὸν μισθὸν ἀποδοῦναι. τῷ δ᾿ ἂν εἴη μέγιστος ἐν ἐκείνου σε θῦσαι τῷ Διὶ τῷ ξενίῳ.",
+      "modern_english": "It is a great thing for me to do anything that can gladden Theophilus, and a great thing for him to have you stay with him now. He has spoken about this to both the gods and me—praying to them, and telling me that I must help him through my letters and not overlook him, for he could not bear to suffer such a slight. We therefore open the house of the good Theophilus to you and invite you into it. I believe the house itself, if it had a voice, would join us in calling you. Grant this favor to so many, and do not think it a strong argument that Theophilus did not stay at your house. For this 'equality' is not equal, since you had no reason then such as he has now. So do not flee the house as if you had an excuse, for you would have no just cause if you did. Set out for the halls of Menelaus, intending to repay a debt of gratitude. For Theophilus, like me, took care for your children, encouraging them to greater labors through his praise. It is only right that you return the payment. To him, the greatest reward would be for you to offer sacrifice to Zeus, the god of hospitality, in his home.",
+      "quick_summary": "Urging Hesychius to accept Theophilus' hospitality.",
+      "subject_summary": "Libanius encourages Hesychius to stay at Theophilus' home, framing it as an act of gratitude for Theophilus' past care for Hesychius' children. He uses the Homeric image of Menelaus' halls to elevate the invitation.",
+      "interesting_note": "Mentions Zeus Xenios, the god of hospitality, emphasizing the religious and social weight of the request.",
+      "topics": "Hospitality,Theophilus,Children,Gratitude",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 95,
+          "leaf_end": 96,
+          "token": "ποιεῖν"
+        },
+        {
+          "leaf_start": 95,
+          "leaf_end": 96,
+          "token": "Θεόφιλον"
+        },
+        {
+          "leaf_start": 95,
+          "leaf_end": 96,
+          "token": "δυναμένων"
+        },
+        {
+          "leaf_start": 95,
+          "leaf_end": 96,
+          "token": "εὐφραίνειν"
+        },
+        {
+          "leaf_start": 95,
+          "leaf_end": 96,
+          "token": "μισθὸν"
+        },
+        {
+          "leaf_start": 95,
+          "leaf_end": 96,
+          "token": "ἀποδοῦναι"
+        }
+      ]
+    },
+    {
+      "number": 947,
+      "recipient_latin": "Priscus",
+      "recipient_greek": "Πρίσκῳ",
+      "year": 390,
+      "leaf_start": 96,
+      "leaf_end": 98,
+      "heading": "ϡμζ΄. Πρίσκῳ. (390)",
+      "greek": "1. Ὅσῳ μέτρῳ τὴν πόλιν ἡμῶν ἥκων εἰς αὐτὴν ὁ χρηστὸς Ἱλάριος ἀπέφηνεν ἀμείνω, τοσούτῳ χείρω δραμὼν εἰς τὴν Ἑλλάδα βελτίω μὲν τῆς ἡμετέρας οὖσαν, μᾶλλον δέ, τοῖς ἅπασι νικῶσαν. 2. τοῖς δ᾿ οὖν ἀφαιρεθεῖσιν ἃ μάλιστα ἔχειν ἤθελον οὐδὲν ἀφαιρεῖ τοῦτο τῆς λύπης καὶ μάλιστα τοῖς ἄγαν γεγηρακόσιν ἡμῖν· ἐπειδὴ τῷ γε ἐν νεότητι ἢ γήρᾳ μέν, οὐ μὴν ἐν τοσούτῳ, τά γε ἀπὸ τῶν ἐλπίδων ὑπάρχει πλοῦν τε αὐτὸν ὅμοιον τῷ προτέρῳ ποιήσεσθαι καὶ αὖθις ἐνταῦθα ἔσεσθαι καὶ τοῖς δεξιωτέροις συνέσεσθαι δεχόμενόν τε τοὺς ὡς αὐτὸν ἰόντας καὶ τὴν ἴσην ἀποδιδόντα καὶ τὰ μὲν λέγοντα, τὰ δὲ ἀκούοντα, καὶ τὰ μὲν ἐπαινοῦντα, τὰ δὲ ἐπαινούμενον. 3. ἀλλ᾿ ἐκεῖνα μὲν ἐκείνων· τὸ δ᾿ ἡμέτερον, ἓξ μὲν καὶ ἑβδομήκοντα ἔτη γέγονα, τὸ λειπόμενον δὲ οὐ πολύ. καὶ ὁ μὲν ἥξει κομίζων καλὴν διήγησιν, καλὴ γὰρ δήπουθεν ἡ περὶ τῆς Ἑλλάδος, ἑτέρους δὲ εὐφραίνων ἐμὲ ζητήσει. 4. τούτων μὲν οὖν ἡμῖν ὕστερον ἀπολαύσειεν ἡ πόλις· Ἱλάριον δὲ μακάριον ἐπέρχεταί μοι καλεῖν ὀψόμενον τὰ κάλλιστα τῶν ὑπὸ τὸν ἥλιον, τάς τε ἐν τῇ Πελοποννήσῳ πόλεις τὰς πολλὰς καὶ μεγάλας Φωκέας τε καὶ Βοιωτοὺς καὶ τὴν ἐνεγκοῦσαν αὐτὸν καὶ τὸν ἀστέρα δὴ τῆς Ἑλλάδος, τὴν Ἀθηναίων πόλιν, καὶ ἕτερον ἀστέρα, Πρίσκον τὸν καλῶς μὲν εἰδότα τὸν Πλάτωνα, καλῶς δὲ τὸν ἐκείνου μαθητήν, ἀποπέμποντα δὲ τοὺς ὁμιλοῦντας αὐτῷ φρονιμωτέρους, ὃ καὶ αὐτὸς οἶδα πολλάκις κερδάνας. 5. ταὐτὸ δ᾿ ἂν εἶπε περὶ αὐτοῦ κἀκεῖνος, ᾧ φιλοσοφίας ὁ θεὸς τὴν ψυχὴν ἐμπλήσας ἔδωκε Ῥωμαίων μὲν ἄρχειν, βαρβάρους δὲ ἐλαύνειν, ἐπεὶ καὶ τὴν τελευτὴν αὐτὴν ἐν τῷ Πέρσας ἐλαύνειν ἐδέξατο μέγα ποιούμενος, εἰ Πρίσκῳ δοκοίη τὰ προσήκοντα ποιεῖν. 6. ποίει τοίνυν καὶ τὸν Ἱλάριον βελτίω καὶ δίδου πρὸς ἡμᾶς αὐτὸν τοῦτ᾿ ἐπιστέλλειν· δίκαιός τε γὰρ ἀνὴρ καὶ οὐκ ἀποκρύψεται.",
+      "modern_english": "By the same measure that the good Hilarius made our city better by his coming, he has made it worse by running off to Greece—a land better than ours, or rather, superior to all others. For those who have been deprived of what they most wished to keep, this fact does nothing to diminish their grief, especially for those of us who are very old. For one who is in his youth, or even in old age but not so advanced, there is still the hope of making a similar voyage and being here again, to associate with the more clever, receiving those who come to him and returning the favor, speaking and listening, praising and being praised. But those things belong to them. As for my own case, I have become seventy-six years old, and what remains is not much. He will return bringing a fine narrative—for a story about Greece is surely fine—but while he gladdens others, he will find me gone. May the city eventually enjoy these stories. In the meantime, I am inclined to call Hilarius blessed, for he is about to see the most beautiful things under the sun: the many great cities of the Peloponnese, Phocis, Boeotia, the city that bore him, and that star of Greece, the city of the Athenians. And he will see another star: Priscus, who knows Plato well, and knows that man's pupil equally well, and who sends away those who associate with him wiser than they came—a benefit I myself know I have often gained. The same would have been said of him by that man whose soul the god filled with philosophy and to whom he gave it to rule over the Romans and drive out the barbarians; for he even met his end while driving out the Persians, considering it a great thing if he should seem to Priscus to be doing what was fitting. Make Hilarius, then, a better man, and let him write this back to us; for he is a just man and will not hide the truth.",
+      "quick_summary": "Reflections on Hilarius' trip to Greece and Libanius' old age.",
+      "subject_summary": "Libanius reflects on the departure of Hilarius for Greece. He laments that his own extreme old age (76 years) prevents him from seeing Hilarius again or visiting Greece himself. He highly praises Priscus as a 'star' and a true philosopher, recalling Priscus' friendship with the late Emperor Julian.",
+      "interesting_note": "A vital chronological marker: Libanius states he is 76 years old. It also contains a poignant reference to Emperor Julian's philosophical character and his respect for Priscus.",
+      "topics": "Old Age,Greece,Hilarius,Priscus,Emperor Julian,Philosophy",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 96,
+          "leaf_end": 98,
+          "token": "χρηστὸς"
+        },
+        {
+          "leaf_start": 96,
+          "leaf_end": 98,
+          "token": "Ἱλάριος"
+        },
+        {
+          "leaf_start": 96,
+          "leaf_end": 98,
+          "token": "ἀπέφηνεν"
+        },
+        {
+          "leaf_start": 96,
+          "leaf_end": 98,
+          "token": "ἀμείνω"
+        },
+        {
+          "leaf_start": 96,
+          "leaf_end": 98,
+          "token": "Ἱλάριον"
+        },
+        {
+          "leaf_start": 96,
+          "leaf_end": 98,
+          "token": "βελτίω"
+        }
+      ]
+    },
+    {
+      "number": 948,
+      "recipient_latin": "Antiochus",
+      "recipient_greek": "Ἀντιόχῳ",
+      "year": 390,
+      "leaf_start": 98,
+      "leaf_end": 98,
+      "heading": "ϡμη΄. Ἀντιόχῳ. (390)",
+      "greek": "1. Εἵλκυσται μὲν ὁ τοῦδε πατὴρ πρὸ τοῦδε παρὰ τῶν ἡδέως τοῦτο ποιούντων καὶ ἔστιν, ὡς εἰκός, ἐν δάκρυσιν· ἕλκεται δὲ καὶ ὁ παῖς, ὅπως μὴ μόνος ὁ πατὴρ κλάῃ. σὸν οὖν ἂν εἴη καὶ τῆς σῆς φύσεως τῆς ταχείας εἰς τὸ βοηθεῖν παραμυθήσασθαι μὲν ἐκεῖνον, παραμυθήσασθαι δὲ τοῦτον μὴ λόγῳ μόνον, ἀλλ᾿ ἤδη καὶ ἔργῳ. 2. διδάσκειν δὲ οὐδέν σε δεῖ, τί δεῖ ποιεῖν καὶ πῶς ἂν τὸ μὲν ὅλως ἀνέλοις κακόν, τοῦ δ᾿ ἂν ἀφέλοις. συνέσει τε γὰρ διαφέρων καὶ παιδείας γέμων καὶ διὰ πολλῶν ἀφιγμένος αὐτὸς ἂν παρὰ σαυτοῦ μανθάνοις, ἃ ποιῶν λαμπρῶς ἂν εἴης βεβοηθηκώς. 3. βοήθει δὴ καὶ τέρπε μὲν ταύτῃ τοὺς θεούς, χαρίζου δ᾿ ἐμοί· χαρίζου δὲ Γεσσίῳ τῷ πάνυ μὲν φιλοῦντι τοὺς ἐν τῇ ταραχῇ, παρ᾿ ἐμοῦ δὲ εἰσομένῳ πᾶν ὅ τι ἂν ἐν τῇ βοηθείᾳ γένηται.",
+      "modern_english": "The father of this man was dragged away before him by those who take pleasure in doing so, and he is, naturally, in tears. The son, too, is being dragged away, so that the father might not weep alone. It would be fitting for you and your nature—which is swift to help—to comfort the father and to comfort the son, not with words alone, but now with deeds as well. I need not teach you what must be done, nor how you might either remove the evil entirely or diminish it. For you, excelling in intelligence, full of education, and having experienced much, would learn from yourself what actions would constitute brilliant assistance. Help them, then, and in this way please the gods and grant a favor to me. Grant it also to Gessius, who dearly loves those in distress, and who will hear from me everything that results from your aid.",
+      "quick_summary": "Request for assistance for a father and son in distress.",
+      "subject_summary": "Libanius appeals to Antiochus to help a man and his son who are being 'dragged away' (likely into forced public service or legal trouble). He urges Antiochus to act rather than just offer words, trusting in his intelligence and compassion.",
+      "interesting_note": "Mentions Gessius as one who loves those in 'turmoil' or 'distress' (ταραχῇ).",
+      "topics": "Distress,Advocacy,Antiochus,Gessius,Justice",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 98,
+          "leaf_end": 98,
+          "token": "Εἵλκυσται"
+        },
+        {
+          "leaf_start": 98,
+          "leaf_end": 98,
+          "token": "ποιούντων"
+        },
+        {
+          "leaf_start": 98,
+          "leaf_end": 98,
+          "token": "δάκρυσιν"
+        },
+        {
+          "leaf_start": 98,
+          "leaf_end": 98,
+          "token": "ἕλκεται"
+        },
+        {
+          "leaf_start": 98,
+          "leaf_end": 98,
+          "token": "ταραχῇ"
+        },
+        {
+          "leaf_start": 98,
+          "leaf_end": 98,
+          "token": "εἰσομένῳ"
+        }
+      ]
+    },
+    {
+      "number": 949,
+      "recipient_latin": "Julianus",
+      "recipient_greek": "Ἰουλιανῷ",
+      "year": 390,
+      "leaf_start": 99,
+      "leaf_end": 100,
+      "heading": "ϡμθ΄. Ἰουλιανῷ. (390)",
+      "greek": "1. Καλλίω τὴν πόλιν ἡμῶν ὁ καλὸς Κελσῖνος ποιήσας, ἐπειδὴ ἧκε, χείρω πάλιν ἐποίησε καὶ ἀπελθὼν καὶ ταχέως. ἐποίει δὲ αὐτὴν καλλίω λόγοις οἷς ἐν τοῖς ὡς αὐτὸν ἰοῦσιν ἐχρῆτό τε δικαιοσύνης διαλεγόμενος, οἷα Κελσῖνον εἰκὸς περὶ δικαιοσύνης, καὶ σωφροσύνην ἐγκωμιάζων καὶ τοῖς δειλοῖς ἐπιτιμῶν τὸ μὴ ἀνδρείους εἶναι. 2. ἐπί γε μὴν σοφίαν ἔργῳ παρεκάλει προσθεὶς αὑτοῦ τό τε στόμα τούς τε ὀφθαλμοὺς τοῖς ἡμετέροις λόγοις καὶ δι᾿ ὅτι πλείστων ἐν ἡμέραις ὀλίγαις ἐρχόμενος τῇ περὶ τὴν ἀνάγνωσιν πτήσει, ὥστε τὴν μὲν ἀπεδίδου διφθέραν, τὴν δὲ ἐλάμβανε, καὶ πολλάκις μὲν τοῦτο, πολλάκις δὲ ἐκεῖνο. 3. καὶ ἴσως μὲν ὁ πόνος οὐ περί τι γενναῖον, ἐκίνει δὲ ὅμως τὴν νεότητα τῷ καὶ περὶ τοιαῦτα πονεῖν καὶ ταῦτα μετά τε ἀρχὴν καὶ ζώνας καὶ κήρυκας καὶ τοσούτων ἐθνῶν ἐπιμελείας. ἐπεγείρας δὲ πρὸς ἀρετὴν ἰδιώτας καὶ ὅσα χρῆν ἄρχοντας ἀκοῦσαι διῆλθεν εἰδὼς μὲν οὐ λίαν ὀνήσων, προσήκειν δὲ αὐτῷ καὶ οὕτως εἰπεῖν ἡγούμενος. 4. τιμὴν δέ, ᾗ τετίμηται παρὰ τῆς ἡμετέρας, εἰ σιωπήσαιμι, κακὸς ἂν εἰς αὐτὴν εἴην. κατεβόησαν ὅσοι ταύτην ἔχουσι πάντων θεῶν, ὅτι μὴ μετ᾿ ἀρχῆς ἡμῖν δεῦρο τὸν Κελσῖνον ἤγαγον μηδ᾿ ἔδοσαν ἀφ᾿ ὧν ἂν ἦμεν εὐδαίμονες. 5. ὥρα δή σοι μεγαλαυχεῖσθαι τοιοῦτον ἁρπάσαντι κηδεστήν.",
+      "modern_english": "The noble Celsinus, having made our city more beautiful when he arrived, made it worse again by departing so quickly. He used to make it more beautiful with the speeches he gave to those who visited him, speaking of justice—as is natural for Celsinus to speak of justice—and praising moderation and rebuking the cowardly for their lack of manliness. Furthermore, he encouraged us toward wisdom by his own example, applying his voice and eyes to my writings and going through as many as possible in a few days with a 'flight' of reading; thus he would return one manuscript and take another, over and over again. Perhaps this labor was not over some grand matter, yet it moved the youth to see him toil over such things, even after his high office, his official sashes and heralds, and his care for so many nations. By rousing private citizens to virtue and going through everything that officials ought to hear, he acted while knowing he might not do much good, yet believing it was fitting for him to speak nonetheless. As for the honor with which he has been distinguished by our city—if I were to remain silent, I would be failing her. All those who possess this city among the gods cried out that they had not brought Celsinus here to us with an official command, nor granted the means by which we might have been truly happy. It is high time for you to boast, having snatched such a son-in-law.",
+      "quick_summary": "Praise for Celsinus and congratulations to Julianus.",
+      "subject_summary": "Libanius praises Celsinus for his eloquence, justice, and dedication to reading Libanius' own works. He describes Celsinus' positive influence on the city's youth and congratulates Julianus on having Celsinus as a son-in-law.",
+      "interesting_note": "Describes Celsinus' reading habit as a 'flight' (πτήσει) through manuscripts, showing his intense intellectual engagement.",
+      "topics": "Celsinus,Reading,Justice,Family Relations,Julianus",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 99,
+          "leaf_end": 100,
+          "token": "Καλλίω"
+        },
+        {
+          "leaf_start": 99,
+          "leaf_end": 100,
+          "token": "Κελσῖνος"
+        },
+        {
+          "leaf_start": 99,
+          "leaf_end": 100,
+          "token": "ποιήσας"
+        },
+        {
+          "leaf_start": 99,
+          "leaf_end": 100,
+          "token": "ἐπειδὴ"
+        },
+        {
+          "leaf_start": 99,
+          "leaf_end": 100,
+          "token": "μεγαλαυχεῖσθαι"
+        },
+        {
+          "leaf_start": 99,
+          "leaf_end": 100,
+          "token": "τοιοῦτον"
+        }
+      ]
+    },
+    {
+      "number": 950,
+      "recipient_latin": "Strategius",
+      "recipient_greek": "Στρατηγίῳ",
+      "year": 390,
+      "leaf_start": 100,
+      "leaf_end": 101,
+      "heading": "ϡν΄. Στρατηγίῳ. (390)",
+      "greek": "1. Εἰκὸς μέν τι πέπονθας καὶ τῷ μεγέθει Ῥώμης γοητευθείς καὶ νῦν ἡδόμενος τοῖς τῆς Ἑλλάδος καλοῖς· ἃ γὰρ οὐκ ἰδεῖν ζημία πολλή, ταῦθ' ὁρᾶν κέρδος μέγα. 2. ἀλλ' αὐτοὶ καὶ παρ' αὐτῶν τῶν Ἑλλήνων ἀκηκόαμεν τὴν ἐνεγκοῦσαν τίμιόν τι νομίζειν καὶ μηδὲ θάνατον φεύγειν τὸν ὑπὲρ τῆς πατρίδος. σὲ δὲ ὅπλα μὲν οὐδὲν ἂν δέοι λαβεῖν καὶ συμπεσόντα μάχεσθαι καὶ πάσχειν ὅ τι ἂν ὁ πόλεμος ἐθέλῃ, βουληθῆναι δὲ τοσοῦτον, ἰδεῖν τήν τε σαυτοῦ καὶ τοὺς σεαυτοῦ πολὺν δή τινα χρόνον ἐστερημένους τῶν παρὰ σοῦ. 3. καὶ μήτοι νομίσῃς ὅτι προσθήσω καὶ ἐμαυτόν· πάλαι γὰρ αἰσθάνομαι καταπεφρονημένος. εἰ γὰρ μὴ τοῦτο τοιοῦτον ἦν, κἂν ἐπέστειλας. νῦν δὲ ἡ σιγή με διδάσκει τὸ μηδὲ μικρὸν εἶναι λόγον παρὰ σοὶ περὶ ἡμῶν, καὶ δή μοι δοκεῖς οὐδ' ἐρήσεσθαι τὸν θαυμαστὸν Ἱλάριον, τί δρῶμεν ἢ πάσχομεν. 4. ὁ δὲ καὶ πρὸς οὐ βουλόμενον ἀκούειν ἐρεῖ περὶ ἀμφοῖν ἡδέως μέν, ἡνίκα παρῆν, συνών, ἡδέως δὲ καὶ ἀπὼν ἐν μνήμη τῇ περὶ ἡμῶν διατρίβων.",
+      "modern_english": "You have likely been affected by Rome's grandeur, and now you enjoy the beauties of Greece. It is a great loss not to see them, and a great gain to behold them. But we have heard from the Greeks themselves that one should value one's birthplace and not flee death for one's country. You, however, would have no need to take up arms or fight and suffer whatever war wills; you only need to wish to see your own land and people, from whom you have been separated for so long. Do not think I will include myself in this; I have long felt neglected. If this were not the case, you would have written. Now, your silence teaches me that I count for little with you, and it seems you won't even ask the wonderful Hilarius how we are doing. But he, even to one who does not wish to hear, will speak gladly of us both—having enjoyed our company when he was here, and enjoying our memory while away.",
+      "quick_summary": "Libanius encourages Strategius to return home from his travels in Rome and Greece, while noting his own feeling of being forgotten.",
+      "subject_summary": "Nostalgia for the homeland; Libanius's sense of neglect; update on mutual friends.",
+      "interesting_note": "Hilarius is mentioned as a mutual friend who keeps Libanius's memory alive with Strategius.",
+      "topics": "travel,patriotism,friendship,neglect",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 100,
+          "leaf_end": 101,
+          "token": "πέπονθας"
+        },
+        {
+          "leaf_start": 100,
+          "leaf_end": 101,
+          "token": "μεγέθει"
+        },
+        {
+          "leaf_start": 100,
+          "leaf_end": 101,
+          "token": "ἡδόμενος"
+        },
+        {
+          "leaf_start": 100,
+          "leaf_end": 101,
+          "token": "Ἑλλάδος"
+        },
+        {
+          "leaf_start": 100,
+          "leaf_end": 101,
+          "token": "πάσχομεν"
+        },
+        {
+          "leaf_start": 100,
+          "leaf_end": 101,
+          "token": "βουλόμενον"
+        }
+      ]
+    },
+    {
+      "number": 951,
+      "recipient_latin": "Thalassius",
+      "recipient_greek": "Θαλασσίῳ",
+      "year": 390,
+      "leaf_start": 101,
+      "leaf_end": 101,
+      "heading": "ϡνα΄. Θαλασσίῳ. (390)",
+      "greek": "1. Λέγε Καλλιοπίῳ μὴ κακῶς τὸ ἔαρ λέγειν ὡς ἄγον τῇ Ῥώμῃ τῶν ἡμετέρων νέων διὰ θαλάττης τινάς. οὐ γὰρ ἐγὼ τοῦθ' ὅ φησι ποιῶ τὸ κακὸν οὐδ' ὑβρίζω μὲν τὴν Ἑλλάδα φωνήν, κοσμῶ δὲ τὴν Ἰταλῶν, οὐδ' ἂν εἴποι πατὴρ οὐδεὶς τοιοῦτον αὑτῷ τί με συμβεβουλευκέναι. 2. ἀλλ' ἔστι ταῦτα ἀνοίας ἐλπιζούσης ἃ μάλιστα βούλεται. νοῦς δὲ εἴ σφισιν ἐνῆν, ἐδέχοντ' ἂν τὴν ἀπὸ τῶν πραγμάτων παραινέσιν. ἡ δ' ἐστὶν ἐξετάζειν τοὺς ἀποδοθέντας πολλαῖς πόλεσιν παρ' ἐκείνης τοὺς οὐ πολλῷ τῶν βοσκημάτων διαφέροντας.",
+      "modern_english": "Tell Calliopius not to speak ill of the spring as if it were leading some of our young men to Rome by sea. I am not doing the evil he claims, nor am I insulting the Greek tongue while adorning the Italian; no father could say I advised him to do such a thing. These are the fantasies of a foolish mind that hopes for what it most desires. If they had any sense, they would accept the advice of facts. This advice consists in examining those who have been returned to many cities by Rome—those who differ little from cattle.",
+      "quick_summary": "Libanius defends himself against charges of encouraging students to study Latin/Law in Rome instead of Greek rhetoric.",
+      "subject_summary": "Defense of Greek education; critique of Roman influence; advice to Calliopius.",
+      "interesting_note": "Libanius uses a sharp metaphor, comparing those returned from Rome to cattle, to highlight the loss of culture.",
+      "topics": "education,Rome vs Greece,Latin language,rhetoric",
+      "ocr_confidence": 0.97,
+      "source_checks": [
+        {
+          "leaf_start": 101,
+          "leaf_end": 101,
+          "token": "Καλλιοπίῳ"
+        },
+        {
+          "leaf_start": 101,
+          "leaf_end": 101,
+          "token": "λέγειν"
+        },
+        {
+          "leaf_start": 101,
+          "leaf_end": 101,
+          "token": "ἡμετέρων"
+        },
+        {
+          "leaf_start": 101,
+          "leaf_end": 101,
+          "token": "θαλάττης"
+        },
+        {
+          "leaf_start": 101,
+          "leaf_end": 101,
+          "token": "πολλαῖς"
+        },
+        {
+          "leaf_start": 101,
+          "leaf_end": 101,
+          "token": "πόλεσιν"
+        }
+      ]
+    },
+    {
+      "number": 952,
+      "recipient_latin": "Proclus",
+      "recipient_greek": "Πρόκλῳ",
+      "year": 390,
+      "leaf_start": 101,
+      "leaf_end": 102,
+      "heading": "ϡνβ΄. Πρόκλῳ. (390)",
+      "greek": "1. Δομνῖνος ὁ Λαρισσαῖος ἀνὴρ ἀγαθὸς γενόμενος ἔν τε δίκαις καὶ ἀρχῇ πρὸ λειτουργίας τῆς παρ' ὑμῖν ἀπῆλθε τὸν παῖδα τοῦτον ἡμῖν παραδούς, ὅπως δύναιτο λέγειν. 2. ἔδει μὲν οὖν ζῶντα ἐκεῖνον ἢ λειτουργεῖν ἢ πείθειν ὑμᾶς ὡς οὐκ ἂν δύναιτο χρημάτων οὐκ ὄντων αὐτῷ· τετελευτηκότος δὲ Δομνίνου, τοῦ παιδὸς δὲ εἰς ἃ μὴ ἐκεῖνος ἑλκομένου, σαφὲς γὰρ δὴ τοῦτό γε, δεόμεθα πάντες οἱ Δομνίνου φίλοι δέξασθαι τὴν μεγάλην βουλὴν παρὰ τῆς σῆς διανοίας τῆς καὶ αὐτῆς μεγάλης λόγους τινὰς τῷ νέῳ βοηθοῦντας. πρέποι γὰρ ἂν τά γε τοιαῦτα σοὶ μὲν πείθειν, ἐκείνῃ δὲ πείθεσθαι.",
+      "modern_english": "Domninus of Larissa, a good man in law and office, died before performing his liturgy among you, leaving this son to us so he might learn to speak. While alive, he should have either performed the liturgy or convinced you he couldn't due to lack of funds. Now that Domninus is dead and the boy is being dragged into what his father wasn't—for this is clear—all of Domninus's friends beg your great mind to provide some words to help the youth. For it would be fitting for you to persuade, and for the council to be persuaded.",
+      "quick_summary": "Libanius petitions Proclus to help the son of the deceased Domninus avoid a burdensome municipal liturgy.",
+      "subject_summary": "Intercession for an orphan; municipal liturgies; local administration.",
+      "interesting_note": "This letter highlights the financial and social pressure of liturgies on local elites.",
+      "topics": "liturgies,orphans,intercession,Larissa",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 101,
+          "leaf_end": 102,
+          "token": "Δομνῖνος"
+        },
+        {
+          "leaf_start": 101,
+          "leaf_end": 102,
+          "token": "ἀγαθὸς"
+        },
+        {
+          "leaf_start": 101,
+          "leaf_end": 102,
+          "token": "γενόμενος"
+        },
+        {
+          "leaf_start": 101,
+          "leaf_end": 102,
+          "token": "δίκαις"
+        },
+        {
+          "leaf_start": 101,
+          "leaf_end": 102,
+          "token": "τοιαῦτα"
+        },
+        {
+          "leaf_start": 101,
+          "leaf_end": 102,
+          "token": "πείθειν"
+        }
+      ]
+    },
+    {
+      "number": 953,
+      "recipient_latin": "Eusebius",
+      "recipient_greek": "Εὐσεβίῳ",
+      "year": 390,
+      "leaf_start": 102,
+      "leaf_end": 102,
+      "heading": "ϡνγ΄. Εὐσεβίῳ. (390)",
+      "greek": "1. Ἡμεῖς ἐν τῷ δακρύειν ἔτι τὸν φίλον ἡμῶν Ὀλύμπιον. ἔδει δέ με κἂν τούτοις ὄντα μὴ περιιδεῖν ἀπολλύμενον νέον καὶ φίλου παῖδα καὶ ὁμιλητὴν ἐμόν. 2. τοῦτον μὲν οὖν νῦν πρῶτον ὄψει· Δομνῖνον δὲ τὸν πατέρα αὐτοῦ πολλάκις, ἐμοὶ δοκεῖν, <εἶδες> καὶ οὐκ εἶδές γε μόνον, ἀλλὰ καὶ ἐπήνεσας ὄντα ἄριστον, ὃ σὺ πανταχοῦ ποιεῖς. 2. τῷ τοίνυν ἐκείνου παιδὶ καλὸν σὲ γενέσθαι βοηθὸν εἰπόντα τι τοιοῦτον πρὸς τὸν γενναῖον Πρόκλον, ὃ κωλύσει τῷδε διαφθαρῆναι τὸν οἶκον.",
+      "modern_english": "We are still mourning our friend Olympius. Yet even in this state, I could not ignore the ruin of a young man who was my friend's son and my own student. You will see him now for the first time; but Domninus, his father, you have often seen, I believe, and not only seen but praised as excellent—which you do everywhere. Be a good helper to his son by saying something to the noble Proclus to prevent the ruin of this house.",
+      "quick_summary": "Libanius asks Eusebius to intercede with Proclus on behalf of Domninus's son, continuing the matter from Letter 952.",
+      "subject_summary": "Intercession; mourning for Olympius; patronage.",
+      "interesting_note": "Libanius balances his own grief for Olympius with his duty to protect his student, the son of Domninus.",
+      "topics": "patronage,mourning,intercession,education",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 102,
+          "leaf_end": 102,
+          "token": "δακρύειν"
+        },
+        {
+          "leaf_start": 102,
+          "leaf_end": 102,
+          "token": "Ὀλύμπιον"
+        },
+        {
+          "leaf_start": 102,
+          "leaf_end": 102,
+          "token": "τούτοις"
+        },
+        {
+          "leaf_start": 102,
+          "leaf_end": 102,
+          "token": "περιιδεῖν"
+        },
+        {
+          "leaf_start": 102,
+          "leaf_end": 102,
+          "token": "γενναῖον"
+        },
+        {
+          "leaf_start": 102,
+          "leaf_end": 102,
+          "token": "Πρόκλον"
+        }
+      ]
+    },
+    {
+      "number": 954,
+      "recipient_latin": "Archelaus",
+      "recipient_greek": "Ἀρχελάῳ",
+      "year": 390,
+      "leaf_start": 102,
+      "leaf_end": 103,
+      "heading": "ϡνδ΄. Ἀρχελάῳ. (390)",
+      "greek": "1. Ἐν τοῖς περὶ σοῦ λόγοις διατριβόντων ἡμῶν, οἳ δὲ ἦσαν ἔπαινοι τῶν σῶν τρόπων, ἐπεισέρχεται γράμματα σὰ πεμφθέντα μὲν πρὸς Ἡράκλειον τὸν ἰατρόν, μνήμη δέ τινι καὶ ἐμὲ τιμῶντα. 2. τοῦ τοίνυν Ἡρακλείου τὴν ἐπιστολὴν ἀναγνόντος ἔχαιρον μὲν αὐτός, συνέχαιρον δὲ ἡμῖν οἱ φίλοι τοιοῦτον κεκτημένοι σύμμαχον, ὃς μισῶν τε μέγιστα ἂν λυπήσαι καὶ φιλῶν μάλιστα ἂν ὀνήσαι· ἐπεὶ καὶ νῦν μοι δοκεῖς πολλοὺς εἰς τὸ λέγειν τι καλὸν περὶ ἡμῶν ἄγειν οὐ πάνυ τοῦτο πρόσθεν ποιοῦντας. 3. ἐκεῖ μὲν οὖν ὄντα σε τοῦτο ποιεῖν βούλομαι· βούλομαι δέ σε καὶ τῶν παρ' ἡμῖν ἐπιθυμῆσαι πάλιν, ὅπως ἡμᾶς εὐφραίνων οἷς ποιεῖς εὐφραίνοις καὶ ὁρώμενος. εἰ δὲ δὴ καὶ τὸ μετ' ἀρχῆς προσγένοιτο δόντος τοῦ Διός, μεῖζον ἡμῖν τοῦτ' ἀγαθὸν ἢ Ῥοδίοις ὁ καταβὰς ἐν ὑετοῖς ἐξ οὐρανοῦ χρυσός.",
+      "modern_english": "While we were discussing you and praising your character, a letter arrived from you to Heraclius the physician, which also honored me with a mention. When Heraclius read the letter, I was glad, and our friends congratulated us on having such an ally—one whose hatred would cause great pain and whose friendship would bring great benefit. Even now, you seem to lead many to speak well of us who didn't do so before. I want you to do this while you are there; but I also want you to desire our company again, so that you may gladden us by your actions and your presence. If, by Zeus's gift, an office should be added, it would be a greater boon for us than the gold that fell from heaven in rain for the Rhodians.",
+      "quick_summary": "Libanius thanks Archelaus for a mention in a letter to Heraclius and expresses hope for Archelaus's continued success and eventual return.",
+      "subject_summary": "Praise of character; mutual friends; political ambition.",
+      "interesting_note": "The reference to the 'gold that fell for the Rhodians' is a mythological allusion to the birth of Athena.",
+      "topics": "friendship,allusions,physicians,political office",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 102,
+          "leaf_end": 103,
+          "token": "λόγοις"
+        },
+        {
+          "leaf_start": 102,
+          "leaf_end": 103,
+          "token": "διατριβόντων"
+        },
+        {
+          "leaf_start": 102,
+          "leaf_end": 103,
+          "token": "ἔπαινοι"
+        },
+        {
+          "leaf_start": 102,
+          "leaf_end": 103,
+          "token": "τρόπων"
+        },
+        {
+          "leaf_start": 102,
+          "leaf_end": 103,
+          "token": "καταβὰς"
+        },
+        {
+          "leaf_start": 102,
+          "leaf_end": 103,
+          "token": "ὑετοῖς"
+        }
+      ]
+    },
+    {
+      "number": 955,
+      "recipient_latin": "Panegyrios",
+      "recipient_greek": "Πανηγυρίῳ",
+      "year": 390,
+      "leaf_start": 103,
+      "leaf_end": 104,
+      "heading": "ϡνε΄. Πανηγυρίῳ. (390)",
+      "greek": "1. Εὐδαίμων εἶναί μοι δοκεῖ Βοηθὸς οὑτοσὶ μεγάλην εἶναι ποιῶν τὴν τῶν Ἑλλήνων φωνὴν καὶ ταῦτα ἐν καιρῷ τῷ τὴν ἑτέραν ἀνθεῖν πεποιηκότι. 2. τίνι δὴ τρόπῳ μεγάλην ἐκείνην καθίστησι; πολλοὺς ὑπερβὰς τῶν δύναμιν ἐχόντων γράμματα σοὶ παρ' ἡμῶν ἐνεγκεῖν ἔφησεν ἐπιθυμεῖν· τὴν γὰρ οὖσαν αὑτῷ πρὸς σὲ φιλίαν οὕτως ἔσεσθαι μείζω. ὅστις δὲ ἐρᾷ τοῦ φιλεῖσθαι παρ' ἀνδρὸς σοφιστοῦ, λόγων οὗτος ἐρᾷ· ὅστις δὲ ἐρᾷ λόγων, σεμνύνει δήπου τοῦτο, περὶ ὃ τοῦτο πέπονθε, καὶ δὴ καὶ ἥδιστ' ἂν αὐτοῦ πάντας ἀνθρώπους ἐποίησεν ἐραστάς. 3. τὸν οὖν αὔξοντα τοὺς λόγου ἡμῖν πῶς οὐκ εὐεργέτην τε νομιστέον καὶ πᾶν ὅ τι ἂν κελεύῃ ποιητέον; ἐγὼ μὲν οὖν, γράψαι γὰρ ἐκέλευεν, ἔγραψα ποιήσας ἄν τι καὶ τῶν κίνδυνον ἐχόντων, εἴ τι τοιοῦτον ἐκέλευε· δεῖ δὲ καὶ σὲ τὴν αὐτὴν ἔχειν γνώμην καὶ πᾶν ἡδὺ νομίζειν ὅτῳ τὸν ἐραστὴν εὐφρανεῖς. 4. ταυτὶ δὲ σὺ μὲν ὁ πράξας οὐ γράψεις ὤν, οἷος εἶ, τὸν τρόπον· ὁ δὲ τιμηθεὶς οὐ σιγήσεται τιμῶν τὸ δίκαιον πανταχοῦ.",
+      "modern_english": "This man Boethus seems happy to me, making the Greek tongue great even at a time when the other is flourishing. In what way does he make it great? Passing over many powerful men, he said he desired to bring letters from us to you, so that his friendship with you might increase. He who loves being loved by a sophist loves words; and he who loves words surely honors the subject of his love, and would most gladly make all men its lovers. How then should we not consider the man who promotes our words a benefactor, and do whatever he asks? I have written as he requested, and would have done even something dangerous if he had asked. You too must have the same mind and find pleasure in whatever gladdens your lover. You, being who you are, will not write about what you have done; but the one honored will not be silent, honoring justice everywhere.",
+      "quick_summary": "Libanius recommends Boethus to Panegyrius, praising Boethus's devotion to Greek culture and his desire to carry Libanius's letters.",
+      "subject_summary": "Recommendation; prestige of rhetoric; Greek vs Latin.",
+      "interesting_note": "Libanius frames the delivery of a letter as an act of cultural devotion, reinforcing the value of his own status as a sophist.",
+      "topics": "recommendation,rhetoric,Greek culture,friendship",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 103,
+          "leaf_end": 104,
+          "token": "Εὐδαίμων"
+        },
+        {
+          "leaf_start": 103,
+          "leaf_end": 104,
+          "token": "Βοηθὸς"
+        },
+        {
+          "leaf_start": 103,
+          "leaf_end": 104,
+          "token": "οὑτοσὶ"
+        },
+        {
+          "leaf_start": 103,
+          "leaf_end": 104,
+          "token": "μεγάλην"
+        },
+        {
+          "leaf_start": 103,
+          "leaf_end": 104,
+          "token": "τιμηθεὶς"
+        },
+        {
+          "leaf_start": 103,
+          "leaf_end": 104,
+          "token": "σιγήσεται"
+        }
+      ]
+    },
+    {
+      "number": 956,
+      "recipient_latin": "Priscion",
+      "recipient_greek": "Πρισκίωνι",
+      "year": 390,
+      "leaf_start": 104,
+      "leaf_end": 104,
+      "heading": "ϡνς΄. Πρισκίωνι. (390)",
+      "greek": "1. Ἀκούσας ἐπιδεδωκέναι σοι τὰ περὶ τὸν θρόνον ἥσθην τοῖς τε ἤδη δεδομένοις τοῖς τε προσδοκωμένοις· εἰκὸς γὰρ ἔσεσθαί τι καὶ τῶν παρόντων λαμπρότερον χρόνου τε καὶ πόνου ταῦτα ἐχόντων ποιεῖν. 2. ἀγγείλαντος δέ τινος οὐκ ἐν εἰρήνῃ διάγειν σέ τε καὶ ὃν ἐπήνεις παρ' ἡμῖν Πανηγύριον τὸν σοφιστὴν ἠχθέσθην ἐνθυμούμενος ὡς ἀνάγκη πολεμοῦντας καὶ τόξων ἅπτεσθαι καὶ βελῶν, οἷα δὴ βέλη τὰ σοφιστῶν. 3. ἐκόμιζε δὲ οὐ ταῦτα ἡμῖν ὁ λόγος ἐκεῖνος, ἐν ᾧ σε καλῶς ἔλεγον βεβουλεῦσθαι τῷ παιδεύειν νέους δεδωκότα σεαυτόν. εἴτ' οὖν ἀδικεῖς αὐτός, οὐ πάνυ μου μέμνησαι, εἴτε ἀμύνῃ, καὶ οὕτως ἐπιλέλησαί μου. 4. παύσατε δὴ τὴν νῦν ταραχήν, καὶ γενέσθω τὸ μὴ πολεμεῖν τοῦ πολεμεῖν ἥδιον. Νικίας δὲ ὑμῖν ὁ γενναῖος ἔσται Βοηθός.",
+      "modern_english": "Hearing that your position on the throne has advanced, I was pleased with what has been given and what is expected; for it is likely that something even more brilliant than the present will come with time and labor. But when someone reported that you and the sophist Panegyrius, whom you used to praise, are not at peace, I was grieved, considering that those at war must handle bows and arrows—the kind of arrows sophists use. That report did not bring us the words in which they said you had decided well by giving yourself to the education of the young. Whether you are in the wrong and have forgotten me, or are defending yourself and have thus forgotten me, stop this current trouble. Let not-fighting be sweeter than fighting. The noble Nicias will be your Helper.",
+      "quick_summary": "Libanius congratulates Priscion on his promotion but urges him to reconcile with the sophist Panegyrius.",
+      "subject_summary": "Promotion; sophist rivalries; mediation; Nicias.",
+      "interesting_note": "Libanius uses the metaphor of 'bows and arrows' to describe the verbal and written attacks common in sophistic rivalries.",
+      "topics": "promotion,rivalry,rhetoric,mediation",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 104,
+          "leaf_end": 104,
+          "token": "Ἀκούσας"
+        },
+        {
+          "leaf_start": 104,
+          "leaf_end": 104,
+          "token": "ἐπιδεδωκέναι"
+        },
+        {
+          "leaf_start": 104,
+          "leaf_end": 104,
+          "token": "θρόνον"
+        },
+        {
+          "leaf_start": 104,
+          "leaf_end": 104,
+          "token": "δεδομένοις"
+        },
+        {
+          "leaf_start": 104,
+          "leaf_end": 104,
+          "token": "πολεμεῖν"
+        },
+        {
+          "leaf_start": 104,
+          "leaf_end": 104,
+          "token": "Νικίας"
+        }
+      ]
+    },
+    {
+      "number": 957,
+      "recipient_latin": "Sapores",
+      "recipient_greek": "Σαπώρῃ",
+      "year": 390,
+      "leaf_start": 105,
+      "leaf_end": 106,
+      "heading": "ϡνζ΄. Σαπώρῃ. (390)",
+      "greek": "1. Αἱ τοῦ θειοτάτου βασιλέως πρὸς σὲ καταλλαγαὶ σοὶ μὲν ἀποδεδώκασι τὴν οὐσίαν, ἅπαντας δὲ ἀνθρώπους εὔφραναν οὐχ ἧττον ἢ τὸν ἀπειληφότα τὴν οὐσίαν. ἀμοιβαὶ δὲ αὗταί σοι τῆς χρηστότητος, ᾗ χρώμενος ἐν τηλικαύτῃ δυνάμει πατὴρ ἐκλήθης πολλάκις δείξας ὡς ἔστι καὶ στρατιωτῶν ἡγούμενον μὴ χαλεπὸν εἶναι. 2. ταυτὶ δὲ τὰ παρὰ τοῦ βασιλέως πέπρακται μὲν νῦν, ἑώρατο δέ μοι πάλαι, καὶ πρὸς τοὺς ἑταίρους προὔλεγον ὡς ἃ γέγονε γενήσεται. μάντιν δὲ ἐποίει με τοῦ βασιλέως ὁ τρόπος ὁ βραδὺς μὲν εἰς δίκην, ταχὺς δὲ εἰς χάριν καὶ μέμψεις φιλανθρωπίᾳ λύων καὶ λύπας ἰώμενος. 3. ὃ δὲ ἐγκαλεῖς, τὸ μηδὲ λόγον ὑπὲρ τῶν τοιούτων ἐλθεῖν αὐτῷ παρ' ἡμῶν ἢ, εἰ μὴ λόγον, ἐπιστολήν, μεῖζον ἦν ἢ κατὰ τὰ δοθέντα μοι παρ' αὐτοῦ, καὶ τὸ δόξαι θρασὺς εἶναι δεδιὼς ἐκωλυόμην ἢ τοῦτο ποιεῖν ἢ 'κεῖνο. τουτὶ δὲ κἀπὶ τῶν ἐμαυτοῦ πραγμάτων ἐφυλαξάμην· πρὸς ἃ καὶ αὐτὰ κατηγοροῦντά μου ταὐτὸν ἂν ἀπεκρινάμην. 4. καὶ μὴν τό γε σοὶ πέμψαι παραμυθίαν ἐν γράμμασιν εἶχεν ἂν τὸν ἐπιτιμῶντα· καὶ πλέον δ' ἂν οἱ κακοήθεις ἐποίουν. ὑφ' ὧν ἐγὼ πολλὰ πολλαχοῦ παθὼν οἶδα ὅσον ἐστὶ κακὸν ἄνθρωπος κακοήθης καὶ ὡς ἀπὸ συλλαβῆς ὅ γε τοιοῦτος ῥᾳδίως ἀνάψειεν ἂν πυράν. 5. ἀμφοτέρων οὖν κηδόμενος, καὶ σοῦ καὶ ἐμοῦ, κάλλιον ἡγησάμην τὴν σιγὴν ὑπούσης τινὸς καὶ τοιαύτης ἐλπίδος σεαυτοῦ διαλέξεσθαι καὶ τῆς λύπης ἀφαιρήσειν τοῖς παρὰ τῆς σῆς φρονήσεως φαρμάκοις, δι' ἣν τὰς ἐν τοῖς ὅπλοις νίκας ἀναιρούμενος προσετίθεις ἕτερον ἀγαθὸν οὐκ ἔλαττον, τὴν πρὸς τὸ σεσωσμένον πραότητα. 6. οἶμαι μὲν οὖν σοι ταῦτα ἀρκέσειν· εἰ δ' ἡδέως ἂν καὶ μακροτέρων ἀκούσαις, πρὸς ἥκοντά σε τοῦτο ἔσται.",
+      "modern_english": "The reconciliation of the most divine Emperor with you has restored your property and gladdened everyone no less than the man who received it back. These are the rewards for your kindness: even while holding such great power, you were often called 'father,' proving that a commander of soldiers can be anything but harsh. These imperial actions have happened now, but I saw them long ago, and I told my companions that what has happened would happen. The Emperor's character made me a prophet—slow to judge, but swift to grant favor, dissolving blame with benevolence and healing griefs. As for your complaint that no word or letter came from us on your behalf, it was more than I could do given what I received from him, and fearing to seem bold, I was prevented from doing either. I was equally cautious in my own affairs; I would have answered the same to those accusing me. Moreover, sending you a letter of consolation would have invited criticism; and the malicious would have done more. Having suffered much from them in many places, I know how evil a malicious man is, and how such a person can easily light a fire from a single syllable. Caring for both of us, I thought silence better while there was hope that you would talk to yourself and take away your grief with the medicines of your own wisdom—through which, while winning victories in arms, you added another good no less great: gentleness toward the saved. I think this will suffice; but if you would gladly hear more, that will be for when you arrive.",
+      "quick_summary": "Libanius explains his silence during Sapor's period of disgrace and congratulates him on his restoration to favor and property.",
+      "subject_summary": "Imperial favor; restoration of property; defense of silence; character of the Emperor.",
+      "interesting_note": "Libanius describes the Emperor (Theodosius) as 'slow to judge but swift to grant favor,' a clever rhetorical strategy to excuse delayed justice.",
+      "topics": "disgrace,restoration,imperial court,malice",
+      "ocr_confidence": 0.97,
+      "source_checks": [
+        {
+          "leaf_start": 105,
+          "leaf_end": 106,
+          "token": "θειοτάτου"
+        },
+        {
+          "leaf_start": 105,
+          "leaf_end": 106,
+          "token": "βασιλέως"
+        },
+        {
+          "leaf_start": 105,
+          "leaf_end": 106,
+          "token": "καταλλαγαὶ"
+        },
+        {
+          "leaf_start": 105,
+          "leaf_end": 106,
+          "token": "ἀποδεδώκασι"
+        },
+        {
+          "leaf_start": 105,
+          "leaf_end": 106,
+          "token": "ἀρκέσειν"
+        },
+        {
+          "leaf_start": 105,
+          "leaf_end": 106,
+          "token": "μακροτέρων"
+        }
+      ]
+    },
+    {
+      "number": 958,
+      "recipient_latin": "Eusebius",
+      "recipient_greek": "Εὐσεβίῳ",
+      "year": 390,
+      "leaf_start": 106,
+      "leaf_end": 107,
+      "heading": "ϡνη΄. Εὐσεβίῳ. (390)",
+      "greek": "1. Καλῶς Ὀλύμπιον μὲν ἐθρήνησας, ἐμὲ δὲ ἐπήνεσας· παντὸς γὰρ λόγου μακροῦ μεῖζον εἰς ἐγκώμιον τὸ δεῖσαι μὴ παράφρων τῇ λύπῃ γενοίμην. 2. ἔδει μέντοι σε τὸν τοῦτον μὲν ἔχοντα τὸν φόβον, φόβον δὲ ἐμὸν μέγαν ἔργῳ μεγάλῳ λελυκότα μὴ καὶ λύπης αἴτιον εἶναί τινος· ἣν ἤνεγκέ μοι τὸ μὴ δυνηθῆναι βοηθῆσαι γυναικὶ δυστυχεῖ. 3. καίτοι λέλυται μὲν ἡ δίκη τῇ βασιλέως χειρί, παρ' ἡμῖν δ' ἂν εἰκότως ὄντα τὰ γράμματα οὐκ ἔστιν. ὁ δὲ κεκωλυκὼς ὁ φίλος ἡμῖν Εὐσέβιος λαβών τε καὶ κατέχων καὶ περὶ ἑτέρων μὲν ἐπιστέλλων, τοῦτο δὲ παραλείπων. 4. δίκη ταῦτα, ὡς ἔοικε, καὶ λόγων καὶ ἔργων τῶν ὑπὲρ Θεοφίλου μοι κατὰ σοῦ γεγενημένων. ἀκήκοα γάρ την τι καὶ τοιοῦτον, ἐμήνυε δὲ αὐτὸς ὁ συκοφάντης. ἐγὼ δὲ οὐκ εἴ τις ἔπλασέ τι τοιοῦτο, θαυμάζω, ἀλλ' ὅτι μὴ λίθους ἐπὶ τὸν εἰπόντα ἥρπασας.",
+      "modern_english": "You mourned Olympius well and praised me; it is a greater tribute than any long speech to fear I might lose my mind from grief. Yet you, who had this fear and relieved my great dread with a great deed, should not also be the cause of some grief—which was brought to me by the inability to help an unfortunate woman. The case has been settled by the Emperor's hand, but the documents, which should rightly be with us, are not. Our friend Eusebius is the one who prevented it, taking and holding them, and while he writes about other things, he omits this. This is justice, it seems, for the words and deeds I performed against you for Theophilus. I have heard something of the sort, and the slanderer himself revealed it. I do not wonder if someone fabricated such a thing, but that you did not seize stones against the one who said it.",
+      "quick_summary": "Libanius thanks Eusebius for his concern over his grief but complains that another Eusebius is withholding important legal documents.",
+      "subject_summary": "Mourning; legal documents; Theophilus; slander.",
+      "interesting_note": "Libanius admits to past opposition to the recipient ('words and deeds against you for Theophilus') but presents the current issue as an unfair retaliation by a third party.",
+      "topics": "mourning,legal dispute,retaliation,Theophilus",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 106,
+          "leaf_end": 107,
+          "token": "Ὀλύμπιον"
+        },
+        {
+          "leaf_start": 106,
+          "leaf_end": 107,
+          "token": "ἐθρήνησας"
+        },
+        {
+          "leaf_start": 106,
+          "leaf_end": 107,
+          "token": "ἐπήνεσας"
+        },
+        {
+          "leaf_start": 106,
+          "leaf_end": 107,
+          "token": "μεῖζον"
+        },
+        {
+          "leaf_start": 106,
+          "leaf_end": 107,
+          "token": "τοιοῦτο"
+        },
+        {
+          "leaf_start": 106,
+          "leaf_end": 107,
+          "token": "λίθους"
+        }
+      ]
+    },
+    {
+      "number": 959,
+      "recipient_latin": "Tatianus",
+      "recipient_greek": "Τατιανῷ",
+      "year": 390,
+      "leaf_start": 107,
+      "leaf_end": 108,
+      "heading": "ϡνθ΄. Τατιανῷ. (390)",
+      "greek": "1. Ὑπὲρ ὧν νυνὶ γράφω, πάλαι μὲν ἴσως ἐχρῆν, ὄκνος δέ τις διεκώλυε· τοῦ πράγματος δὲ κατεπείγοντος οὐκέτ' ἔξεστιν, εἰ καὶ λίαν ἐθέλοιμι, μὴ λέγειν. καὶ γὰρ ἂν καὶ χαλεπήναις ὕστερον ἀκούσας, ὅτι μὴ πρότερον ἤκουσας. 2. τί οὖν αἰτῶ καὶ τί βούλομαι λαβεῖν παρ' ἀνδρὸς ἡδομένου τῷ καλὰς διδόναι χάριτας; παῖς ἐκ γυναικὸς ἀγαθῆς ἐγένετό μοι καὶ τοιαύτης ὡς τὸν ἐκείνης τρόπον μικρὸν ποιῆσαί με νομίσαι πλούτους μεγάλους πατέρων θυγατέρας ἐχόντων. 3. γενόμενον δὲ τὸν παῖδα ῥήτορα γενέσθαι βουλόμενος, ἐπειδὴ τὸ δύνασθαι λέγειν εἶχεν, εἰς τοὺς συνδίκους ἐνέγραψα, καὶ χρυσὸν μὲν οὐ συνέλεξε πολύν, ἡ γλῶττα δὲ αὐτῷ πολλοὺς ἐπαίνους ἠνέγκατο καὶ τῶν πρὸς αὐτὸν μεμαχημένων αὐτὸ τοῦτο ποιούντων. 4. γνοὺς δ' ἅπαν τὸ πρᾶγμα τοῦτο ὁ παρὰ τοῦ Διὸς αὐτοῦ τὴν βασιλείαν λαβὼν βοηθεῖ βοήθειαν ἡμῖν πρέπουσαν τῇ αὑτοῦ φύσει. καὶ κρείττων τῶν κωλυόντων γενόμενος ἔδωκεν εἰς αὐτὸν διαβῆναι τὰ ὄντα μοι τὰ μικρά, καὶ διέβη. 5. ἀντὶ μὲν οὖν ταύτης τῆς τιμῆς ἀεὶ τῆς βελτίονος τύχης ἀπολαύοι βασιλεύς· τῶν φίλων δὲ ἡμῖν τῶν μὲν αὐτὸν ἐπὶ τὴν βουλὴν ἀγόντων, τῶν δὲ ἐν ᾧπερ ἦν τηρούντων, καὶ δοκούντων ἄμεινον φρονεῖν τῶν δευτέρων εἴχετο μὲν τοῦ λέγειν, δείσας δὲ τά τε πλοῖα καὶ τὸν σῖτον καὶ τὴν θάλατταν τάς τε ἐν τῷ βουλεύειν πληγάς, ὃ μηδ' ὑπὲρ λόγων ἐπεπόνθει πώποτε, μίαν εὑρίσκει καταφυγὴν ζώνην τε καὶ τὸ ἄρξαι. 6. καὶ δακρύων ἅμα δεῖταί μου θαρρῆσαι πέμψαι πρὸς σὲ τὴν τοῦτο ποιήσουσαν ἐπιστολήν· πάντως δὲ αὐτὸν ἀγαπήσειν ἅπαν τὸ διδόμενον, ἅπαν γὰρ ἕξειν τὴν αὐτὴν ἀσφάλειαν, ὥσπερ αὖ καὶ χρόνον ἅπαντα, κἂν μὴν οὗτος ᾖ. ταυτὶ γὰρ ἔστιν ὁρᾶν ἐν πολλοῖς παραδείγμασι. 7. λῦσον δὴ τὸν φόβον, ὦ γενναῖε, καὶ τῷ νέῳ καὶ τῷ γέροντι. καὶ γὰρ εἰ τεθνεῶτος ἤδη μου ταῦτα συμβήσεται τὰ δεινά, λόγου ἀνδρῶν σοφῶν εἶναι καὶ ὑπὸ γῆς τό τε χαίρειν καὶ τὸ λυπεῖσθαι.",
+      "modern_english": "I should have written long ago about what I am writing now, but some hesitation prevented me; now that the matter is urgent, I can no longer remain silent, even if I wished to. For you would be angry later hearing it, that you did not hear it before. What then do I ask and what do I wish to receive from a man who delights in granting fine favors? I had a son by a good woman, and such a woman that her character made me think little of the great wealth of those who have daughters of wealthy fathers. Wishing the boy to become a rhetor, since he had the ability to speak, I enrolled him among the advocates; he did not collect much gold, but his tongue brought him much praise even from those who fought against him. The one who received the kingship from Zeus himself, knowing the whole matter, helps with a help fitting his nature. Being stronger than those who would prevent it, he allowed my small possessions to pass to him, and they did. Instead of this honor, may the Emperor always enjoy better fortune. Some of our friends were leading him to the council, while others were keeping him where he was; and he, thinking the latter wiser, held back from speaking, fearing the ships and the grain and the sea and the blows in the council, which he had never suffered even for the sake of words. He found one refuge: the belt and the office. With tears he begs me to take heart and send you the letter that will do this; he will certainly be content with whatever is given, for he will have the same security always, even if it is this. This can be seen in many examples. Dissolve his fear, noble friend, both for the young man and the old. For even if these terrors happen after I am dead, the word of wise men is that joy and grief exist even under the earth.",
+      "quick_summary": "Libanius petitions Tatianus to grant his son Cimon an official post to protect him from the burdens and physical dangers of the municipal council.",
+      "subject_summary": "Cimon; inheritance; municipal council avoidance; imperial petition.",
+      "interesting_note": "Cimon, Libanius's illegitimate son, was eventually legitimized by imperial decree (Theodosius). Libanius here seeks an official rank ('belt') to permanently exempt him from the curia.",
+      "topics": "inheritance,illegitimacy,curia,imperial favor,Cimon",
+      "ocr_confidence": 0.98,
+      "source_checks": [
+        {
+          "leaf_start": 107,
+          "leaf_end": 108,
+          "token": "διεκώλυε"
+        },
+        {
+          "leaf_start": 107,
+          "leaf_end": 108,
+          "token": "πράγματος"
+        },
+        {
+          "leaf_start": 107,
+          "leaf_end": 108,
+          "token": "κατεπείγοντος"
+        },
+        {
+          "leaf_start": 107,
+          "leaf_end": 108,
+          "token": "ἔξεστιν"
+        },
+        {
+          "leaf_start": 107,
+          "leaf_end": 108,
+          "token": "συμβήσεται"
+        },
+        {
+          "leaf_start": 107,
+          "leaf_end": 108,
+          "token": "ἀνδρῶν"
+        }
+      ]
+    }
+  ]
+}

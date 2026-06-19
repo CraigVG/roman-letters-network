@@ -1,4 +1,5 @@
 import type { LetterFull, CollectionInfo } from '@/lib/letters';
+import { getLetterHref } from '@/lib/letters';
 import { getTextProvenance } from '@/lib/provenance';
 
 interface TextProvenanceProps {
@@ -8,7 +9,7 @@ interface TextProvenanceProps {
 
 export function TextProvenance({ letter, collection }: TextProvenanceProps) {
   const provenance = getTextProvenance(letter, collection);
-  const letterPath = `/letters/${letter.collection}/${letter.letter_number}/`;
+  const letterPath = getLetterHref(letter);
 
   const rows = [
     ['Translation', provenance.translationLabel],

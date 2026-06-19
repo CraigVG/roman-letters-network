@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import type { SelectedNode } from '@/components/viz/NetworkGraphLoader';
+import { formatYearRange } from '@/lib/date-format';
 
 const NetworkGraphV2 = dynamic(() => import('@/components/viz/NetworkGraphV2'), {
   ssr: false,
@@ -108,10 +109,7 @@ export default function NetworkV2Page() {
                     <p className="capitalize">{selectedNode.role}</p>
                   )}
                   {selectedNode.location && <p>{selectedNode.location}</p>}
-                  <p>
-                    {selectedNode.birth_year ?? '?'}&ndash;
-                    {selectedNode.death_year ?? '?'} AD
-                  </p>
+                  <p>{formatYearRange(selectedNode.birth_year, selectedNode.death_year) ?? 'Dates unknown'}</p>
                 </div>
                 {selectedNode.bio && (
                   <p

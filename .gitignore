@@ -1,58 +1,76 @@
+
 __pycache__/
-*.pyc
+.ocr-venv/
 *.db-journal
-*.db-wal
 *.db-shm
-*.output
+*.db-wal
 *.log
-
+*.output
+*.pyc
+/tmp/
+# CSV exports (generated for releases)
 # Database backups
-data/*.backup*
-data/wyman_dissertation.pdf
-
 # Internal docs
-docs/plans/
-docs/design-best-practices.md
-
+# Next.js build artifacts
+# Temp files
 # Temporary batch/translation scripts
 batch*.json
+data/*.backup*
+data/backups/
+data/pg78_ocr/
+data/pg79_ocr/
+data/wyman_dissertation.pdf
+docs/design-best-practices.md
+docs/plans/
+exports/
+node_modules/
 save_batch.py
 scripts/batch_*.py
-scripts/save_*.py
-scripts/translate_*_batch*.py
-scripts/translate_latin_batch*.py
-scripts/retranslate_*.py
 scripts/modernize_batch.py
-scripts/translate_cass_batch*.py
+scripts/retranslate_*.py
+scripts/save_*.py
 scripts/symmachus_batch_translate.py
-scripts/translate_libanius_*.py
-scripts/translate_isidore_*.py
-scripts/translate_sidonius_batch*.py
-scripts/translate_julian_batch*.py
-scripts/translate_synesius_batch*.py
-scripts/translate_augustine*.py
-scripts/translate_jerome*.py
-scripts/translate_gregory*.py
-scripts/translate_remaining*.py
-scripts/translate_cappadocians*.py
-scripts/translate_modern_english.py
-scripts/translate_boniface.py
-scripts/translate_english_collections.py
-scripts/translate_latin_v3.py
-scripts/translate_basil_batch*.py
-scripts/translate_theodoret_batch*.py
+scripts/translate_*_batch*.py
 scripts/translate_ambrose_batch*.py
+scripts/translate_augustine*.py
+scripts/translate_basil_batch*.py
+scripts/translate_boniface.py
+scripts/translate_cappadocians*.py
+scripts/translate_cass_batch*.py
 scripts/translate_cyprian_batch*.py
+scripts/translate_english_collections.py
+scripts/translate_gregory*.py
+scripts/translate_isidore_*.py
+scripts/translate_jerome*.py
+scripts/translate_julian_batch*.py
+scripts/translate_latin_batch*.py
+scripts/translate_latin_v3.py
+scripts/translate_libanius_*.py
+scripts/translate_modern_english.py
+scripts/translate_remaining*.py
+scripts/translate_sidonius_batch*.py
+scripts/translate_synesius_batch*.py
+scripts/translate_theodoret_batch*.py
 scripts/update_modern_english.py
-
-# Next.js build artifacts
+# One-off per-collection batch/test scripts from the corpus-completion effort (throwaway;
+# the reusable pipeline lives in scripts/workflows/ + stage_collection/apply_workflow_translations/etc.)
+scripts/test_*
+scripts/apply_cicero_*
+scripts/apply_seneca_*
+scripts/apply_fronto_*
+scripts/import_severus_brooks*
+scripts/import_libanius_*
+scripts/import_augustine_*
+scripts/import_procopius_*
+scripts/import_chrysostom_*
+scripts/import_claudius_*
+scripts/import_evagrius_*
+scripts/import_gregory_*
+scripts/import_theodore_*
+scripts/import_symmachus_*
+scripts/import_fronto_*
+# GoalBuddy internal working state (task notes, board, marks) — process machinery, kept local only
+docs/goals/
 site/.next/
-site/out/
 site/node_modules/
-
-# CSV exports (generated for releases)
-exports/
-
-# Temp files
-/tmp/
-node_modules/
+site/out/

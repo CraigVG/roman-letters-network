@@ -16,6 +16,7 @@ import {
   type MapTimelapseProps,
   type MapStats,
 } from './map-types';
+import { formatApproxYear, formatYearRange } from '@/lib/date-format';
 
 // Re-export for convenience
 export { YEAR_MIN, YEAR_MAX };
@@ -26,6 +27,8 @@ export type { HistoricalEvent, MapStats, MapTimelapseProps };
 interface MapLetter {
   id: number;
   collection: string;
+  letter_number: number;
+  route_key?: string;
   year_approx: number;
   sender_name: string;
   s_lat: number;
@@ -262,7 +265,7 @@ export default function MapTimelapse({
               if (nameEl) nameEl.textContent = `${l.sender_name} \u2192 ${l.recipient_name}`;
               if (infoEl) {
                 infoEl.innerHTML =
-                  `${l.collection.replace(/_/g, ' ')} \u00b7 ~${l.year_approx} AD` +
+                  `${l.collection.replace(/_/g, ' ')} \u00b7 ${formatApproxYear(l.year_approx)}` +
                   (l.quick_summary
                     ? `<br><em>${l.quick_summary.slice(0, 150)}...</em>`
                     : '') +
@@ -288,7 +291,8 @@ export default function MapTimelapse({
             if (tooltip) tooltip.style.opacity = '0';
           })
           .on('click', () => {
-            window.location.href = `/letters/${l.id}`;
+            const routeSegment = l.route_key ?? String(l.letter_number);
+            window.location.href = `/letters/${encodeURIComponent(l.collection)}/${encodeURIComponent(routeSegment)}`;
           });
       });
 
@@ -498,7 +502,7 @@ export default function MapTimelapse({
           if (infoEl) {
             infoEl.innerHTML =
               `${d.role || 'Unknown role'} \u00b7 ${d.location || 'Unknown location'}<br>` +
-              `${d.birth_year || '?'}\u2013${d.death_year || '?'} AD<br>` +
+              `${formatYearRange(d.birth_year, d.death_year) ?? 'Dates unknown'}<br>` +
               `${d.sent || 0} sent \u00b7 ${d.received || 0} received`;
           }
           tooltip.style.opacity = '1';

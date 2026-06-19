@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Pagination } from './Pagination';
+import { formatApproxYear } from '@/lib/date-format';
 
 export interface LetterItem {
   id: number;
@@ -9,6 +10,8 @@ export interface LetterItem {
   c: string;
   /** letter number */
   n: number;
+  /** route key for collections with duplicate flat numbers */
+  k?: string;
   /** year approx */
   y?: number;
   /** sender name */
@@ -40,6 +43,10 @@ const SORT_OPTIONS = [
   { value: 'collection-asc', label: 'Collection A\u2013Z' },
   { value: 'sender-asc', label: 'Sender A\u2013Z' },
 ];
+
+function letterHref(letter: LetterItem) {
+  return `/letters/${encodeURIComponent(letter.c)}/${encodeURIComponent(letter.k ?? String(letter.n))}/`;
+}
 
 export function LetterList({ letters, page, perPage, onPageChange, sort, onSortChange }: Props) {
   const totalPages = Math.ceil(letters.length / perPage);
@@ -88,7 +95,7 @@ export function LetterList({ letters, page, perPage, onPageChange, sort, onSortC
           {visible.map((letter) => (
             <Link
               key={letter.id}
-              href={`/letters/${letter.c}/${letter.n}/`}
+              href={letterHref(letter)}
               className="group block py-3 hover:bg-theme-surface transition-colors -mx-3 px-3 rounded"
             >
               <div className="flex items-start gap-3 overflow-hidden">
@@ -109,7 +116,7 @@ export function LetterList({ letters, page, perPage, onPageChange, sort, onSortC
                     </span>
                     {letter.y != null && (
                       <span className="text-xs text-theme-muted tabular-nums shrink-0">
-                        ~{letter.y} AD
+                        {formatApproxYear(letter.y)}
                       </span>
                     )}
                   </div>

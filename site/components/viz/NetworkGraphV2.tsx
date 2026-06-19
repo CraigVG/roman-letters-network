@@ -18,6 +18,7 @@ import { scaleLinear, scaleSqrt } from 'd3-scale';
 import { drag } from 'd3-drag';
 import type { SelectedNode } from './NetworkGraphLoader';
 import { WYMAN_EXCLUDED_COLLECTIONS, WYMAN_YEAR_MIN, WYMAN_YEAR_MAX } from './map-types';
+import { formatYearRange } from '@/lib/date-format';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -465,12 +466,13 @@ export default function NetworkGraphV2({ onNodeClick, wymanMode = false }: Netwo
     node
       .on('mouseover', (event, d) => {
         if (!tooltip) return;
+        const dates = formatYearRange(d.birth_year, d.death_year) ?? 'Dates unknown';
         tooltip.innerHTML = `
           <div style="font-family:'Merriweather',Georgia,serif;font-size:14px;color:var(--color-text);font-weight:700;margin-bottom:4px">${d.name}</div>
           <div style="font-family:'Inter',system-ui,sans-serif;font-size:12px;color:var(--color-muted);line-height:1.6">
             ${d.role ? `<span style="text-transform:capitalize">${d.role}</span> · ` : ''}${d.location || 'Unknown location'}<br/>
             <span style="color:${regionColors[d.region as RegionName] ?? regionColors.Unknown}">● ${d.region}</span><br/>
-            ${d.birth_year ?? '?'}-${d.death_year ?? '?'} AD<br/>
+            ${dates}<br/>
             Sent: ${d.letters_sent} · Received: ${d.letters_received}
           </div>
         `;

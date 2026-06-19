@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getAllAuthors, toSlug } from '@/lib/authors';
+import { formatYearRange } from '@/lib/date-format';
 
 export const metadata: Metadata = {
   title: 'Authors',
@@ -49,10 +50,7 @@ export default function AuthorsIndexPage() {
           <tbody className="divide-y divide-theme">
             {sorted.map((author) => {
               const total = author.sent_count + author.received_count;
-              const dates =
-                author.birth_year || author.death_year
-                  ? `${author.birth_year ?? '?'}\u2013${author.death_year ?? '?'}`
-                  : null;
+              const dates = formatYearRange(author.birth_year, author.death_year);
 
               return (
                 <tr key={author.id} className="group">

@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getCorrespondencePairs, getThread } from '@/lib/correspondence';
 import { toSlug } from '@/lib/authors';
+import { formatApproxYear, formatYearRange } from '@/lib/date-format';
+import { getLetterDisplayNumber, getLetterHref } from '@/lib/letters';
 
 /* ------------------------------------------------------------------ */
 /*  Static generation                                                  */
@@ -67,7 +69,7 @@ export default async function CorrespondencePage({ params }: PageProps) {
     .filter((y): y is number => y !== null);
   const yearRange =
     years.length > 0
-      ? `c. ${Math.min(...years)}\u2013${Math.max(...years)}`
+      ? formatYearRange(Math.min(...years), Math.max(...years))
       : null;
 
   return (
@@ -122,7 +124,7 @@ export default async function CorrespondencePage({ params }: PageProps) {
                 className={`flex ${isSenderA ? 'justify-start' : 'justify-end'}`}
               >
                 <Link
-                  href={`/letters/${encodeURIComponent(letter.collection)}/${letter.letter_number}`}
+                  href={getLetterHref(letter)}
                   className={`block max-w-lg w-full sm:w-[85%] p-4 rounded-lg border border-theme
                     bg-theme-surface hover:border-[var(--color-accent)] transition-colors group
                     ${isSenderA ? 'rounded-tl-none' : 'rounded-tr-none'}`}
@@ -132,9 +134,9 @@ export default async function CorrespondencePage({ params }: PageProps) {
                     <span className="text-xs font-medium text-theme-accent">
                       {letter.sender_name}
                     </span>
-                    {letter.year_approx && (
+                    {letter.year_approx != null && (
                       <span className="text-xs text-theme-muted tabular-nums">
-                        c. {letter.year_approx}
+                        {formatApproxYear(letter.year_approx)}
                       </span>
                     )}
                   </div>
@@ -157,7 +159,7 @@ export default async function CorrespondencePage({ params }: PageProps) {
                   {/* Reference */}
                   <div className="mt-2 text-xs text-theme-muted">
                     {letter.collection.replace(/_/g, ' ')}, Letter{' '}
-                    {letter.letter_number}
+                    {getLetterDisplayNumber(letter)}
                     {letter.book ? ` (Book ${letter.book})` : ''}
                   </div>
                 </Link>

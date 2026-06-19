@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   experimental: {
-    cpus: 1,
+    cpus: 4,
   },
 };
 

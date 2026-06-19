@@ -19,6 +19,7 @@ export interface ThreadLetter {
   letter_number: number;
   book: number | null;
   ref_id: string | null;
+  route_key: string;
   year_approx: number | null;
   sender_name: string;
   recipient_name: string;
@@ -84,12 +85,24 @@ export function getThread(
 
   return db
     .prepare(
-      `SELECT
+      `WITH duplicate_numbers AS (
+         SELECT collection, letter_number, COUNT(*) AS route_count
+         FROM letters
+         GROUP BY collection, letter_number
+       )
+       SELECT
          l.id, l.collection, l.letter_number, l.book, l.ref_id,
+         CASE
+           WHEN d.route_count > 1 AND l.ref_id IS NOT NULL AND trim(l.ref_id) != ''
+             THEN l.ref_id
+           ELSE CAST(l.letter_number AS TEXT)
+         END AS route_key,
          l.year_approx, l.quick_summary, l.english_text, l.modern_english,
          s.name AS sender_name,
          r.name AS recipient_name
        FROM letters l
+       JOIN duplicate_numbers d
+         ON d.collection = l.collection AND d.letter_number = l.letter_number
        JOIN authors s ON s.id = l.sender_id
        JOIN authors r ON r.id = l.recipient_id
        WHERE (l.sender_id = ? AND l.recipient_id = ?)

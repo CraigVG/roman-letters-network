@@ -9,12 +9,21 @@ export interface LetterParam {
   number: string;
 }
 
+export interface LetterRouteFields {
+  collection: string;
+  letter_number: number;
+  book?: number | null;
+  ref_id?: string | null;
+  route_key?: string | null;
+}
+
 export interface LetterSummary {
   id: number;
   collection: string;
   letter_number: number;
   book: number | null;
   ref_id: string | null;
+  route_key: string;
   year_approx: number | null;
   quick_summary: string | null;
   sender_name: string | null;
@@ -27,6 +36,7 @@ export interface LetterFull {
   book: number | null;
   letter_number: number;
   ref_id: string | null;
+  route_key: string;
   sender_id: number | null;
   recipient_id: number | null;
   sender_name: string | null;
@@ -59,6 +69,24 @@ export interface CollectionInfo {
   scan_url: string | null;
 }
 
+export function getLetterRouteSegment(letter: LetterRouteFields): string {
+  return String(letter.route_key || letter.letter_number);
+}
+
+export function getLetterHref(letter: LetterRouteFields): string {
+  return `/letters/${encodeURIComponent(letter.collection)}/${encodeURIComponent(
+    getLetterRouteSegment(letter),
+  )}/`;
+}
+
+export function getLetterDisplayNumber(letter: LetterRouteFields): string {
+  const routeSegment = getLetterRouteSegment(letter);
+  if (letter.book != null && routeSegment !== String(letter.letter_number)) {
+    return `${letter.book}.${letter.letter_number}`;
+  }
+  return String(letter.letter_number);
+}
+
 /* ------------------------------------------------------------------ */
 /*  Queries                                                           */
 /* ------------------------------------------------------------------ */
@@ -66,46 +94,117 @@ export interface CollectionInfo {
 export function getAllLetterParams(): LetterParam[] {
   const db = getDb();
   const rows = db
-    .prepare('SELECT collection, letter_number FROM letters ORDER BY collection, letter_number')
-    .all() as { collection: string; letter_number: number }[];
+    .prepare(
+      `WITH duplicate_numbers AS (
+         SELECT collection, letter_number, COUNT(*) AS route_count
+         FROM letters
+         GROUP BY collection, letter_number
+       )
+       SELECT
+         l.collection,
+         l.letter_number,
+         l.ref_id,
+         CASE
+           WHEN d.route_count > 1 AND l.ref_id IS NOT NULL AND trim(l.ref_id) != ''
+             THEN l.ref_id
+           ELSE CAST(l.letter_number AS TEXT)
+         END AS route_key
+       FROM letters l
+       JOIN duplicate_numbers d
+         ON d.collection = l.collection AND d.letter_number = l.letter_number
+       ORDER BY l.collection, l.book, l.letter_number, l.id`,
+    )
+    .all() as {
+      collection: string;
+      letter_number: number;
+      ref_id: string | null;
+      route_key: string;
+    }[];
 
-  return rows.map((r) => ({
-    collection: r.collection,
-    number: String(r.letter_number),
-  }));
+  const params = new Map<string, LetterParam>();
+  for (const row of rows) {
+    const canonical = {
+      collection: row.collection,
+      number: row.route_key,
+    };
+    params.set(`${canonical.collection}/${canonical.number}`, canonical);
+
+    // Preserve legacy numeric static pages for old links and search results.
+    const legacy = {
+      collection: row.collection,
+      number: String(row.letter_number),
+    };
+    params.set(`${legacy.collection}/${legacy.number}`, legacy);
+  }
+
+  return [...params.values()];
 }
 
 export function getLetterByCollectionAndNumber(
   collection: string,
-  number: number,
+  number: number | string,
 ): LetterFull | undefined {
   const db = getDb();
+  const identifier = String(number);
+  const isNumericIdentifier = /^\d+$/.test(identifier);
+  const predicate = isNumericIdentifier
+    ? 'l.collection = ? AND l.letter_number = ?'
+    : 'l.collection = ? AND l.ref_id = ?';
+
   return db
     .prepare(
-      `SELECT
+      `WITH duplicate_numbers AS (
+         SELECT collection, letter_number, COUNT(*) AS route_count
+         FROM letters
+         GROUP BY collection, letter_number
+       )
+       SELECT
          l.*,
+         CASE
+           WHEN d.route_count > 1 AND l.ref_id IS NOT NULL AND trim(l.ref_id) != ''
+             THEN l.ref_id
+           ELSE CAST(l.letter_number AS TEXT)
+         END AS route_key,
          s.name   AS sender_name,
          s.name_latin AS sender_name_latin,
          r.name   AS recipient_name,
          r.name_latin AS recipient_name_latin
        FROM letters l
+       JOIN duplicate_numbers d
+         ON d.collection = l.collection AND d.letter_number = l.letter_number
        LEFT JOIN authors s ON s.id = l.sender_id
        LEFT JOIN authors r ON r.id = l.recipient_id
-       WHERE l.collection = ? AND l.letter_number = ?`,
+       WHERE ${predicate}
+       ORDER BY l.book IS NULL, l.book, l.letter_number, l.id
+       LIMIT 1`,
     )
-    .get(collection, number) as LetterFull | undefined;
+    .get(collection, isNumericIdentifier ? Number(identifier) : identifier) as
+    | LetterFull
+    | undefined;
 }
 
 export function getLettersByCollection(collection: string): LetterSummary[] {
   const db = getDb();
   return db
     .prepare(
-      `SELECT
+      `WITH duplicate_numbers AS (
+         SELECT collection, letter_number, COUNT(*) AS route_count
+         FROM letters
+         GROUP BY collection, letter_number
+       )
+       SELECT
          l.id, l.collection, l.letter_number, l.book, l.ref_id,
+         CASE
+           WHEN d.route_count > 1 AND l.ref_id IS NOT NULL AND trim(l.ref_id) != ''
+             THEN l.ref_id
+           ELSE CAST(l.letter_number AS TEXT)
+         END AS route_key,
          l.year_approx, l.quick_summary,
          s.name AS sender_name,
          r.name AS recipient_name
        FROM letters l
+       JOIN duplicate_numbers d
+         ON d.collection = l.collection AND d.letter_number = l.letter_number
        LEFT JOIN authors s ON s.id = l.sender_id
        LEFT JOIN authors r ON r.id = l.recipient_id
        WHERE l.collection = ?
@@ -129,12 +228,24 @@ export function getAllLetters(): LetterSummary[] {
   const db = getDb();
   return db
     .prepare(
-      `SELECT
+      `WITH duplicate_numbers AS (
+         SELECT collection, letter_number, COUNT(*) AS route_count
+         FROM letters
+         GROUP BY collection, letter_number
+       )
+       SELECT
          l.id, l.collection, l.letter_number, l.book, l.ref_id,
+         CASE
+           WHEN d.route_count > 1 AND l.ref_id IS NOT NULL AND trim(l.ref_id) != ''
+             THEN l.ref_id
+           ELSE CAST(l.letter_number AS TEXT)
+         END AS route_key,
          l.year_approx, l.quick_summary,
          s.name AS sender_name,
          r.name AS recipient_name
        FROM letters l
+       JOIN duplicate_numbers d
+         ON d.collection = l.collection AND d.letter_number = l.letter_number
        LEFT JOIN authors s ON s.id = l.sender_id
        LEFT JOIN authors r ON r.id = l.recipient_id
        ORDER BY l.collection, l.book, l.letter_number`,
@@ -163,36 +274,19 @@ export function getCollectionSlugs(): string[] {
 
 export function getAdjacentLetters(
   collection: string,
-  letterNumber: number,
+  letterId: number,
 ): { prev: LetterParam | null; next: LetterParam | null } {
-  const db = getDb();
-
-  const prev = db
-    .prepare(
-      `SELECT collection, letter_number FROM letters
-       WHERE collection = ? AND letter_number < ?
-       ORDER BY letter_number DESC LIMIT 1`,
-    )
-    .get(collection, letterNumber) as
-    | { collection: string; letter_number: number }
-    | undefined;
-
-  const next = db
-    .prepare(
-      `SELECT collection, letter_number FROM letters
-       WHERE collection = ? AND letter_number > ?
-       ORDER BY letter_number ASC LIMIT 1`,
-    )
-    .get(collection, letterNumber) as
-    | { collection: string; letter_number: number }
-    | undefined;
+  const letters = getLettersByCollection(collection);
+  const index = letters.findIndex((letter) => letter.id === letterId);
+  const prev = index > 0 ? letters[index - 1] : undefined;
+  const next = index >= 0 && index < letters.length - 1 ? letters[index + 1] : undefined;
 
   return {
     prev: prev
-      ? { collection: prev.collection, number: String(prev.letter_number) }
+      ? { collection: prev.collection, number: getLetterRouteSegment(prev) }
       : null,
     next: next
-      ? { collection: next.collection, number: String(next.letter_number) }
+      ? { collection: next.collection, number: getLetterRouteSegment(next) }
       : null,
   };
 }
@@ -243,11 +337,22 @@ export function getRelatedLetters(
   }
 
   const sql = `
+    WITH duplicate_numbers AS (
+      SELECT collection, letter_number, COUNT(*) AS route_count
+      FROM letters
+      GROUP BY collection, letter_number
+    )
     SELECT id, collection, letter_number, book, ref_id,
+           CASE
+             WHEN route_count > 1 AND ref_id IS NOT NULL AND trim(ref_id) != ''
+               THEN ref_id
+             ELSE CAST(letter_number AS TEXT)
+           END AS route_key,
            year_approx, quick_summary, sender_name, recipient_name
     FROM (
       ${parts.join(' UNION ALL ')}
-    )
+    ) candidates
+    JOIN duplicate_numbers USING (collection, letter_number)
     GROUP BY id
     ORDER BY MIN(priority), RANDOM()
     LIMIT 5

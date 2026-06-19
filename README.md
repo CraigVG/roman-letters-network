@@ -1,12 +1,12 @@
 # Roman Letters
 
-**8,112 Latin and Greek letters from the ancient world, with modern English translations, source provenance, and interactive visualizations.**
+**9,471 Latin and Greek letters from the Roman world, with modern English translations, source provenance, and interactive visualizations.**
 
 [**romanletters.org**](https://romanletters.org)
 
 ---
 
-The first public resource to bring together 60 late antique letter collections spanning 700 years (100-800 AD), with modern English translations for over 7,000 letters - including 3,123 translated into English for the first time.
+The first public resource to bring together 70 Roman letter collections spanning from 66 BC to AD 817, with modern English translations for 8,309 letters - including 3,546 translated into English for the first time.
 
 ## What This Is
 
@@ -20,16 +20,16 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 
 | Metric | Value |
 |--------|-------|
-| Total letters | 8,112 |
-| Collections | 60 |
-| Time span | 100-800 AD |
-| Modern English translations | 7,060 |
-| First-ever English translations | 3,123 |
-| Original Latin/Greek text available | 6,155 |
-| Source links available | 7,839 |
-| People identified | 1,888 |
-| Letters with distance data | 5,751 |
-| Letters with carrier mentions | 460 |
+| Total letters | 9,471 |
+| Collections | 70 |
+| Time span | 66 BC-817 AD |
+| Modern English translations | 8,309 |
+| First-ever English translations | 3,546 |
+| Original Latin/Greek text available | 7,748 |
+| Source links available | 9,198 |
+| People identified | 2,935 |
+| Letters with distance data | 4,309 |
+| Letters with carrier mentions | 539 |
 
 ### Major Collections
 
@@ -43,12 +43,12 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 | Pliny the Younger | 365 | 97-113 | Roman senator at the empire's height |
 | Basil of Caesarea | 325 | 357-378 | Cappadocian Father's pastoral letters |
 | Ennodius of Pavia | 297 | 493-521 | Literary bishop in Ostrogothic Italy |
-| Augustine | 261 | 386-430 | Bishop of Hippo's theological correspondence |
+| Augustine | 247 | 386-430 | Bishop of Hippo's theological correspondence |
 | Hormisdas | 249 | 514-523 | Pope resolving the Acacian Schism |
 | Theodoret of Cyrrhus | 181 | 423-466 | Theologian in Christological controversies |
 | Sidonius Apollinaris | 171 | 455-480 | Watching Roman Gaul collapse |
 | Synesius of Cyrene | 159 | 394-413 | Philosopher-bishop in collapsing Roman Libya |
-| + 29 more collections | | | |
+| + 57 more collections | | | |
 
 ## Features
 
@@ -62,7 +62,7 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 - **"The Shrinking World"** — thesis page with D3 regionalization chart showing average letter distance declining over two centuries
 - **"Wyman Mode"** — toggle on map and network to filter to Latin West, 380-630 AD (matching his corpus)
 - **Hub city profiles** — 15 major cities with per-decade connectivity data
-- **Letter-carrier data** — 460 letters with identified carriers (clergy as dominant role)
+- **Letter-carrier data** — 539 letters with identified carriers (clergy as dominant role)
 - **Location confidence levels** — strong/approximate/unknown per Wyman's methodology
 
 ### Visualizations
@@ -83,7 +83,7 @@ Inspired by [Patrick Wyman's doctoral dissertation](https://www.proquest.com/ope
 - **Map**: MapLibre GL JS with DARE (Digital Atlas of the Roman Empire) tiles
 - **Visualizations**: D3.js (force-directed graph, geographic projection, line charts)
 - **Search**: Pagefind (WASM, client-side)
-- **Build**: Static site generation — 9,000+ pre-rendered routes
+- **Build**: Static site generation — 10,000+ pre-rendered routes
 
 ## Development
 
@@ -98,14 +98,29 @@ cd site && npm install
 # Run dev server
 npm run dev
 
-# Build static site (generates 9,000+ routes)
+# Build static site (generates 10,000+ routes)
 NODE_OPTIONS='--max-old-space-size=8192' npm run build
 
 # Generate sitemaps
 node scripts/generate-sitemap.js
+
+# Audit corpus completeness targets against the database
+python3 scripts/audit_corpus_inventory.py
 ```
 
 The SQLite database at `data/roman_letters.db` contains all letter data. The Next.js build reads it at build time — no runtime database needed.
+
+## Corpus Completeness Audit
+
+The expansion ledger lives at `data/corpus_inventory.yaml`. It tracks known in-scope collections and candidates against the current database so missing translations, original texts, source links, geocoding, bios, and whole collections are visible before new imports begin.
+
+Run:
+
+```bash
+python3 scripts/audit_corpus_inventory.py
+```
+
+Use `--json` for machine-readable output or `--strict` when a CI-style nonzero exit is desired while tracked gaps or untracked DB collections remain.
 
 ## Data Sources
 
@@ -116,6 +131,7 @@ Latin and Greek texts gathered from:
 - [Perseus Digital Library](https://www.perseus.tufts.edu/)
 - [Internet Archive](https://archive.org/) (Patrologia Graeca, MGH, CSEL editions)
 - [OpenGreekAndLatin / First1KGreek](https://github.com/OpenGreekAndLatin/First1KGreek)
+- [CatholicLibrary synchronized patristic texts](https://catholiclibrary.org/library/)
 - [Latin Wikisource](https://la.wikisource.org/) (Braulio of Zaragoza)
 - MGH Epistolae volumes (Austrasicae, Wisigothicae, Desiderius)
 
@@ -123,9 +139,9 @@ Links to original scanned editions on the Internet Archive are included for ever
 
 ## A Note on the Translations
 
-The modern English translations were produced with the assistance of AI (Claude by Anthropic). They are **not** peer-reviewed scholarly translations. They aim to make these letters accessible to a general audience — anyone who wants to hear the voices of the late Roman world.
+The modern English translations were produced with the assistance of AI (Claude by Anthropic). They are **not** peer-reviewed scholarly translations. They aim to make these letters accessible to a general audience — anyone who wants to hear the voices of the Roman world.
 
-Where both a Latin/Greek original and a 19th-century English translation existed, both were used as sources. Each letter page provides access to all available versions, explains the text provenance, and makes missing originals explicit instead of silently omitting them. For the 3,123 letters translated to English for the first time, the modern translation was produced directly from available Latin or Greek source text.
+Where both a Latin/Greek original and a 19th-century English translation existed, both were used as sources. Each letter page provides access to all available versions, explains the text provenance, and makes missing originals explicit instead of silently omitting them. For the 3,546 letters translated to English for the first time, the modern translation was produced directly from available source text.
 
 We welcome corrections. If you spot a transcription, translation, source-link, or metadata error, use the correction link on each letter page or open a GitHub issue.
 
@@ -145,7 +161,7 @@ The full dataset (SQLite database + CSV exports) is available on multiple platfo
 
 ## Future Work
 
-- **OCR Phase**: Patrologia Graeca volumes 78, 79, 52 could add 3,000+ Greek letters (Isidore of Pelusium, Nilus of Ancyra, John Chrysostom)
+- **OCR Phase**: Patrologia Graeca volumes 78 and 79 could add 3,000+ Greek letters, especially Isidore of Pelusium and Nilus of Ancyra; PG 52 Chrysostom source-specific imports are now mostly complete and need final reconciliation rather than bulk OCR.
 - **Quality pass**: Greek translation review, especially bulk Isidore translations
 - **ORBIS integration**: Roman road routes instead of straight-line distance arcs
 - **Political borders animation**: Animate the successor kingdom borders on the map timelapse
@@ -160,4 +176,4 @@ Data and Translations: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 Built by [Craig Vander Galien](https://craigvandergalien.com). Inspired by Patrick Wyman's doctoral research on the fall of Rome. Modern translations assisted by Claude (Anthropic).
 
-**Cite this dataset:** Vander Galien, Craig. (2026). Roman Letters: 8,112 Latin and Greek Letters from the Roman World (100-800 AD). Zenodo. https://doi.org/10.5281/zenodo.19142059
+**Cite this dataset:** Vander Galien, Craig. (2026). Roman Letters: 9,471 Latin and Greek Letters from the Roman World (66 BC-817 AD). Zenodo. https://doi.org/10.5281/zenodo.19142059

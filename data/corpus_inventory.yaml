@@ -1,0 +1,1240 @@
+version: 1
+scope:
+  start_year: -753
+  end_year: 1453
+  objective: "Letters by Roman writers from Rome's founding through 1453, translated to English, sourced, geolocated for sender and recipient, and supported by author/recipient bios where applicable."
+  notes:
+    - "This is a seed inventory, not a final bibliography."
+    - "Current database coverage ends at AD 800; post-800 Roman Empire in the East targets require source-rights and scope review before text import."
+    - "Documentary papyri require a separate inclusion policy because sender identity and Roman-writer status are often uncertain."
+
+default_requirements: &default_requirements
+  modern_english: required
+  original_text: required
+  source_url: required
+  sender_recipient: required
+  geolocation: required
+  bios: required
+
+targets:
+  - slug: cicero_atticus
+    author: "Marcus Tullius Cicero"
+    title: "Epistulae ad Atticum"
+    period: "68-43 BC"
+    expected_letters: 431
+    status: in_db_complete
+    priority: 1
+    rationale: "Core late Republican Roman correspondence already in DB but missing most modern translations and all geocoding."
+    sources:
+      - label: "Latin Library"
+        url: "https://www.thelatinlibrary.com/cicero/att1.shtml"
+      - label: "Project Gutenberg Winstedt volume 1"
+        url: "https://www.gutenberg.org/ebooks/58418"
+      - label: "Project Gutenberg Winstedt volume 2"
+        url: "https://www.gutenberg.org/ebooks/50692"
+      - label: "Project Gutenberg Winstedt volume 3"
+        url: "https://www.gutenberg.org/ebooks/51403"
+      - label: "Attalus Cicero letters index"
+        url: "https://www.attalus.org/cicero/letters.html"
+    requirements: *default_requirements
+
+  - slug: cicero_familiares
+    author: "Marcus Tullius Cicero"
+    title: "Epistulae ad Familiares"
+    period: "62-43 BC"
+    expected_letters: 425
+    status: in_db_partial
+    priority: 1
+    rationale: "Core Republican correspondence already in DB but missing most modern translations, many recipients, and all geocoding."
+    sources:
+      - label: "Latin Library"
+        url: "https://www.thelatinlibrary.com/cicero/fam1.shtml"
+      - label: "Attalus Cicero letters index"
+        url: "https://www.attalus.org/cicero/letters.html"
+    requirements: *default_requirements
+
+  - slug: cicero_quintus
+    author: "Marcus Tullius Cicero"
+    title: "Epistulae ad Quintum Fratrem"
+    period: "60-54 BC"
+    expected_letters: 27
+    status: in_db_partial
+    priority: 2
+    rationale: "Imported Cicero family collection; still needs modern-English renderings and unresolved route/country-estate geocodes."
+    sources:
+      - label: "Latin Library Cicero"
+        url: "https://www.thelatinlibrary.com/cic.html"
+      - label: "Attalus Cicero letters index"
+        url: "https://www.attalus.org/cicero/letters.html"
+    requirements: *default_requirements
+
+  - slug: cicero_brutus
+    author: "Marcus Tullius Cicero"
+    title: "Epistulae ad Brutum"
+    period: "43 BC"
+    expected_letters: 26
+    status: in_db_partial
+    priority: 2
+    rationale: "Imported source-backed Cicero/Brutus collection important for the final Republican crisis; ToposText and The Latin Library expose 26 transmitted entries, including duplicate traditional labels distinguished locally as 2a, 3a, and 4a."
+    sources:
+      - label: "Latin Library Cicero ad Brutum I"
+        url: "https://www.thelatinlibrary.com/cicero/adbrutum1.shtml"
+      - label: "Latin Library Cicero ad Brutum II"
+        url: "https://www.thelatinlibrary.com/cicero/adbrutum2.shtml"
+      - label: "Wikisource Letters to Brutus"
+        url: "https://en.wikisource.org/wiki/Letters_to_Brutus"
+      - label: "ToposText Cicero Letters to Brutus"
+        url: "https://topostext.org/work/787"
+    requirements: *default_requirements
+
+  - slug: seneca
+    author: "Lucius Annaeus Seneca"
+    title: "Epistulae Morales ad Lucilium"
+    period: "AD 62-65"
+    expected_letters: 124
+    status: in_db_partial
+    priority: 1
+    rationale: "Already in DB with original text but missing all modern translations and geocoding."
+    sources:
+      - label: "Latin Library Seneca"
+        url: "https://www.thelatinlibrary.com/sen.html"
+      - label: "Wikisource Gummere translation"
+        url: "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius"
+    requirements: *default_requirements
+
+  - slug: fronto
+    author: "Marcus Cornelius Fronto"
+    title: "Correspondence of Fronto"
+    period: "AD 139-166"
+    expected_letters: 207
+    status: in_db_partial
+    priority: 1
+    rationale: "Already in DB but missing translations, originals, and geocoding for the emperor-tutor correspondence."
+    sources:
+      - label: "Internet Archive Haines volume 1"
+        url: "https://archive.org/details/correspondenceof01fronuoft"
+      - label: "Internet Archive Haines volume 2"
+        url: "https://archive.org/details/correspondenceof02fronuoft"
+      - label: "Attalus Fronto letter index"
+        url: "https://www.attalus.org/info/fronto.html"
+      - label: "Britannica Fronto biography"
+        url: "https://www.britannica.com/biography/Marcus-Cornelius-Fronto"
+    requirements: *default_requirements
+
+  - slug: pliny_younger
+    author: "Pliny the Younger"
+    title: "Epistulae"
+    period: "AD 97-113"
+    expected_letters: 365
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Major early imperial baseline collection already in DB; audit against the 10-book corpus and geocode any remaining gaps."
+    sources:
+      - label: "Attalus Pliny translation"
+        url: "https://www.attalus.org/info/pliny.html"
+    requirements: *default_requirements
+
+  - slug: libanius
+    author: "Libanius"
+    title: "Epistulae"
+    period: "AD 314-393"
+    expected_letters: 1544
+    status: in_db_partial
+    priority: 2
+    rationale: "Current DB has 837 of roughly 1,544 letters; high-value Greek correspondence collection."
+    sources:
+      - label: "Pinakes Libanius Epistulae"
+        url: "https://pinakes.irht.cnrs.fr/notices/oeuvre/6033/"
+      - label: "OpenGreekAndLatin First1KGreek"
+        url: "https://github.com/OpenGreekAndLatin/First1KGreek"
+    requirements: *default_requirements
+
+  - slug: isidore_pelusium
+    author: "Isidore of Pelusium"
+    title: "Epistulae"
+    period: "AD 390-435"
+    expected_letters: 2000
+    status: in_db  # rebuilt from PG79... PG78 Gemini OCR 2026-06-14: 1753 letters clean Greek, translation pending
+    priority: 1
+    rationale: "Current DB has 630 of the 2,000-letter manuscript corpus; largest known late antique gap."
+    sources:
+      - label: "Tertullian/Pearse Isidore concordance"
+        url: "https://www.tertullian.org/fathers/isidore_of_pelusium_letter_index.htm"
+      - label: "PG 78 scan"
+        url: "https://archive.org/details/PatrologiaGraeca"
+    requirements: *default_requirements
+
+  - slug: nilus_ancyra
+    author: "Nilus of Ancyra"
+    title: "Epistulae"
+    period: "5th century"
+    expected_letters: 1061
+    status: in_db_partial  # imported 999 from PG79 Gemini OCR 2026-06-14, translation pending
+    priority: 1
+    rationale: "Large PG 79 collection; authenticity and excerpt status must be tracked per letter."
+    sources:
+      - label: "PG 79 scan"
+        url: "https://commons.wikimedia.org/wiki/File:Patrologia_Graeca_Vol._79.djvu"
+    requirements: *default_requirements
+
+  - slug: chrysostom
+    author: "John Chrysostom"
+    title: "Letters from Exile"
+    period: "AD 404-407"
+    expected_letters: 242
+    status: in_db_partial
+    priority: 2
+    rationale: "Current DB has 246 Chrysostom rows: 223 source-specific PG 52 Epistulae rows (20-242), 17 Olympias rows preserving Greek-backed Olympias 7-17 plus legacy New Advent/Olympias numbering, and 6 other New Advent/NPNF legacy rows. The collection is intentionally over the nominal 242 source count because source-specific rows are preserved alongside legacy rows; remaining work is source-text backfill, recipient cleanup, and future source-adjudication for early Olympias/legacy numbering, not a missing-letter import from the completed PG 52/Olympias source family."
+    sources:
+      - label: "PG 52 scan"
+        url: "https://archive.org/details/patrologiae_cursus_completus_gr_vol_052"
+      - label: "CatholicLibrary synchronized Greek Epistulae"
+        url: "https://catholiclibrary.org/library/view?docId=/Fathers-Synchronized-OR/John_Chrysostom__Epistulae.gr.html"
+      - label: "Wikisource NPNF letter 242"
+        url: "https://en.wikisource.org/wiki/Nicene_and_Post-Nicene_Fathers:_Series_II/Volume_VIII/The_Letters/Letter_242"
+    requirements: *default_requirements
+
+  - slug: cyril_alexandria
+    author: "Cyril of Alexandria"
+    title: "Letters"
+    period: "AD 412-444"
+    expected_letters: 110
+    status: in_db_partial
+    priority: 3
+    rationale: "Current DB has 4 letters; full corpus is mostly in modern editions, so source-rights review is required."
+    sources:
+      - label: "New Advent Cyril"
+        url: "https://www.newadvent.org/fathers/3810.htm"
+    requirements: *default_requirements
+
+  - slug: ignatius_antioch
+    author: "Ignatius of Antioch"
+    title: "Seven authentic letters"
+    period: "c. AD 110"
+    expected_letters: 7
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Small early Christian Roman-world corpus currently present but missing translations/originals in DB audit."
+    sources:
+      - label: "New Advent Ignatius"
+        url: "https://www.newadvent.org/fathers/0104.htm"
+    requirements: *default_requirements
+
+  - slug: gregory_nyssa
+    author: "Gregory of Nyssa"
+    title: "Epistulae"
+    period: "4th century"
+    expected_letters: 30
+    status: in_db_partial
+    priority: 4
+    rationale: "Named in the standard late antique letter-collection bibliography; the 18 public-domain NPNF/New Advent/Tertullian letters are imported, while the larger critical corpus remains to be reconciled."
+    sources:
+      - label: "Late Antique Letter Collections"
+        url: "https://academic.oup.com/california-scholarship-online/book/14007"
+      - label: "Tertullian NPNF2-05 Gregory of Nyssa letters"
+        url: "https://www.tertullian.org/fathers2/NPNF2-05/TOC.htm"
+      - label: "New Advent Gregory of Nyssa Letters"
+        url: "https://www.newadvent.org/fathers/2911.htm"
+    requirements: *default_requirements
+
+  - slug: evagrius_ponticus
+    author: "Evagrius Ponticus"
+    title: "Letters"
+    period: "4th century"
+    expected_letters: 62
+    status: in_db_complete
+    priority: 4
+    rationale: "T243 imported the first 12 source-numbered TAN/TEI letters, T244 imported letters 13-32, and T245 completed letters 33-62. The complete corpus is Syriac-transmitted; the imported original-language display uses Frankenberg's Greek retroversion with explicit provenance. Letter 57 uses Joel Kalvesmaki's existing 2014 CC BY 4.0 English translation and is excluded from first-time-English counts."
+    sources:
+      - label: "Late Antique Letter Collections"
+        url: "https://academic.oup.com/california-scholarship-online/book/14007"
+      - label: "Evagrius CPG 2437 parallel edition"
+        url: "https://evagriusponticus.net/cpg2437/cpg2437-full-for-search.html"
+      - label: "TAN-Evagrius Syriac source"
+        url: "https://raw.githubusercontent.com/Arithmeticus/TAN-Evagrius/master/cpg2437/cpg2437.syr.1912.frankenberg.xml"
+      - label: "TAN-Evagrius Greek retroversion"
+        url: "https://raw.githubusercontent.com/Arithmeticus/TAN-Evagrius/master/cpg2437/cpg2437.grc.1912.frankenberg.tan-tei.xml"
+    requirements: *default_requirements
+
+  - slug: ausonius
+    author: "Decimus Magnus Ausonius"
+    title: "Epistulae"
+    period: "4th century"
+    expected_letters: 31
+    status: in_db_partial
+    priority: 4
+    rationale: "The identifiable sender/recipient letters from the Perseus/Evelyn-White Epistulae are imported; modern-English modernization and future review of adjacent non-letter or fragmentary Ausonian material remain."
+    sources:
+      - label: "Late Antique Letter Collections"
+        url: "https://academic.oup.com/california-scholarship-online/book/14007"
+      - label: "Perseus canonical Latin Epistulae"
+        url: "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/stoa0045/stoa011/stoa0045.stoa011.perseus-lat2.xml"
+      - label: "Perseus canonical English Letters"
+        url: "https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/stoa0045/stoa011/stoa0045.stoa011.perseus-eng1.xml"
+      - label: "Internet Archive Evelyn-White Ausonius volume 2"
+        url: "https://archive.org/details/ausoniuswithengl02ausouoft"
+    requirements: *default_requirements
+
+  - slug: aeneas_gaza
+    author: "Aeneas of Gaza"
+    title: "Letters"
+    period: "5th-6th century"
+    expected_letters: 25
+    status: in_db_complete
+    priority: 4
+    rationale: "Complete 25-letter Hercher collection imported with first-time modern English, source provenance, author/recipient bios, and conservative Gaza-origin geodata."
+    sources:
+      - label: "Late Antique Letter Collections"
+        url: "https://academic.oup.com/california-scholarship-online/book/14007"
+      - label: "Internet Archive Hercher Epistolographi Graeci"
+        url: "https://archive.org/details/epistolographoih00herc"
+      - label: "Internet Archive Hercher full text"
+        url: "https://archive.org/download/epistolographoih00herc/epistolographoih00herc_djvu.txt"
+      - label: "University of Ioannina Hercher ABBYY PDF"
+        url: "https://olympias.lib.uoi.gr/jspui/bitstream/123456789/25994/1/%CE%92%CE%9A%20%CE%9515.pdf"
+    requirements: *default_requirements
+
+  - slug: procopius_gaza
+    author: "Procopius of Gaza"
+    title: "Letters"
+    period: "5th-6th century"
+    expected_letters: 174
+    status: in_db_partial
+    priority: 4
+    rationale: "DB has 166 source-backed Procopius of Gaza rows imported from the University of the Aegean Digital Patrology / Matia Greek PDF; the wider inventory still expects 174 Procopius-related letters, so 8 remain to be source-adjudicated."
+    sources:
+      - label: "Late Antique Letter Collections"
+        url: "https://academic.oup.com/california-scholarship-online/book/14007"
+      - label: "Pinakes Procopius Gazaeus"
+        url: "https://pinakes.irht.cnrs.fr/notices/auteur/2403/"
+      - label: "Digital Patrology Procopius Epistulae PDF"
+        url: "https://www.matia.gr/pisth/pdf/pg_migne/Procopius_of_Gaza_PG_87a-87c/Epistulae.pdf"
+    requirements: *default_requirements
+
+  - slug: barsanuphius_john
+    author: "Barsanuphius and John"
+    title: "Letters"
+    period: "6th century"
+    expected_letters: 850
+    status: candidate_scope_review
+    priority: 4
+    rationale: "Large ascetic question-and-answer letter corpus; must decide how to model letters, responses, and recipient metadata."
+    sources:
+      - label: "Late Antique Letter Collections"
+        url: "https://academic.oup.com/california-scholarship-online/book/14007"
+    requirements: *default_requirements
+
+  - slug: severus_antioch
+    author: "Severus of Antioch"
+    title: "Letters"
+    period: "6th century"
+    expected_letters: 123
+    status: in_db_partial
+    priority: 4
+    rationale: "T219 proved 123 source-visible Brooks records with 112 stable no-cost public-domain translation records; T220-T224 imported 62 stable letters and left 50 stable records plus 11 ambiguous records. The next medium tranche remains a no-cost source-backed row-adding package unless the compact 1453-horizon checkpoint selects a stronger stable target."
+    sources:
+      - label: "BMCR review"
+        url: "https://bmcr.brynmawr.edu/2020/2020.10.18/"
+      - label: "Syriaca work record"
+        url: "https://syriaca.org/work/10543"
+      - label: "Brooks translation scan"
+        url: "https://archive.org/details/selectletterssix01seveuoft"
+      - label: "Brooks translation scan part 2"
+        url: "https://archive.org/details/selectletterssix02seveuoft"
+    requirements: *default_requirements
+
+  - slug: iamblichus
+    author: "Iamblichus"
+    title: "Letters"
+    period: "3rd-4th century"
+    expected_letters: 25
+    status: candidate_scope_review
+    priority: 5
+    rationale: "BMCR review names Iamblichus as an omission from the standard late antique bibliography."
+    sources:
+      - label: "BMCR review"
+        url: "https://bmcr.brynmawr.edu/2020/2020.10.18/"
+    requirements: *default_requirements
+
+  - slug: michael_psellos
+    author: "Michael Psellos"
+    title: "Epistulae"
+    period: "11th century"
+    expected_letters: 563
+    status: candidate_source_rights_review
+    priority: 2
+    rationale: "Major post-800 Roman Empire in the East collection; 2019 edition lists 563 texts but reuse rights must be reviewed."
+    sources:
+      - label: "De Gruyter edition record"
+        url: "https://www.degruyterbrill.com/document/doi/10.1515/9783110625011/html"
+    requirements: *default_requirements
+
+  - slug: photios
+    author: "Photios of Constantinople"
+    title: "Letters"
+    period: "9th century"
+    expected_letters: 290
+    status: candidate_source_rights_review
+    priority: 3
+    rationale: "Major post-800 Roman Empire in the East church and intellectual correspondence."
+    sources:
+      - label: "Open Library edition record"
+        url: "https://openlibrary.org/books/OL2581022M/Photii_Patriarchae_Constantinopolitani_Epistulae_et_Amphilochia"
+    requirements: *default_requirements
+
+  - slug: theodore_studite
+    author: "Theodore the Studite"
+    title: "Letters"
+    period: "8th-9th century"
+    expected_letters: 560
+    status: original_text_imported_translation_pending
+    priority: 3
+    rationale: "Major monastic and iconophile Roman correspondence after AD 800; 555 original Greek texts are imported from the Aegean University Digital Patrologia / GreekDownloads PG 99 PDF, with five source-body gaps still tracked."
+    sources:
+      - label: "Sirmond edition record"
+        url: "https://explore.library.leeds.ac.uk/special-collections-explore/238038"
+      - label: "GreekDownloads PG 99 source page"
+        url: "https://greekdownloads.wordpress.com/2014/09/26/%CE%B8%CE%B5%CF%8C%CE%B4%CF%89%CF%81%CE%BF%CF%82-%CE%BF-%CF%83%CF%84%CE%BF%CF%85%CE%B4%CE%AF%CF%84%CE%B7%CF%82-theodori-studitae-pg-99/"
+      - label: "Aegean University Digital Patrologia PDF"
+        url: "https://greekdownloads3.files.wordpress.com/2014/09/epistulae2.pdf"
+    requirements: *default_requirements
+
+  - slug: nicholas_mystikos
+    author: "Nicholas Mystikos"
+    title: "Letters"
+    period: "9th-10th century"
+    expected_letters: 163
+    status: candidate_source_rights_review
+    priority: 3
+    rationale: "Patriarchal correspondence central to post-800 Roman political and ecclesiastical networks."
+    sources:
+      - label: "Candidate source to verify"
+        url: "https://archive.org/"
+    requirements: *default_requirements
+
+  - slug: theophylact_ohrid
+    author: "Theophylact of Ohrid"
+    title: "Letters"
+    period: "11th-12th century"
+    expected_letters: 130
+    status: candidate_source_rights_review
+    priority: 4
+    rationale: "Important provincial church correspondence within the Roman Empire in the East."
+    sources:
+      - label: "Candidate source to verify"
+        url: "https://archive.org/"
+    requirements: *default_requirements
+
+  - slug: michael_choniates
+    author: "Michael Choniates"
+    title: "Letters"
+    period: "12th-13th century"
+    expected_letters: 180
+    status: candidate_source_rights_review
+    priority: 4
+    rationale: "Important post-1204 Roman correspondence from Athens and exile."
+    sources:
+      - label: "Candidate source to verify"
+        url: "https://archive.org/"
+    requirements: *default_requirements
+
+  - slug: eustathios_thessalonica
+    author: "Eustathios of Thessalonica"
+    title: "Letters"
+    period: "12th century"
+    expected_letters: 48
+    status: candidate_source_rights_review
+    priority: 4
+    rationale: "Major learned and episcopal Roman correspondence after AD 800."
+    sources:
+      - label: "Candidate source to verify"
+        url: "https://archive.org/"
+    requirements: *default_requirements
+
+  - slug: demetrios_kydones
+    author: "Demetrios Kydones"
+    title: "Letters"
+    period: "14th century"
+    expected_letters: 450
+    status: candidate_source_rights_review
+    priority: 4
+    rationale: "Large late Roman Empire in the East correspondence collection before 1453."
+    sources:
+      - label: "Candidate source to verify"
+        url: "https://archive.org/"
+    requirements: *default_requirements
+
+  - slug: manuel_ii_palaiologos
+    author: "Manuel II Palaiologos"
+    title: "Letters"
+    period: "14th-15th century"
+    expected_letters: 68
+    status: candidate_source_rights_review
+    priority: 4
+    rationale: "Imperial correspondence near the 1453 boundary."
+    sources:
+      - label: "Candidate source to verify"
+        url: "https://archive.org/"
+    requirements: *default_requirements
+
+  - slug: claudius_terentianus
+    author: "Claudius Terentianus and Claudius Tiberianus archive"
+    title: "Papyrus letters"
+    period: "2nd century"
+    expected_letters: 18
+    status: candidate_documentary_policy
+    priority: 3
+    rationale: "Important Roman Egypt papyrus archive; requires documentary-papyri inclusion rules."
+    sources:
+      - label: "University of Michigan exhibit"
+        url: "https://apps.lib.umich.edu/files/collections/papyrus/exhibits/snapshots/Claudius/claudius.html"
+    requirements: *default_requirements
+
+  - slug: oxyrhynchus_private_letters
+    author: "Multiple writers"
+    title: "Oxyrhynchus private and official letters"
+    period: "Roman period"
+    expected_letters: 1000
+    status: candidate_documentary_policy
+    priority: 5
+    rationale: "Large documentary workstream; needs discovery through papyri.info, Trismegistos, and Oxyrhynchus metadata."
+    sources:
+      - label: "Oxyrhynchus letter-writing overview"
+        url: "https://oxyrhynchus.web.ox.ac.uk/daily-life"
+      - label: "Trismegistos guide"
+        url: "https://www.trismegistos.org/guide.php"
+    requirements: *default_requirements
+
+  # Existing DB collections added to keep the inventory ledger exhaustive.
+
+  - slug: alcuin_york
+    author: "Alcuin of York"
+    title: "Epistolae"
+    period: "768-804 AD"
+    expected_letters: 300
+    status: in_db_partial
+    priority: 2
+    rationale: "Existing DB collection has 15 letters but local collection metadata indicates a larger corpus; track it here without hiding remaining gaps."
+    sources:
+      - label: "English source"
+        url: "https://archive.org/details/alcuinofyorkcad70000alcu"
+      - label: "Scan"
+        url: "https://archive.org/details/monumentagerman04geseuoft"
+    requirements: *default_requirements
+
+  - slug: ambrose_milan
+    author: "Ambrose of Milan"
+    title: "Epistulae"
+    period: "374-397"
+    expected_letters: 119
+    status: in_db_needs_audit
+    priority: 1
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://www.thelatinlibrary.com/ambrose.html"
+      - label: "English source"
+        url: "https://www.newadvent.org/fathers/3403.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecursu16teleduoft"
+    requirements: *default_requirements
+
+  - slug: athanasius_alexandria
+    author: "Athanasius of Alexandria"
+    title: "Letters (Festal and Personal)"
+    period: "328-373 AD"
+    expected_letters: 44
+    status: in_db_needs_audit
+    priority: 2
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "English source"
+        url: "https://www.newadvent.org/fathers/2806.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiae_cursus_completus_gr_vol_025"
+    requirements: *default_requirements
+
+  - slug: augustine_hippo
+    author: "Augustine of Hippo"
+    title: "Epistulae"
+    period: "386-430"
+    expected_letters: 260
+    status: in_db_partial
+    priority: 1
+    rationale: "Current DB has 247 Augustine rows against 260 expected. T202-T217 added 86 source-visible letters absent from the New Advent/NPNF English index as first-time Roman Letters translations from Augustinus.it Latin, with english_text left empty; 13 expected letters remain to import or adjudicate. Additional source-visible labels outside or duplicating the current expected count require source-adjudication before changing the inventory total."
+    sources:
+      - label: "Latin source"
+        url: "https://www.thelatinlibrary.com/augustine.html"
+      - label: "Augustinus.it Latin letters"
+        url: "https://www.augustinus.it/latino/lettere/"
+      - label: "English source"
+        url: "https://www.newadvent.org/fathers/1102.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecursu33migngoog"
+    requirements: *default_requirements
+
+  - slug: avitus_vienne
+    author: "Avitus of Vienne"
+    title: "Epistularum ad Diversos Libri Tres"
+    period: "490-518 AD"
+    expected_letters: 77
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://data.mgh.de/openmgh/bsb00000795.zip"
+      - label: "Scan"
+        url: "https://archive.org/details/alcimiecdiciiavi62avit"
+    requirements: *default_requirements
+
+  - slug: basil_caesarea
+    author: "Basil of Caesarea"
+    title: "Epistulae"
+    period: "357-378"
+    expected_letters: 325
+    status: in_db_needs_audit
+    priority: 1
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "English source"
+        url: "https://www.newadvent.org/fathers/3202.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecursu32migngoog"
+    requirements: *default_requirements
+
+  - slug: bede
+    author: "Bede"
+    title: "Epistles"
+    period: "710-735 AD"
+    expected_letters: 5
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/operahistoricaad0000bede"
+    requirements: *default_requirements
+
+  - slug: benedict_i
+    author: "Pope Benedict I"
+    title: "Letters"
+    period: "576-576 AD"
+    expected_letters: 2
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecur72mign"
+    requirements: *default_requirements
+
+  - slug: boniface
+    author: "Boniface"
+    title: "Letters of Saint Boniface"
+    period: "716-754 AD"
+    expected_letters: 150
+    status: in_db_partial
+    priority: 2
+    rationale: "Existing DB collection has 48 letters but local collection metadata indicates a larger corpus; track it here without hiding remaining gaps."
+    sources:
+      - label: "English source"
+        url: "https://sourcebooks.fordham.edu/basis/boniface-letters.asp"
+      - label: "Scan"
+        url: "https://archive.org/details/monumentagerman01geseuoft"
+    requirements: *default_requirements
+
+  - slug: braulio_zaragoza
+    author: "Braulio of Zaragoza"
+    title: "Epistolae"
+    period: "631-651"
+    expected_letters: 44
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    requirements: *default_requirements
+
+  - slug: caesarius_arles
+    author: "Caesarius of Arles"
+    title: "Epistolae"
+    period: "503-542 AD"
+    expected_letters: 3
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://la.wikisource.org/wiki/Epistolae_(Caesarius)"
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecursu67mign"
+    requirements: *default_requirements
+
+  - slug: cassiodorus
+    author: "Cassiodorus"
+    title: "Variae (12 books)"
+    period: "506-538"
+    expected_letters: 477
+    status: in_db_needs_audit
+    priority: 1
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://www.thelatinlibrary.com/cassiodorus.html"
+      - label: "Scan"
+        url: "https://archive.org/details/cassiodorisenato00teleduoft"
+    requirements: *default_requirements
+
+  - slug: columbanus
+    author: "Columbanus"
+    title: "Letters"
+    period: "590-615 AD"
+    expected_letters: 5
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "English source"
+        url: "https://celt.ucc.ie/published/T201054.html"
+      - label: "Scan"
+        url: "https://archive.org/details/monumentagerman01geseuoft"
+    requirements: *default_requirements
+
+  - slug: cyprian_carthage
+    author: "Cyprian of Carthage"
+    title: "The Epistles of Cyprian"
+    period: "248-258 AD"
+    expected_letters: 82
+    status: in_db_needs_audit
+    priority: 1
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "English source"
+        url: "https://www.newadvent.org/fathers/0506.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/sthascicaecilic01cyprgoog"
+    requirements: *default_requirements
+
+  - slug: desiderius_cahors
+    author: "Desiderius of Cahors"
+    title: "Epistolae"
+    period: "620-655 AD"
+    expected_letters: 36
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/monumentagerman01geseuoft"
+    requirements: *default_requirements
+
+  - slug: ennodius_pavia
+    author: "Ennodius of Pavia"
+    title: "Epistulae (XII Libri)"
+    period: "493-521 AD"
+    expected_letters: 297
+    status: in_db_needs_audit
+    priority: 1
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://raw.githubusercontent.com/OpenGreekAndLatin/csel-dev/master/data/stoa0114a/stoa008/stoa0114a.stoa008.opp-lat1.xml"
+      - label: "Scan"
+        url: "https://archive.org/details/monumentagermani07geseuoft"
+    requirements: *default_requirements
+
+  - slug: epistulae_austrasicae
+    author: "Epistulae Austrasicae"
+    title: "Epistulae Austrasicae (Merovingian Court Letters)"
+    period: "475-590"
+    expected_letters: 48
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/monumentagerman01geseuoft"
+    requirements: *default_requirements
+
+  - slug: epistulae_langobardorum
+    author: "Epistulae Langobardorum"
+    title: "Epistulae Langobardorum (Lombard correspondence)"
+    period: "590-660 AD"
+    expected_letters: 25
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://archive.org/details/epistolaemerowin5189unse"
+      - label: "Scan"
+        url: "https://archive.org/details/monumentagerman01geseuoft"
+    requirements: *default_requirements
+
+  - slug: epistulae_merowingici
+    author: "Epistulae Merowingici Aevi"
+    title: "Epistulae Merowingici Aevi (Merovingian letters)"
+    period: "511-614 AD"
+    expected_letters: 20
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://archive.org/details/epistolaemerowin5189unse"
+      - label: "Scan"
+        url: "https://archive.org/details/monumentagerman01geseuoft"
+    requirements: *default_requirements
+
+  - slug: epistulae_wisigothicae
+    author: "Epistulae Wisigothicae"
+    title: "Epistulae Wisigothicae (Visigothic Letters)"
+    period: "580-610"
+    expected_letters: 30
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/monumentagerman01geseuoft"
+    requirements: *default_requirements
+
+  - slug: faustus_riez
+    author: "Faustus of Riez"
+    title: "Epistolae"
+    period: "462-485 AD"
+    expected_letters: 11
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://www.mlat.uzh.ch/MLS/xanfang.php?tabelle=Faustus_Regiensis_cps2"
+    requirements: *default_requirements
+
+  - slug: ferrandus_carthage
+    author: "Ferrandus of Carthage"
+    title: "Epistolae"
+    period: "520-547 AD"
+    expected_letters: 7
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecursu67mign"
+    requirements: *default_requirements
+
+  - slug: gelasius_i
+    author: "Gelasius I"
+    title: "Letters"
+    period: "492-496 AD"
+    expected_letters: 45
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/epistolaeromano00thiegoog"
+    requirements: *default_requirements
+
+  - slug: gregory_great
+    author: "Pope Gregory the Great"
+    title: "Registrum Epistularum (14 books)"
+    period: "590-604"
+    expected_letters: 856
+    status: in_db_needs_audit
+    priority: 1
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://www.thelatinlibrary.com/gregory.html"
+      - label: "English source"
+        url: "https://www.newadvent.org/fathers/3602.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/registrumepistol01gregrich"
+    requirements: *default_requirements
+
+  - slug: gregory_nazianzus
+    author: "Gregory of Nazianzus"
+    title: "Epistulae"
+    period: "362-390"
+    expected_letters: 92
+    status: in_db_needs_audit
+    priority: 2
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecursu37migngoog"
+    requirements: *default_requirements
+
+  - slug: hormisdas
+    author: "Hormisdas"
+    title: "Letters"
+    period: "514-523 AD"
+    expected_letters: 249
+    status: in_db_needs_audit
+    priority: 2
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/epistolaeromano00thiegoog"
+    requirements: *default_requirements
+
+  - slug: innocent_i
+    author: "Innocent I"
+    title: "Letters"
+    period: "401-417 AD"
+    expected_letters: 34
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecursu20mign"
+    requirements: *default_requirements
+
+  - slug: jerome
+    author: "Jerome"
+    title: "Epistulae"
+    period: "370-420"
+    expected_letters: 131
+    status: in_db_needs_audit
+    priority: 1
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://www.thelatinlibrary.com/jerome.html"
+      - label: "English source"
+        url: "https://www.newadvent.org/fathers/3001.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecursu22teleduoft"
+    requirements: *default_requirements
+
+  - slug: julian_emperor
+    author: "Julian the Apostate"
+    title: "Epistulae"
+    period: "c.355-363 AD"
+    expected_letters: 83
+    status: in_db_needs_audit
+    priority: 2
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "English source"
+        url: "https://www.tertullian.org/fathers/julian_apostate_letters_1_trans.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/worksofemperorju0001juli_u8o6"
+    requirements: *default_requirements
+
+  - slug: leo_great
+    author: "Pope Leo the Great"
+    title: "Epistulae"
+    period: "440-461"
+    expected_letters: 73
+    status: in_db_needs_audit
+    priority: 2
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "English source"
+        url: "https://www.newadvent.org/fathers/3604.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecursu54teleduoft"
+    requirements: *default_requirements
+
+  - slug: paulinus_nola
+    author: "Paulinus of Nola"
+    title: "Epistulae"
+    period: "393-431"
+    expected_letters: 51
+    status: in_db_needs_audit
+    priority: 2
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://www.thelatinlibrary.com/paulinus.html"
+      - label: "Scan"
+        url: "https://archive.org/details/sanctipontiimero0029paul"
+    requirements: *default_requirements
+
+  - slug: pelagius_i
+    author: "Pope Pelagius I"
+    title: "Pelagii I Papae Epistulae Quae Supersunt"
+    period: "556-561"
+    expected_letters: 82
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://archive.org/details/gasso-batlle-1956-pelagius"
+      - label: "Scan"
+        url: "https://archive.org/details/gasso-batlle-1956-pelagius"
+    requirements: *default_requirements
+
+  - slug: pelagius_ii
+    author: "Pope Pelagius II"
+    title: "Letters"
+    period: "585-585 AD"
+    expected_letters: 11
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecur72mign"
+    requirements: *default_requirements
+
+  - slug: pope_agapetus_i
+    author: "Agapetus I"
+    title: "Letters"
+    period: "535-536 AD"
+    expected_letters: 1
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/epistulaeimperat01gnth"
+    requirements: *default_requirements
+
+  - slug: pope_anastasius_ii
+    author: "Anastasius II"
+    title: "Letters"
+    period: "496-498 AD"
+    expected_letters: 6
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/epistolaeromano00thiegoog"
+    requirements: *default_requirements
+
+  - slug: pope_felix_iii
+    author: "Pope Felix III"
+    title: "Epistolae"
+    period: "483-492 AD"
+    expected_letters: 29
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/epistolaeromano00thiegoog"
+    requirements: *default_requirements
+
+  - slug: pope_hilary
+    author: "Pope Hilary"
+    title: "Epistolae et Decretalia"
+    period: "461-468 AD"
+    expected_letters: 25
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/epistolaeromano00thiegoog"
+    requirements: *default_requirements
+
+  - slug: pope_john_ii
+    author: "John II (Pope)"
+    title: "Letters"
+    period: "533-535 AD"
+    expected_letters: 2
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/epistulaeimperat01gnth"
+    requirements: *default_requirements
+
+  - slug: pope_john_iii
+    author: "Pope John III"
+    title: "Letters"
+    period: "567-567 AD"
+    expected_letters: 1
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiaecur72mign"
+    requirements: *default_requirements
+
+  - slug: pope_symmachus
+    author: "Symmachus (Pope)"
+    title: "Letters"
+    period: "498-514 AD"
+    expected_letters: 23
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/epistolaeromano00thiegoog"
+    requirements: *default_requirements
+
+  - slug: pope_vigilius
+    author: "Vigilius (Pope)"
+    title: "Letters"
+    period: "537-555 AD"
+    expected_letters: 1
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/epistulaeimperat01gnth"
+    requirements: *default_requirements
+
+  - slug: ruricius_limoges
+    author: "Ruricius of Limoges"
+    title: "Epistulae (2 books)"
+    period: "480-510"
+    expected_letters: 91
+    status: in_db_needs_audit
+    priority: 3
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/gaborneusidonii00sidogoog"
+    requirements: *default_requirements
+
+  - slug: salvian_marseille
+    author: "Salvian of Marseille"
+    title: "Letters"
+    period: "420-480 AD"
+    expected_letters: 9
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/salvianipresbyt00salvgoog"
+    requirements: *default_requirements
+
+  - slug: sidonius_apollinaris
+    author: "Sidonius Apollinaris"
+    title: "Epistulae (9 books)"
+    period: "455-480"
+    expected_letters: 171
+    status: in_db_needs_audit
+    priority: 2
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://www.thelatinlibrary.com/sidonius.html"
+      - label: "Scan"
+        url: "https://archive.org/details/gaborneusidonii00sidogoog"
+    requirements: *default_requirements
+
+  - slug: simplicius_pope
+    author: "Simplicius"
+    title: "Letters"
+    period: "468-483 AD"
+    expected_letters: 31
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Scan"
+        url: "https://archive.org/details/epistolaeromano00thiegoog"
+    requirements: *default_requirements
+
+  - slug: sulpicius_severus
+    author: "Sulpicius Severus"
+    title: "Letters (Genuine and Dubious)"
+    period: "397-410 AD"
+    expected_letters: 10
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "English source"
+        url: "https://www.newadvent.org/fathers/3502.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/sulpiciiseveril00halmgoog"
+    requirements: *default_requirements
+
+  - slug: symmachus
+    author: "Quintus Aurelius Symmachus"
+    title: "Epistulae (10 books)"
+    period: "365-402"
+    expected_letters: 930
+    status: in_db_partial
+    priority: 1
+    rationale: "Existing DB collection has 677 letters but local collection metadata indicates a larger corpus; track it here without hiding remaining gaps."
+    sources:
+      - label: "Latin source"
+        url: "https://archive.org/details/qaureliisymmach00seecgoog"
+      - label: "Scan"
+        url: "https://archive.org/details/qaurelisymmachi00symm"
+    requirements: *default_requirements
+
+  - slug: synesius_cyrene
+    author: "Synesius of Cyrene"
+    title: "Epistulae"
+    period: "c.395-413 AD"
+    expected_letters: 159
+    status: in_db_needs_audit
+    priority: 2
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "English source"
+        url: "https://www.livius.org/sources/content/synesius/"
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiae_cursus_completus_gr_vol_066a"
+    requirements: *default_requirements
+
+  - slug: theodoret_cyrrhus
+    author: "Theodoret of Cyrrhus"
+    title: "Letters"
+    period: "423-458 AD"
+    expected_letters: 181
+    status: in_db_needs_audit
+    priority: 2
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "English source"
+        url: "https://www.newadvent.org/fathers/2707.htm"
+      - label: "Scan"
+        url: "https://archive.org/details/patrologiae_cursus_completus_gr_vol_083"
+    requirements: *default_requirements
+
+  - slug: venantius_fortunatus
+    author: "Venantius Fortunatus"
+    title: "Carmina: Epistulae et Carmina ad Diversos"
+    period: "566-600 AD"
+    expected_letters: 100
+    status: in_db_needs_audit
+    priority: 4
+    rationale: "Existing DB collection added to the corpus ledger so translation, provenance, geolocation, and biography gaps remain visible."
+    sources:
+      - label: "Latin source"
+        url: "https://la.wikisource.org/wiki/Carmina_(Venantius_Fortunatus)"
+      - label: "Scan"
+        url: "https://archive.org/details/monumentagermani04geseuoft"
+    requirements: *default_requirements
+
+  - slug: patrologia_graeca_ocr_resource
+    author: "Multiple authors"
+    title: "Patrologia Graeca OCR resource"
+    period: "multiple"
+    expected_letters: 0
+    status: supporting_resource
+    priority: 2
+    rationale: "Potentially reduces paid Gemini OCR usage for PG-based Greek collections; verify data availability before OCR spend."
+    sources:
+      - label: "arXiv PG OCR paper"
+        url: "https://arxiv.org/abs/2603.09470"
+      - label: "Zenodo PG OCR release"
+        url: "https://zenodo.org/records/15780625"
+      - label: "Calfa/GREgORI PG OCR GitHub data"
+        url: "https://github.com/calfa-co/Patrologia-Graeca"
+    requirements:
+      modern_english: optional
+      original_text: optional
+      source_url: required
+      sender_recipient: optional
+      geolocation: optional
+      bios: optional

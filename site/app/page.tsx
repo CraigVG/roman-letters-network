@@ -10,7 +10,7 @@ function getStats() {
   return {
     totalLetters: count("SELECT COUNT(*) as c FROM letters"),
     collections: count("SELECT COUNT(*) as c FROM collections WHERE letter_count > 0"),
-    firstEnglish: count("SELECT COUNT(*) as c FROM letters WHERE modern_english IS NOT NULL AND trim(modern_english) != '' AND (english_text IS NULL OR trim(english_text) = '') AND coalesce(translation_source, '') NOT IN ('','existing','existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse','existing_haines','gutenberg_winstedt','Gummere (Loeb Classical Library, 1917-25)')"),
+    firstEnglish: count("SELECT COUNT(*) as c FROM letters WHERE modern_english IS NOT NULL AND trim(modern_english) != '' AND (english_text IS NULL OR trim(english_text) = '') AND coalesce(translation_source, '') NOT IN ('','existing','existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse','existing_haines','gutenberg_winstedt','topostext_shuckburgh_repair_v1','Gummere (Loeb Classical Library, 1917-25)','existing_kalvesmaki_evagrius_2014')"),
   };
 }
 
@@ -51,7 +51,7 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "Dataset",
             "name": CORPUS.title,
-            "description": `A comprehensive corpus of ${CORPUS.totalLetters.toLocaleString('en-US')} surviving letters from the Roman world (100-800 AD) with modern English translations, Latin/Greek originals where available, geographic coordinates, topic tags, and social network metadata. ${CORPUS.firstEnglishTranslations.toLocaleString('en-US')} letters translated to English for the first time.`,
+            "description": `A comprehensive corpus of ${CORPUS.totalLetters.toLocaleString('en-US')} surviving letters from the Roman world (${CORPUS.dateRangeLabel}) with modern English translations, Latin/Greek originals where available, geographic coordinates, topic tags, and social network metadata. ${CORPUS.firstEnglishTranslations.toLocaleString('en-US')} letters translated to English for the first time.`,
             "url": "https://romanletters.org",
             "identifier": `https://doi.org/${CORPUS.doi}`,
             "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -61,7 +61,7 @@ export default function HomePage() {
               "url": "https://craigvandergalien.com"
             },
             "datePublished": "2026-03-20",
-            "temporalCoverage": "100/800",
+            "temporalCoverage": CORPUS.temporalCoverage,
             "spatialCoverage": {
               "@type": "Place",
               "name": "Mediterranean Basin",

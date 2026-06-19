@@ -1,4 +1,4 @@
-import type { LetterFull, CollectionInfo } from './letters';
+import { getLetterDisplayNumber, type LetterFull, type CollectionInfo } from './letters';
 import type { AuthorFull } from './authors';
 
 /* ------------------------------------------------------------------ */
@@ -25,9 +25,10 @@ function stripHtml(text: string | null): string {
 /* ------------------------------------------------------------------ */
 
 export function letterJsonLd(letter: LetterFull): JsonLd {
+  const displayNumber = getLetterDisplayNumber(letter);
   const title = letter.quick_summary
-    ? `Letter ${letter.letter_number}: ${letter.quick_summary}`
-    : `Letter ${letter.letter_number} from ${letter.sender_name ?? 'Unknown'}`;
+    ? `Letter ${displayNumber}: ${letter.quick_summary}`
+    : `Letter ${displayNumber} from ${letter.sender_name ?? 'Unknown'}`;
 
   return {
     '@context': 'https://schema.org',

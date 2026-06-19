@@ -403,7 +403,7 @@ export function HeroAnimation() {
         </h1>
         <p className="mt-4 text-base sm:text-lg text-theme-muted max-w-xl">
           Modern English translations with sources, originals where available,
-          and network data for 100-800 AD.
+          and network data for {CORPUS.dateRangeLabel}.
         </p>
         <Link
           href="/letters/"

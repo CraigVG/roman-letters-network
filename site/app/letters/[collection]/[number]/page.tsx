@@ -11,9 +11,12 @@ import {
   getCollectionBySlug,
   getAdjacentLetters,
   getRelatedLetters,
+  getLetterDisplayNumber,
+  getLetterHref,
 } from '@/lib/letters';
 import { letterJsonLd } from '@/lib/seo';
 import { getLetterRevisions } from '@/lib/letter-revisions';
+import { formatApproxYear } from '@/lib/date-format';
 import { TextProvenance } from '@/components/letters/TextProvenance';
 import { RevisionHistory } from '@/components/letters/RevisionHistory';
 import { VersionTabs } from './VersionTabs';
@@ -28,15 +31,17 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { collection, number } = await params;
-  const letter = getLetterByCollectionAndNumber(collection, Number(number));
+  const letter = getLetterByCollectionAndNumber(collection, number);
   if (!letter) return {};
 
   const sender = letter.sender_name ?? 'Unknown';
-  const yearStr = letter.year_approx ? ` (~${letter.year_approx} AD)` : '';
+  const yearLabel = formatApproxYear(letter.year_approx);
+  const yearStr = yearLabel ? ` (${yearLabel})` : '';
+  const displayNumber = getLetterDisplayNumber(letter);
 
   const title = letter.recipient_name
     ? `${sender} to ${letter.recipient_name}${yearStr}`
-    : `${sender} - Letter ${letter.letter_number}${yearStr}`;
+    : `${sender} - Letter ${displayNumber}${yearStr}`;
 
   const rawDesc =
     (letter.quick_summary && letter.quick_summary.length <= 200
@@ -47,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const description = rawDesc
     ? rawDesc.replace(/\s+/g, ' ').trim().slice(0, 160).replace(/\s\S*$/, '…')
-    : `Letter ${letter.letter_number} from ${sender} in the ${collection.replace(/_/g, ' ')} collection.`;
+    : `Letter ${displayNumber} from ${sender} in the ${collection.replace(/_/g, ' ')} collection.`;
 
   // Resolve OG image: prefer letter-specific, fall back to collection, then none
   const ogDir = path.join(process.cwd(), 'public', 'og');
@@ -75,12 +80,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LetterPage({ params }: Props) {
   const { collection: collectionSlug, number } = await params;
-  const letterNumber = Number(number);
-  const letter = getLetterByCollectionAndNumber(collectionSlug, letterNumber);
+  const letter = getLetterByCollectionAndNumber(collectionSlug, number);
   if (!letter) notFound();
 
   const collection = getCollectionBySlug(collectionSlug);
-  const adjacent = getAdjacentLetters(collectionSlug, letterNumber);
+  const adjacent = getAdjacentLetters(collectionSlug, letter.id);
   const related = getRelatedLetters(
     letter.id,
     letter.topics,
@@ -95,8 +99,8 @@ export default async function LetterPage({ params }: Props) {
     : [];
 
   const title = letter.quick_summary
-    ? `Letter ${letter.letter_number}: ${letter.quick_summary}`
-    : `Letter ${letter.letter_number}`;
+    ? `Letter ${getLetterDisplayNumber(letter)}: ${letter.quick_summary}`
+    : `Letter ${getLetterDisplayNumber(letter)}`;
   const sourceUrl =
     letter.source_url?.trim() || letter.scan_url?.trim() || collection?.scan_url?.trim() || null;
   const manuscriptUrl = letter.scan_url?.trim() || collection?.scan_url?.trim() || null;
@@ -119,7 +123,7 @@ export default async function LetterPage({ params }: Props) {
             label: collection?.author_name ?? collectionLabel,
             href: `/letters/${collectionSlug}/`,
           },
-          { label: `Letter ${letter.letter_number}` },
+          { label: `Letter ${getLetterDisplayNumber(letter)}` },
         ]}
       />
 
@@ -146,11 +150,11 @@ export default async function LetterPage({ params }: Props) {
               </strong>
             </span>
           )}
-          {letter.year_approx && (
+          {letter.year_approx != null && (
             <>
               <span className="text-theme-muted/40">|</span>
               <span className="tabular-nums" style={{ fontVariantNumeric: 'oldstyle-nums' }}>
-                c.&thinsp;{letter.year_approx} AD
+                {formatApproxYear(letter.year_approx)}
               </span>
             </>
           )}
@@ -182,7 +186,9 @@ export default async function LetterPage({ params }: Props) {
                 'existing_rogerpearse',
                 'existing_haines',
                 'gutenberg_winstedt',
+                'topostext_shuckburgh_repair_v1',
                 'Gummere (Loeb Classical Library, 1917-25)',
+                'existing_kalvesmaki_evagrius_2014',
               ].includes(letter.translation_source) ? (
                 <span className="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400">
                   <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
@@ -299,10 +305,10 @@ export default async function LetterPage({ params }: Props) {
             Related Letters
           </h2>
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {related.filter((r) => !(r.collection === collectionSlug && r.letter_number === letterNumber)).map((r) => (
+            {related.filter((r) => r.id !== letter.id).map((r) => (
               <Link
                 key={r.id}
-                href={`/letters/${r.collection}/${r.letter_number}/`}
+                href={getLetterHref(r)}
                 className="group block py-3 px-4 rounded-lg border border-theme bg-theme-surface
                   hover:border-[var(--color-accent)] transition-colors overflow-hidden"
               >
@@ -313,8 +319,8 @@ export default async function LetterPage({ params }: Props) {
                     {r.recipient_name ?? 'Unknown'}
                   </span>
                   <span className="shrink-0 text-xs text-theme-muted tabular-nums">
-                    {r.year_approx && <>c.&thinsp;{r.year_approx} &middot; </>}
-                    <span className="capitalize">{r.collection.replace(/_/g, ' ')}</span> #{r.letter_number}
+                    {r.year_approx != null && <>{formatApproxYear(r.year_approx)} &middot; </>}
+                    <span className="capitalize">{r.collection.replace(/_/g, ' ')}</span> #{getLetterDisplayNumber(r)}
                   </span>
                 </div>
                 {r.quick_summary && (

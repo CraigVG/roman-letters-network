@@ -25,7 +25,9 @@ const SCHOLARLY_SOURCES = new Set([
   'existing_rogerpearse',
   'existing_haines',
   'gutenberg_winstedt',
+  'topostext_shuckburgh_repair_v1',
   'Gummere (Loeb Classical Library, 1917-25)',
+  'existing_kalvesmaki_evagrius_2014',
 ]);
 
 const SOURCE_LABELS: Record<string, string> = {
@@ -39,7 +41,9 @@ const SOURCE_LABELS: Record<string, string> = {
   existing_rogerpearse: 'Roger Pearse (additional translations)',
   existing_haines: 'Haines (public-domain edition)',
   gutenberg_winstedt: 'Project Gutenberg / Winstedt',
+  topostext_shuckburgh_repair_v1: 'ToposText / Shuckburgh',
   'Gummere (Loeb Classical Library, 1917-25)': 'Gummere (Loeb Classical Library, 1917-25)',
+  existing_kalvesmaki_evagrius_2014: 'Kalvesmaki 2014 (CC BY 4.0)',
 };
 
 function OriginalTextBlock({
@@ -104,7 +108,7 @@ export function VersionTabs({
 
   const tabs: { key: TranslationKey; label: string }[] = [
     { key: 'modern', label: isScholarlyTranslation ? 'English Translation' : 'Modern English' },
-    { key: 'english', label: '19th-Century Translation' },
+    { key: 'english', label: isScholarlyTranslation ? 'Published English' : '19th-Century Translation' },
   ];
 
   const availableTabs = tabs.filter((tab) => {

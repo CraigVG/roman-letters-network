@@ -1,0 +1,605 @@
+{
+  "collection": "evagrius_ponticus",
+  "source_total_letters": 62,
+  "imported_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62
+  ],
+  "latest_packet_numbers": [
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62
+  ],
+  "remaining_numbers": [],
+  "license": "CC BY 4.0",
+  "syriac_source_url": "https://raw.githubusercontent.com/Arithmeticus/TAN-Evagrius/master/cpg2437/cpg2437.syr.1912.frankenberg.xml",
+  "greek_retroversion_url": "https://raw.githubusercontent.com/Arithmeticus/TAN-Evagrius/master/cpg2437/cpg2437.grc.1912.frankenberg.tan-tei.xml",
+  "kalvesmaki_57_translation_url": "https://raw.githubusercontent.com/Arithmeticus/TAN-Evagrius/master/cpg2437/cpg2437.57.eng.2014.kalvesmaki.xml",
+  "guide_url": "https://evagriusponticus.net/cpg2437/cpg2437-full-for-search.html",
+  "source_note": "Complete source is Syriac-transmitted; Frankenberg's Greek retroversion is used as an auxiliary translation base and must not be labeled as a preserved Greek original.",
+  "letters": [
+    {
+      "number": 1,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 1824,
+      "greek_retroversion_chars": 2467,
+      "recipient": "Melania the Elder"
+    },
+    {
+      "number": 2,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 745,
+      "greek_retroversion_chars": 1015,
+      "recipient": "John II of Jerusalem"
+    },
+    {
+      "number": 3,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 588,
+      "greek_retroversion_chars": 748,
+      "recipient": "Unknown monk, correspondent of Evagrius Ponticus"
+    },
+    {
+      "number": 4,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 2116,
+      "greek_retroversion_chars": 2996,
+      "recipient": "Abba Lucian, correspondent of Evagrius Ponticus"
+    },
+    {
+      "number": 5,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 907,
+      "greek_retroversion_chars": 1366,
+      "recipient": "Rufinus of Aquileia"
+    },
+    {
+      "number": 6,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 1832,
+      "greek_retroversion_chars": 2619,
+      "recipient": "Unnamed friend of Evagrius Ponticus"
+    },
+    {
+      "number": 7,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 968,
+      "greek_retroversion_chars": 1255,
+      "recipient": "Rufinus of Aquileia"
+    },
+    {
+      "number": 8,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 817,
+      "greek_retroversion_chars": 1104,
+      "recipient": "Melania the Elder"
+    },
+    {
+      "number": 9,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 430,
+      "greek_retroversion_chars": 574,
+      "recipient": "John II of Jerusalem"
+    },
+    {
+      "number": 10,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 544,
+      "greek_retroversion_chars": 803,
+      "recipient": "Rufinus of Aquileia"
+    },
+    {
+      "number": 11,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 1392,
+      "greek_retroversion_chars": 1991,
+      "recipient": "Unknown monk, correspondent of Evagrius Ponticus"
+    },
+    {
+      "number": 12,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 530,
+      "greek_retroversion_chars": 780,
+      "recipient": "Gregory of Nazianzus"
+    },
+    {
+      "number": 13,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 507,
+      "greek_retroversion_chars": 780,
+      "recipient": null
+    },
+    {
+      "number": 14,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 396,
+      "greek_retroversion_chars": 618,
+      "recipient": null
+    },
+    {
+      "number": 15,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 402,
+      "greek_retroversion_chars": 576,
+      "recipient": null
+    },
+    {
+      "number": 16,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 1717,
+      "greek_retroversion_chars": 2584,
+      "recipient": null
+    },
+    {
+      "number": 17,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 880,
+      "greek_retroversion_chars": 1277,
+      "recipient": null
+    },
+    {
+      "number": 18,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 1146,
+      "greek_retroversion_chars": 1643,
+      "recipient": null
+    },
+    {
+      "number": 19,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 514,
+      "greek_retroversion_chars": 832,
+      "recipient": null
+    },
+    {
+      "number": 20,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 607,
+      "greek_retroversion_chars": 808,
+      "recipient": null
+    },
+    {
+      "number": 21,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 511,
+      "greek_retroversion_chars": 768,
+      "recipient": null
+    },
+    {
+      "number": 22,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 444,
+      "greek_retroversion_chars": 665,
+      "recipient": null
+    },
+    {
+      "number": 23,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 347,
+      "greek_retroversion_chars": 502,
+      "recipient": null
+    },
+    {
+      "number": 24,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 542,
+      "greek_retroversion_chars": 852,
+      "recipient": null
+    },
+    {
+      "number": 25,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 2029,
+      "greek_retroversion_chars": 2938,
+      "recipient": null
+    },
+    {
+      "number": 26,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 284,
+      "greek_retroversion_chars": 356,
+      "recipient": null
+    },
+    {
+      "number": 27,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 2543,
+      "greek_retroversion_chars": 3539,
+      "recipient": null
+    },
+    {
+      "number": 28,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 1400,
+      "greek_retroversion_chars": 1984,
+      "recipient": null
+    },
+    {
+      "number": 29,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 809,
+      "greek_retroversion_chars": 1150,
+      "recipient": null
+    },
+    {
+      "number": 30,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 1113,
+      "greek_retroversion_chars": 1448,
+      "recipient": null
+    },
+    {
+      "number": 31,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 390,
+      "greek_retroversion_chars": 694,
+      "recipient": null
+    },
+    {
+      "number": 32,
+      "imported": true,
+      "latest_packet": false,
+      "syriac_chars": 903,
+      "greek_retroversion_chars": 1285,
+      "recipient": null
+    },
+    {
+      "number": 33,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 1226,
+      "greek_retroversion_chars": 1663,
+      "recipient": "Unknown acquaintances of Evagrius Ponticus"
+    },
+    {
+      "number": 34,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 560,
+      "greek_retroversion_chars": 817,
+      "recipient": "Unknown disciple of Evagrius Ponticus"
+    },
+    {
+      "number": 35,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 331,
+      "greek_retroversion_chars": 489,
+      "recipient": "Melania the Elder"
+    },
+    {
+      "number": 36,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 637,
+      "greek_retroversion_chars": 917,
+      "recipient": "Rufinus of Aquileia"
+    },
+    {
+      "number": 37,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 784,
+      "greek_retroversion_chars": 1166,
+      "recipient": "Melania the Elder"
+    },
+    {
+      "number": 38,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 548,
+      "greek_retroversion_chars": 712,
+      "recipient": "Unnamed friend of Evagrius Ponticus"
+    },
+    {
+      "number": 39,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 1926,
+      "greek_retroversion_chars": 2989,
+      "recipient": "Unnamed friend of Evagrius Ponticus"
+    },
+    {
+      "number": 40,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 734,
+      "greek_retroversion_chars": 968,
+      "recipient": "Rufinus of Aquileia"
+    },
+    {
+      "number": 41,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 1553,
+      "greek_retroversion_chars": 2145,
+      "recipient": "Unnamed friend of Evagrius Ponticus"
+    },
+    {
+      "number": 42,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 936,
+      "greek_retroversion_chars": 1293,
+      "recipient": "Unnamed monks, correspondents of Evagrius Ponticus"
+    },
+    {
+      "number": 43,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 877,
+      "greek_retroversion_chars": 1112,
+      "recipient": "Unnamed friend of Evagrius Ponticus"
+    },
+    {
+      "number": 44,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 727,
+      "greek_retroversion_chars": 1115,
+      "recipient": "Rufinus of Aquileia"
+    },
+    {
+      "number": 45,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 374,
+      "greek_retroversion_chars": 525,
+      "recipient": "Unnamed friend of Evagrius Ponticus"
+    },
+    {
+      "number": 46,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 331,
+      "greek_retroversion_chars": 482,
+      "recipient": "Gregory of Nazianzus"
+    },
+    {
+      "number": 47,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 334,
+      "greek_retroversion_chars": 492,
+      "recipient": "Unknown priest, correspondent of Evagrius Ponticus"
+    },
+    {
+      "number": 48,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 260,
+      "greek_retroversion_chars": 394,
+      "recipient": "Theophorus, correspondent of Evagrius Ponticus"
+    },
+    {
+      "number": 49,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 492,
+      "greek_retroversion_chars": 605,
+      "recipient": "Rufinus of Aquileia"
+    },
+    {
+      "number": 50,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 448,
+      "greek_retroversion_chars": 670,
+      "recipient": "John II of Jerusalem"
+    },
+    {
+      "number": 51,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 973,
+      "greek_retroversion_chars": 1358,
+      "recipient": "John II of Jerusalem"
+    },
+    {
+      "number": 52,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 3006,
+      "greek_retroversion_chars": 3902,
+      "recipient": "Unknown monastic elder, correspondent of Evagrius Ponticus"
+    },
+    {
+      "number": 53,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 632,
+      "greek_retroversion_chars": 776,
+      "recipient": "Unknown monastic elder, correspondent of Evagrius Ponticus"
+    },
+    {
+      "number": 54,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 397,
+      "greek_retroversion_chars": 523,
+      "recipient": "Unknown wavering correspondent of Evagrius Ponticus"
+    },
+    {
+      "number": 55,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 2013,
+      "greek_retroversion_chars": 3019,
+      "recipient": "Unknown admonisher of Evagrius Ponticus"
+    },
+    {
+      "number": 56,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 2713,
+      "greek_retroversion_chars": 3878,
+      "recipient": "Unknown consoler of Evagrius Ponticus"
+    },
+    {
+      "number": 57,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 1650,
+      "greek_retroversion_chars": 2446,
+      "recipient": "Unnamed friend of Evagrius Ponticus"
+    },
+    {
+      "number": 58,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 2028,
+      "greek_retroversion_chars": 2667,
+      "recipient": "Hymettius, correspondent of Evagrius Ponticus"
+    },
+    {
+      "number": 59,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 971,
+      "greek_retroversion_chars": 1272,
+      "recipient": "Cecropius, correspondent of Evagrius Ponticus"
+    },
+    {
+      "number": 60,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 1519,
+      "greek_retroversion_chars": 2165,
+      "recipient": "Unnamed brothers, correspondents of Evagrius Ponticus"
+    },
+    {
+      "number": 61,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 788,
+      "greek_retroversion_chars": 1068,
+      "recipient": "Unnamed monks, correspondents of Evagrius Ponticus"
+    },
+    {
+      "number": 62,
+      "imported": true,
+      "latest_packet": true,
+      "syriac_chars": 925,
+      "greek_retroversion_chars": 1092,
+      "recipient": "Unnamed friend of Evagrius Ponticus"
+    }
+  ]
+}

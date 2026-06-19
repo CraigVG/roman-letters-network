@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
+import { formatYearRange } from '@/lib/date-format';
 
 interface NetworkGraphLoaderProps {
   wymanMode?: boolean;
@@ -105,10 +106,7 @@ export default function NetworkGraphLoader({ wymanMode = false, onWymanModeChang
                   <p className="capitalize">{selectedNode.role}</p>
                 )}
                 {selectedNode.location && <p>{selectedNode.location}</p>}
-                <p>
-                  {selectedNode.birth_year ?? '?'}&ndash;
-                  {selectedNode.death_year ?? '?'} AD
-                </p>
+                <p>{formatYearRange(selectedNode.birth_year, selectedNode.death_year) ?? 'Dates unknown'}</p>
               </div>
               {selectedNode.bio && (
                 <p
@@ -264,10 +262,7 @@ export default function NetworkGraphLoader({ wymanMode = false, onWymanModeChang
                 <p className="capitalize">{selectedNode.role}</p>
               )}
               {selectedNode.location && <p>{selectedNode.location}</p>}
-              <p>
-                {selectedNode.birth_year ?? '?'}&ndash;
-                {selectedNode.death_year ?? '?'} AD
-              </p>
+              <p>{formatYearRange(selectedNode.birth_year, selectedNode.death_year) ?? 'Dates unknown'}</p>
             </div>
             {selectedNode.bio && (
               <p

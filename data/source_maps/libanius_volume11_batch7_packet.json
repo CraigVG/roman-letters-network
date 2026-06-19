@@ -1,0 +1,234 @@
+{
+  "collection": "libanius",
+  "source_family": "Libanius Foerster Opera volume 11",
+  "batch": "T257 safe reviewed rows from managed lane fanout",
+  "ocr_model_requested": "gemini-3.1-flash",
+  "ocr_model_fallback": "gemini-3-flash-preview",
+  "ocr_cost_usd": 0,
+  "letters": [
+    {
+      "number": 960,
+      "recipient_latin": "Aburgius",
+      "recipient_greek": "Ἀβουργίῳ",
+      "year": 390,
+      "heading": "ϡξ΄. Ἀβουργίῳ. (390)",
+      "leaf_start": 108,
+      "leaf_end": 109,
+      "greek": "1. Καὶ διὰ ταύτης τῆς ἐπιστολῆς ἃ διὰ τῆς προτέρας αἰτοῦμεν. ἠτοῦμεν δὲ δι᾿ ἐκείνης εὔνοιάν τε τὴν παρὰ σοῦ καὶ Διὸς βοήθειαν καὶ τὸ δοῦναί τέ σε τὰ γράμματα παρεῖναί τε τοῖς ἀναγιγνωσκομένοις καὶ ποιεῖν ἰσχυρὰ τοῖς παρὰ σοῦ ῥήμασι. μέγα δ᾿ ἂν ἐν τοῖς τοιούτοις ἐνέγκαι τι καὶ νεῦμα. 2. ἐνθυμοῦ δὲ ὅτι σοι φεύγειν οὐκ ἔνι τήνδε τὴν βοήθειαν διὰ τὴν ἀπὸ τῆς προτέρας ἀνάγκην. ὃ γὰρ ἐμῷ παιδὶ βεβοηθηκὼς Εὐσεβίῳ πῶς οὐκ ἂν καὶ Ἀρραβίῳ παιδί γε ὄντι καὶ αὐτῷ καὶ μᾶλλόν γε ἢ ἐκείνῳ; τὸ μὲν γὰρ τῶν λόγων καὶ παρὰ τῷδε, τὸ δὲ καὶ δι᾿ αἵματος οὐ παρ᾿ ἐκείνῳ.",
+      "modern_english": "In this letter I ask for the same thing I asked in the last one: your goodwill, divine help, and your willingness to hand over the letter, be present when it is read, and give it force with your own words. In a matter like this, even a nod from you would carry weight. Remember that you cannot avoid this help, because your earlier favor has made it necessary. If you helped my son Eusebius, how could you not also help Arrabius, who is still a boy, and even more than him? Both have a gift for words, but this one is also bound to me by blood.",
+      "subject_summary": "Libanius presses Aburgius to support Arrabius as he previously helped Eusebius.",
+      "quick_summary": "Libanius asks Aburgius to add his influence to a recommendation for young Arrabius.",
+      "interesting_note": "The letter turns a prior favor into an obligation: Aburgius helped one protege, so Libanius argues he must help a blood-relative as well.",
+      "topics": "Recommendation,Patronage,Family,Education",
+      "source_checks": [
+        {
+          "leaf_start": 108,
+          "leaf_end": 108,
+          "token": "Καὶ διὰ ταύτης"
+        },
+        {
+          "leaf_start": 108,
+          "leaf_end": 108,
+          "token": "εὔνοιάν τε τὴν"
+        },
+        {
+          "leaf_start": 109,
+          "leaf_end": 109,
+          "token": "δι᾿ αἵματος"
+        }
+      ]
+    },
+    {
+      "number": 961,
+      "recipient_latin": "Paulus",
+      "recipient_greek": "Παύλῳ",
+      "year": 390,
+      "heading": "ϡξα΄. Παύλῳ. (390)",
+      "leaf_start": 109,
+      "leaf_end": 109,
+      "greek": "1. Πρὸς εἰδότας ἔγραψας ἃ γέγραφας. ἡμῖν τε γὰρ ἦν ἐπιμελὲς εἰδέναι τὰ σὰ τῶν τε ἀπαγγελούντων οὐδὲν ἠπορήσαμεν πολλῶν ὄντων τῶν τὰ τηλικαῦτα εἰδότων. μεγάλα γὰρ δὴ τὰ σὰ καὶ οὐκ ἂν ἠγνοεῖτο. 2. συγχαίρω δέ σοι κρείττονι τοῦ καιροῦ γεγενημένῳ· παρὰ μὲν γὰρ ἡμῶν πολὺ τὸ πετόμενον, σοὶ δ᾿ οἵ γευσάμενοί σου μένοντες καὶ μένοιεν καὶ μήποτε πεισθεῖεν εἶναι τὰ χείρω βελτίονα. 3. τῷ κάλλει δέ με τῆς ἐπιστολῆς εὐφράνας καὶ τῷ ποιῆσαί μοι τὸν υἱὸν ὁμώνυμον ἐλύπησας τῇ συκοφαντίᾳ μνημονεύσας ὀργῆς οὐκ οὔσης. οὔτε γὰρ δὴ σὺ περὶ ἡμᾶς ἐγένου κακὸς ἡμεῖς τε οὐκ ἂν πρὸς ἀγαθὸν ὠργιζόμεθα. τὸ δὲ μήτ᾿ ἐμὲ πρὸς σὲ πολλοῦ χρόνου γράψαι μήτ᾿ αὖ σὲ πρὸς ἐμὲ τῶν ἀσχολίαις κεκωλυμένων ἐστίν.",
+      "modern_english": "You wrote what you wrote to people who already knew it. I have made it my business to know how things stand with you, and I have had no shortage of informants, since many people know matters of such importance. Your affairs are too large to go unnoticed. I congratulate you for rising above the moment. Many people fly away from us, but those who have had a taste of you stay with you; may they stay, and may they never be persuaded that worse things are better. Your beautiful letter delighted me, and so did your making your son my namesake. But you pained me by mentioning a slander about anger where there is none. You have not wronged me, and I would not be angry with a good man. If neither of us has written for a long time, business has kept us both from doing it.",
+      "subject_summary": "Libanius assures Paulus that silence did not mean anger and praises his steadfastness.",
+      "quick_summary": "Libanius congratulates Paulus and rejects the rumor that he is angry with him.",
+      "interesting_note": "The letter turns a potential breach in friendship into a matter of schedule and public business, not resentment.",
+      "topics": "Friendship,Reassurance,Rumor,Public Life",
+      "source_checks": [
+        {
+          "leaf_start": 109,
+          "leaf_end": 109,
+          "token": "Πρὸς εἰδότας"
+        },
+        {
+          "leaf_start": 109,
+          "leaf_end": 109,
+          "token": "μεγάλα γὰρ δὴ"
+        },
+        {
+          "leaf_start": 109,
+          "leaf_end": 109,
+          "token": "ἀσχολίαις"
+        }
+      ]
+    },
+    {
+      "number": 966,
+      "recipient_latin": "Apollinarius and Gemellus",
+      "recipient_greek": "Ἀπολιναρίῳ καὶ Γεμέλλῳ",
+      "year": 390,
+      "heading": "ϡξϛ΄. Ἀπολιναρίῳ καὶ Γεμέλλῳ. (390)",
+      "leaf_start": 114,
+      "leaf_end": 114,
+      "greek": "1. Φιλίππῳ τούτῳ δεῖ τῆς παρὰ τοῦ ἀδελφοῦ τοῦ ὑμετέρου βοηθείας. πιστεύει γὰρ οὕτως ἂν ἰσχυρότερα αὑτῷ γενέσθαι τὰ δίκαια, καὶ πιστεύει γε καλῶς. ζητησάσθω τοίνυν τὴν βοήθειαν δι᾿ ὑμετέρας ἐπιστολῆς, ὑπὲρ ἧς ἐμοί τε καὶ ὑμῖν εἴσεται χάριν, τοῦ πεῖσαι μὲν ἐμοί, τοῦ πεισθῆναι δὲ ὑμῖν.",
+      "modern_english": "This Philip needs help from your brother. He believes that in this way his just claims will become stronger for him, and he is right to believe it. Let him seek that help through a letter from you. For that letter he will be grateful both to me and to you: to me for persuading you, and to you for being persuaded.",
+      "subject_summary": "Libanius asks Apollinarius and Gemellus to write on Philip's behalf.",
+      "quick_summary": "Libanius requests a supporting letter so Philip's just claim will carry more weight.",
+      "interesting_note": "The favor is framed as reciprocal credit: Philip will thank Libanius for asking and the recipients for agreeing.",
+      "topics": "Recommendation,Advocacy,Family Influence,Justice",
+      "source_checks": [
+        {
+          "leaf_start": 114,
+          "leaf_end": 114,
+          "token": "Φιλίππῳ τούτῳ"
+        },
+        {
+          "leaf_start": 114,
+          "leaf_end": 114,
+          "token": "ὑμετέρου βοηθείας"
+        },
+        {
+          "leaf_start": 114,
+          "leaf_end": 114,
+          "token": "ἐμοί τε καὶ ὑμῖν"
+        }
+      ]
+    },
+    {
+      "number": 967,
+      "recipient_latin": "Proclus",
+      "recipient_greek": "Πρόκλῳ",
+      "year": 390,
+      "heading": "ϡξζ΄. Πρόκλῳ. (390)",
+      "leaf_start": 114,
+      "leaf_end": 114,
+      "greek": "1. Φιλίππου συγγενὴς οὗτός ἐστι Φίλιππος, Φιλίππου τοῦ πολλαῖς τε καὶ καλαῖς πράξεσιν ἄνευ ὀργῆς ἐπιτεθεικότος τέλη. πολλοῖς δὲ οὗτος ὡμιληκὼς σοφισταῖς καὶ παρ᾿ ἑκάστου λαβὼν ὃ παρ᾿ ἑκάστου λαβεῖν ἔδει, φυγὼν τοὺς ἐν τῷ συνδικεῖν πόνους ἧκεν ἐπί τινα ζώνην. 2. τὴν πενίαν δὲ οὐδ᾿ οὕτω λύσας ἔρχεται παρ᾿ ὑμᾶς σωθήσεσθαι τῇ σῇ δικαιοσύνῃ πεπεισμένος. ἀκούων δὲ ἥδεσθαί σε ταῖς ἡμετέραις ἐπιστολαῖς ταῖς οὐ καλαῖς μέν, σοὶ δὲ δοκούσαις, ᾔτησέ τε καὶ αἰτήσας ἔλαβε, καὶ διὰ τὴν σὴν φιλίαν καὶ δύναμιν εὐεργέτης ἀνθρώπων ἐγώ.",
+      "modern_english": "This Philip is a relative of Philip, the man who completed his offices with many fine actions and without anger. After associating with many sophists and taking from each what each had to give, this Philip fled the labors of advocacy and has come in search of some livelihood. Even so he has not escaped poverty, and he now comes to you convinced that your justice will save him. Hearing that you take pleasure in what you consider my letters, he asked for letters from me. They are not beautiful, but he asked and received them. Through your friendship and power, I become a benefactor to men.",
+      "subject_summary": "Libanius recommends Philip to Proclus as a poor but educated man needing justice.",
+      "quick_summary": "Libanius asks Proclus to help Philip, whose education has not saved him from poverty.",
+      "interesting_note": "Libanius wryly calls his own letters unbeautiful, then uses Proclus' fondness for them as leverage.",
+      "topics": "Recommendation,Poverty,Education,Justice",
+      "source_checks": [
+        {
+          "leaf_start": 114,
+          "leaf_end": 114,
+          "token": "Φιλίππου συγγενὴς"
+        },
+        {
+          "leaf_start": 114,
+          "leaf_end": 114,
+          "token": "παρ᾽ ἑκάστου"
+        },
+        {
+          "leaf_start": 114,
+          "leaf_end": 114,
+          "token": "εὐεργέτης ἀνθρώπων"
+        }
+      ]
+    },
+    {
+      "number": 968,
+      "recipient_latin": "Dometius",
+      "recipient_greek": "Δομετίῳ",
+      "year": 390,
+      "heading": "ϡξη΄. Δομετίῳ. (390)",
+      "leaf_start": 114,
+      "leaf_end": 115,
+      "greek": "1. Ὑπὲρ Τυρίων ἐπιστολαὶ πρὸς ἐμὲ μὲν ἦλθον ἀπὸ Φοινίκης δύο, πρὸς ἄλλον δέ τινα τέτταρες. τῶν οὖν ἑταίρων τινὲς ὕβριν ἐκάλουν τὸ πρᾶγμα λέγοντες· οὐκ ἴσον δύο καὶ τέτταρες. 2. εἶπον δὴ πρὸς αὐτοὺς ὅτι μὴ χρὴ θαυμάζειν εἰ μὴ καὶ πρὸς ἐμὲ τέτταρες, ἀλλὰ μᾶλλον, ὅτι καὶ δύο. πρὸς γὰρ δὴ τὸν οὕτως ἀσθενῆ μάταιον πέμπειν ὑπὲρ τοιούτων ἐπιστολάς· παρ᾿ ᾧ δὲ τὸ δύνασθαι, τοῦτον ἔδει μὴ τέτταρας μόνον, ἀλλὰ καὶ πολλάκις εἰληφέναι τοσαύτας.",
+      "modern_english": "On behalf of the Tyrians, two letters came to me from Phoenicia, while four came to someone else. Some of my companions called this an insult, saying that two and four are not equal. I told them they should not be surprised that four did not come to me, but rather that even two did. It is pointless to send letters about such matters to someone as weak as I am. The man with power should have received not only four, but many times that number.",
+      "subject_summary": "Libanius jokes that Dometius, not he, should receive most letters about Tyrian affairs.",
+      "quick_summary": "Libanius contrasts his weakness with Dometius' power in the matter of the Tyrians.",
+      "interesting_note": "The letter is self-deprecating political triage: Libanius treats fewer requests as proof that real influence lies elsewhere.",
+      "topics": "Tyre,Political Influence,Self-Deprecation,Requests",
+      "source_checks": [
+        {
+          "leaf_start": 114,
+          "leaf_end": 114,
+          "token": "Ὑπὲρ Τυρίων"
+        },
+        {
+          "leaf_start": 115,
+          "leaf_end": 115,
+          "token": "οὐκ ἴσον δύο"
+        },
+        {
+          "leaf_start": 115,
+          "leaf_end": 115,
+          "token": "μάταιον πέμπειν"
+        }
+      ]
+    },
+    {
+      "number": 971,
+      "recipient_latin": "Photius",
+      "recipient_greek": "Φωτίῳ",
+      "year": 390,
+      "heading": "ϡοα΄. Φωτίῳ. (390)",
+      "leaf_start": 117,
+      "leaf_end": 117,
+      "greek": "1. Πάλιν σοι χαρίζομαι· μέλλω γὰρ αἰτεῖν τι πάλιν, καὶ σὺ δήπου δώσεις. ἀκριβῶς οἶδα τοῦτο ἐγώ. φέρει δέ σοι ταῦτα ἡδονὴν ἀμφότερα, διόπερ ἐν εὐχῇ σοι πολλοὺς εἶναι τοὺς δι᾿ ἐμοῦ σου δεομένους, ὅπως ἂν εἴην πολλὰ εὖ πεπονθὼς ὑπὸ σοῦ. 2. ἴθι τοίνυν, μιμοῦ τὰ σαυτοῦ καὶ ῥήμασιν οὐ πολλοῖς Ἀργυρίῳ τὴν ἐν χερσὶ λειτουργίαν τὴν πάνυ βαρεῖαν ποίει μὴ πάνυ βαρεῖαν. ὀφείλεις δὲ αὐτῷ χάριτας ἴσως μὲν καὶ ὑπὲρ σοῦ, πάντως μὴν ὑπὲρ ἐμοῦ τοῦ παρ᾿ αὐτοῦ πάντα δὴ τὸν χρόνον καὶ λόγοις καὶ ἔργοις τετιμημένου.",
+      "modern_english": "I am taking advantage of your kindness again, because I am about to ask for something again, and of course you will grant it. I know that perfectly well. Both parts of this give you pleasure, and for that reason I pray that many people will need you through me, so that I may receive many benefits from you. Come then, imitate yourself. With only a few words, make the public duty now in Argyrius' hands much less heavy. You owe him thanks, perhaps for your own sake, and certainly for mine, since he has honored me all along in word and deed.",
+      "subject_summary": "Libanius asks Photius to lighten Argyrius' burdensome public duty.",
+      "quick_summary": "Libanius again asks Photius for a favor, this time for Argyrius.",
+      "interesting_note": "The letter flatters Photius by treating generosity as a habit he will naturally repeat.",
+      "topics": "Recommendation,Public Duty,Friendship,Gratitude",
+      "source_checks": [
+        {
+          "leaf_start": 117,
+          "leaf_end": 117,
+          "token": "Πάλιν σοι χαρίξομαι"
+        },
+        {
+          "leaf_start": 117,
+          "leaf_end": 117,
+          "token": "λειτουργίαν τὴν πάνυ"
+        },
+        {
+          "leaf_start": 117,
+          "leaf_end": 117,
+          "token": "τὸν χρόνον καὶ λόγοις"
+        }
+      ]
+    },
+    {
+      "number": 975,
+      "recipient_latin": "Siburius",
+      "recipient_greek": "Σιβουρίῳ",
+      "year": 390,
+      "heading": "ϡοε΄. Σιβουρίῳ. (390)",
+      "leaf_start": 120,
+      "leaf_end": 120,
+      "greek": "1. Εἷς σὺ τῶν ὑπὸ τοῦ Διὸς ἀγαπωμένων. οὐκοῦν καὶ μιμεῖσθαι δίκαιος ἂν εἴης τὸν Δία. τῷ Διὶ δὲ νόμος ὅσα νεύσειεν ἐπιτελεῖν. οὐκοῦν καὶ σοὶ τῷ νόμῳ τούτῳ χρηστέον, καὶ ἐπειδήπερ ἕνευσας ἐν τοῖς λόγοις, οὓς περί τε τῆς ἀρετῆς Εὐθυμίου καὶ πενίας ἐποιούμεθα, πρόσθες τὸ ἔργον καὶ λύε τὴν πενίαν ἑπόμενος τῷ τὰ πάντα πεποιηκότι θεῷ.",
+      "modern_english": "You are one of those loved by Zeus, and so you would be right to imitate Zeus. Zeus has a law: whatever he nods assent to, he brings to completion. You should use the same law. Since you nodded in agreement with the speeches I made about Euthymius' virtue and poverty, add the deed as well: end his poverty, following the god who made all things.",
+      "subject_summary": "Libanius urges Siburius to turn verbal approval into concrete aid for Euthymius.",
+      "quick_summary": "Libanius asks Siburius to complete his promise and relieve Euthymius' poverty.",
+      "interesting_note": "Libanius builds the argument around a divine nod: a powerful person's assent should become action.",
+      "topics": "Poverty,Patronage,Promise,Religious Rhetoric",
+      "source_checks": [
+        {
+          "leaf_start": 120,
+          "leaf_end": 120,
+          "token": "Εἷς σὺ τῶν"
+        },
+        {
+          "leaf_start": 120,
+          "leaf_end": 120,
+          "token": "τῷ Διὶ δὲ νόμος"
+        },
+        {
+          "leaf_start": 120,
+          "leaf_end": 120,
+          "token": "λύε τὴν πενίαν"
+        }
+      ]
+    }
+  ]
+}

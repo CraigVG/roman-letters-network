@@ -5,7 +5,10 @@ import {
   getCollectionSlugs,
   getCollectionBySlug,
   getLettersByCollection,
+  getLetterDisplayNumber,
+  getLetterHref,
 } from '@/lib/letters';
+import { formatApproxYear, formatYearRange } from '@/lib/date-format';
 import { collectionJsonLd } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 
@@ -50,7 +53,7 @@ export default async function CollectionPage({ params }: Props) {
     .filter((y): y is number => y !== null);
   const minYear = years.length > 0 ? Math.min(...years) : null;
   const maxYear = years.length > 0 ? Math.max(...years) : null;
-  const dateRange = collection.date_range ?? (minYear && maxYear ? `${minYear}-${maxYear} AD` : null);
+  const dateRange = collection.date_range ?? formatYearRange(minYear, maxYear);
 
   const jsonLd = collectionJsonLd(collection);
 
@@ -111,12 +114,12 @@ export default async function CollectionPage({ params }: Props) {
           {letters.map((letter) => (
             <Link
               key={letter.id}
-              href={`/letters/${slug}/${letter.letter_number}/`}
+              href={getLetterHref(letter)}
               className="group block py-3 hover:bg-theme-surface transition-colors -mx-3 px-3 rounded"
             >
               <div className="flex items-start gap-3 overflow-hidden">
-                <span className="text-xs text-theme-muted tabular-nums shrink-0 mt-0.5 w-8 text-right">
-                  #{letter.letter_number}
+                <span className="text-xs text-theme-muted tabular-nums shrink-0 mt-0.5 w-12 text-right">
+                  #{getLetterDisplayNumber(letter)}
                 </span>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-baseline gap-2 flex-wrap">
@@ -125,9 +128,9 @@ export default async function CollectionPage({ params }: Props) {
                       {' \u2192 '}
                       {letter.recipient_name ?? 'Unknown'}
                     </span>
-                    {letter.year_approx && (
+                    {letter.year_approx != null && (
                       <span className="text-xs text-theme-muted tabular-nums">
-                        ~{letter.year_approx} AD
+                        {formatApproxYear(letter.year_approx)}
                       </span>
                     )}
                   </div>

@@ -19,6 +19,25 @@ fs.mkdirSync(OUT_DIR, { recursive: true });
 
 const db = new Database(DB_PATH, { readonly: true });
 
+const EXISTING_TRANSLATION_SOURCES = [
+  '',
+  'existing',
+  'existing_newadvent',
+  'existing_tertullian',
+  'existing_fordham',
+  'existing_celt',
+  'existing_attalus',
+  'existing_livius',
+  'existing_rogerpearse',
+  'existing_haines',
+  'gutenberg_winstedt',
+  'topostext_shuckburgh_repair_v1',
+  'Gummere (Loeb Classical Library, 1917-25)',
+  'existing_kalvesmaki_evagrius_2014',
+];
+
+const existingTranslationSqlList = EXISTING_TRANSLATION_SOURCES.map((source) => `'${source.replace(/'/g, "''")}'`).join(',');
+
 // ---------------------------------------------------------------------------
 // Seeded random shuffle (reproducible builds)
 // ---------------------------------------------------------------------------
@@ -46,6 +65,11 @@ function omitNulls(obj) {
   return out;
 }
 
+function routeKeyOrUndefined(row) {
+  const key = String(row.route_key || row.letter_number);
+  return key === String(row.letter_number) ? undefined : key;
+}
+
 // ---------------------------------------------------------------------------
 // Helper: format topic slug -> label
 // ---------------------------------------------------------------------------
@@ -62,18 +86,28 @@ function topicLabel(slug) {
 const lettersRows = db
   .prepare(
     `
-    SELECT l.id, l.collection, l.letter_number, l.year_approx,
+    WITH duplicate_numbers AS (
+      SELECT collection, letter_number, COUNT(*) AS route_count
+      FROM letters
+      GROUP BY collection, letter_number
+    )
+    SELECT l.id, l.collection, l.letter_number,
+           CASE
+             WHEN d.route_count > 1 AND l.ref_id IS NOT NULL AND trim(l.ref_id) != ''
+               THEN l.ref_id
+             ELSE CAST(l.letter_number AS TEXT)
+           END AS route_key,
+           l.year_approx,
            a1.name as sender_name, a2.name as recipient_name,
            l.topics, substr(l.quick_summary, 1, 120) as summary,
            l.distance_km,
            CASE WHEN l.modern_english IS NOT NULL
                 AND (l.english_text IS NULL OR l.english_text = '')
-                AND l.translation_source NOT IN (
-                  'existing_newadvent','existing_tertullian','existing_fordham',
-                  'existing_celt','existing_attalus','existing_livius','existing_rogerpearse'
-                )
+                AND coalesce(l.translation_source, '') NOT IN (${existingTranslationSqlList})
            THEN 1 ELSE 0 END as first_english
     FROM letters l
+    JOIN duplicate_numbers d
+      ON d.collection = l.collection AND d.letter_number = l.letter_number
     LEFT JOIN authors a1 ON l.sender_id = a1.id
     LEFT JOIN authors a2 ON l.recipient_id = a2.id
     ORDER BY l.year_approx ASC NULLS LAST, l.collection, l.letter_number
@@ -86,6 +120,7 @@ const letters = lettersRows.map((row) =>
     id: row.id,
     c: row.collection,
     n: row.letter_number,
+    k: routeKeyOrUndefined(row),
     y: row.year_approx,
     s: row.sender_name,
     r: row.recipient_name,
@@ -104,11 +139,24 @@ console.log(`Letters: ${letters.length}`);
 const featuredRows = db
   .prepare(
     `
-    SELECT l.id, l.collection, l.letter_number, l.year_approx,
+    WITH duplicate_numbers AS (
+      SELECT collection, letter_number, COUNT(*) AS route_count
+      FROM letters
+      GROUP BY collection, letter_number
+    )
+    SELECT l.id, l.collection, l.letter_number,
+           CASE
+             WHEN d.route_count > 1 AND l.ref_id IS NOT NULL AND trim(l.ref_id) != ''
+               THEN l.ref_id
+             ELSE CAST(l.letter_number AS TEXT)
+           END AS route_key,
+           l.year_approx,
            a1.name as sender_name, a2.name as recipient_name,
            l.quick_summary, substr(l.interesting_note, 1, 250) as note,
            l.topics
     FROM letters l
+    JOIN duplicate_numbers d
+      ON d.collection = l.collection AND d.letter_number = l.letter_number
     LEFT JOIN authors a1 ON l.sender_id = a1.id
     LEFT JOIN authors a2 ON l.recipient_id = a2.id
     WHERE l.interesting_note IS NOT NULL AND length(l.interesting_note) > 10
@@ -122,6 +170,7 @@ const featured = seededShuffle(featuredRows).map((row) =>
     id: row.id,
     c: row.collection,
     n: row.letter_number,
+    k: routeKeyOrUndefined(row),
     y: row.year_approx,
     s: row.sender_name,
     r: row.recipient_name,
@@ -288,7 +337,7 @@ function countPathway(filters) {
   if (filters.firstEnglish) {
     conditions.push(`l.modern_english IS NOT NULL`);
     conditions.push(`(l.english_text IS NULL OR l.english_text = '')`);
-    conditions.push(`l.translation_source NOT IN ('existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse')`);
+    conditions.push(`coalesce(l.translation_source, '') NOT IN (${existingTranslationSqlList})`);
   }
 
   const where = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';

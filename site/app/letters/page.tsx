@@ -6,8 +6,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Browse Letters',
-  description:
-    'Browse Latin and Greek correspondence from the Roman world (97-800 AD). Search by topic, collection, era, or discover the letter of the day. Includes 3,000+ first-ever English translations.',
+  description: `Browse Latin and Greek correspondence from the Roman world (${CORPUS.dateRangeLabel}). Search by topic, collection, era, or discover the letter of the day. Includes 3,000+ first-ever English translations.`,
 };
 
 export default function LettersBrowsePage() {

@@ -1,4 +1,9 @@
-import type { LetterFull, CollectionInfo } from './letters';
+import {
+  getLetterDisplayNumber,
+  getLetterHref,
+  type LetterFull,
+  type CollectionInfo,
+} from './letters';
 
 const PUBLIC_DOMAIN_TRANSLATION_SOURCES: Record<string, string> = {
   existing: 'Public-domain English translation',
@@ -11,7 +16,9 @@ const PUBLIC_DOMAIN_TRANSLATION_SOURCES: Record<string, string> = {
   existing_rogerpearse: 'Public-domain English translation',
   existing_haines: 'Public-domain English translation',
   gutenberg_winstedt: 'Public-domain English translation',
+  topostext_shuckburgh_repair_v1: 'Public-domain English translation',
   'Gummere (Loeb Classical Library, 1917-25)': 'Public-domain English translation',
+  existing_kalvesmaki_evagrius_2014: 'CC BY 4.0 English translation',
 };
 
 const SOURCE_LABELS: Record<string, string> = {
@@ -25,7 +32,9 @@ const SOURCE_LABELS: Record<string, string> = {
   existing_rogerpearse: 'Roger Pearse / Tertullian.org',
   existing_haines: 'Haines public-domain edition',
   gutenberg_winstedt: 'Project Gutenberg / Winstedt',
+  topostext_shuckburgh_repair_v1: 'ToposText / Shuckburgh',
   'Gummere (Loeb Classical Library, 1917-25)': 'Gummere, Loeb Classical Library',
+  existing_kalvesmaki_evagrius_2014: 'Kalvesmaki 2014 / TAN-Evagrius',
   ai_translated: 'AI-assisted translation from original text',
   seeck_ocr_ia: 'Seeck edition OCR from Internet Archive',
   pg78_ocr: 'Patrologia Graeca 78 OCR',
@@ -49,6 +58,10 @@ function normalizedSource(letter: LetterFull) {
   return (letter.translation_source ?? '').trim();
 }
 
+function hasTranslation(letter: LetterFull) {
+  return Boolean(letter.modern_english?.trim() || letter.english_text?.trim());
+}
+
 function sourceLooksOcr(letter: LetterFull, sourceUrl: string | null) {
   const source = normalizedSource(letter).toLowerCase();
   const url = (sourceUrl ?? '').toLowerCase();
@@ -63,6 +76,7 @@ function sourceLooksOcr(letter: LetterFull, sourceUrl: string | null) {
 
 export function getSourceLabel(letter: LetterFull) {
   const source = normalizedSource(letter);
+  if (!source && letter.latin_text?.trim()) return 'Original-language source text';
   if (!source) return 'Unspecified import source';
   return SOURCE_LABELS[source] ?? source.replace(/_/g, ' ');
 }
@@ -75,14 +89,17 @@ export function getTextProvenance(
   const primarySourceUrl =
     letter.source_url ?? letter.scan_url ?? collection?.scan_url ?? null;
   const hasOriginal = Boolean(letter.latin_text?.trim());
+  const hasEnglish = hasTranslation(letter);
   const isOcr = sourceLooksOcr(letter, primarySourceUrl);
   const isPublicDomainTranslation = Boolean(PUBLIC_DOMAIN_TRANSLATION_SOURCES[source]);
 
-  const translationLabel = isPublicDomainTranslation
-    ? PUBLIC_DOMAIN_TRANSLATION_SOURCES[source]
-    : isOcr
-      ? 'AI-assisted translation from OCR-derived source text'
-      : 'AI-assisted modern English translation';
+  const translationLabel = !hasEnglish
+    ? 'No English translation available yet'
+    : isPublicDomainTranslation
+      ? PUBLIC_DOMAIN_TRANSLATION_SOURCES[source]
+      : isOcr
+        ? 'AI-assisted translation from OCR-derived source text'
+        : 'AI-assisted modern English translation';
 
   const sourceType = isOcr
     ? 'Scanned edition / OCR-derived import'
@@ -96,10 +113,12 @@ export function getTextProvenance(
 
   const reviewStatus = !hasOriginal
     ? 'Needs original-text backfill'
+    : !hasEnglish
+      ? 'Original text imported; translation pending'
     : isOcr
       ? 'Needs transcription review'
       : isPublicDomainTranslation
-        ? 'Public-domain translation source; not newly peer reviewed here'
+        ? 'Existing translation source; not newly peer reviewed here'
         : 'Imported text; not peer reviewed here';
 
   return {
@@ -117,10 +136,11 @@ export function buildCorrectionIssueUrl(
   letter: LetterFull,
   primarySourceUrl: string | null = letter.source_url ?? letter.scan_url ?? null,
 ) {
-  const title = `Correction: ${letter.collection} ${letter.letter_number}`;
-  const pageUrl = `https://romanletters.org/letters/${letter.collection}/${letter.letter_number}/`;
+  const displayNumber = getLetterDisplayNumber(letter);
+  const title = `Correction: ${letter.collection} ${displayNumber}`;
+  const pageUrl = `https://romanletters.org${getLetterHref(letter)}`;
   const body = [
-    `Letter: ${letter.collection} ${letter.letter_number}`,
+    `Letter: ${letter.collection} ${displayNumber}`,
     `Page: ${pageUrl}`,
     `Current source: ${primarySourceUrl ?? 'none listed'}`,
     `Translation source: ${letter.translation_source ?? 'none listed'}`,

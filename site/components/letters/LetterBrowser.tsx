@@ -15,6 +15,7 @@ interface FeaturedLetter {
   id: number;
   c: string;
   n: number;
+  k?: string;
   y?: number;
   s?: string;
   r?: string;

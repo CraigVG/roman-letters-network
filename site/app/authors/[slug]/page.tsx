@@ -8,7 +8,9 @@ import {
   toSlug,
 } from '@/lib/authors';
 import { authorJsonLd } from '@/lib/seo';
+import { formatApproxYear, formatYearRange } from '@/lib/date-format';
 import { getDb } from '@/lib/db';
+import { getLetterDisplayNumber, getLetterHref } from '@/lib/letters';
 
 /* ------------------------------------------------------------------ */
 /*  Static generation                                                  */
@@ -31,13 +33,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const author = getAuthorBySlug(slug);
   if (!author) return {};
 
-  const dates =
-    author.birth_year || author.death_year
-      ? ` (${author.birth_year ?? '?'}\u2013${author.death_year ?? '?'})`
-      : '';
+  const dates = formatYearRange(author.birth_year, author.death_year);
 
   return {
-    title: `${author.name}${dates}`,
+    title: `${author.name}${dates ? ` (${dates})` : ''}`,
     description: author.bio
       ? author.bio.replace(/<[^>]*>/g, '').slice(0, 160)
       : `Letters sent and received by ${author.name} in the late Roman Empire.`,
@@ -52,6 +51,9 @@ interface AuthorLetter {
   id: number;
   collection: string;
   letter_number: number;
+  book: number | null;
+  ref_id: string | null;
+  route_key: string;
   year_approx: number | null;
   quick_summary: string | null;
   sender_name: string;
@@ -63,12 +65,25 @@ function getAuthorLetters(authorId: number): AuthorLetter[] {
   const db = getDb();
   return db
     .prepare(
-      `SELECT
-         l.id, l.collection, l.letter_number, l.year_approx, l.quick_summary,
+      `WITH duplicate_numbers AS (
+         SELECT collection, letter_number, COUNT(*) AS route_count
+         FROM letters
+         GROUP BY collection, letter_number
+       )
+       SELECT
+         l.id, l.collection, l.letter_number, l.book, l.ref_id,
+         CASE
+           WHEN d.route_count > 1 AND l.ref_id IS NOT NULL AND trim(l.ref_id) != ''
+             THEN l.ref_id
+           ELSE CAST(l.letter_number AS TEXT)
+         END AS route_key,
+         l.year_approx, l.quick_summary,
          s.name AS sender_name,
          r.name AS recipient_name,
          CASE WHEN l.sender_id = ? THEN 'sent' ELSE 'received' END AS direction
        FROM letters l
+       JOIN duplicate_numbers d
+         ON d.collection = l.collection AND d.letter_number = l.letter_number
        JOIN authors s ON s.id = l.sender_id
        JOIN authors r ON r.id = l.recipient_id
        WHERE l.sender_id = ? OR l.recipient_id = ?
@@ -90,10 +105,7 @@ export default async function AuthorProfilePage({ params }: PageProps) {
   const totalLetters = author.sent_count + author.received_count;
   const correspondentCount = author.top_correspondents.length;
 
-  const dates =
-    author.birth_year || author.death_year
-      ? `${author.birth_year ?? '?'}\u2013${author.death_year ?? '?'}`
-      : null;
+  const dates = formatYearRange(author.birth_year, author.death_year);
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -212,7 +224,7 @@ export default async function AuthorProfilePage({ params }: PageProps) {
           {letters.map((letter, i) => (
             <Link
               key={letter.id}
-              href={`/letters/${encodeURIComponent(letter.collection)}/${letter.letter_number}`}
+              href={getLetterHref(letter)}
               className={`flex items-start gap-3 py-3.5 px-4 -mx-4
                 hover:bg-theme-surface transition-colors group rounded-lg ${
                   i % 2 === 0 ? '' : 'bg-theme-surface/50'
@@ -234,9 +246,9 @@ export default async function AuthorProfilePage({ params }: PageProps) {
                       ? `To ${letter.recipient_name}`
                       : `From ${letter.sender_name}`}
                   </span>
-                  {letter.year_approx && (
+                  {letter.year_approx != null && (
                     <span className="shrink-0 text-xs text-theme-muted tabular-nums">
-                      c.&thinsp;{letter.year_approx}
+                      {formatApproxYear(letter.year_approx)}
                     </span>
                   )}
                 </div>
@@ -247,7 +259,7 @@ export default async function AuthorProfilePage({ params }: PageProps) {
                 )}
               </div>
               <span className="shrink-0 text-xs text-theme-muted capitalize">
-                {letter.collection.replace(/_/g, ' ')} #{letter.letter_number}
+                {letter.collection.replace(/_/g, ' ')} #{getLetterDisplayNumber(letter)}
               </span>
             </Link>
           ))}

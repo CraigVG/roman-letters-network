@@ -80,14 +80,32 @@ function generatePagesSitemap() {
 // --- Letters by collection ---
 function generateLettersSitemap(collection) {
   const rows = db
-    .prepare('SELECT letter_number FROM letters WHERE collection = ? ORDER BY letter_number')
+    .prepare(
+      `WITH duplicate_numbers AS (
+         SELECT collection, letter_number, COUNT(*) AS route_count
+         FROM letters
+         GROUP BY collection, letter_number
+       )
+       SELECT
+         l.letter_number,
+         CASE
+           WHEN d.route_count > 1 AND l.ref_id IS NOT NULL AND trim(l.ref_id) != ''
+             THEN l.ref_id
+           ELSE CAST(l.letter_number AS TEXT)
+         END AS route_key
+       FROM letters l
+       JOIN duplicate_numbers d
+         ON d.collection = l.collection AND d.letter_number = l.letter_number
+       WHERE l.collection = ?
+       ORDER BY l.book, l.letter_number, l.id`,
+    )
     .all(collection);
 
   let xml = urlsetHeader();
   // Collection index page
   xml += urlEntry(`${BASE_URL}/letters/${collection}/`, TODAY);
   for (const row of rows) {
-    xml += urlEntry(`${BASE_URL}/letters/${collection}/${row.letter_number}/`, TODAY);
+    xml += urlEntry(`${BASE_URL}/letters/${collection}/${encodeURIComponent(row.route_key)}/`, TODAY);
   }
   xml += urlsetFooter();
   return xml;

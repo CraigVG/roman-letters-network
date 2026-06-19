@@ -15,7 +15,7 @@ export function Footer() {
               Roman Letters
             </p>
             <p className="mt-2 text-sm text-theme-muted leading-relaxed">
-              Mapping the communication networks of the late Roman Empire
+              Mapping the communication networks of the Roman world
               through {CORPUS.totalLetters.toLocaleString('en-US')} surviving
               Latin and Greek letters.
             </p>
@@ -110,13 +110,13 @@ export function Footer() {
         {/* Bottom rule + copyright */}
         <div className="mt-10 pt-6 border-t border-theme flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <p className="text-xs text-theme-muted">
-            An open-source project mapping late Roman correspondence networks (97-800 AD).
+            An open-source project mapping Roman correspondence networks ({CORPUS.dateRangeLabel}).
           </p>
           <p
             className="text-xs text-theme-muted italic"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
-            97-800 AD
+            {CORPUS.dateRangeLabel}
           </p>
         </div>
       </div>

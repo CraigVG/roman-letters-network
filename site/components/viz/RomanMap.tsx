@@ -15,6 +15,7 @@ import {
   type MapTimelapseProps,
   type MapStats,
 } from './map-types';
+import { formatApproxYear } from '@/lib/date-format';
 
 // Re-export for convenience
 export { YEAR_MIN, YEAR_MAX, YEAR_START };
@@ -26,6 +27,7 @@ interface MapLetter {
   id: number;
   collection: string;
   letter_number: number;
+  route_key?: string;
   year_approx: number;
   sender_name: string;
   s_lat: number;
@@ -1634,7 +1636,7 @@ export default function RomanMap({
                 const summary = l.quick_summary
                   ? (l.quick_summary.length > 100 ? l.quick_summary.slice(0, 100) + '\u2026' : l.quick_summary)
                   : '';
-                infoEl.innerHTML = `~${l.year_approx} AD \u00b7 ${l.collection.replace(/_/g, ' ')}${summary ? `<br/><span style="color:#aab8c8;font-style:italic">${summary}</span>` : ''}<br/><span style="color:var(--color-accent)">Click to read \u2192</span>`;
+                infoEl.innerHTML = `${formatApproxYear(l.year_approx)} \u00b7 ${l.collection.replace(/_/g, ' ')}${summary ? `<br/><span style="color:#aab8c8;font-style:italic">${summary}</span>` : ''}<br/><span style="color:var(--color-accent)">Click to read \u2192</span>`;
               }
               tooltip.style.opacity = '1';
               tooltip.style.left = `${mx + 12}px`;
@@ -1692,7 +1694,11 @@ export default function RomanMap({
               const dx = ap.x - mx;
               const dy = ap.y - my;
               if (dx * dx + dy * dy <= particleHitRadius * particleHitRadius) {
-                window.open(`/letters/${ap.letter.collection}/${ap.letter.letter_number}`, '_blank');
+                const routeSegment = ap.letter.route_key ?? String(ap.letter.letter_number);
+                window.open(
+                  `/letters/${encodeURIComponent(ap.letter.collection)}/${encodeURIComponent(routeSegment)}`,
+                  '_blank',
+                );
                 return;
               }
             }

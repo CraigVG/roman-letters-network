@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { formatYearRange } from '@/lib/date-format';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                             */
@@ -209,10 +210,7 @@ export default function PeopleIndexPage() {
           <tbody className="divide-y divide-theme">
             {filtered.map((person) => {
               const total = person.sent_count + person.received_count;
-              const dates =
-                person.birth_year || person.death_year
-                  ? `${person.birth_year ?? '?'}\u2013${person.death_year ?? '?'}`
-                  : null;
+              const dates = formatYearRange(person.birth_year, person.death_year);
 
               return (
                 <tr key={person.id} className="group">

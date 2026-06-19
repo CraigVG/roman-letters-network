@@ -8,8 +8,7 @@ const SCHOLARLY_MODE = process.env.SCHOLARLY_MODE === 'true';
 
 export const metadata: Metadata = {
   title: 'About',
-  description:
-    'About the Roman Letters project: mapping the communication networks of the late Roman Empire through surviving correspondence (97-800 AD).',
+  description: `About the Roman Letters project: mapping Roman communication networks through surviving correspondence (${CORPUS.dateRangeLabel}).`,
 };
 
 /* ------------------------------------------------------------------ */
@@ -29,7 +28,7 @@ function getProjectStats() {
     .get() as { cnt: number };
   const firstEnglish = db
     .prepare(
-      "SELECT COUNT(*) AS cnt FROM letters WHERE modern_english IS NOT NULL AND trim(modern_english) != '' AND (english_text IS NULL OR trim(english_text) = '') AND coalesce(translation_source, '') NOT IN ('','existing','existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse','existing_haines','gutenberg_winstedt','Gummere (Loeb Classical Library, 1917-25)')",
+      "SELECT COUNT(*) AS cnt FROM letters WHERE modern_english IS NOT NULL AND trim(modern_english) != '' AND (english_text IS NULL OR trim(english_text) = '') AND coalesce(translation_source, '') NOT IN ('','existing','existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse','existing_haines','gutenberg_winstedt','topostext_shuckburgh_repair_v1','Gummere (Loeb Classical Library, 1917-25)','existing_kalvesmaki_evagrius_2014')",
     )
     .get() as { cnt: number };
   const withOriginal = db
@@ -701,7 +700,7 @@ export default function AboutPage() {
           <p className="mt-4 text-sm text-theme-muted">
             <strong>Cite this dataset:</strong> Vander Galien, Craig. (2026).{' '}
             {CORPUS.shortTitle}: {CORPUS.totalLetters.toLocaleString('en-US')}{' '}
-            Letters from the Roman World (100-800 AD). Zenodo.{' '}
+            Letters from the Roman World ({CORPUS.dateRangeLabel}). Zenodo.{' '}
             <a href="https://doi.org/10.5281/zenodo.19142059" className="text-theme-accent hover:underline">
               doi.org/10.5281/zenodo.19142059
             </a>

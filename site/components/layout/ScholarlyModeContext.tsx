@@ -25,6 +25,7 @@ const SCHOLARLY_SOURCES = new Set([
   'existing_rogerpearse',
   'existing_haines',
   'gutenberg_winstedt',
+  'topostext_shuckburgh_repair_v1',
   'Gummere (Loeb Classical Library, 1917-25)',
 ]);
 

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
+import { CORPUS, formatCount } from '@/lib/corpus';
 
 export const metadata: Metadata = {
   title: 'People',
-  description:
-    'Browse all 1,888 individuals in the Roman Letters corpus - senders, recipients, and those mentioned in correspondence. Filter by role, relationship, or search by name.',
+  description: `Browse all ${formatCount(CORPUS.totalAuthors)} individuals in the Roman Letters corpus - senders, recipients, and those mentioned in correspondence. Filter by role, relationship, or search by name.`,
 };
 
 export default function PeopleLayout({

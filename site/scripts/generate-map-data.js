@@ -21,30 +21,48 @@ fs.mkdirSync(OUT_DIR, { recursive: true });
 const db = new Database(DB_PATH, { readonly: true });
 
 // ── 1. map-letters.json ──────────────────────────────────────────────────
-// Letters with sender/recipient coordinates, year, collection
+// Letters with sender/recipient coordinates, year, collection. Prefer
+// letter-level route coordinates over an author's general home location.
 const letters = db.prepare(`
+  WITH duplicate_numbers AS (
+    SELECT collection, letter_number, COUNT(*) AS route_count
+    FROM letters
+    GROUP BY collection, letter_number
+  )
   SELECT
     l.id,
     l.collection,
     l.letter_number,
+    CASE
+      WHEN d.route_count > 1 AND l.ref_id IS NOT NULL AND trim(l.ref_id) != ''
+        THEN l.ref_id
+      ELSE CAST(l.letter_number AS TEXT)
+    END AS route_key,
     l.year_approx,
     l.quick_summary,
     l.interesting_note,
     s.name   AS sender_name,
-    s.lat    AS s_lat,
-    s.lon    AS s_lon,
+    COALESCE(l.origin_lat, s.lat) AS s_lat,
+    COALESCE(l.origin_lon, s.lon) AS s_lon,
     s.role   AS sender_role,
     r.name   AS recipient_name,
-    r.lat    AS r_lat,
-    r.lon    AS r_lon,
+    COALESCE(l.dest_lat, r.lat) AS r_lat,
+    COALESCE(l.dest_lon, r.lon) AS r_lon,
     r.role   AS recipient_role
   FROM letters l
+  JOIN duplicate_numbers d
+    ON d.collection = l.collection AND d.letter_number = l.letter_number
   JOIN authors s ON l.sender_id = s.id
   JOIN authors r ON l.recipient_id = r.id
   WHERE l.year_approx IS NOT NULL
-    AND s.lat IS NOT NULL AND s.lon IS NOT NULL
-    AND r.lat IS NOT NULL AND r.lon IS NOT NULL
-    AND NOT (s.lat = r.lat AND s.lon = r.lon)
+    AND COALESCE(l.origin_lat, s.lat) IS NOT NULL
+    AND COALESCE(l.origin_lon, s.lon) IS NOT NULL
+    AND COALESCE(l.dest_lat, r.lat) IS NOT NULL
+    AND COALESCE(l.dest_lon, r.lon) IS NOT NULL
+    AND NOT (
+      COALESCE(l.origin_lat, s.lat) = COALESCE(l.dest_lat, r.lat)
+      AND COALESCE(l.origin_lon, s.lon) = COALESCE(l.dest_lon, r.lon)
+    )
   ORDER BY l.year_approx
 `).all();
 
@@ -72,6 +90,7 @@ const mapData = {
     id: l.id,
     collection: l.collection,
     letter_number: l.letter_number,
+    route_key: l.route_key === String(l.letter_number) ? undefined : l.route_key,
     year_approx: l.year_approx,
     sender_name: l.sender_name,
     s_lat: l.s_lat,

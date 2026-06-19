@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/Badge';
+import { formatApproxYear } from '@/lib/date-format';
 
 interface FeaturedLetter {
   id: number;
   c: string;      // collection
   n: number;      // letter_number
+  k?: string;     // route key for duplicate flat numbers
   y?: number;     // year_approx
   s?: string;     // sender_name
   r?: string;     // recipient_name
@@ -18,6 +20,10 @@ interface FeaturedLetter {
 
 interface Props {
   featured: FeaturedLetter[];
+}
+
+function letterHref(letter: FeaturedLetter) {
+  return `/letters/${encodeURIComponent(letter.c)}/${encodeURIComponent(letter.k ?? String(letter.n))}`;
 }
 
 export function LetterOfTheDay({ featured }: Props) {
@@ -57,7 +63,7 @@ export function LetterOfTheDay({ featured }: Props) {
   const heading = [
     letter.s,
     letter.r ? `to ${letter.r}` : null,
-    letter.y ? `~${letter.y} AD` : null,
+    letter.y != null ? formatApproxYear(letter.y) : null,
   ]
     .filter(Boolean)
     .join(', ');
@@ -138,7 +144,7 @@ export function LetterOfTheDay({ featured }: Props) {
 
       {/* Read link */}
       <Link
-        href={`/letters/${letter.c}/${letter.n}`}
+        href={letterHref(letter)}
         className="inline-flex items-center gap-1 text-sm text-theme-accent hover:underline"
       >
         Read this letter
