@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { isScholarlySource as isScholarlySrc } from '@/lib/scholarlySources';
 
 interface ScholarlyModeContextType {
   scholarlyMode: boolean;
@@ -14,34 +15,30 @@ const ScholarlyModeContext = createContext<ScholarlyModeContextType>({
   isScholarlySource: () => false,
 });
 
-const SCHOLARLY_SOURCES = new Set([
-  'existing',
-  'existing_newadvent',
-  'existing_tertullian',
-  'existing_fordham',
-  'existing_celt',
-  'existing_attalus',
-  'existing_livius',
-  'existing_rogerpearse',
-  'existing_haines',
-  'gutenberg_winstedt',
-  'topostext_shuckburgh_repair_v1',
-  'Gummere (Loeb Classical Library, 1917-25)',
-]);
-
 export function ScholarlyModeProvider({ children }: { children: React.ReactNode }) {
   const [scholarlyMode, setScholarlyModeState] = useState(false);
 
   useEffect(() => {
-    // Check URL param first: ?scholarly=true activates scholarly mode
+    // Precedence: explicit ?scholarly= param > saved preference > scholarly subdomain default.
     const params = new URLSearchParams(window.location.search);
-    if (params.get('scholarly') === 'true') {
-      setScholarlyModeState(true);
-      localStorage.setItem('scholarly-mode', 'true');
+    const param = params.get('scholarly');
+    if (param === 'true' || param === 'false') {
+      const on = param === 'true';
+      setScholarlyModeState(on);
+      localStorage.setItem('scholarly-mode', String(on));
       return;
     }
     const stored = localStorage.getItem('scholarly-mode');
-    if (stored === 'true') setScholarlyModeState(true);
+    if (stored === 'true' || stored === 'false') {
+      setScholarlyModeState(stored === 'true');
+      return;
+    }
+    // No explicit choice yet: scholarly.* subdomain defaults to scholarly mode ON (its purpose),
+    // every other host defaults OFF. We do NOT persist this default, so the user's later toggle
+    // (which does persist) always wins on subsequent visits.
+    if (/(^|\.)scholarly\./i.test(window.location.hostname)) {
+      setScholarlyModeState(true);
+    }
   }, []);
 
   const setScholarlyMode = useCallback((v: boolean) => {
@@ -49,9 +46,7 @@ export function ScholarlyModeProvider({ children }: { children: React.ReactNode 
     localStorage.setItem('scholarly-mode', String(v));
   }, []);
 
-  const isScholarlySource = useCallback((source: string | null) => {
-    return source != null && SCHOLARLY_SOURCES.has(source);
-  }, []);
+  const isScholarlySource = useCallback((source: string | null) => isScholarlySrc(source), []);
 
   return (
     <ScholarlyModeContext.Provider value={{ scholarlyMode, setScholarlyMode, isScholarlySource }}>

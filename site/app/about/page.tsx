@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { CORPUS } from '@/lib/corpus';
 import { getDb } from '@/lib/db';
+import { scholarlySourcesSqlList } from '@/lib/scholarlySources';
 
 const SCHOLARLY_MODE = process.env.SCHOLARLY_MODE === 'true';
 
@@ -28,7 +29,7 @@ function getProjectStats() {
     .get() as { cnt: number };
   const firstEnglish = db
     .prepare(
-      "SELECT COUNT(*) AS cnt FROM letters WHERE modern_english IS NOT NULL AND trim(modern_english) != '' AND (english_text IS NULL OR trim(english_text) = '') AND coalesce(translation_source, '') NOT IN ('','existing','existing_newadvent','existing_tertullian','existing_fordham','existing_celt','existing_attalus','existing_livius','existing_rogerpearse','existing_haines','gutenberg_winstedt','topostext_shuckburgh_repair_v1','Gummere (Loeb Classical Library, 1917-25)','existing_kalvesmaki_evagrius_2014')",
+      `SELECT COUNT(*) AS cnt FROM letters WHERE modern_english IS NOT NULL AND trim(modern_english) != '' AND (english_text IS NULL OR trim(english_text) = '') AND coalesce(translation_source, '') NOT IN (${scholarlySourcesSqlList()})`,
     )
     .get() as { cnt: number };
   const withOriginal = db

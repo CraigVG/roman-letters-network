@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { LetterText } from '@/components/letters/LetterText';
 import { useScholarlyMode } from '@/components/layout/ScholarlyModeContext';
+import { SCHOLARLY_SOURCES } from '@/lib/scholarlySources';
 
 type TranslationKey = 'modern' | 'english';
 
@@ -13,22 +14,6 @@ interface VersionTabsProps {
   translationSource: string | null;
   sourceUrl?: string | null;
 }
-
-const SCHOLARLY_SOURCES = new Set([
-  'existing',
-  'existing_newadvent',
-  'existing_tertullian',
-  'existing_fordham',
-  'existing_celt',
-  'existing_attalus',
-  'existing_livius',
-  'existing_rogerpearse',
-  'existing_haines',
-  'gutenberg_winstedt',
-  'topostext_shuckburgh_repair_v1',
-  'Gummere (Loeb Classical Library, 1917-25)',
-  'existing_kalvesmaki_evagrius_2014',
-]);
 
 const SOURCE_LABELS: Record<string, string> = {
   existing: 'Public-domain scholarly translation',

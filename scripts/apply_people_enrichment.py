@@ -9,7 +9,9 @@ Reads /tmp/rln-people/{src,out,verdict}. Applies an enrichment when verdict==PAS
 import os, sys, json, sqlite3
 from collections import Counter
 DB = os.path.join(os.path.dirname(__file__), '..', 'data', 'roman_letters.db')
-DIR = '/tmp/rln-people'
+# Staging dir is overridable so the same applier serves both the general people-enrichment run
+# (/tmp/rln-people) and the letter-grounded major-correspondents run (/tmp/rln-people-major).
+DIR = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith('-') else '/tmp/rln-people'
 
 def load(p):
     try: return json.load(open(p))

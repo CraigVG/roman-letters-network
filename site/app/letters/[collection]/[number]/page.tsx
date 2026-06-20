@@ -5,6 +5,7 @@ import { existsSync } from 'fs';
 import path from 'path';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { Badge } from '@/components/ui/Badge';
+import { isScholarlySource } from '@/lib/scholarlySources';
 import {
   getAllLetterParams,
   getLetterByCollectionAndNumber,
@@ -175,21 +176,7 @@ export default async function LetterPage({ params }: Props) {
           {letter.translation_source && (
             <>
               <span className="text-theme-muted/40">|</span>
-              {[
-                'existing',
-                'existing_newadvent',
-                'existing_tertullian',
-                'existing_fordham',
-                'existing_celt',
-                'existing_attalus',
-                'existing_livius',
-                'existing_rogerpearse',
-                'existing_haines',
-                'gutenberg_winstedt',
-                'topostext_shuckburgh_repair_v1',
-                'Gummere (Loeb Classical Library, 1917-25)',
-                'existing_kalvesmaki_evagrius_2014',
-              ].includes(letter.translation_source) ? (
+              {isScholarlySource(letter.translation_source) ? (
                 <span className="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400">
                   <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
